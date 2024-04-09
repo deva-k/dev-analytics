@@ -6,4 +6,5 @@ root: index
 chapters:
   - file: book/basics
   - file: book/linear_algebra
+  - file: book/statistical_learning
   - file: book/bibliography

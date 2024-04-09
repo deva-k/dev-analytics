@@ -51,13 +51,15 @@
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
+    <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../_static/design-tabs.js?v=36754332"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script async="async" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/linear_algebra';</script>
     <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/linear_algebra.html" />
     <link rel="icon" href="../_static/fav.ico"/>
@@ -455,37 +457,48 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="linear-algebra">
+  <section class="tex2jax_ignore mathjax_ignore" id="linear-algebra">
 <h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h1>
 <section id="vectors">
 <h2>Vectors<a class="headerlink" href="#vectors" title="Link to this heading">#</a></h2>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
+</details>
 </div>
 <p>A <em>vector</em> is a one-dimensional matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e25bbb7b-4f90-433c-b643-9cc10a4d36dc">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e25bbb7b-4f90-433c-b643-9cc10a4d36dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dcbf1702-3ff5-4dde-ac39-395b5f0a931a">
+<span class="eqno">(1)<a class="headerlink" href="#equation-dcbf1702-3ff5-4dde-ac39-395b5f0a931a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
 \end{align}\]</div>
 <p>The size of the vectors is determined by its rows or how many numbers it has.
-For example, $\mathbf{x}$ is $3\times 1$ meaning it has 3 rows and 1 column. <br></p>
-<p>Vectors that are $2\times 1$ are said to belong to $\mathbb{R}^2$, meaning that they belong to
-the set of real numbers that come paired two at a time. The capital $\mathbb{R}$ is used
-to emphasize that you’re looking at real numbers. You also say that $2\times 1$
-vectors, or vectors in $\mathbb{R}^2$, are a part of two-space. <br></p>
-<p>Vectors in 2 space are represented on the coordiante $(x,y)$ plane by rays. In standard position, the ray representing a vector has its endpoint at the
-origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated by the column vector. The $x$ coordinate is in the first row of the vector, and the $y$ coordinate is in the second row.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6399fd5d-d73d-42bf-9ee4-aee02ad174ad">
-<span class="eqno">(2)<a class="headerlink" href="#equation-6399fd5d-d73d-42bf-9ee4-aee02ad174ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+For example, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is <span class="math notranslate nohighlight">\(3\times 1\)</span> meaning it has 3 rows and 1 column. <br></p>
+<p>Vectors that are <span class="math notranslate nohighlight">\(2\times 1\)</span> are said to belong to <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, meaning that they belong to
+the set of real numbers that come paired two at a time. The capital <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> is used
+to emphasize that you’re looking at real numbers. You also say that <span class="math notranslate nohighlight">\(2\times 1\)</span>
+vectors, or vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, are a part of two-space. <br></p>
+<p>Vectors in 2 space are represented on the coordiante <span class="math notranslate nohighlight">\((x,y)\)</span> plane by rays. In standard position, the ray representing a vector has its endpoint at the
+origin and its terminal point (or arrow) at the <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates designated by the column vector. The <span class="math notranslate nohighlight">\(x\)</span> coordinate is in the first row of the vector, and the <span class="math notranslate nohighlight">\(y\)</span> coordinate is in the second row.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c58469c5-f07d-42c8-aca9-43613930299c">
+<span class="eqno">(2)<a class="headerlink" href="#equation-c58469c5-f07d-42c8-aca9-43613930299c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
-<p>Here $\mathbf{u}$ $\in$ $\mathbb{R}^2$, and can be represented in the $(x,y)$ as $(1,2)$.</p>
-<div class="cell docutils container">
+<p>Here <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> as <span class="math notranslate nohighlight">\((1,2)\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -505,17 +518,23 @@ origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated b
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/353ed59c209921128d23b6cf7810bab1029fcccedcaed54f2a9d68e4322dfc43.png" src="../_images/353ed59c209921128d23b6cf7810bab1029fcccedcaed54f2a9d68e4322dfc43.png" />
 </div>
 </div>
 <p>We can add another vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-922c072a-b211-409c-803e-814f9e2c8935">
-<span class="eqno">(3)<a class="headerlink" href="#equation-922c072a-b211-409c-803e-814f9e2c8935" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cd22ad3f-872b-4a70-805e-47e1b10c2a1b">
+<span class="eqno">(3)<a class="headerlink" href="#equation-cd22ad3f-872b-4a70-805e-47e1b10c2a1b" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}
 \end{align}\]</div>
-<p>where $\mathbf{v}$ $\in$ $\mathbb{R}^2$, and can be represented in the $(x,y)$ as $(3,-2)$.</p>
-<div class="cell docutils container">
+<p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> as <span class="math notranslate nohighlight">\((3,-2)\)</span>.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -539,12 +558,18 @@ origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated b
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/75cb02fe656085d7ae1e4bc205dda860301c2a3cb2536d68be066dddc4261b59.png" src="../_images/75cb02fe656085d7ae1e4bc205dda860301c2a3cb2536d68be066dddc4261b59.png" />
 </div>
 </div>
-<p>You aren’t limited to always drawing $2\times 1$ vectors radiating from the origin. Both the vectors drawn above can start from $(-1,2)$ as an endpoint.</p>
-<div class="cell docutils container">
+<p>You aren’t limited to always drawing <span class="math notranslate nohighlight">\(2\times 1\)</span> vectors radiating from the origin. Both the vectors drawn above can start from <span class="math notranslate nohighlight">\((-1,2)\)</span> as an endpoint.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -569,52 +594,58 @@ origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated b
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" src="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" />
 </div>
 </div>
-<p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving moving $x$ or $y$ steps away from the endpoint. In other words, we simply add the $\mathbf{u}$ with the $endpoint$ vector to get a resulting vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-672c74c2-fbe0-4e2d-804e-2fbe048e4e33">
-<span class="eqno">(4)<a class="headerlink" href="#equation-672c74c2-fbe0-4e2d-804e-2fbe048e4e33" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving moving <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> steps away from the endpoint. In other words, we simply add the <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> with the <span class="math notranslate nohighlight">\(endpoint\)</span> vector to get a resulting vector</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ec7e31b6-b70a-4c76-a266-29a2c75a971c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-ec7e31b6-b70a-4c76-a266-29a2c75a971c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 \end{align}\]</div>
-<p>which is the terminal point $(0,4)$. We shall look at computations on vectors in detail.</p>
+<p>which is the terminal point <span class="math notranslate nohighlight">\((0,4)\)</span>. We shall look at computations on vectors in detail.</p>
 <p>Vectors can actually have many number of rows, although its difficult to illustrate vectors that have more than 3 rows, which implies 3 spaces.</p>
 <p>For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f8ec91b8-a79e-4f17-a332-3b0f2c988ae4">
-<span class="eqno">(5)<a class="headerlink" href="#equation-f8ec91b8-a79e-4f17-a332-3b0f2c988ae4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d91c8ac3-f89d-4818-a658-3028bbdef596">
+<span class="eqno">(5)<a class="headerlink" href="#equation-d91c8ac3-f89d-4818-a658-3028bbdef596" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{w} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}
 \end{align}\]</div>
-<p>where $\mathbf{w}$ $\in$ $\mathbb{R}^3$, and can be represented in the $(x,y,z)$ as $(2,3,4)$. Three-space vectors are represented by three-dimensional figures and
+<p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y,z)\)</span> as <span class="math notranslate nohighlight">\((2,3,4)\)</span>. Three-space vectors are represented by three-dimensional figures and
 arrows pointing to positions in space.</p>
 <p>The different geometric transformations performed on vectors include rotations, reflections, expansions, and contractions.</p>
 </section>
 <section id="scalar-multiplication">
 <h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h2>
-<p>When you multiply a $2\times 1$ vector by a scalar, your result is another $2\times 1$ vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
+<p>When you multiply a <span class="math notranslate nohighlight">\(2\times 1\)</span> vector by a scalar, your result is another <span class="math notranslate nohighlight">\(2\times 1\)</span> vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
 means that you multiply each element in the vector by the same constant value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d6ff7583-0e06-496c-b0be-b50fc53c2fe9">
-<span class="eqno">(6)<a class="headerlink" href="#equation-d6ff7583-0e06-496c-b0be-b50fc53c2fe9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-acb7603f-7e62-4b27-924e-0fe6f796ac8d">
+<span class="eqno">(6)<a class="headerlink" href="#equation-acb7603f-7e62-4b27-924e-0fe6f796ac8d" title="Permalink to this equation">#</a></span>\[\begin{align}
 k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_1 \\ kv_2 \\ \vdots \\ kv_n\end{bmatrix}
 \end{align}\]</div>
-<p>where we multiply the vector $\mathbf{v}$ by $scalar$ $k$. Below is an example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d2f70e82-16bc-452a-b97f-3e189a0de7a0">
-<span class="eqno">(7)<a class="headerlink" href="#equation-d2f70e82-16bc-452a-b97f-3e189a0de7a0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>where we multiply the vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(scalar\)</span> <span class="math notranslate nohighlight">\(k\)</span>. Below is an example</p>
+<div class="amsmath math notranslate nohighlight" id="equation-07c0021d-9bda-4177-a1a4-d0b3968bf1d7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-07c0021d-9bda-4177-a1a4-d0b3968bf1d7" title="Permalink to this equation">#</a></span>\[\begin{align}
 2 \begin{bmatrix} 2 \\ 3 \\ -1\end{bmatrix} = \begin{bmatrix} 4 \\ 6 \\ -2\end{bmatrix}
 \end{align}\]</div>
 <p>Vectors have operations that cause dilations (expansions) and contractions (shrinkages) of the original vector. Both operations of dilation and contraction are accomplished by multiplying the elements in the vector by a scalar.</p>
 <p>If the scalar, k, that is multiplying a vector is greater than 1, then the result is a dilation of the original vector. If the scalar, k, is a number between 0 and 1, then the result is a contraction of the original vector.</p>
-<p>For example, consider a vector $\mathbb{a}$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f96b899-284a-4134-8797-a433688f9f36">
-<span class="eqno">(8)<a class="headerlink" href="#equation-7f96b899-284a-4134-8797-a433688f9f36" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>For example, consider a vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span></p>
+<div class="amsmath math notranslate nohighlight" id="equation-33269ac6-e6ec-475e-85d9-02954b7591e1">
+<span class="eqno">(8)<a class="headerlink" href="#equation-33269ac6-e6ec-475e-85d9-02954b7591e1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
-<p>multiplying it with a scalar say 3 will result in dilation or expansion and with $\frac{1}{2}$ results in contraction or shrinking.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80fbe64f-4c7a-4574-b9ec-35b5526f6931">
-<span class="eqno">(9)<a class="headerlink" href="#equation-80fbe64f-4c7a-4574-b9ec-35b5526f6931" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>multiplying it with a scalar say 3 will result in dilation or expansion and with <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> results in contraction or shrinking.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-39d99380-73c1-489d-ad9d-9f7c9fbe3ddf">
+<span class="eqno">(9)<a class="headerlink" href="#equation-39d99380-73c1-489d-ad9d-9f7c9fbe3ddf" title="Permalink to this equation">#</a></span>\[\begin{align}
 3\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}, \frac{1}{2}\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -634,11 +665,17 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/7155ed3be5be356292a451d477a041cac1c1b102b3b77ea859aa1a6be023fb60.png" src="../_images/7155ed3be5be356292a451d477a041cac1c1b102b3b77ea859aa1a6be023fb60.png" />
 </div>
 </div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -657,6 +694,7 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/ad6127f48967e1f3f1fba3e6c3e55a3aad70d7c39a6712a3150ef4fc2ffc26cd.png" src="../_images/ad6127f48967e1f3f1fba3e6c3e55a3aad70d7c39a6712a3150ef4fc2ffc26cd.png" />
 </div>
@@ -667,12 +705,17 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <li><p>The size of the vector changes i.e. each element in the vector changes and has a greater absolute value (except with –1).</p></li>
 <li><p>The direction of the vector reverses.</p></li>
 </ol>
-<p>Multiplying vector $\mathbb{a}$ with -2 will give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-54bf8425-6626-4618-bc95-16349534cc6d">
-<span class="eqno">(10)<a class="headerlink" href="#equation-54bf8425-6626-4618-bc95-16349534cc6d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Multiplying vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span> with -2 will give</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1833bdf5-9c7f-4f70-909b-c8b27f2d7fe5">
+<span class="eqno">(10)<a class="headerlink" href="#equation-1833bdf5-9c7f-4f70-909b-c8b27f2d7fe5" title="Permalink to this equation">#</a></span>\[\begin{align}
 -2 \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} -4 \\ -8 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -695,6 +738,7 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/689dece0be4eced947e5bfed8c30aa89a7c069f50fa3c15a5e84a070153f23bb.png" src="../_images/689dece0be4eced947e5bfed8c30aa89a7c069f50fa3c15a5e84a070153f23bb.png" />
 </div>
@@ -704,17 +748,22 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <h2>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h2>
 <p>The vectors have to be of the same size to add one another or subtract from one another. This process involves adding or subtracting the corresponding elements in the vectors like a one-to-one match up.</p>
 <p>For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7bcf5137-6b0e-4d2f-915a-0a38871bd296">
-<span class="eqno">(11)<a class="headerlink" href="#equation-7bcf5137-6b0e-4d2f-915a-0a38871bd296" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0fa5f07a-fdff-44b0-bee1-51c24acc1c3c">
+<span class="eqno">(11)<a class="headerlink" href="#equation-0fa5f07a-fdff-44b0-bee1-51c24acc1c3c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} + \mathbb{v} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = 
 \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 \end{align}\]</div>
 <p>We can illustrate what is happening when we add 2 vectors. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90dabaf3-11d9-4e60-8779-30cdaf728146">
-<span class="eqno">(12)<a class="headerlink" href="#equation-90dabaf3-11d9-4e60-8779-30cdaf728146" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98e908e3-3cc6-4bff-91d7-7881cae5f751">
+<span class="eqno">(12)<a class="headerlink" href="#equation-98e908e3-3cc6-4bff-91d7-7881cae5f751" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -738,18 +787,24 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/1d3c3c2e639880860c14a49def68be1e076ae86c775e74e6d93fbdf51bbc0819.png" src="../_images/1d3c3c2e639880860c14a49def68be1e076ae86c775e74e6d93fbdf51bbc0819.png" />
 </div>
 </div>
 <p>we are adding the second vector to the terminal point of the first vector, result is the vector obtained from vector addition.</p>
 <p>Vector subtraction is just another way of saying that you’re adding one vector to a second vector that’s been multiplied by the scalar –1. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-df9d00ae-9e60-4c3f-ab73-e6ec14331dd1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-df9d00ae-9e60-4c3f-ab73-e6ec14331dd1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8d291e66-6de6-4498-bf00-e99141316e40">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8d291e66-6de6-4498-bf00-e99141316e40" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + (-1) \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} -3 \\ -1 \end{bmatrix} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell docutils container">
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -773,6 +828,7 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
+</details>
 <div class="cell_output docutils container">
 <img alt="../_images/d246621dcc7b1dd9e93f7193133f0ee7f775c1d55eb553a1576db5749cb537aa.png" src="../_images/d246621dcc7b1dd9e93f7193133f0ee7f775c1d55eb553a1576db5749cb537aa.png" />
 </div>
@@ -782,29 +838,29 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <h2>Vector magnitude<a class="headerlink" href="#vector-magnitude" title="Link to this heading">#</a></h2>
 <p>The magnitude of a vector is also referred to as its length or norm. It is the length of the ray that you see in two-space or three-space. Vectors with more
 than three rows also have magnitude, and the computation is the same although its not possible to visually picture it.  <br></p>
-<p>The magnitude of $\mathbb{v}$ is denoted by $\lVert \mathbb{v} \rVert$. The formula is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2023a725-3dfc-4e9d-b4cf-1c0a3d7e8079">
-<span class="eqno">(14)<a class="headerlink" href="#equation-2023a725-3dfc-4e9d-b4cf-1c0a3d7e8079" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>The magnitude of <span class="math notranslate nohighlight">\(\mathbb{v}\)</span> is denoted by <span class="math notranslate nohighlight">\(\lVert \mathbb{v} \rVert\)</span>. The formula is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5d08b264-4636-4845-8b62-4a9203c94c18">
+<span class="eqno">(14)<a class="headerlink" href="#equation-5d08b264-4636-4845-8b62-4a9203c94c18" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2 + v_4^2 \dots v_n^2}
 \end{align}\]</div>
-<p>where $v_1^2, v_2^2, v_3^2, \dots ,v_n^2$ are the elements of the vector.</p>
-<p>When you multiplying a vector by a scalar, then the magnitude is also multiplied, i.e. $\lvert k \rvert \cdot \lVert \mathbb{v} \rVert$. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-78d3ee15-2e12-4c0e-bcab-eeab41a6637a">
-<span class="eqno">(15)<a class="headerlink" href="#equation-78d3ee15-2e12-4c0e-bcab-eeab41a6637a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>where <span class="math notranslate nohighlight">\(v_1^2, v_2^2, v_3^2, \dots ,v_n^2\)</span> are the elements of the vector.</p>
+<p>When you multiplying a vector by a scalar, then the magnitude is also multiplied, i.e. <span class="math notranslate nohighlight">\(\lvert k \rvert \cdot \lVert \mathbb{v} \rVert\)</span>. For example</p>
+<div class="amsmath math notranslate nohighlight" id="equation-44cba47e-1aeb-4f78-983c-a9a709c38d44">
+<span class="eqno">(15)<a class="headerlink" href="#equation-44cba47e-1aeb-4f78-983c-a9a709c38d44" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>then the magnitude is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1a040b1e-7b5a-4b34-95aa-eaa4ea39e996">
-<span class="eqno">(16)<a class="headerlink" href="#equation-1a040b1e-7b5a-4b34-95aa-eaa4ea39e996" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a1a06211-3b51-466a-be79-cb3aa3c1a9a1">
+<span class="eqno">(16)<a class="headerlink" href="#equation-a1a06211-3b51-466a-be79-cb3aa3c1a9a1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{2^2 + 4^2} = \sqrt{20}
 \end{align}\]</div>
 <p>By multiplying the vector with 3 results in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f16ae6f-2c35-4bf5-a70c-17e0e218d24a">
-<span class="eqno">(17)<a class="headerlink" href="#equation-4f16ae6f-2c35-4bf5-a70c-17e0e218d24a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c9740861-7141-4d60-9f3f-a4b9447cd7e2">
+<span class="eqno">(17)<a class="headerlink" href="#equation-c9740861-7141-4d60-9f3f-a4b9447cd7e2" title="Permalink to this equation">#</a></span>\[\begin{align}
 3 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-f99a75ed-cb18-4a4a-81bf-14bf48b0bc85">
-<span class="eqno">(18)<a class="headerlink" href="#equation-f99a75ed-cb18-4a4a-81bf-14bf48b0bc85" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5525324d-388d-44e0-bade-0e51f7db6e08">
+<span class="eqno">(18)<a class="headerlink" href="#equation-5525324d-388d-44e0-bade-0e51f7db6e08" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{6^2 + 12^2} = 3\sqrt{20}
 \end{align}\]</div>
 <p>which is simply 3 times the actual magnitude. Although in the case of negative scalar consider the absolute value.</p>
@@ -812,7 +868,7 @@ than three rows also have magnitude, and the computation is the same although it
 <section id="triangle-inequality">
 <h2>Triangle inequality<a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h2>
 <p>The magnitude of the sum of vectors is always less than or equal to the sum of the magnitudes of the vectors.
-$\lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert$</p>
+<span class="math notranslate nohighlight">\(\lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert\)</span></p>
 </section>
 <section id="inner-product">
 <h2>Inner product<a class="headerlink" href="#inner-product" title="Link to this heading">#</a></h2>

@@ -63,7 +63,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Introduction to Statistical Learning" href="statistical_learning.html" />
     <link rel="prev" title="Basics" href="basics.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -174,6 +174,8 @@
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="basics.html">Basics</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Algebra</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistical_learning.html">Introduction to Statistical Learning</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -466,8 +468,8 @@ document.write(`
 </div>
 </div>
 <p>A <em>vector</em> is a one-dimensional matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5358dbe6-999c-4a22-943c-45a028b1327f">
-<span class="eqno">(1)<a class="headerlink" href="#equation-5358dbe6-999c-4a22-943c-45a028b1327f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e25bbb7b-4f90-433c-b643-9cc10a4d36dc">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e25bbb7b-4f90-433c-b643-9cc10a4d36dc" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
 \end{align}\]</div>
 <p>The size of the vectors is determined by its rows or how many numbers it has.
@@ -478,8 +480,8 @@ to emphasize that you’re looking at real numbers. You also say that $2\times 1
 vectors, or vectors in $\mathbb{R}^2$, are a part of two-space. <br></p>
 <p>Vectors in 2 space are represented on the coordiante $(x,y)$ plane by rays. In standard position, the ray representing a vector has its endpoint at the
 origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated by the column vector. The $x$ coordinate is in the first row of the vector, and the $y$ coordinate is in the second row.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f6297b10-98bb-4841-b0c0-f9442fe28668">
-<span class="eqno">(2)<a class="headerlink" href="#equation-f6297b10-98bb-4841-b0c0-f9442fe28668" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6399fd5d-d73d-42bf-9ee4-aee02ad174ad">
+<span class="eqno">(2)<a class="headerlink" href="#equation-6399fd5d-d73d-42bf-9ee4-aee02ad174ad" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <p>Here $\mathbf{u}$ $\in$ $\mathbb{R}^2$, and can be represented in the $(x,y)$ as $(1,2)$.</p>
@@ -508,8 +510,8 @@ origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated b
 </div>
 </div>
 <p>We can add another vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b5d517b3-c37c-45ef-8fab-7fac21828a3e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-b5d517b3-c37c-45ef-8fab-7fac21828a3e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-922c072a-b211-409c-803e-814f9e2c8935">
+<span class="eqno">(3)<a class="headerlink" href="#equation-922c072a-b211-409c-803e-814f9e2c8935" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}
 \end{align}\]</div>
 <p>where $\mathbf{v}$ $\in$ $\mathbb{R}^2$, and can be represented in the $(x,y)$ as $(3,-2)$.</p>
@@ -572,15 +574,15 @@ origin and its terminal point (or arrow) at the $(x,y)$ coordinates designated b
 </div>
 </div>
 <p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving moving $x$ or $y$ steps away from the endpoint. In other words, we simply add the $\mathbf{u}$ with the $endpoint$ vector to get a resulting vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e04db669-1414-473f-88f1-6b56824e3b51">
-<span class="eqno">(4)<a class="headerlink" href="#equation-e04db669-1414-473f-88f1-6b56824e3b51" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-672c74c2-fbe0-4e2d-804e-2fbe048e4e33">
+<span class="eqno">(4)<a class="headerlink" href="#equation-672c74c2-fbe0-4e2d-804e-2fbe048e4e33" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>which is the terminal point $(0,4)$. We shall look at computations on vectors in detail.</p>
 <p>Vectors can actually have many number of rows, although its difficult to illustrate vectors that have more than 3 rows, which implies 3 spaces.</p>
 <p>For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b7446fca-08c3-4c92-8206-aab98931bf14">
-<span class="eqno">(5)<a class="headerlink" href="#equation-b7446fca-08c3-4c92-8206-aab98931bf14" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f8ec91b8-a79e-4f17-a332-3b0f2c988ae4">
+<span class="eqno">(5)<a class="headerlink" href="#equation-f8ec91b8-a79e-4f17-a332-3b0f2c988ae4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{w} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>where $\mathbf{w}$ $\in$ $\mathbb{R}^3$, and can be represented in the $(x,y,z)$ as $(2,3,4)$. Three-space vectors are represented by three-dimensional figures and
@@ -591,25 +593,25 @@ arrows pointing to positions in space.</p>
 <h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h2>
 <p>When you multiply a $2\times 1$ vector by a scalar, your result is another $2\times 1$ vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
 means that you multiply each element in the vector by the same constant value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-202a475e-6b64-4265-aaa8-5cce50a3e11f">
-<span class="eqno">(6)<a class="headerlink" href="#equation-202a475e-6b64-4265-aaa8-5cce50a3e11f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d6ff7583-0e06-496c-b0be-b50fc53c2fe9">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d6ff7583-0e06-496c-b0be-b50fc53c2fe9" title="Permalink to this equation">#</a></span>\[\begin{align}
 k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_1 \\ kv_2 \\ \vdots \\ kv_n\end{bmatrix}
 \end{align}\]</div>
 <p>where we multiply the vector $\mathbf{v}$ by $scalar$ $k$. Below is an example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3ac8fba6-11ae-4d71-8d6a-4b6e9a745e18">
-<span class="eqno">(7)<a class="headerlink" href="#equation-3ac8fba6-11ae-4d71-8d6a-4b6e9a745e18" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d2f70e82-16bc-452a-b97f-3e189a0de7a0">
+<span class="eqno">(7)<a class="headerlink" href="#equation-d2f70e82-16bc-452a-b97f-3e189a0de7a0" title="Permalink to this equation">#</a></span>\[\begin{align}
 2 \begin{bmatrix} 2 \\ 3 \\ -1\end{bmatrix} = \begin{bmatrix} 4 \\ 6 \\ -2\end{bmatrix}
 \end{align}\]</div>
 <p>Vectors have operations that cause dilations (expansions) and contractions (shrinkages) of the original vector. Both operations of dilation and contraction are accomplished by multiplying the elements in the vector by a scalar.</p>
 <p>If the scalar, k, that is multiplying a vector is greater than 1, then the result is a dilation of the original vector. If the scalar, k, is a number between 0 and 1, then the result is a contraction of the original vector.</p>
 <p>For example, consider a vector $\mathbb{a}$</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a965bc70-f387-48df-bcca-fe941bbe0446">
-<span class="eqno">(8)<a class="headerlink" href="#equation-a965bc70-f387-48df-bcca-fe941bbe0446" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7f96b899-284a-4134-8797-a433688f9f36">
+<span class="eqno">(8)<a class="headerlink" href="#equation-7f96b899-284a-4134-8797-a433688f9f36" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>multiplying it with a scalar say 3 will result in dilation or expansion and with $\frac{1}{2}$ results in contraction or shrinking.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4953d921-0c63-436a-9f0a-2decbf160d91">
-<span class="eqno">(9)<a class="headerlink" href="#equation-4953d921-0c63-436a-9f0a-2decbf160d91" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80fbe64f-4c7a-4574-b9ec-35b5526f6931">
+<span class="eqno">(9)<a class="headerlink" href="#equation-80fbe64f-4c7a-4574-b9ec-35b5526f6931" title="Permalink to this equation">#</a></span>\[\begin{align}
 3\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}, \frac{1}{2}\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -666,8 +668,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <li><p>The direction of the vector reverses.</p></li>
 </ol>
 <p>Multiplying vector $\mathbb{a}$ with -2 will give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-05f9d32f-2a6d-4bc6-9fe9-caa3daff2efc">
-<span class="eqno">(10)<a class="headerlink" href="#equation-05f9d32f-2a6d-4bc6-9fe9-caa3daff2efc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-54bf8425-6626-4618-bc95-16349534cc6d">
+<span class="eqno">(10)<a class="headerlink" href="#equation-54bf8425-6626-4618-bc95-16349534cc6d" title="Permalink to this equation">#</a></span>\[\begin{align}
 -2 \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} -4 \\ -8 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -702,14 +704,14 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <h2>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h2>
 <p>The vectors have to be of the same size to add one another or subtract from one another. This process involves adding or subtracting the corresponding elements in the vectors like a one-to-one match up.</p>
 <p>For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0ba67506-0937-405d-aef1-980fa23a10b8">
-<span class="eqno">(11)<a class="headerlink" href="#equation-0ba67506-0937-405d-aef1-980fa23a10b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7bcf5137-6b0e-4d2f-915a-0a38871bd296">
+<span class="eqno">(11)<a class="headerlink" href="#equation-7bcf5137-6b0e-4d2f-915a-0a38871bd296" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} + \mathbb{v} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = 
 \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 \end{align}\]</div>
 <p>We can illustrate what is happening when we add 2 vectors. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0532a16d-2732-4f6b-9688-166b87b13695">
-<span class="eqno">(12)<a class="headerlink" href="#equation-0532a16d-2732-4f6b-9688-166b87b13695" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90dabaf3-11d9-4e60-8779-30cdaf728146">
+<span class="eqno">(12)<a class="headerlink" href="#equation-90dabaf3-11d9-4e60-8779-30cdaf728146" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -742,8 +744,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </div>
 <p>we are adding the second vector to the terminal point of the first vector, result is the vector obtained from vector addition.</p>
 <p>Vector subtraction is just another way of saying that you’re adding one vector to a second vector that’s been multiplied by the scalar –1. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b65aa33-0431-4b4f-8992-9b0dd627fed5">
-<span class="eqno">(13)<a class="headerlink" href="#equation-4b65aa33-0431-4b4f-8992-9b0dd627fed5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-df9d00ae-9e60-4c3f-ab73-e6ec14331dd1">
+<span class="eqno">(13)<a class="headerlink" href="#equation-df9d00ae-9e60-4c3f-ab73-e6ec14331dd1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + (-1) \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} -3 \\ -1 \end{bmatrix} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}
 \end{align}\]</div>
@@ -781,28 +783,28 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <p>The magnitude of a vector is also referred to as its length or norm. It is the length of the ray that you see in two-space or three-space. Vectors with more
 than three rows also have magnitude, and the computation is the same although its not possible to visually picture it.  <br></p>
 <p>The magnitude of $\mathbb{v}$ is denoted by $\lVert \mathbb{v} \rVert$. The formula is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5b8e536b-293b-4d37-91bd-4b523be44ef5">
-<span class="eqno">(14)<a class="headerlink" href="#equation-5b8e536b-293b-4d37-91bd-4b523be44ef5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2023a725-3dfc-4e9d-b4cf-1c0a3d7e8079">
+<span class="eqno">(14)<a class="headerlink" href="#equation-2023a725-3dfc-4e9d-b4cf-1c0a3d7e8079" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2 + v_4^2 \dots v_n^2}
 \end{align}\]</div>
 <p>where $v_1^2, v_2^2, v_3^2, \dots ,v_n^2$ are the elements of the vector.</p>
 <p>When you multiplying a vector by a scalar, then the magnitude is also multiplied, i.e. $\lvert k \rvert \cdot \lVert \mathbb{v} \rVert$. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99560867-0461-4514-adbb-9be8836b8d4f">
-<span class="eqno">(15)<a class="headerlink" href="#equation-99560867-0461-4514-adbb-9be8836b8d4f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-78d3ee15-2e12-4c0e-bcab-eeab41a6637a">
+<span class="eqno">(15)<a class="headerlink" href="#equation-78d3ee15-2e12-4c0e-bcab-eeab41a6637a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>then the magnitude is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f3dd72e1-80dd-475b-b538-1e03c0803dc2">
-<span class="eqno">(16)<a class="headerlink" href="#equation-f3dd72e1-80dd-475b-b538-1e03c0803dc2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a040b1e-7b5a-4b34-95aa-eaa4ea39e996">
+<span class="eqno">(16)<a class="headerlink" href="#equation-1a040b1e-7b5a-4b34-95aa-eaa4ea39e996" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{2^2 + 4^2} = \sqrt{20}
 \end{align}\]</div>
 <p>By multiplying the vector with 3 results in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce7787a8-8654-4a18-af2a-c1ffebb43f6f">
-<span class="eqno">(17)<a class="headerlink" href="#equation-ce7787a8-8654-4a18-af2a-c1ffebb43f6f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4f16ae6f-2c35-4bf5-a70c-17e0e218d24a">
+<span class="eqno">(17)<a class="headerlink" href="#equation-4f16ae6f-2c35-4bf5-a70c-17e0e218d24a" title="Permalink to this equation">#</a></span>\[\begin{align}
 3 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-e01a0353-6663-4efe-a8ae-22ddc0d38ddd">
-<span class="eqno">(18)<a class="headerlink" href="#equation-e01a0353-6663-4efe-a8ae-22ddc0d38ddd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f99a75ed-cb18-4a4a-81bf-14bf48b0bc85">
+<span class="eqno">(18)<a class="headerlink" href="#equation-f99a75ed-cb18-4a4a-81bf-14bf48b0bc85" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{6^2 + 12^2} = 3\sqrt{20}
 \end{align}\]</div>
 <p>which is simply 3 times the actual magnitude. Although in the case of negative scalar consider the absolute value.</p>
@@ -857,11 +859,11 @@ $\lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \math
       </div>
     </a>
     <a class="right-next"
-       href="bibliography.html"
+       href="statistical_learning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title">Introduction to Statistical Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

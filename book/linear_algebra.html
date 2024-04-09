@@ -446,6 +446,8 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
 </ul>
             </nav>
         </div>
@@ -476,23 +478,41 @@ document.write(`
 </details>
 </div>
 <p>A <em>vector</em> is a one-dimensional matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dcbf1702-3ff5-4dde-ac39-395b5f0a931a">
-<span class="eqno">(1)<a class="headerlink" href="#equation-dcbf1702-3ff5-4dde-ac39-395b5f0a931a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa1a67da-6044-4e02-994c-d0b34995c103">
+<span class="eqno">(1)<a class="headerlink" href="#equation-fa1a67da-6044-4e02-994c-d0b34995c103" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
 \end{align}\]</div>
 <p>The size of the vectors is determined by its rows or how many numbers it has.
 For example, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is <span class="math notranslate nohighlight">\(3\times 1\)</span> meaning it has 3 rows and 1 column. <br></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;column vector in numpy: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the vector is &#39;</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>column vector in numpy: 
+ [[1]
+ [2]
+ [3]]
+Shape of the vector is  (3, 1)
+</pre></div>
+</div>
+</div>
+</div>
 <p>Vectors that are <span class="math notranslate nohighlight">\(2\times 1\)</span> are said to belong to <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, meaning that they belong to
 the set of real numbers that come paired two at a time. The capital <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> is used
 to emphasize that you’re looking at real numbers. You also say that <span class="math notranslate nohighlight">\(2\times 1\)</span>
 vectors, or vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, are a part of two-space. <br></p>
 <p>Vectors in 2 space are represented on the coordiante <span class="math notranslate nohighlight">\((x,y)\)</span> plane by rays. In standard position, the ray representing a vector has its endpoint at the
 origin and its terminal point (or arrow) at the <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates designated by the column vector. The <span class="math notranslate nohighlight">\(x\)</span> coordinate is in the first row of the vector, and the <span class="math notranslate nohighlight">\(y\)</span> coordinate is in the second row.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c58469c5-f07d-42c8-aca9-43613930299c">
-<span class="eqno">(2)<a class="headerlink" href="#equation-c58469c5-f07d-42c8-aca9-43613930299c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2c3cf209-53e5-4804-8d2c-39385abe0921">
+<span class="eqno">(2)<a class="headerlink" href="#equation-2c3cf209-53e5-4804-8d2c-39385abe0921" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
-<p>Here <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> as <span class="math notranslate nohighlight">\((1,2)\)</span>.</p>
+<p>Here <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((1,2)\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -503,7 +523,9 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{u}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$(1,2)$&#39;</span><span class="p">)</span>
@@ -524,11 +546,11 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </div>
 </div>
 <p>We can add another vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd22ad3f-872b-4a70-805e-47e1b10c2a1b">
-<span class="eqno">(3)<a class="headerlink" href="#equation-cd22ad3f-872b-4a70-805e-47e1b10c2a1b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d83ad9cb-4b5a-48cf-aa53-f021bc304e01">
+<span class="eqno">(3)<a class="headerlink" href="#equation-d83ad9cb-4b5a-48cf-aa53-f021bc304e01" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> as <span class="math notranslate nohighlight">\((3,-2)\)</span>.</p>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((3,-2)\)</span>.</p>
 <div class="cell tag_hide-input docutils container">
 <details class="hide above-input">
 <summary aria-label="Toggle hidden content">
@@ -539,8 +561,10 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{u}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$(1,2)$&#39;</span><span class="p">)</span>
@@ -574,8 +598,8 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$endpoint (-1,2)$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{u}</span><span class="s1">$&#39;</span><span class="p">)</span>
@@ -599,19 +623,19 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 <img alt="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" src="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" />
 </div>
 </div>
-<p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving moving <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> steps away from the endpoint. In other words, we simply add the <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> with the <span class="math notranslate nohighlight">\(endpoint\)</span> vector to get a resulting vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ec7e31b6-b70a-4c76-a266-29a2c75a971c">
-<span class="eqno">(4)<a class="headerlink" href="#equation-ec7e31b6-b70a-4c76-a266-29a2c75a971c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> steps away from the endpoint. In other words, we simply add the <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> with the <span class="math notranslate nohighlight">\(endpoint\)</span> vector to get a resulting vector</p>
+<div class="amsmath math notranslate nohighlight" id="equation-75842d64-97ff-44ac-af15-577da06082fe">
+<span class="eqno">(4)<a class="headerlink" href="#equation-75842d64-97ff-44ac-af15-577da06082fe" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>which is the terminal point <span class="math notranslate nohighlight">\((0,4)\)</span>. We shall look at computations on vectors in detail.</p>
 <p>Vectors can actually have many number of rows, although its difficult to illustrate vectors that have more than 3 rows, which implies 3 spaces.</p>
 <p>For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d91c8ac3-f89d-4818-a658-3028bbdef596">
-<span class="eqno">(5)<a class="headerlink" href="#equation-d91c8ac3-f89d-4818-a658-3028bbdef596" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71bd17cb-146e-4edd-938f-8068e1d016be">
+<span class="eqno">(5)<a class="headerlink" href="#equation-71bd17cb-146e-4edd-938f-8068e1d016be" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{w} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}
 \end{align}\]</div>
-<p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y,z)\)</span> as <span class="math notranslate nohighlight">\((2,3,4)\)</span>. Three-space vectors are represented by three-dimensional figures and
+<p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y,z)\)</span> plane as <span class="math notranslate nohighlight">\((2,3,4)\)</span>. Three-space vectors are represented by three-dimensional figures and
 arrows pointing to positions in space.</p>
 <p>The different geometric transformations performed on vectors include rotations, reflections, expansions, and contractions.</p>
 </section>
@@ -619,25 +643,25 @@ arrows pointing to positions in space.</p>
 <h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h2>
 <p>When you multiply a <span class="math notranslate nohighlight">\(2\times 1\)</span> vector by a scalar, your result is another <span class="math notranslate nohighlight">\(2\times 1\)</span> vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
 means that you multiply each element in the vector by the same constant value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-acb7603f-7e62-4b27-924e-0fe6f796ac8d">
-<span class="eqno">(6)<a class="headerlink" href="#equation-acb7603f-7e62-4b27-924e-0fe6f796ac8d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-591db0ef-1ee0-4cb2-b6a5-69424fde32f6">
+<span class="eqno">(6)<a class="headerlink" href="#equation-591db0ef-1ee0-4cb2-b6a5-69424fde32f6" title="Permalink to this equation">#</a></span>\[\begin{align}
 k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_1 \\ kv_2 \\ \vdots \\ kv_n\end{bmatrix}
 \end{align}\]</div>
 <p>where we multiply the vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(scalar\)</span> <span class="math notranslate nohighlight">\(k\)</span>. Below is an example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07c0021d-9bda-4177-a1a4-d0b3968bf1d7">
-<span class="eqno">(7)<a class="headerlink" href="#equation-07c0021d-9bda-4177-a1a4-d0b3968bf1d7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-91fa8018-dd92-47c4-a326-be33533e55ff">
+<span class="eqno">(7)<a class="headerlink" href="#equation-91fa8018-dd92-47c4-a326-be33533e55ff" title="Permalink to this equation">#</a></span>\[\begin{align}
 2 \begin{bmatrix} 2 \\ 3 \\ -1\end{bmatrix} = \begin{bmatrix} 4 \\ 6 \\ -2\end{bmatrix}
 \end{align}\]</div>
 <p>Vectors have operations that cause dilations (expansions) and contractions (shrinkages) of the original vector. Both operations of dilation and contraction are accomplished by multiplying the elements in the vector by a scalar.</p>
 <p>If the scalar, k, that is multiplying a vector is greater than 1, then the result is a dilation of the original vector. If the scalar, k, is a number between 0 and 1, then the result is a contraction of the original vector.</p>
 <p>For example, consider a vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-33269ac6-e6ec-475e-85d9-02954b7591e1">
-<span class="eqno">(8)<a class="headerlink" href="#equation-33269ac6-e6ec-475e-85d9-02954b7591e1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7ce5a675-8437-4dff-bb37-bcbd86df74c5">
+<span class="eqno">(8)<a class="headerlink" href="#equation-7ce5a675-8437-4dff-bb37-bcbd86df74c5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>multiplying it with a scalar say 3 will result in dilation or expansion and with <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> results in contraction or shrinking.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39d99380-73c1-489d-ad9d-9f7c9fbe3ddf">
-<span class="eqno">(9)<a class="headerlink" href="#equation-39d99380-73c1-489d-ad9d-9f7c9fbe3ddf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-52cdeb5f-f900-4b35-98a5-23d9fe478362">
+<span class="eqno">(9)<a class="headerlink" href="#equation-52cdeb5f-f900-4b35-98a5-23d9fe478362" title="Permalink to this equation">#</a></span>\[\begin{align}
 3\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}, \frac{1}{2}\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -650,7 +674,9 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{a}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;$(2,4)$&#39;</span><span class="p">)</span>
@@ -680,9 +706,10 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">cords</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">),(</span><span class="mi">6</span><span class="p">,</span><span class="mi">12</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)]):</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">cords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">cords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">cords</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span><span class="n">cords</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="sa">f</span><span class="s1">&#39;$(</span><span class="si">{</span><span class="n">cords</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">cords</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">)$&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">scl</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">]):</span>
+    <span class="n">a_d</span> <span class="o">=</span> <span class="p">(</span><span class="n">scl</span> <span class="o">*</span> <span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a_d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">a_d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+    <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">a_d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">a_d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="sa">f</span><span class="s1">&#39;$(</span><span class="si">{</span><span class="n">a_d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">,</span><span class="si">{</span><span class="n">a_d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">)$&#39;</span><span class="p">)</span>
     <span class="c1"># settings</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
     <span class="n">ax</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
@@ -706,8 +733,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <li><p>The direction of the vector reverses.</p></li>
 </ol>
 <p>Multiplying vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span> with -2 will give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1833bdf5-9c7f-4f70-909b-c8b27f2d7fe5">
-<span class="eqno">(10)<a class="headerlink" href="#equation-1833bdf5-9c7f-4f70-909b-c8b27f2d7fe5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f63d699-e1e2-494e-a6d4-402835b3c79c">
+<span class="eqno">(10)<a class="headerlink" href="#equation-8f63d699-e1e2-494e-a6d4-402835b3c79c" title="Permalink to this equation">#</a></span>\[\begin{align}
 -2 \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} -4 \\ -8 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -720,8 +747,10 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">a_d</span> <span class="o">=</span> <span class="o">-</span><span class="mi">2</span> <span class="o">*</span> <span class="n">a</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">a</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">a_d</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">a_d</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{a}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;$(2,4)$&#39;</span><span class="p">)</span>
@@ -748,14 +777,14 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <h2>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h2>
 <p>The vectors have to be of the same size to add one another or subtract from one another. This process involves adding or subtracting the corresponding elements in the vectors like a one-to-one match up.</p>
 <p>For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0fa5f07a-fdff-44b0-bee1-51c24acc1c3c">
-<span class="eqno">(11)<a class="headerlink" href="#equation-0fa5f07a-fdff-44b0-bee1-51c24acc1c3c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e88bff89-f767-48e8-8ace-df8049600299">
+<span class="eqno">(11)<a class="headerlink" href="#equation-e88bff89-f767-48e8-8ace-df8049600299" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} + \mathbb{v} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = 
 \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 \end{align}\]</div>
 <p>We can illustrate what is happening when we add 2 vectors. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-98e908e3-3cc6-4bff-91d7-7881cae5f751">
-<span class="eqno">(12)<a class="headerlink" href="#equation-98e908e3-3cc6-4bff-91d7-7881cae5f751" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4c04cc35-402b-4a62-b4d0-de19197ecee0">
+<span class="eqno">(12)<a class="headerlink" href="#equation-4c04cc35-402b-4a62-b4d0-de19197ecee0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell tag_hide-input docutils container">
@@ -768,9 +797,13 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">u_v</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">v</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u_v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u_v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$(2,4)$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s1">&#39;$(3,1)$&#39;</span><span class="p">)</span>
@@ -794,8 +827,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </div>
 <p>we are adding the second vector to the terminal point of the first vector, result is the vector obtained from vector addition.</p>
 <p>Vector subtraction is just another way of saying that you’re adding one vector to a second vector that’s been multiplied by the scalar –1. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8d291e66-6de6-4498-bf00-e99141316e40">
-<span class="eqno">(13)<a class="headerlink" href="#equation-8d291e66-6de6-4498-bf00-e99141316e40" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c3e38484-dc93-40c7-9522-d5511ef19861">
+<span class="eqno">(13)<a class="headerlink" href="#equation-c3e38484-dc93-40c7-9522-d5511ef19861" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + (-1) \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} -3 \\ -1 \end{bmatrix} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}
 \end{align}\]</div>
@@ -809,9 +842,12 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
 
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
-<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="o">*</span> <span class="n">v</span>
+<span class="n">u_v</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">v</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u_v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u_v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$(2,4)$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="s1">&#39;$(-3,-1)$&#39;</span><span class="p">)</span>
@@ -839,39 +875,229 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <p>The magnitude of a vector is also referred to as its length or norm. It is the length of the ray that you see in two-space or three-space. Vectors with more
 than three rows also have magnitude, and the computation is the same although its not possible to visually picture it.  <br></p>
 <p>The magnitude of <span class="math notranslate nohighlight">\(\mathbb{v}\)</span> is denoted by <span class="math notranslate nohighlight">\(\lVert \mathbb{v} \rVert\)</span>. The formula is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d08b264-4636-4845-8b62-4a9203c94c18">
-<span class="eqno">(14)<a class="headerlink" href="#equation-5d08b264-4636-4845-8b62-4a9203c94c18" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a28d7a68-9848-42c4-9b2f-9add46e92b12">
+<span class="eqno">(14)<a class="headerlink" href="#equation-a28d7a68-9848-42c4-9b2f-9add46e92b12" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2 + v_4^2 \dots v_n^2}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_1^2, v_2^2, v_3^2, \dots ,v_n^2\)</span> are the elements of the vector.</p>
-<p>When you multiplying a vector by a scalar, then the magnitude is also multiplied, i.e. <span class="math notranslate nohighlight">\(\lvert k \rvert \cdot \lVert \mathbb{v} \rVert\)</span>. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-44cba47e-1aeb-4f78-983c-a9a709c38d44">
-<span class="eqno">(15)<a class="headerlink" href="#equation-44cba47e-1aeb-4f78-983c-a9a709c38d44" title="Permalink to this equation">#</a></span>\[\begin{align}
+<p>When you multiply a vector by a scalar, then the magnitude is also multiplied, i.e. <span class="math notranslate nohighlight">\(\lvert k \rvert \cdot \lVert \mathbb{v} \rVert\)</span>. For example</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e64356d9-45b5-47c5-ac89-d62414956b6f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-e64356d9-45b5-47c5-ac89-d62414956b6f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>then the magnitude is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a1a06211-3b51-466a-be79-cb3aa3c1a9a1">
-<span class="eqno">(16)<a class="headerlink" href="#equation-a1a06211-3b51-466a-be79-cb3aa3c1a9a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-990dd296-e49b-414b-af60-ae58d6b9c3f5">
+<span class="eqno">(16)<a class="headerlink" href="#equation-990dd296-e49b-414b-af60-ae58d6b9c3f5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{2^2 + 4^2} = \sqrt{20}
 \end{align}\]</div>
 <p>By multiplying the vector with 3 results in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c9740861-7141-4d60-9f3f-a4b9447cd7e2">
-<span class="eqno">(17)<a class="headerlink" href="#equation-c9740861-7141-4d60-9f3f-a4b9447cd7e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf29f430-1374-4aad-81ce-38c7d671c854">
+<span class="eqno">(17)<a class="headerlink" href="#equation-cf29f430-1374-4aad-81ce-38c7d671c854" title="Permalink to this equation">#</a></span>\[\begin{align}
 3 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-5525324d-388d-44e0-bade-0e51f7db6e08">
-<span class="eqno">(18)<a class="headerlink" href="#equation-5525324d-388d-44e0-bade-0e51f7db6e08" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a47397cb-e848-466a-98c3-1b6549ca224f">
+<span class="eqno">(18)<a class="headerlink" href="#equation-a47397cb-e848-466a-98c3-1b6549ca224f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{6^2 + 12^2} = 3\sqrt{20}
 \end{align}\]</div>
 <p>which is simply 3 times the actual magnitude. Although in the case of negative scalar consider the absolute value.</p>
 </section>
 <section id="triangle-inequality">
 <h2>Triangle inequality<a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h2>
-<p>The magnitude of the sum of vectors is always less than or equal to the sum of the magnitudes of the vectors.
-<span class="math notranslate nohighlight">\(\lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert\)</span></p>
+<p>The magnitude of the sum of vectors is always less than or equal to the sum of the magnitudes of the vectors.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3dc5a409-c08b-4b66-b2f9-f17ca27453d0">
+<span class="eqno">(19)<a class="headerlink" href="#equation-3dc5a409-c08b-4b66-b2f9-f17ca27453d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+\lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert
+\end{align}\]</div>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">23</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mag_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mag_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+<span class="n">u_v</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">v</span>
+<span class="n">mag_uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">u_v</span><span class="p">)))</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> magnitude:&#39;</span><span class="p">,</span> <span class="n">mag_u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> magnitude:&#39;</span><span class="p">,</span> <span class="n">mag_v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u + v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u_v</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> magnitude:&#39;</span><span class="p">,</span> <span class="n">mag_uv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
+ [[23]
+ [10]
+ [18]] 
+ magnitude: 30.870698080866262
+v = 
+ [[ 1]
+ [ 4]
+ [12]] 
+ magnitude: 12.68857754044952
+u + v = 
+ [[24]
+ [14]
+ [30]] 
+ magnitude: 40.890096600521744
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 <section id="inner-product">
 <h2>Inner product<a class="headerlink" href="#inner-product" title="Link to this heading">#</a></h2>
+<p>The inner product of two real valued vectors is also called the dot product. When <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>
+are both <span class="math notranslate nohighlight">\(n × 1\)</span> vectors, then the notation <span class="math notranslate nohighlight">\(u^Tv\)</span> indicates the inner product of <span class="math notranslate nohighlight">\(u\)</span>
+and <span class="math notranslate nohighlight">\(v\)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f48c7596-8977-48ec-af6b-3caa34e165d6">
+<span class="eqno">(20)<a class="headerlink" href="#equation-f48c7596-8977-48ec-af6b-3caa34e165d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+\mathbb{u} = 
+\begin{bmatrix} 
+    u_1 \\ u_2 \\ \vdots \\ u_n 
+\end{bmatrix}, 
+\mathbb{v}= 
+\begin{bmatrix} 
+    v_1 \\ v_2 \\ \vdots \\ v_n 
+\end{bmatrix} 
+\end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-39b13b00-c4e0-4524-a66f-04c5f5bf99c1">
+<span class="eqno">(21)<a class="headerlink" href="#equation-39b13b00-c4e0-4524-a66f-04c5f5bf99c1" title="Permalink to this equation">#</a></span>\[\begin{align}
+\mathbb{u}^T\mathbb{v} = 
+    \begin{bmatrix} 
+    u_1 &amp; u_2 &amp; \dots &amp; u_n 
+    \end{bmatrix}
+    \begin{bmatrix} 
+    v_1 \\ v_2 \\ \vdots \\ v_n 
+    \end{bmatrix} =
+    u_1v_1 + u_2v_2 + \dots + u_nv_n
+\end{align}\]</div>
+<p>The dot product is calculated as the sum of the products of corresponding elements of two vectors, hence to change its orientation we transpose <span class="math notranslate nohighlight">\(u\)</span>. The superscript <span class="math notranslate nohighlight">\(T\)</span> in the notation means to transpose.</p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
+ [[ 1]
+ [-2]
+ [ 1]
+ [ 4]]
+v = 
+ [[ 2]
+ [-3]
+ [ 9]
+ [ 5]]
+Dot product: 37
+</pre></div>
+</div>
+</div>
+</div>
+<p>We shall explore these topics in detail when working with matrices in later sections.</p>
+</section>
+<section id="orthoganality">
+<h2>Orthoganality<a class="headerlink" href="#orthoganality" title="Link to this heading">#</a></h2>
+<p>The slope of a line is determined by finding the difference between the y-coordinates of two points on the line and dividing that difference by the difference
+between the corresponding x-coordinates of the points on that line.</p>
+<div class="math notranslate nohighlight">
+\[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
+<p>To determine whether two lines are perpendicular to each other, you can compare their slopes. Their slopes are negative reciprocals. That is</p>
+<div class="math notranslate nohighlight">
+\[ m_1 \cdot m_2 = -1 \]</div>
+<p>or
+$<span class="math notranslate nohighlight">\( m_1 = \frac{-1}{m_2} \)</span>$</p>
+<p>Two lines, segments, or planes are said to be orthogonal if they’re perpendicular to one another.</p>
+<p><b>When dealing with vectors, if the inner product is equal to 0, then the vectors are perpendicular.</b></p>
+<div class="cell tag_hide-input docutils container">
+<details class="hide above-input">
+<summary aria-label="Toggle hidden content">
+<span class="collapsed">Show code cell source</span>
+<span class="expanded">Hide code cell source</span>
+</summary>
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># we use the function gradient from numpy to find change in y with respect to x</span>
+<span class="n">u_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">v_slope</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">gradient</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slope of u = &#39;</span><span class="p">,</span> <span class="n">u_slope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;slope of v = &#39;</span><span class="p">,</span> <span class="n">v_slope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;product of the slopes = &#39;</span><span class="p">,</span> <span class="n">u_slope</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">v_slope</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">arrow</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">fc</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="n">ec</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span><span class="o">**</span><span class="n">options</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{u}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;$(6,2)$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{v}</span><span class="s1">$&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">v</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="s1">&#39;$(-1,3)$&#39;</span><span class="p">)</span>
+
+<span class="c1"># settings</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</details>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
+ [[6]
+ [2]]
+v = 
+ [[-1]
+ [ 3]]
+Dot product: 0
+slope of u =  0.3333333333333333
+slope of v =  -3.0
+product of the slopes =  -1.0
+</pre></div>
+</div>
+<img alt="../_images/290ac3cd7a879325a2ce6a6e81327d57a689d8215d5f82d14fe50c3de5b7ba3f.png" src="../_images/290ac3cd7a879325a2ce6a6e81327d57a689d8215d5f82d14fe50c3de5b7ba3f.png" />
+</div>
+</div>
+</section>
+<section id="angle-between-two-vectors">
+<h2>Angle between two vectors<a class="headerlink" href="#angle-between-two-vectors" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -945,6 +1171,8 @@ than three rows also have magnitude, and the computation is the same although it
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
 </ul>
   </nav></div>
 

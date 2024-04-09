@@ -8,7 +8,7 @@
 title: DEV-Analytics # The title of the book. Will be placed in the left navbar.
 author: Devakanth Kalapati # The author of the book
 copyright: "2024" # Copyright year to be placed in the footer
-logo: logo.png # A path to the book logo
+logo: logo.gif # A path to the book logo
 # Patterns to skip when building the book. Can be glob-style (e.g. "*skip.ipynb")
 exclude_patterns: [_build, Thumbs.db, .DS_Store, "**.ipynb_checkpoints"]
 # Auto-exclude files not in the toc
@@ -65,7 +65,13 @@ sphinx:
           colab_url: "https://colab.research.google.com",
         }
     bibtex_reference_style: author_year
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
 
+parse:
+  myst_enable_extensions:
+    # don't forget to list any other extensions you want enabled,
+    # including those that are enabled by default!
+    - amsmath
 
 # Define the name of the latex output file for PDF builds
 # latex:

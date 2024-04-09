@@ -47,6 +47,8 @@ html:
   use_issues_button: true
   use_edit_page_button: true
   use_download_button: true
+  comments:
+    hypothesis: true
   # thebe: true
   # google_analytics_id: G-XXXXXXX
 
@@ -74,6 +76,16 @@ parse:
     # don't forget to list any other extensions you want enabled,
     # including those that are enabled by default!
     - amsmath
+    - colon_fence
+    - deflist
+    - dollarmath
+    - html_admonition
+    - html_image
+    - linkify
+    - replacements
+    - smartquotes
+    - substitution
+    - tasklist
 
 # Define the name of the latex output file for PDF builds
 # latex:

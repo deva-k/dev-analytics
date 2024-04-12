@@ -440,22 +440,36 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-and-subtraction">Vector addition and subtraction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-numpy">Vectors in numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-coordinate-plane">Vectors in coordinate plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-and-subtraction">Vector addition and subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-subtracting">Adding and subtracting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity-matrix">Identity matrix</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-and-diagonal-matrices">Triangular and diagonal matrices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-and-non-singular-matrices">Singular and non-singular matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-under-addition">Properties under addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-under-multiplication">Properties under multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose">Transpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-matrix">Zero matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">Inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-of-2-times-2-matrix">Inverse of <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-using-row-reduction">Inverse using row reduction</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">System of equations</a></li>
 </ul>
             </nav>
         </div>
@@ -471,30 +485,27 @@ document.write(`
 <h1>Linear Algebra<a class="headerlink" href="#linear-algebra" title="Link to this heading">#</a></h1>
 <section id="vectors">
 <h2>Vectors<a class="headerlink" href="#vectors" title="Link to this heading">#</a></h2>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 </pre></div>
 </div>
 </div>
-</details>
 </div>
 <p>A <em>vector</em> is a one-dimensional matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1465bab3-9231-4b4b-b725-5605c90d169e">
-<span class="eqno">(1)<a class="headerlink" href="#equation-1465bab3-9231-4b4b-b725-5605c90d169e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ce969b22-517d-4559-aa02-e6137e5cea00">
+<span class="eqno">(1)<a class="headerlink" href="#equation-ce969b22-517d-4559-aa02-e6137e5cea00" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
 \end{align}\]</div>
 <p>The size of the vectors is determined by its rows or how many numbers it has.
 For example, <span class="math notranslate nohighlight">\(\mathbf{x}\)</span> is <span class="math notranslate nohighlight">\(3\times 1\)</span> meaning it has 3 rows and 1 column. <br></p>
+<section id="vectors-in-numpy">
+<h3>Vectors in numpy<a class="headerlink" href="#vectors-in-numpy" title="Link to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># alternatively you can perform x[:,np.newaxis]</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;column vector in numpy: </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shape of the vector is &#39;</span><span class="p">,</span><span class="n">x</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
@@ -510,23 +521,21 @@ Shape of the vector is  (3, 1)
 </div>
 </div>
 </div>
+</section>
+<section id="vectors-in-coordinate-plane">
+<h3>Vectors in coordinate plane<a class="headerlink" href="#vectors-in-coordinate-plane" title="Link to this heading">#</a></h3>
 <p>Vectors that are <span class="math notranslate nohighlight">\(2\times 1\)</span> are said to belong to <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, meaning that they belong to
 the set of real numbers that come paired two at a time. The capital <span class="math notranslate nohighlight">\(\mathbb{R}\)</span> is used
 to emphasize that you’re looking at real numbers. You also say that <span class="math notranslate nohighlight">\(2\times 1\)</span>
 vectors, or vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, are a part of two-space. <br></p>
 <p>Vectors in 2 space are represented on the coordiante <span class="math notranslate nohighlight">\((x,y)\)</span> plane by rays. In standard position, the ray representing a vector has its endpoint at the
 origin and its terminal point (or arrow) at the <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates designated by the column vector. The <span class="math notranslate nohighlight">\(x\)</span> coordinate is in the first row of the vector, and the <span class="math notranslate nohighlight">\(y\)</span> coordinate is in the second row.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ce4250b8-d52a-438a-bfa0-040220208f56">
-<span class="eqno">(2)<a class="headerlink" href="#equation-ce4250b8-d52a-438a-bfa0-040220208f56" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-eee300c6-1787-4b92-8839-0bcce476a0d5">
+<span class="eqno">(2)<a class="headerlink" href="#equation-eee300c6-1787-4b92-8839-0bcce476a0d5" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((1,2)\)</span>.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -537,6 +546,7 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;$\mathbf</span><span class="si">{u}</span><span class="s1">$&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s1">&#39;$(1,2)$&#39;</span><span class="p">)</span>
+
 <span class="c1"># settings</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
 <span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
@@ -548,23 +558,17 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/353ed59c209921128d23b6cf7810bab1029fcccedcaed54f2a9d68e4322dfc43.png" src="../_images/353ed59c209921128d23b6cf7810bab1029fcccedcaed54f2a9d68e4322dfc43.png" />
 </div>
 </div>
 <p>We can add another vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc8e5fa8-ac55-4793-822f-6e1b20045c5e">
-<span class="eqno">(3)<a class="headerlink" href="#equation-cc8e5fa8-ac55-4793-822f-6e1b20045c5e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-28531a50-22db-46de-89d5-e5aee338bcb1">
+<span class="eqno">(3)<a class="headerlink" href="#equation-28531a50-22db-46de-89d5-e5aee338bcb1" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((3,-2)\)</span>.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -590,18 +594,12 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/75cb02fe656085d7ae1e4bc205dda860301c2a3cb2536d68be066dddc4261b59.png" src="../_images/75cb02fe656085d7ae1e4bc205dda860301c2a3cb2536d68be066dddc4261b59.png" />
 </div>
 </div>
 <p>You aren’t limited to always drawing <span class="math notranslate nohighlight">\(2\times 1\)</span> vectors radiating from the origin. Both the vectors drawn above can start from <span class="math notranslate nohighlight">\((-1,2)\)</span> as an endpoint.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -626,21 +624,20 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" src="../_images/682d64d47a7dfcc4d634f1365831385b477fae529dfdac3230cb6687e797d1c1.png" />
 </div>
 </div>
 <p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> steps away from the endpoint. In other words, we simply add the <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> with the <span class="math notranslate nohighlight">\(endpoint\)</span> vector to get a resulting vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-80ab1f89-f090-43ea-af3a-9a7d9b914d45">
-<span class="eqno">(4)<a class="headerlink" href="#equation-80ab1f89-f090-43ea-af3a-9a7d9b914d45" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-212bf976-6f00-4446-89a4-61a40c5cca1c">
+<span class="eqno">(4)<a class="headerlink" href="#equation-212bf976-6f00-4446-89a4-61a40c5cca1c" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>which is the terminal point <span class="math notranslate nohighlight">\((0,4)\)</span>. We shall look at computations on vectors in detail.</p>
 <p>Vectors can actually have many number of rows, although its difficult to illustrate vectors that have more than 3 rows, which implies 3 spaces.</p>
 <p>For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7ff0f8f4-8346-4a0f-ad50-2417dfc20781">
-<span class="eqno">(5)<a class="headerlink" href="#equation-7ff0f8f4-8346-4a0f-ad50-2417dfc20781" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-217b72d3-3482-4ded-978f-893c44e53248">
+<span class="eqno">(5)<a class="headerlink" href="#equation-217b72d3-3482-4ded-978f-893c44e53248" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{w} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y,z)\)</span> plane as <span class="math notranslate nohighlight">\((2,3,4)\)</span>. Three-space vectors are represented by three-dimensional figures and
@@ -648,36 +645,31 @@ arrows pointing to positions in space.</p>
 <p>The different geometric transformations performed on vectors include rotations, reflections, expansions, and contractions.</p>
 </section>
 <section id="scalar-multiplication">
-<h2>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h2>
+<h3>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h3>
 <p>When you multiply a <span class="math notranslate nohighlight">\(2\times 1\)</span> vector by a scalar, your result is another <span class="math notranslate nohighlight">\(2\times 1\)</span> vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
 means that you multiply each element in the vector by the same constant value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff18a16c-f7a2-4f91-8acb-0c5edf19763e">
-<span class="eqno">(6)<a class="headerlink" href="#equation-ff18a16c-f7a2-4f91-8acb-0c5edf19763e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7454e1b8-0775-4143-8af0-71e0b6057a2c">
+<span class="eqno">(6)<a class="headerlink" href="#equation-7454e1b8-0775-4143-8af0-71e0b6057a2c" title="Permalink to this equation">#</a></span>\[\begin{align}
 k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_1 \\ kv_2 \\ \vdots \\ kv_n\end{bmatrix}
 \end{align}\]</div>
 <p>where we multiply the vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(scalar\)</span> <span class="math notranslate nohighlight">\(k\)</span>. Below is an example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8138aedd-988f-4c3d-9472-6d7f416dd1e4">
-<span class="eqno">(7)<a class="headerlink" href="#equation-8138aedd-988f-4c3d-9472-6d7f416dd1e4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8e1ccd04-ea7a-4fca-b697-ca14dfff5816">
+<span class="eqno">(7)<a class="headerlink" href="#equation-8e1ccd04-ea7a-4fca-b697-ca14dfff5816" title="Permalink to this equation">#</a></span>\[\begin{align}
 2 \begin{bmatrix} 2 \\ 3 \\ -1\end{bmatrix} = \begin{bmatrix} 4 \\ 6 \\ -2\end{bmatrix}
 \end{align}\]</div>
 <p>Vectors have operations that cause dilations (expansions) and contractions (shrinkages) of the original vector. Both operations of dilation and contraction are accomplished by multiplying the elements in the vector by a scalar.</p>
 <p>If the scalar, k, that is multiplying a vector is greater than 1, then the result is a dilation of the original vector. If the scalar, k, is a number between 0 and 1, then the result is a contraction of the original vector.</p>
 <p>For example, consider a vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-c448b810-8eae-4858-9284-e6baceee7a09">
-<span class="eqno">(8)<a class="headerlink" href="#equation-c448b810-8eae-4858-9284-e6baceee7a09" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-846652eb-9f10-4d1a-bf7e-21fdcb429682">
+<span class="eqno">(8)<a class="headerlink" href="#equation-846652eb-9f10-4d1a-bf7e-21fdcb429682" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>multiplying it with a scalar say 3 will result in dilation or expansion and with <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> results in contraction or shrinking.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4b4e1d93-2cf3-43c5-952b-84dc63ba32e2">
-<span class="eqno">(9)<a class="headerlink" href="#equation-4b4e1d93-2cf3-43c5-952b-84dc63ba32e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ead00dd6-39b1-4d84-a98f-8e0671361a58">
+<span class="eqno">(9)<a class="headerlink" href="#equation-ead00dd6-39b1-4d84-a98f-8e0671361a58" title="Permalink to this equation">#</a></span>\[\begin{align}
 3\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}, \frac{1}{2}\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -699,17 +691,11 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/7155ed3be5be356292a451d477a041cac1c1b102b3b77ea859aa1a6be023fb60.png" src="../_images/7155ed3be5be356292a451d477a041cac1c1b102b3b77ea859aa1a6be023fb60.png" />
 </div>
 </div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">15</span><span class="p">))</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -729,7 +715,6 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/ad6127f48967e1f3f1fba3e6c3e55a3aad70d7c39a6712a3150ef4fc2ffc26cd.png" src="../_images/ad6127f48967e1f3f1fba3e6c3e55a3aad70d7c39a6712a3150ef4fc2ffc26cd.png" />
 </div>
@@ -741,16 +726,11 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <li><p>The direction of the vector reverses.</p></li>
 </ol>
 <p>Multiplying vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span> with -2 will give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7d1ec07a-2d42-45b5-abbf-70ea0267b3eb">
-<span class="eqno">(10)<a class="headerlink" href="#equation-7d1ec07a-2d42-45b5-abbf-70ea0267b3eb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1dffa171-1aad-46e1-99bc-7e84b2c66b43">
+<span class="eqno">(10)<a class="headerlink" href="#equation-1dffa171-1aad-46e1-99bc-7e84b2c66b43" title="Permalink to this equation">#</a></span>\[\begin{align}
 -2 \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} -4 \\ -8 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -775,32 +755,26 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/689dece0be4eced947e5bfed8c30aa89a7c069f50fa3c15a5e84a070153f23bb.png" src="../_images/689dece0be4eced947e5bfed8c30aa89a7c069f50fa3c15a5e84a070153f23bb.png" />
 </div>
 </div>
 </section>
 <section id="vector-addition-and-subtraction">
-<h2>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h2>
+<h3>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h3>
 <p>The vectors have to be of the same size to add one another or subtract from one another. This process involves adding or subtracting the corresponding elements in the vectors like a one-to-one match up.</p>
 <p>For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e049a8c9-4bd5-4ad0-af2c-e9b1f35c6772">
-<span class="eqno">(11)<a class="headerlink" href="#equation-e049a8c9-4bd5-4ad0-af2c-e9b1f35c6772" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d1f422e3-4d81-4fdf-98d3-6507c277c2f3">
+<span class="eqno">(11)<a class="headerlink" href="#equation-d1f422e3-4d81-4fdf-98d3-6507c277c2f3" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} + \mathbb{v} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} = 
 \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 \end{align}\]</div>
 <p>We can illustrate what is happening when we add 2 vectors. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cffa3cd-a88e-468d-abc0-977d919ab9ea">
-<span class="eqno">(12)<a class="headerlink" href="#equation-3cffa3cd-a88e-468d-abc0-977d919ab9ea" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e072889d-d791-496a-9618-9ea91eb1ddff">
+<span class="eqno">(12)<a class="headerlink" href="#equation-e072889d-d791-496a-9618-9ea91eb1ddff" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -828,24 +802,18 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/1d3c3c2e639880860c14a49def68be1e076ae86c775e74e6d93fbdf51bbc0819.png" src="../_images/1d3c3c2e639880860c14a49def68be1e076ae86c775e74e6d93fbdf51bbc0819.png" />
 </div>
 </div>
 <p>we are adding the second vector to the terminal point of the first vector, result is the vector obtained from vector addition.</p>
 <p>Vector subtraction is just another way of saying that you’re adding one vector to a second vector that’s been multiplied by the scalar –1. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7822312e-d467-40fb-9bf4-8f2dd8f40df8">
-<span class="eqno">(13)<a class="headerlink" href="#equation-7822312e-d467-40fb-9bf4-8f2dd8f40df8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b04769a7-87ae-490c-9b5a-c8a8c3dfb82a">
+<span class="eqno">(13)<a class="headerlink" href="#equation-b04769a7-87ae-490c-9b5a-c8a8c3dfb82a" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + (-1) \begin{bmatrix} 3 \\ 1 \end{bmatrix} = 
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} -3 \\ -1 \end{bmatrix} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
 <span class="n">options</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;head_width&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;head_length&quot;</span><span class="p">:</span><span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;length_includes_head&quot;</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
@@ -872,63 +840,60 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <img alt="../_images/d246621dcc7b1dd9e93f7193133f0ee7f775c1d55eb553a1576db5749cb537aa.png" src="../_images/d246621dcc7b1dd9e93f7193133f0ee7f775c1d55eb553a1576db5749cb537aa.png" />
 </div>
 </div>
 </section>
 <section id="vector-magnitude">
-<h2>Vector magnitude<a class="headerlink" href="#vector-magnitude" title="Link to this heading">#</a></h2>
+<h3>Vector magnitude<a class="headerlink" href="#vector-magnitude" title="Link to this heading">#</a></h3>
 <p>The magnitude of a vector is also referred to as its length or norm. It is the length of the ray that you see in two-space or three-space. Vectors with more
 than three rows also have magnitude, and the computation is the same although its not possible to visually picture it.  <br></p>
 <p>The magnitude of <span class="math notranslate nohighlight">\(\mathbb{v}\)</span> is denoted by <span class="math notranslate nohighlight">\(\lVert \mathbb{v} \rVert\)</span>. The formula is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1ccbe3e-b5ce-4296-b8ad-077321ea0a1d">
-<span class="eqno">(14)<a class="headerlink" href="#equation-c1ccbe3e-b5ce-4296-b8ad-077321ea0a1d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-25586799-f06a-4d41-a27d-bd317629b892">
+<span class="eqno">(14)<a class="headerlink" href="#equation-25586799-f06a-4d41-a27d-bd317629b892" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2 + v_4^2 \dots v_n^2}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_1^2, v_2^2, v_3^2, \dots ,v_n^2\)</span> are the elements of the vector.</p>
 <p>When you multiply a vector by a scalar, then the magnitude is also multiplied, i.e. <span class="math notranslate nohighlight">\(\lvert k \rvert \cdot \lVert \mathbb{v} \rVert\)</span>. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e6a72da2-c734-40bf-b1b8-13c95f80140c">
-<span class="eqno">(15)<a class="headerlink" href="#equation-e6a72da2-c734-40bf-b1b8-13c95f80140c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6be1fe1b-6110-429a-b80e-9f11122bda13">
+<span class="eqno">(15)<a class="headerlink" href="#equation-6be1fe1b-6110-429a-b80e-9f11122bda13" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>then the magnitude is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3da76255-cf96-49b6-8eee-f0b2913f22a3">
-<span class="eqno">(16)<a class="headerlink" href="#equation-3da76255-cf96-49b6-8eee-f0b2913f22a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d8281683-bc74-4aa8-b1d4-52acee427aca">
+<span class="eqno">(16)<a class="headerlink" href="#equation-d8281683-bc74-4aa8-b1d4-52acee427aca" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{2^2 + 4^2} = \sqrt{20}
 \end{align}\]</div>
 <p>By multiplying the vector with 3 results in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f51cbe2b-f03a-4f8a-996e-0899d5101e10">
-<span class="eqno">(17)<a class="headerlink" href="#equation-f51cbe2b-f03a-4f8a-996e-0899d5101e10" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4cd6d7a3-b9fc-4bce-9f1f-ef023aeb5fab">
+<span class="eqno">(17)<a class="headerlink" href="#equation-4cd6d7a3-b9fc-4bce-9f1f-ef023aeb5fab" title="Permalink to this equation">#</a></span>\[\begin{align}
 3 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-19f12ec4-83ad-4896-8347-704bf1cfa53f">
-<span class="eqno">(18)<a class="headerlink" href="#equation-19f12ec4-83ad-4896-8347-704bf1cfa53f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6b6b1ff7-edc4-4805-a268-9ead393e0887">
+<span class="eqno">(18)<a class="headerlink" href="#equation-6b6b1ff7-edc4-4805-a268-9ead393e0887" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{6^2 + 12^2} = 3\sqrt{20}
 \end{align}\]</div>
 <p>which is simply 3 times the actual magnitude. Although in the case of negative scalar consider the absolute value.</p>
 </section>
 <section id="triangle-inequality">
-<h2>Triangle inequality<a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h2>
+<h3>Triangle inequality<a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h3>
 <p>The magnitude of the sum of vectors is always less than or equal to the sum of the magnitudes of the vectors.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9b8005c5-ff78-4536-9024-c4e2b64e5d15">
-<span class="eqno">(19)<a class="headerlink" href="#equation-9b8005c5-ff78-4536-9024-c4e2b64e5d15" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0e236155-3a9a-4e5b-bb66-1188ea58fa35">
+<span class="eqno">(19)<a class="headerlink" href="#equation-0e236155-3a9a-4e5b-bb66-1188ea58fa35" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">23</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">mag_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy</span> <span class="kn">import</span> <span class="n">linalg</span> <span class="k">as</span> <span class="n">LA</span> 
+
+<span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">23</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">18</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># alternatively mag_u = np.sqrt(np.sum(np.square(u)))</span>
+<span class="n">mag_u</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">mag_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+<span class="n">mag_v</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 <span class="n">u_v</span> <span class="o">=</span> <span class="n">u</span> <span class="o">+</span> <span class="n">v</span>
-<span class="n">mag_uv</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">u_v</span><span class="p">)))</span>
+<span class="n">mag_uv</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u_v</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">u</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> magnitude:&#39;</span><span class="p">,</span> <span class="n">mag_u</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span><span class="n">v</span><span class="p">,</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> magnitude:&#39;</span><span class="p">,</span> <span class="n">mag_v</span><span class="p">)</span>
@@ -936,7 +901,6 @@ than three rows also have magnitude, and the computation is the same although it
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
  [[23]
@@ -959,12 +923,12 @@ u + v =
 </div>
 </section>
 <section id="inner-product">
-<h2>Inner product<a class="headerlink" href="#inner-product" title="Link to this heading">#</a></h2>
+<h3>Inner product<a class="headerlink" href="#inner-product" title="Link to this heading">#</a></h3>
 <p>The inner product of two real valued vectors is also called the dot product. When <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>
 are both <span class="math notranslate nohighlight">\(n × 1\)</span> vectors, then the notation <span class="math notranslate nohighlight">\(u^Tv\)</span> indicates the inner product of <span class="math notranslate nohighlight">\(u\)</span>
 and <span class="math notranslate nohighlight">\(v\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5567d634-0419-4bed-94af-6405663ef73d">
-<span class="eqno">(20)<a class="headerlink" href="#equation-5567d634-0419-4bed-94af-6405663ef73d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6ad2ab04-f085-485b-83fa-895f07a2a72e">
+<span class="eqno">(20)<a class="headerlink" href="#equation-6ad2ab04-f085-485b-83fa-895f07a2a72e" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} = 
 \begin{bmatrix} 
     u_1 \\ u_2 \\ \vdots \\ u_n 
@@ -974,8 +938,8 @@ and <span class="math notranslate nohighlight">\(v\)</span>.</p>
     v_1 \\ v_2 \\ \vdots \\ v_n 
 \end{bmatrix} 
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0e0c5a7f-83ca-458e-80cc-5d5038f87bc9">
-<span class="eqno">(21)<a class="headerlink" href="#equation-0e0c5a7f-83ca-458e-80cc-5d5038f87bc9" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-82b6a9cd-ed3b-41a0-8177-74054fe87033">
+<span class="eqno">(21)<a class="headerlink" href="#equation-82b6a9cd-ed3b-41a0-8177-74054fe87033" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u}^T\mathbb{v} = 
     \begin{bmatrix} 
     u_1 &amp; u_2 &amp; \dots &amp; u_n 
@@ -986,25 +950,28 @@ and <span class="math notranslate nohighlight">\(v\)</span>.</p>
     u_1v_1 + u_2v_2 + \dots + u_nv_n
 \end{align}\]</div>
 <p>The dot product is calculated as the sum of the products of corresponding elements of two vectors, hence to change its orientation we transpose <span class="math notranslate nohighlight">\(u\)</span>. The superscript <span class="math notranslate nohighlight">\(T\)</span> in the notation means to transpose.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-<span class="c1"># alternatively you can just use a 1d array and use numpy dot or vdot</span>
-<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">v</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>
-</details>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># alternatively you can just use a 1d array and use numpy dot</span>
+<span class="c1"># i.e. uv_dot = np.dot(u.transpose(),v)</span>
+<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
  [[ 1]
@@ -1024,34 +991,29 @@ Dot product: 37
 <p>We shall explore these topics in detail when working with matrices in later sections.</p>
 </section>
 <section id="orthoganality">
-<h2>Orthoganality<a class="headerlink" href="#orthoganality" title="Link to this heading">#</a></h2>
+<h3>Orthoganality<a class="headerlink" href="#orthoganality" title="Link to this heading">#</a></h3>
 <p>The slope of a line is determined by finding the difference between the y-coordinates of two points on the line and dividing that difference by the difference
 between the corresponding x-coordinates of the points on that line.</p>
 <div class="math notranslate nohighlight">
 \[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
 <p>To determine whether two lines are perpendicular to each other, you can compare their slopes. Their slopes are negative reciprocals. That is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5888aeee-1d10-4096-89ec-dde1dd2a582c">
-<span class="eqno">(22)<a class="headerlink" href="#equation-5888aeee-1d10-4096-89ec-dde1dd2a582c" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 \cdot m_2 = -1 \end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-f452d875-59c4-4b79-98be-1d59cc894f40">
+<span class="eqno">(22)<a class="headerlink" href="#equation-f452d875-59c4-4b79-98be-1d59cc894f40" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 \cdot m_2 = -1 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-772733db-9383-4e2e-b373-1ba19ba93c62">
-<span class="eqno">(23)<a class="headerlink" href="#equation-772733db-9383-4e2e-b373-1ba19ba93c62" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 = \frac{-1}{m_2} \end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-66303bb4-a047-4074-b062-6452c604e5df">
+<span class="eqno">(23)<a class="headerlink" href="#equation-66303bb4-a047-4074-b062-6452c604e5df" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 = \frac{-1}{m_2} \end{align}\]</div>
 <p>Two lines, segments, or planes are said to be orthogonal if they’re perpendicular to one another.</p>
 <p><b>When dealing with vectors, if the inner product is equal to 0, then the vectors are perpendicular.</b></p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 <span class="n">v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
 
-<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">v</span><span class="p">)</span>
+<span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;u = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">u</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;v = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dot product:&#39;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">)</span>
 
 <span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">u</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="mi">0</span><span class="p">])</span>
@@ -1088,7 +1050,6 @@ between the corresponding x-coordinates of the points on that line.</p>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>u = 
  [[6]
@@ -1107,29 +1068,24 @@ product of the slopes =  -1.0
 </div>
 </section>
 <section id="angle-between-two-vectors">
-<h2>Angle between two vectors<a class="headerlink" href="#angle-between-two-vectors" title="Link to this heading">#</a></h2>
+<h3>Angle between two vectors<a class="headerlink" href="#angle-between-two-vectors" title="Link to this heading">#</a></h3>
 <p>There is a relation between the inner product, magnitude and the angle between two vectors.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3f28292c-02ac-4b4e-bcca-9340464d2006">
-<span class="eqno">(24)<a class="headerlink" href="#equation-3f28292c-02ac-4b4e-bcca-9340464d2006" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-07e11592-575f-425c-8c89-e941ab3403c2">
+<span class="eqno">(24)<a class="headerlink" href="#equation-07e11592-575f-425c-8c89-e941ab3403c2" title="Permalink to this equation">#</a></span>\[\begin{align}
 u \cdot v = \lVert u \rVert \cdot \lVert v \rVert cos \theta
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are two vectors in two-space, <span class="math notranslate nohighlight">\(u \cdot v\)</span> is the inner product of the two vectors, <span class="math notranslate nohighlight">\(\lVert u \rVert\)</span> and <span class="math notranslate nohighlight">\(\lVert v \rVert\)</span> are the respective magnitudes of the vectors, and <span class="math notranslate nohighlight">\(cos \theta\)</span> is the measure (counterclockwise) of the angle formed between the two vectors.</p>
 <p>So to determine the angle <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-b3d88eba-9e80-469c-a366-ae4866c5db2f">
-<span class="eqno">(25)<a class="headerlink" href="#equation-b3d88eba-9e80-469c-a366-ae4866c5db2f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6d2b7699-01e5-4a61-be8b-e273bc830edb">
+<span class="eqno">(25)<a class="headerlink" href="#equation-6d2b7699-01e5-4a61-be8b-e273bc830edb" title="Permalink to this equation">#</a></span>\[\begin{align}
 cos \theta = \frac{u \cdot v}{\lVert u \rVert \cdot \lVert v \rVert}
 \end{align}\]</div>
 <p>So for the graph above, since the vectors are perpendicular to each other, the angle formed is 90°. We can also confirm this by performing the computation using the relation described.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="n">u</span><span class="p">),</span><span class="n">v</span><span class="p">)</span>
-<span class="n">mag_u</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">u</span><span class="p">)))</span>
-<span class="n">mag_v</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">square</span><span class="p">(</span><span class="n">v</span><span class="p">)))</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uv_dot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">vdot</span><span class="p">(</span><span class="n">u</span><span class="p">,</span><span class="n">v</span><span class="p">)</span>
+<span class="n">mag_u</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">u</span><span class="p">)</span>
+<span class="n">mag_v</span> <span class="o">=</span> <span class="n">LA</span><span class="o">.</span><span class="n">norm</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
 
 <span class="n">cos_theta</span> <span class="o">=</span> <span class="n">uv_dot</span> <span class="o">/</span> <span class="n">mag_u</span> <span class="o">*</span> <span class="n">mag_v</span>
 
@@ -1138,16 +1094,15 @@ cos \theta = \frac{u \cdot v}{\lVert u \rVert \cdot \lVert v \rVert}
 <span class="c1"># convert radians to degrees</span>
 <span class="n">theta_degrees</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">degrees</span><span class="p">(</span><span class="n">theta_radians</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product of u and v =&quot;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Dot product of u and v =&quot;</span><span class="p">,</span> <span class="n">uv_dot</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of u =&quot;</span><span class="p">,</span> <span class="n">mag_u</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Magnitude of v =&quot;</span><span class="p">,</span> <span class="n">mag_v</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cos theta =&quot;</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angle in radians =&quot;</span><span class="p">,</span> <span class="n">theta_radians</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radians to degrees =&quot;</span><span class="p">,</span><span class="n">theta_degrees</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cos theta =&quot;</span><span class="p">,</span> <span class="n">cos_theta</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Angle in radians =&quot;</span><span class="p">,</span> <span class="n">theta_radians</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Radians to degrees =&quot;</span><span class="p">,</span><span class="n">theta_degrees</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Dot product of u and v = 0
 Magnitude of u = 6.324555320336759
@@ -1160,11 +1115,12 @@ Radians to degrees = 90.0
 </div>
 </div>
 </section>
+</section>
 <section id="matrices">
 <h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>A matrix is made up of rows and columns surrounded by a bracket. You have same number of elements in each row and same number of elements in each column.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9e6cc712-e9c1-4626-8315-5c6bc6c130df">
-<span class="eqno">(26)<a class="headerlink" href="#equation-9e6cc712-e9c1-4626-8315-5c6bc6c130df" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0617c76c-954c-4f2d-a4c0-27416c958825">
+<span class="eqno">(26)<a class="headerlink" href="#equation-0617c76c-954c-4f2d-a4c0-27416c958825" title="Permalink to this equation">#</a></span>\[\begin{align}
 A = 
     \begin{bmatrix}
         1 &amp; 2 &amp; 3\\
@@ -1177,8 +1133,8 @@ A =
 <section id="adding-and-subtracting">
 <h3>Adding and subtracting<a class="headerlink" href="#adding-and-subtracting" title="Link to this heading">#</a></h3>
 <p>To add or subtract two matrices, the dimension of the matrices must be the same. You simply add or subtract the corresponding element in the matrices. Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two <span class="math notranslate nohighlight">\(m \times n\)</span> matrices. Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-953a4f78-4172-42c0-9a2a-914ca6a18aa5">
-<span class="eqno">(27)<a class="headerlink" href="#equation-953a4f78-4172-42c0-9a2a-914ca6a18aa5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-24031003-4a49-4de2-85f4-f9a57ccce1ff">
+<span class="eqno">(27)<a class="headerlink" href="#equation-24031003-4a49-4de2-85f4-f9a57ccce1ff" title="Permalink to this equation">#</a></span>\[\begin{align}
 A + B= 
     \begin{bmatrix}
         a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; \dots &amp; a_{1n} + b_{1n}\\
@@ -1231,8 +1187,8 @@ A + B =
 <section id="matrix-multiplication">
 <h3>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Link to this heading">#</a></h3>
 <p>Multiplying a matrix <span class="math notranslate nohighlight">\(A\)</span> with a scalar <span class="math notranslate nohighlight">\(k\)</span> implies multiplying every element in the matrix with the scalar.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7b672c9f-d0dd-4042-87a3-62a0994d4407">
-<span class="eqno">(28)<a class="headerlink" href="#equation-7b672c9f-d0dd-4042-87a3-62a0994d4407" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-08163a74-36c2-44a5-b60a-2654b764e6a7">
+<span class="eqno">(28)<a class="headerlink" href="#equation-08163a74-36c2-44a5-b60a-2654b764e6a7" title="Permalink to this equation">#</a></span>\[\begin{align}
 kA = 
     \begin{bmatrix}
         ka_{11} &amp; ka_{12} &amp; \dots &amp; ka_{1n} \\
@@ -1241,12 +1197,7 @@ kA =
         ka_{m1} &amp; ka_{m2} &amp; \dots &amp; ka_{mn} \\
     \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
 <span class="n">kA</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">A</span>
@@ -1256,7 +1207,6 @@ kA =
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>k = 2
 kA = 
@@ -1270,8 +1220,8 @@ kA =
 <p>To perform matrix multiplication on two matrices, the number of columns in the first matrix should be equal to the number of rows in the second matrix. If <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is <span class="math notranslate nohighlight">\(p \times q\)</span> matrix, then it is necessary that <span class="math notranslate nohighlight">\(n = p\)</span>. The dimension of the resulting matrix is a <span class="math notranslate nohighlight">\(m \times q\)</span>.</p>
 <p>For example, if <span class="math notranslate nohighlight">\(A\)</span> has dimension <span class="math notranslate nohighlight">\(3 \times 4\)</span> and <span class="math notranslate nohighlight">\(B\)</span> has dimension <span class="math notranslate nohighlight">\(4 \times 7\)</span>, then the product <span class="math notranslate nohighlight">\(A * B\)</span> has dimension <span class="math notranslate nohighlight">\(3 \times 7\)</span>. But you can’t multiply the matrices in the reverse order. The product <span class="math notranslate nohighlight">\(B * A\)</span> cannot be performed, because <span class="math notranslate nohighlight">\(B\)</span> has seven columns and <span class="math notranslate nohighlight">\(A\)</span> has three rows.</p>
 <p>Each element in the new matrix created by matrix multiplication is the sum of all the products of the elements in a row of the first matrix times a column in the second matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-83d73360-00db-4340-ab04-29baa1cec3a0">
-<span class="eqno">(29)<a class="headerlink" href="#equation-83d73360-00db-4340-ab04-29baa1cec3a0" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ce1f759-d3f1-4d14-b2d2-360ae8964a18">
+<span class="eqno">(29)<a class="headerlink" href="#equation-9ce1f759-d3f1-4d14-b2d2-360ae8964a18" title="Permalink to this equation">#</a></span>\[\begin{align}
 X = 
     \begin{bmatrix}
         1 &amp; 2 &amp; 3\\
@@ -1285,8 +1235,8 @@ Y =
     \end{bmatrix}
 \end{align}\]</div>
 <p><span class="math notranslate nohighlight">\(X\)</span> is a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix. <span class="math notranslate nohighlight">\(Y\)</span> is a <span class="math notranslate nohighlight">\(3 \times 4\)</span> matrix. Since the number of columns in <span class="math notranslate nohighlight">\(X\)</span> is the same as the number of rows in <span class="math notranslate nohighlight">\(Y\)</span>, then <span class="math notranslate nohighlight">\(X * Y\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-050c1cf3-8e8c-4908-b9f4-c5ff345a3d4e">
-<span class="eqno">(30)<a class="headerlink" href="#equation-050c1cf3-8e8c-4908-b9f4-c5ff345a3d4e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa2f5574-3e5a-4f64-9d75-35a981792639">
+<span class="eqno">(30)<a class="headerlink" href="#equation-fa2f5574-3e5a-4f64-9d75-35a981792639" title="Permalink to this equation">#</a></span>\[\begin{align}
 X * Y = 
     \begin{bmatrix}
         a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14}\\
@@ -1294,12 +1244,7 @@ X * Y =
     \end{bmatrix}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(a_{12}\)</span> is found by multiplying the elements in the first row of <span class="math notranslate nohighlight">\(X\)</span> by the elements in the second column of <span class="math notranslate nohighlight">\(Y\)</span> i.e. 1(2) + (2)(6) + (3)(10) = 44.</p>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
 <span class="n">Y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
@@ -1312,7 +1257,6 @@ X * Y =
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>X = 
  [[1 2 3]
@@ -1341,8 +1285,8 @@ indeed, have an inverse.</p></li>
 <h3>Identity matrix<a class="headerlink" href="#identity-matrix" title="Link to this heading">#</a></h3>
 <p>The additive identity in arithmetic is 0. If you add 0 to a number, you don’t change the number — the number keeps its identity. The multiplicative identity in arithmetic is 1.</p>
 <p>The additive identity for matrices is the <span class="math notranslate nohighlight">\(zero\)</span> matrix. The additive identity for a <span class="math notranslate nohighlight">\(3 \times 4\)</span> matrix is a <span class="math notranslate nohighlight">\(3 \times 4\)</span> zero matrix. If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-88aee9a6-36e0-4318-9662-aebbe725018a">
-<span class="eqno">(31)<a class="headerlink" href="#equation-88aee9a6-36e0-4318-9662-aebbe725018a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5017fc20-07e3-4abd-bf24-907248ab1889">
+<span class="eqno">(31)<a class="headerlink" href="#equation-5017fc20-07e3-4abd-bf24-907248ab1889" title="Permalink to this equation">#</a></span>\[\begin{align}
     A = 
         \begin{bmatrix}
         1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -1351,8 +1295,8 @@ indeed, have an inverse.</p></li>
         \end{bmatrix}
 \end{align}\]</div>
 <p>then the <span class="math notranslate nohighlight">\(zero\)</span> matrix is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b791d741-be81-44fa-bb28-3433c0dd53c7">
-<span class="eqno">(32)<a class="headerlink" href="#equation-b791d741-be81-44fa-bb28-3433c0dd53c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-742da274-2f27-4549-a0ca-646a0f9c8332">
+<span class="eqno">(32)<a class="headerlink" href="#equation-742da274-2f27-4549-a0ca-646a0f9c8332" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 = 
         \begin{bmatrix}
         0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -1360,14 +1304,14 @@ indeed, have an inverse.</p></li>
         0 &amp; 0 &amp; 0 &amp; 0 
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-b1236bc0-c9c1-4380-84f9-80318e6f03b9">
-<span class="eqno">(33)<a class="headerlink" href="#equation-b1236bc0-c9c1-4380-84f9-80318e6f03b9" title="Permalink to this equation">#</a></span>\[\begin{align} 
+<div class="amsmath math notranslate nohighlight" id="equation-33b27319-f6c3-41c0-b2d2-e40fd2c0f35e">
+<span class="eqno">(33)<a class="headerlink" href="#equation-33b27319-f6c3-41c0-b2d2-e40fd2c0f35e" title="Permalink to this equation">#</a></span>\[\begin{align} 
     A + 0 = 0 + A = A
 \end{align}\]</div>
 <p>The multiplicative identity is a square matrix and the elements on the main diagonal running from the top left to the bottom right are 1s. All the rest of the elements in the matrix are 0s.</p>
 <p>If <span class="math notranslate nohighlight">\(D\)</span> is a <span class="math notranslate nohighlight">\(3 \times 2\)</span> matrix, when multiplying <span class="math notranslate nohighlight">\(D * I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix, then <span class="math notranslate nohighlight">\(I\)</span> has to be a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix where the main diagonals has 1s and all the other elements are 0s. When multiplying <span class="math notranslate nohighlight">\(I * D\)</span> then <span class="math notranslate nohighlight">\(I\)</span> is a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-39d2b5ab-bab4-4aa6-a25f-c6ce4b7b4784">
-<span class="eqno">(34)<a class="headerlink" href="#equation-39d2b5ab-bab4-4aa6-a25f-c6ce4b7b4784" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3cd6cf5d-6689-43bd-ba45-46111560c031">
+<span class="eqno">(34)<a class="headerlink" href="#equation-3cd6cf5d-6689-43bd-ba45-46111560c031" title="Permalink to this equation">#</a></span>\[\begin{align}
     D = 
         \begin{bmatrix}
         1 &amp; 2 \\
@@ -1375,8 +1319,8 @@ indeed, have an inverse.</p></li>
         5 &amp; 6 
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-43389c48-2193-4077-8b18-64767cf6dd00">
-<span class="eqno">(35)<a class="headerlink" href="#equation-43389c48-2193-4077-8b18-64767cf6dd00" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-dbbe591c-aa9b-4e29-9772-a4c28bc89d85">
+<span class="eqno">(35)<a class="headerlink" href="#equation-dbbe591c-aa9b-4e29-9772-a4c28bc89d85" title="Permalink to this equation">#</a></span>\[\begin{align}
     D * I = 
         \begin{bmatrix}
         1 &amp; 2 \\
@@ -1393,8 +1337,8 @@ indeed, have an inverse.</p></li>
         5 &amp; 6 
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-2d7b167d-f7f2-47d0-bb47-eee98e4e05c7">
-<span class="eqno">(36)<a class="headerlink" href="#equation-2d7b167d-f7f2-47d0-bb47-eee98e4e05c7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7fde3137-2c05-4bb0-b220-c39cb90eb172">
+<span class="eqno">(36)<a class="headerlink" href="#equation-7fde3137-2c05-4bb0-b220-c39cb90eb172" title="Permalink to this equation">#</a></span>\[\begin{align}
     I * D = 
         \begin{bmatrix}
         1 &amp; 0 &amp; 0 \\
@@ -1413,8 +1357,8 @@ indeed, have an inverse.</p></li>
         \end{bmatrix}
 \end{align}\]</div>
 <p>Earlier we inferred that  the multiplication of matrices is not commutative. The special case is when a <span class="math notranslate nohighlight">\(square\)</span> matrix is multiplied by its identity matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bdf04581-5fc3-4ed4-9fcd-0632bb1cbdd5">
-<span class="eqno">(37)<a class="headerlink" href="#equation-bdf04581-5fc3-4ed4-9fcd-0632bb1cbdd5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-db8ef320-22be-432d-bcef-4e7681473813">
+<span class="eqno">(37)<a class="headerlink" href="#equation-db8ef320-22be-432d-bcef-4e7681473813" title="Permalink to this equation">#</a></span>\[\begin{align}
         \begin{bmatrix}
         1 &amp; 0 \\
         0 &amp; 1 
@@ -1436,16 +1380,12 @@ indeed, have an inverse.</p></li>
         0 &amp; 1 
         \end{bmatrix}
 \end{align}\]</div>
-<div class="cell tag_hide-input docutils container">
-<details class="hide above-input">
-<summary aria-label="Toggle hidden content">
-<span class="collapsed">Show code cell source</span>
-<span class="expanded">Hide code cell source</span>
-</summary>
+<div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy.matlib</span>
 
 <span class="n">D</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="c1"># alternatively you can use numpy eye or identity function that creates a 2d array of identity matrix</span>
 <span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matlib</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">D</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">DI</span> <span class="o">=</span> <span class="n">D</span> <span class="o">@</span> <span class="n">I</span>
@@ -1463,7 +1403,6 @@ indeed, have an inverse.</p></li>
 </pre></div>
 </div>
 </div>
-</details>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>D = 
  [[1 2]
@@ -1492,8 +1431,8 @@ I * D =
 <section id="triangular-and-diagonal-matrices">
 <h3>Triangular and diagonal matrices<a class="headerlink" href="#triangular-and-diagonal-matrices" title="Link to this heading">#</a></h3>
 <p>Triangular and diagonal matrices are square matrices. <span class="math notranslate nohighlight">\(A\)</span> is an upper triangular matrix, because all the elements below the main diagonal are 0s. <span class="math notranslate nohighlight">\(B\)</span> is a lower triangular matrix, because all the elements above the main diagonal are 0s. <span class="math notranslate nohighlight">\(C\)</span> is diagonal matrix, because all the elements above and below the main diagonal are 0s.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bfb5a64-4167-4272-889f-9274722ac20c">
-<span class="eqno">(38)<a class="headerlink" href="#equation-6bfb5a64-4167-4272-889f-9274722ac20c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-d5d809a0-df29-4642-bee0-fd041244af09">
+<span class="eqno">(38)<a class="headerlink" href="#equation-d5d809a0-df29-4642-bee0-fd041244af09" title="Permalink to this equation">#</a></span>\[\begin{align}
 A = 
     \begin{bmatrix}
     1 &amp; 2 &amp; 3 \\
@@ -1517,8 +1456,604 @@ C =
 </section>
 <section id="singular-and-non-singular-matrices">
 <h3>Singular and non-singular matrices<a class="headerlink" href="#singular-and-non-singular-matrices" title="Link to this heading">#</a></h3>
+<p>Two numbers are multiplicative inverses if their product is 1 (the multiplicative identity). For example, 4 and 1/4 are multiplicative inverses. When a matrix has a multiplicative inverse, the product of the matrix and its inverse is equal to an identity matrix (multiplicative identity).</p>
 <p>A square matrix is singular if it has a multiplicative inverse; a matrix is non-singular if it does not have a multiplicative inverse.</p>
 </section>
+<section id="properties-under-addition">
+<h3>Properties under addition<a class="headerlink" href="#properties-under-addition" title="Link to this heading">#</a></h3>
+<p>Matrix addition is commutative; if you add <span class="math notranslate nohighlight">\(A\)</span> to <span class="math notranslate nohighlight">\(B\)</span>, you get the same result as adding <span class="math notranslate nohighlight">\(B\)</span> to <span class="math notranslate nohighlight">\(A\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[A + B = B + A\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="mi">2</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span> 
+<span class="n">BA</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A + B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B + A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">BA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A + B == B + A is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">AB</span><span class="p">,</span><span class="n">BA</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+A + B = 
+ [[ 3  6  9]
+ [12 15 18]
+ [21 24 27]]
+B + A = 
+ [[ 3  6  9]
+ [12 15 18]
+ [21 24 27]]
+A + B == B + A is True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Matrix addition is associative.</p>
+<div class="math notranslate nohighlight">
+\[(A + B) + C = A + (B + C)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span> <span class="o">*</span> <span class="mi">2</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+<span class="n">AB_C</span> <span class="o">=</span> <span class="n">AB</span> <span class="o">+</span> <span class="n">C</span> 
+<span class="n">BC</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="n">C</span>
+<span class="n">BC_A</span> <span class="o">=</span> <span class="n">BC</span> <span class="o">+</span> <span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A + B) + C = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AB_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A + (B + C) = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">BC_A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A + B) + C == A + (B + C) is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">AB_C</span><span class="p">,</span><span class="n">BC_A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+C = 
+ [[ 4  6  8]
+ [10 12 14]
+ [16 18 20]]
+(A + B) + C = 
+ [[ 7 12 17]
+ [22 27 32]
+ [37 42 47]]
+A + (B + C) = 
+ [[ 7 12 17]
+ [22 27 32]
+ [37 42 47]]
+(A + B) + C == A + (B + C) is True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="properties-under-multiplication">
+<h3>Properties under multiplication<a class="headerlink" href="#properties-under-multiplication" title="Link to this heading">#</a></h3>
+<p>Matrix multiplication, as a rule, is not commutative. The exceptions involve multiplying a matrix by its inverse or by the multiplicative identity.</p>
+<div class="math notranslate nohighlight">
+\[A * B ≠ B * A\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">2</span>
+
+<span class="n">AmB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span> 
+<span class="n">BmA</span> <span class="o">=</span> <span class="n">B</span> <span class="o">@</span> <span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A * B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AmB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B * A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">BmA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A * B == B * A is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">AmB</span><span class="p">,</span><span class="n">BmA</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+A * B = 
+ [[ 42  48  54]
+ [ 96 111 126]
+ [150 174 198]]
+B * A = 
+ [[ 54  66  78]
+ [ 90 111 132]
+ [126 156 186]]
+A * B == B * A is False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Scalar multiplication is commutative.</p>
+<div class="math notranslate nohighlight">
+\[kA = Ak\]</div>
+<p>Matrix multiplication is associative when you deal with three matrices. The order and grouping is key.</p>
+<div class="math notranslate nohighlight">
+\[(A * B) * C = A * (B * C)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">C</span> <span class="o">=</span> <span class="n">B</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">AmB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
+<span class="n">AmB_C</span> <span class="o">=</span> <span class="n">AmB</span> <span class="o">@</span> <span class="n">C</span> 
+<span class="n">BmC</span> <span class="o">=</span> <span class="n">B</span> <span class="o">@</span> <span class="n">C</span>
+<span class="n">BmC_A</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">BmC</span> 
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;C = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A * B) * C = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AmB_C</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A * (B * C) = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">BmC_A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A * B) * C == A * (B * C) is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">AmB_C</span><span class="p">,</span><span class="n">BmC_A</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+C = 
+ [[ 4  5  6]
+ [ 7  8  9]
+ [10 11 12]]
+(A * B) * C = 
+ [[1044 1188 1332]
+ [2421 2754 3087]
+ [3798 4320 4842]]
+A * (B * C) = 
+ [[1044 1188 1332]
+ [2421 2754 3087]
+ [3798 4320 4842]]
+(A * B) * C == A * (B * C) is True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Mixed associative rule. Multiplying a matrix by a scalar and then that result times a second matrix gives the same result as you get if you first multiply the two matrices together and then multiply by the scalar.</p>
+<div class="math notranslate nohighlight">
+\[(kA) * B = k (A * B)\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="mi">2</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">kmA</span> <span class="o">=</span> <span class="n">k</span> <span class="o">*</span> <span class="n">A</span>
+<span class="n">kmA_B</span> <span class="o">=</span> <span class="n">kmA</span> <span class="o">@</span> <span class="n">B</span>
+<span class="n">AmB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span> 
+<span class="n">AmB_k</span> <span class="o">=</span> <span class="n">AmB</span> <span class="o">*</span> <span class="n">k</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;kA = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kmA</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(kA) * B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">kmA_B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A * B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AmB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;k(A * B) = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AmB_k</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(kA) * B == k(A * B) is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">kmA_B</span><span class="p">,</span><span class="n">AmB_k</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 3  4  5]
+ [ 6  7  8]
+ [ 9 10 11]]
+kA = 
+ [[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+(kA) * B = 
+ [[ 84  96 108]
+ [192 222 252]
+ [300 348 396]]
+A * B = 
+ [[ 42  48  54]
+ [ 96 111 126]
+ [150 174 198]]
+k(A * B) = 
+ [[ 84  96 108]
+ [192 222 252]
+ [300 348 396]]
+(kA) * B == k(A * B) is True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The distributive property states that <span class="math notranslate nohighlight">\(a(b+c) = ab + ac\)</span>. In matrix algebra it is:
+$<span class="math notranslate nohighlight">\( A * (B + C) = A * B + A * C \)</span><span class="math notranslate nohighlight">\(
+Changing the order in the distribution also creates a true statement i.e. 
+\)</span><span class="math notranslate nohighlight">\( (B + C) * A = B * A + C * A \)</span>$</p>
+</section>
+<section id="transpose">
+<h3>Transpose<a class="headerlink" href="#transpose" title="Link to this heading">#</a></h3>
+<p>When you perform a matrix transpose the rows become columns, and the columns become rows. A <span class="math notranslate nohighlight">\(3 \times 5\)</span> matrix becomes a <span class="math notranslate nohighlight">\(5 \times 3\)</span> matrix when you perform a matrix transpose.
+Performing a matrix transpose on <span class="math notranslate nohighlight">\(A\)</span>, the notation is <span class="math notranslate nohighlight">\(A^T\)</span>. Each <span class="math notranslate nohighlight">\(a_{ij}\)</span> in <span class="math notranslate nohighlight">\(A\)</span> becomes <span class="math notranslate nohighlight">\(a_{ji}\)</span> in <span class="math notranslate nohighlight">\(A^T\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="c1"># alternatively you can use numpy.transpose</span>
+<span class="n">At</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A^t = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">At</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+A^t = 
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The transpose of the sum of two matrices is equal to the sum of the two
+transposes.
+$<span class="math notranslate nohighlight">\((A + B)^T = A^T + B^T\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span>
+<span class="n">ABt</span> <span class="o">=</span> <span class="n">AB</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">At</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">Bt</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">AtBt</span> <span class="o">=</span> <span class="n">At</span> <span class="o">+</span> <span class="n">Bt</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A + B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A+B)^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ABt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">At</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Bt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^T + B^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AtBt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A+B)^T == A^T + B^T is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">ABt</span><span class="p">,</span><span class="n">AtBt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+A + B = 
+ [[ 2  4  6]
+ [ 8 10 12]
+ [14 16 18]]
+(A+B)^T = 
+ [[ 2  8 14]
+ [ 4 10 16]
+ [ 6 12 18]]
+A^T = 
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+B^T = 
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+A^T + B^T = 
+ [[ 2  8 14]
+ [ 4 10 16]
+ [ 6 12 18]]
+(A+B)^T == A^T + B^T is True
+</pre></div>
+</div>
+</div>
+</div>
+<p>The transpose of the product of two matrices is equal to the product of the
+two transposes in the opposite order. Implied in this rule is that multiplication is possible.
+$<span class="math notranslate nohighlight">\((A * B)^T = B^T * A^T\)</span>$</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
+<span class="n">ABt</span> <span class="o">=</span> <span class="n">AB</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">At</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">Bt</span> <span class="o">=</span> <span class="n">B</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="n">BtAt</span> <span class="o">=</span> <span class="n">Bt</span> <span class="o">@</span> <span class="n">At</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A * B = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A*B)^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">ABt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;A^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">At</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">Bt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;B^T * A^T = </span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">BtAt</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;(A*B)^T == B^T * A^T is&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">array_equal</span><span class="p">(</span><span class="n">ABt</span><span class="p">,</span><span class="n">BtAt</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 2 3]
+ [4 5 6]
+ [7 8 9]]
+B = 
+ [[ 2  3  4]
+ [ 5  6  7]
+ [ 8  9 10]]
+A * B = 
+ [[ 36  42  48]
+ [ 81  96 111]
+ [126 150 174]]
+(A*B)^T = 
+ [[ 36  81 126]
+ [ 42  96 150]
+ [ 48 111 174]]
+A^T = 
+ [[1 4 7]
+ [2 5 8]
+ [3 6 9]]
+B^T = 
+ [[ 2  5  8]
+ [ 3  6  9]
+ [ 4  7 10]]
+B^T * A^T = 
+ [[ 36  81 126]
+ [ 42  96 150]
+ [ 48 111 174]]
+(A*B)^T == B^T * A^T is True
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="zero-matrix">
+<h3>Zero matrix<a class="headerlink" href="#zero-matrix" title="Link to this heading">#</a></h3>
+<p>The zero matrix has all zeros. When you add a matrix to the scalar multiple created by multiplying by –1 you get the zero matrix.</p>
+<div class="math notranslate nohighlight">
+\[A + (-1)A = 0\]</div>
+<p>If <span class="math notranslate nohighlight">\(AB = 0\)</span> it does not imply that <span class="math notranslate nohighlight">\(A = 0\)</span> or <span class="math notranslate nohighlight">\(B = 0\)</span>. You can get a 0 matrix without either matrix in the product being a zero matrix.</p>
+<p>For example:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">B</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+
+<span class="n">AB</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">B</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;B = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">B</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A * B = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">AB</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[1 0]
+ [1 0]]
+B = 
+ [[0 0]
+ [1 1]]
+A * B = 
+ [[0 0]
+ [0 0]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse">
+<h3>Inverse<a class="headerlink" href="#inverse" title="Link to this heading">#</a></h3>
+<p>An invertible matrix is a square matrix. If matrix <span class="math notranslate nohighlight">\(A\)</span> is invertible, then there’s also a matrix <span class="math notranslate nohighlight">\(A^{–1}\)</span> where, when you multiply the two matrices, <span class="math notranslate nohighlight">\(A * A^{–1}\)</span> the
+order doesn’t matter, you get an identity matrix of the same dimension as <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(A^{–1}\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[A * A^{–1} = I = A^{–1} * A\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">numpy.linalg</span> <span class="kn">import</span> <span class="n">inv</span>
+<span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">Ainv</span> <span class="o">=</span> <span class="n">inv</span><span class="p">(</span><span class="n">A</span><span class="p">)</span>
+
+<span class="c1"># alternatively you can use @ as used before for matrix multiplication as used before. </span>
+<span class="n">A_Ainv</span> <span class="o">=</span> <span class="n">A</span> <span class="o">@</span> <span class="n">Ainv</span>
+<span class="n">Ainv_A</span> <span class="o">=</span> <span class="n">Ainv</span> <span class="o">@</span> <span class="n">A</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A^-1 = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">Ainv</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot; A * A^-1 = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_Ainv</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[3 7]
+ [2 5]]
+A^-1 = 
+ [[ 5. -7.]
+ [-2.  3.]]
+ A * A^-1 = 
+ [[ 1.00000000e+00 -1.77635684e-15]
+ [ 0.00000000e+00  1.00000000e+00]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Not all matrices are invertible. For example, a matrix with a row of 0s or a column of 0s isn’t invertible — it has no inverse.</p>
+<section id="inverse-of-2-times-2-matrix">
+<h4>Inverse of <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix<a class="headerlink" href="#inverse-of-2-times-2-matrix" title="Link to this heading">#</a></h4>
+<p>If a matrix has an inverse, that inverse can be found using a method called row reduction. We shall look at this in detail in later sections.</p>
+<p><b>Although for a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix, there exists an easy process to find the inverse if it exists.</b></p>
+<p>Consider a general a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix <span class="math notranslate nohighlight">\(M\)</span> with elements <span class="math notranslate nohighlight">\(a, b, c,d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M = 
+\begin{bmatrix}
+        a &amp; b \\
+        c &amp; d
+\end{bmatrix}
+\end{split}\]</div>
+<p>To find the inverse of <span class="math notranslate nohighlight">\(M\)</span>, you first compute the number: <span class="math notranslate nohighlight">\(ad – bc\)</span>. This number is the difference between the two cross-products of the elements in <span class="math notranslate nohighlight">\(M\)</span>.</p>
+<p>Next, you reverse the elements <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(d\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+        d &amp; b \\
+        c &amp; a
+\end{bmatrix}
+\end{split}\]</div>
+<p>Negate (change to the opposite) the elements <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span>.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+\begin{bmatrix}
+        d &amp; -b \\
+        -c &amp; a
+\end{bmatrix}
+\end{split}\]</div>
+<p>Now divide each adjusted element by the number computed from the cross-products.</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+M^{-1} = 
+\begin{bmatrix}
+        \frac{d}{ad-bc} &amp; \frac{-b}{ad-bc} \\
+        \frac{-c}{ad-bc} &amp; \frac{a}{ad-bc}
+\end{bmatrix}
+\end{split}\]</div>
+<p>Because you’re dividing by the number obtained from <span class="math notranslate nohighlight">\(ad – bc\)</span>, it’s essential that the difference <span class="math notranslate nohighlight">\(ad – bc\)</span> not be equal to 0, which also implies that for such matrices there is no inverse.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="o">-</span><span class="mi">3</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">))</span>
+<span class="n">A_cpy</span> <span class="o">=</span> <span class="n">A</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="c1"># Step 1: compute difference of the cross-products ad-bc</span>
+<span class="n">s1</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1"># Step 2: Negate elements b and c</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">A</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="o">-</span><span class="mi">1</span>
+<span class="c1"># Step 3: reverse the elements a and d</span>
+<span class="n">s3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">flip</span><span class="p">(</span><span class="n">A</span><span class="p">)</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+<span class="c1"># step 4: divide the matrix in step 3 by the cross product in step 1</span>
+<span class="n">s4</span> <span class="o">=</span> <span class="n">s3</span><span class="o">/</span><span class="n">s1</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 1: compute difference of the cross-products ad-bc = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">s1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 2: Negate elements b and c = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Step 3: reverse the elements a and d = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">s3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;step 4: divide the matrix in step 3 by the cross product in step 1 = </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">s4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A = 
+ [[ 4  7]
+ [-2 -3]]
+Step 1: compute difference of the cross-products ad-bc = 
+ 2
+Step 2: Negate elements b and c = 
+ [[ 4  7]
+ [-2 -3]]
+Step 3: reverse the elements a and d = 
+ [[-3  7]
+ [-2  4]]
+step 4: divide the matrix in step 3 by the cross product in step 1 = 
+ [[-1.5  3.5]
+ [-1.   2. ]]
+</pre></div>
+</div>
+</div>
+</div>
+<p>When you multiply the original matrix <span class="math notranslate nohighlight">\(A\)</span> times the inverse <span class="math notranslate nohighlight">\(A^{–1}\)</span>, the result is
+the <span class="math notranslate nohighlight">\(2 \times 2\)</span> identity matrix.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;A * A^-1= </span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">,</span> <span class="n">A_cpy</span> <span class="o">@</span> <span class="n">s4</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>A * A^-1= 
+ [[1. 0.]
+ [0. 1.]]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="inverse-using-row-reduction">
+<h4>Inverse using row reduction<a class="headerlink" href="#inverse-using-row-reduction" title="Link to this heading">#</a></h4>
+<p>Row operations are performed with the goal of changing the values in the matrix such a way that the resultant is an identity matrix. This is done by creating a double-width matrix with the original on the left and an identity matrix on the right. Then you go through row operations to transform the left-hand matrix into an identity matrix. When you’re finished, the matrix on the right is the original matrix’s inverse.</p>
+<p>The row operations are</p>
+<ol class="arabic simple">
+<li><p>Interchange any two rows.</p></li>
+<li><p>Multiply all the elements in a row by a real number (not 0).</p></li>
+<li><p>Add multiples of the elements of one row to the elements of another row.</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+D =
+\begin{bmatrix}
+    1 &amp; 2 &amp; 0 \\
+    -1 &amp; 3 &amp; 3 \\
+    0 &amp; 1 &amp; 1
+\end{bmatrix}
+\end{split}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">A</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">I</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matlib</span><span class="o">.</span><span class="n">identity</span><span class="p">(</span><span class="n">A</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+</section>
+<section id="system-of-equations">
+<h2>System of equations<a class="headerlink" href="#system-of-equations" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -1586,22 +2121,36 @@ C =
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-and-subtraction">Vector addition and subtraction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors">Vectors</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-numpy">Vectors in numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vectors-in-coordinate-plane">Vectors in coordinate plane</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#scalar-multiplication">Scalar multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-addition-and-subtraction">Vector addition and subtraction</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vector-magnitude">Vector magnitude</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangle-inequality">Triangle inequality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inner-product">Inner product</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#orthoganality">Orthoganality</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#angle-between-two-vectors">Angle between two vectors</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#matrices">Matrices</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-and-subtracting">Adding and subtracting</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#matrix-multiplication">Matrix multiplication</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#identity-matrix">Identity matrix</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#triangular-and-diagonal-matrices">Triangular and diagonal matrices</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#singular-and-non-singular-matrices">Singular and non-singular matrices</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-under-addition">Properties under addition</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#properties-under-multiplication">Properties under multiplication</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#transpose">Transpose</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zero-matrix">Zero matrix</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse">Inverse</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-of-2-times-2-matrix">Inverse of <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#inverse-using-row-reduction">Inverse using row reduction</a></li>
 </ul>
 </li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#system-of-equations">System of equations</a></li>
 </ul>
   </nav></div>
 

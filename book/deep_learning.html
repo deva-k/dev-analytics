@@ -58,6 +58,8 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'book/deep_learning';</script>
     <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/deep_learning.html" />
     <link rel="icon" href="../_static/fav.ico"/>
@@ -417,7 +419,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
 </div></div>
       
     </div>
@@ -433,6 +437,34 @@ document.write(`
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-our-first-neurons">Coding our first neurons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-single-neuron">A Single Neuron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-layer-of-neurons">A Layer of Neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-batch-of-data">A batch of Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-layer-of-neurons-and-batch-of-data">A layer of neurons and batch of data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layers">Adding Layers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-activation-function">Linear Activation function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-activation-function">Sigmoid Activation Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rectified-linear-activation-function">Rectified Linear Activation Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-activation-functions">Why Use Activation Functions?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu-activation-in-a-pair-of-neurons">ReLU Activation in a Pair of Neurons</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -444,6 +476,759 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="deep-learning">
 <h1>Deep Learning<a class="headerlink" href="#deep-learning" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>The artificial neural networks are inspired by the brain. The brain contains a huge number of <b>neurons</b>, which are tiny individual processing units.  A single neuron by itself is relatively useless. These are combined with hundreds or thousands of other neurons. They receive a signal from other neurons through <b>dendrites</b>. If this signal is of considerable strength, the nucleus of the neuron decides to fire a respective output signal along the <b>axon</b>. This is further passed on to other neurons via axon terminals to dendrites of other neurons. The axon-dendrite connections are called as <b>synaptic connections</b>. <i>These synaptic connections are modifiable, meaning the strength of the connections may change based in the stimulus passed and get stronger if they are being used repeatedly.</i></p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/bion_vs_an.webp" /></p>
+<p>These immense connections is what makes the brain a completely different computational device acompared to everyday computers.</p>
+<p>The interconnectivity produces relationships and results that frequently outperform any other machine learning methods. Hence, this has been mimicked therefore resulting in something called the <b>Artificial Neural Network (ANN)</b>.</p>
+<p><img alt="Artificial Neural Network" src="../_images/ann.png" /></p>
+<p><i>Neural networks are considered to be “black boxes” in that we often have no idea why they reach the conclusions they do. We do understand how they do this, though.</i></p>
+<p>The dense layers, consists of interconnected neurons. In a dense layer, each neuron of a given layer is connected to every neuron of the next layer, which means that its output value becomes an input for the next neuron. This is similar to what we have seen in the case of a biological neural network.</p>
+<p>Each connection between neurons has a weight associated with it, which is a trainable factor of how much of this input to use, and this weight gets multiplied by the input value. Once all of the inputs·weights flow into our neuron, they are summed, and a bias, another trainable parameter, is added. The purpose of the bias is to offset the
+output positively or negatively.</p>
+<p>Biases and weights are both tunable parameters, and both will impact the neurons’ outputs, but
+they do so in different ways. Since weights are multiplied, they will only change the magnitude or
+even completely flip the sign from positive to negative or vice versa.</p>
+<p><span class="math notranslate nohighlight">\( Output = weight \cdot input + bias \)</span> can be treated as the equation of the line i.e. <span class="math notranslate nohighlight">\( y = mx + b \)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weight = &quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias = &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weight =  1
+bias =  0
+</pre></div>
+</div>
+<img alt="../_images/8dad4bb2afe338479a83b2e7304a97c4f3ad63e739142683825ef0cfe9e98834.png" src="../_images/8dad4bb2afe338479a83b2e7304a97c4f3ad63e739142683825ef0cfe9e98834.png" />
+</div>
+</div>
+<p>Adjusting the weight will impact the slope of the function:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weight = &quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias = &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weight =  2
+bias =  0
+</pre></div>
+</div>
+<img alt="../_images/a902b8a2be66ce85d166777ed7d24501bb7c87c1e09d47c704fa9c13e905d0e8.png" src="../_images/a902b8a2be66ce85d166777ed7d24501bb7c87c1e09d47c704fa9c13e905d0e8.png" />
+</div>
+</div>
+<p>The bias offsets the overall
+function. For example, with a weight of 1 and a bias of 2:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">m</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">y</span> <span class="o">=</span> <span class="p">(</span><span class="n">m</span><span class="o">*</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weight = &quot;</span><span class="p">,</span> <span class="n">m</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;bias = &quot;</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Weight =  2
+bias =  2
+</pre></div>
+</div>
+<img alt="../_images/47124fd533a343ef5d4ed645311f42446162b18f32a734cbfec4fffd49bea785.png" src="../_images/47124fd533a343ef5d4ed645311f42446162b18f32a734cbfec4fffd49bea785.png" />
+</div>
+</div>
+<p>Weights and biases help to impact the outputs of neurons, but they do so in
+slightly different ways.</p>
+<p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-966489ed-998a-4467-b471-ad8cc1b9dd05">
+<span class="eqno">(42)<a class="headerlink" href="#equation-966489ed-998a-4467-b471-ad8cc1b9dd05" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y = 
+\left\{ \begin{aligned} 
+  1 \hspace{1cm} x &gt; 0\\
+  0 \hspace{1cm} x \le 0
+\end{aligned} \right.
+\end{equation}\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="c1"># numpy heaviside can be used to create a step function where the 2nd arg is teh value to be used in case if its equal to</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">heaviside</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/2f0feffbac88b5286bc2ee60c44ef998bed66cc0c4c09b874094f6f38008dc1d.png" src="../_images/2f0feffbac88b5286bc2ee60c44ef998bed66cc0c4c09b874094f6f38008dc1d.png" />
+</div>
+</div>
+<p>So, in this case if the neuron’s output value which is calculated by <span class="math notranslate nohighlight">\(sum(inputs.weights) + bias\)</span>, is greater than <span class="math notranslate nohighlight">\(0\)</span>, then the neuron fires and the output would be <span class="math notranslate nohighlight">\(1\)</span>. Otherwise, it does not fire and pass along a <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p>On this output we apply an activation function, something similar to the step function as seen earlier, although we shall use more informative activation functions which we shall discuss later.</p>
+<p>Each neuron’s output could be a part of the ending output layer,
+as well as the input to another layer of neurons.</p>
+<p><img alt="title" src="../_images/basic_nn.png" /></p>
+<p>The <b>input layer</b> represents your actual input data, for example, pixel values from an image
+or data from a temperature sensor. While this data can be “raw” in the exact form it was collected,
+you will typically preprocess your data through functions like normalization and scaling, and
+your input needs to be in numeric form.</p>
+<p>The <b>output layer</b> is whatever the neural network returns. With classification, where we aim to predict the class of the input, the output layer often has as many neurons as the training dataset has classes, but can also have a single
+output neuron for binary (two classes) classification.</p>
+<p>The <b>parameters</b> are the weights and biases.</p>
+<p>The end goal for neural networks is to adjust their weights and biases (the parameters), so when
+applied to a yet-unseen example in the input, they produce the desired output. The goal is for the model to not only accurately predict on the training data, but also to be similarly accurate while predicting on the withheld out-of-sample validation data. This is called generalization, which means learning to fit the data instead of memorizing it.</p>
+</section>
+<section id="coding-our-first-neurons">
+<h2>Coding our first neurons<a class="headerlink" href="#coding-our-first-neurons" title="Link to this heading">#</a></h2>
+<section id="a-single-neuron">
+<h3>A Single Neuron<a class="headerlink" href="#a-single-neuron" title="Link to this heading">#</a></h3>
+<p>Let’s say we have a single neuron, and there are three inputs to this neuron. As in most cases,
+when you initialize parameters in neural networks, our network will have weights initialized
+randomly, and biases set as zero to start.</p>
+<p>Each input also needs a weight associated with it. Weights are one of the types of values that change inside the model during the training phase, along with biases that also change during training. The values for weights and biases are
+what get “trained,” and they are what make a model actually work.</p>
+<p>At the moment, we’re modeling a single neuron with three inputs. Since
+we’re modeling a single neuron, we only have one bias, as there’s just one bias value per neuron.
+The bias is an additional tunable value but is not associated with any input in contrast to the
+weights.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">])</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span><span class="mf">0.8</span><span class="p">,</span><span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">bias</span> <span class="o">=</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each input is multiplied by that’s input’s weight, then adds the bias.</p>
+<p><img alt="title" src="../_images/math_neuron.png" /></p>
+<p>To do this, we can perform dot product of 2 vectors. To know more go through the Linear Algebra section of this book.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="mi">2</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2.3
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="a-layer-of-neurons">
+<h3>A Layer of Neurons<a class="headerlink" href="#a-layer-of-neurons" title="Link to this heading">#</a></h3>
+<p>Neural networks typically have layers that consist of more than one neuron. Layers are nothing
+more than groups of neurons. Each neuron in a layer takes exactly the same input — the input
+given to the layer (which can be either the training data or the output from the previous layer),
+but contains its own set of weights and its own bias, producing its own unique output.</p>
+<p><img alt="title" src="../_images/layer_neurons.png" /></p>
+<p>We’ll keep the 4 inputs and 4 set of weights for the first neuron. We shall add 3 more set of weights for the 2 other neurons. the layer’s output is going to be a list of 3 values, each per neuron.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">])</span>
+
+<span class="n">weights1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">weights2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+<span class="n">weights3</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">])</span>
+
+<span class="n">bias1</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">bias2</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">bias3</span> <span class="o">=</span> <span class="mf">0.5</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p><img alt="title" src="../_images/layer_neurons_math.png" /></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;neuron 1 = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights1</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;neuron 2 = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights2</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;neuron 3 = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights3</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias3</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>neuron 1 =  4.8
+neuron 2 =  1.21
+neuron 3 =  2.385
+</pre></div>
+</div>
+</div>
+</div>
+<p>In order to simplify the previous code, lets use a vector for inputs, matrix for the weights and a vector for biases for all the neurons. Remember that the below computation can be done with vectors instead of column vectors as well.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">inputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[1. ],
+       [2. ],
+       [3. ],
+       [2.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],[</span><span class="o">-</span><span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">]])</span>
+<span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[ 0.2 ,  0.8 , -0.5 ,  1.  ],
+        [ 0.5 , -0.91,  0.26, -0.5 ],
+        [-0.26, -0.27,  0.17,  0.87]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">0.5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">biases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2. ],
+       [3. ],
+       [0.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">weights</span><span class="p">,</span><span class="n">inputs</span><span class="p">)</span> <span class="o">+</span> <span class="n">biases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[4.8  ],
+        [1.21 ],
+        [2.385]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>We have three sets of weights and three biases, which define three neurons. Each
+neuron is “connected” to the same inputs. The difference is in the separate weights and bias
+that each neuron applies to the input. This is called a <b>fully connected neural network</b> — every
+neuron in the current layer has connections to every neuron from the previous layer. When you make a neural network
+of your own, you also get to decide how many neurons you want for each of the layers. You can
+combine however many inputs you are given with however many neurons that you desire.</p>
+</section>
+<section id="a-batch-of-data">
+<h3>A batch of Data<a class="headerlink" href="#a-batch-of-data" title="Link to this heading">#</a></h3>
+<p>To train, neural networks tend to receive data in batches. In the current implementation, the input has four values. Each of these values is a <b>feature observation datum</b>, and together they form a feature set instance, also called an <b>observation</b>, or most commonly, a <b>sample</b>.</p>
+<p>Often, neural networks expect to take in many samples. If you fit (perform a step of a training process) on one
+sample at a time, you’re highly likely to keep fitting to that individual sample, rather than
+slowly producing general tweaks to weights and biases that fit the entire dataset. Fitting or
+training in batches gives you a higher chance of making more meaningful changes to weights
+and biases.</p>
+<p>An example of a batch of data could look like:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">batch</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">batch</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[51, 92, 14, 71],
+        [60, 20, 82, 86],
+        [74, 74, 87, 99],
+        [23,  2, 21, 52],
+        [ 1, 87, 29, 37],
+        [ 1, 63, 59, 20],
+        [32, 75, 57, 21],
+        [88, 48, 90, 58]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>where each row is a feature set or sample.</p>
+</section>
+<section id="a-layer-of-neurons-and-batch-of-data">
+<h3>A layer of neurons and batch of data<a class="headerlink" href="#a-layer-of-neurons-and-batch-of-data" title="Link to this heading">#</a></h3>
+<p>When inputs become a batch of inputs (a matrix), we need to perform the
+matrix product. It takes all of the combinations of rows from the left matrix and columns from the
+right matrix, performing the dot product on them and placing the results in an output array. Look into matrix multiplication in the Linear Algebra section of this book.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)))</span>
+<span class="n">inputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[5, 8, 9, 5],
+        [0, 0, 1, 7],
+        [6, 9, 2, 4]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">.5</span><span class="p">])</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">biases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[2. ],
+       [3. ],
+       [0.5]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">matrix</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">)))</span>
+<span class="n">weights</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[-0.16595599,  0.44064899, -0.99977125, -0.39533485],
+        [-0.70648822, -0.81532281, -0.62747958, -0.30887855],
+        [-0.20646505,  0.07763347, -0.16161097,  0.370439  ]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each row is the weights assigned for each input for a specific neuron. In order to perform matrix multiplication, lets transpose the weighhts matrix such a way that, the first column is the weights associated to the first neuron and so on.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">weights</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[-0.16595599, -0.70648822, -0.20646505],
+        [ 0.44064899, -0.81532281,  0.07763347],
+        [-0.99977125, -0.62747958, -0.16161097],
+        [-0.39533485, -0.30887855,  0.370439  ]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="o">+</span> <span class="n">biases</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>matrix([[ -6.27920358, -14.2467325 ,   0.48643875],
+        [ -1.76711523,   0.2103706 ,   2.93146203],
+        [  1.38922302, -11.06730794,   1.11844496]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each column in the matrix is the respective output for a given sample for the the first neuron. The above implementation can also be done with 2d and 1d arrays.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">uniform</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">))</span>
+<span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mf">.5</span><span class="p">])</span>
+<span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="o">+</span> <span class="n">biases</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 13.58621906,  -1.67576397,   5.13701575],
+       [  4.29572857, -10.01346875,  -0.47708832],
+       [ 15.52239525, -10.92554077,   2.96642479]])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="adding-layers">
+<h2>Adding Layers<a class="headerlink" href="#adding-layers" title="Link to this heading">#</a></h2>
+<p>Neural networks become “deep” when they have 2 or more hidden layers. Layers between the input and output layer endpoints have values that we don’t necessarily deal with, hence the name “hidden.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">2.</span><span class="p">,</span> <span class="mf">5.</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">2.7</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.8</span><span class="p">]])</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.2</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span>
+            <span class="p">[</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.91</span><span class="p">,</span> <span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">0.26</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.27</span><span class="p">,</span> <span class="mf">0.17</span><span class="p">,</span> <span class="mf">0.87</span><span class="p">]])</span>
+<span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">])</span>
+
+<span class="n">weights2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([[</span><span class="mf">0.1</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.14</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.33</span><span class="p">],</span>
+            <span class="p">[</span><span class="o">-</span><span class="mf">0.44</span><span class="p">,</span> <span class="mf">0.73</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.13</span><span class="p">]])</span>
+<span class="n">biases2</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>As previously stated, inputs to layers are either inputs from the actual dataset you’re training with
+or outputs from a previous layer. That’s why we defined 2 versions of weights and biases but only
+1 of inputs — because the inputs for layer 2 will be the outputs from the previous layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layer1_outputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="o">+</span> <span class="n">biases</span>
+<span class="n">layer1_outputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 4.8  ,  1.21 ,  2.385],
+       [ 8.9  , -1.81 ,  0.2  ],
+       [ 1.41 ,  1.051,  0.026]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">layer2_outputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">layer1_outputs</span><span class="p">,</span><span class="n">weights2</span><span class="o">.</span><span class="n">transpose</span><span class="p">())</span> <span class="o">+</span> <span class="n">biases2</span>
+<span class="n">layer2_outputs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.5031 , -1.04185, -2.03875],
+       [ 0.2434 , -2.7332 , -5.7633 ],
+       [-0.99314,  1.41254, -0.35655]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>At this point, our neural network could be visually represented as:</p>
+<p><img alt="title" src="../_images/hidden_layers.png" /></p>
+<section id="training-data">
+<h3>Training Data<a class="headerlink" href="#training-data" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">nnfs</span>
+<span class="kn">from</span> <span class="nn">nnfs.datasets</span> <span class="kn">import</span> <span class="n">spiral_data</span>
+
+<span class="c1"># The nnfs.init() does three things: it sets the random seed to 0 (by the default), creates a</span>
+<span class="c1"># float32 dtype default, and overrides the original dot product from NumPy. All of these are meant</span>
+<span class="c1"># to ensure repeatable results for following along.</span>
+<span class="n">nnfs</span><span class="o">.</span><span class="n">init</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">spiral_data</span><span class="p">(</span><span class="n">samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">X</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">X</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">c</span><span class="o">=</span><span class="n">y</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;brg&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/bb3e1e6d45b91b6bdddb3faee7fc4a9341090822b5be6e7bd71ceb8ed31f0bc2.png" src="../_images/bb3e1e6d45b91b6bdddb3faee7fc4a9341090822b5be6e7bd71ceb8ed31f0bc2.png" />
+</div>
+</div>
+</section>
+<section id="dense-layer-class">
+<h3>Dense Layer Class<a class="headerlink" href="#dense-layer-class" title="Link to this heading">#</a></h3>
+<p>So far, we’ve only used what’s called a dense or
+fully-connected layer. These layers are commonly referred to as “dense” layers in papers,
+literature, and code, but you will occasionally see them called fully-connected.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Layer_Dense</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">n_inputs</span><span class="p">,</span> <span class="n">n_neurons</span><span class="p">):</span>
+        <span class="c1"># Initialize weights randomly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="mf">0.01</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="n">n_inputs</span><span class="p">,</span><span class="n">n_neurons</span><span class="p">)</span>
+        <span class="c1"># Initialize biases for n_neurons to be 0</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">biases</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">1</span><span class="p">,</span><span class="n">n_neurons</span><span class="p">))</span>
+    <span class="c1"># Forward pass</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">inputs</span><span class="p">):</span>
+        <span class="c1"># Calculate output values from inputs, weights and biases</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">biases</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Some key points to observe:</p>
+<ol class="arabic simple">
+<li><p>As previously stated, weights are often initialized randomly for a model, but not always. It’s also possible that, even for a new model, you have some other initialization rules besides random.</p></li>
+<li><p>Here, we’re setting weights to be random and biases to be 0. Note that we’re initializing weights
+to be (inputs, neurons), rather than (neurons, inputs). We’re doing this ahead instead of
+transposing every time we perform a forward pass.</p></li>
+<li><p>It sometimes may be appropriate to initialize the biases to some
+non-zero number, but the most common initialization for biases is 0. This will vary depending on your use-case and
+is just one of many things you can tweak when trying to improve results. One situation where you
+might want to try something else is with what’s called <b>dead neurons</b>.</p></li>
+<li><p>It’s possible for <span class="math notranslate nohighlight">\(weights \cdot inputs + biases\)</span> not to meet the threshold of the step function, which
+means the neuron will output a <span class="math notranslate nohighlight">\(0\)</span>. Tt becomes a problem if this happens to this neuron for every one of the input samples So then this neuron’s <span class="math notranslate nohighlight">\(0\)</span> output is the input to another neuron. Any weight
+multiplied by zero will be zero. With an increasing number of neurons outputting <span class="math notranslate nohighlight">\(0\)</span>, more inputs
+to the next neurons will receive these 0s rendering the network essentially non-trainable, or
+“dead.”</p></li>
+<li><p>We are multiplying the resultant weights geerated from a gaussian distribution by 0.01 to generate numbers that are a couple of magnitudes smaller. This is because he model will take more time to fit the data during the training
+process as starting values will be disproportionately large compared to the updates being made during training.</p></li>
+</ol>
+<p>When we pass data through a model from beginning to end, this is called a <b>forward pass</b>. We will take the inputs or outputs of the previous layer, perform our calculation and update the output for the current layer.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Create dataset</span>
+<span class="n">X</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">spiral_data</span><span class="p">(</span><span class="n">samples</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">classes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Create Dense layer with 2 input features and 3 output values</span>
+<span class="n">dense1</span> <span class="o">=</span> <span class="n">Layer_Dense</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="c1"># Perform a forward pass of our training data through this layer</span>
+<span class="n">dense1</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="n">dense1</span><span class="o">.</span><span class="n">output</span><span class="p">[:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00],
+       [-1.11171044e-04, -5.11007493e-05, -1.12099799e-04],
+       [ 2.99257295e-06, -2.69126613e-04, -1.45165104e-04],
+       [ 8.95101766e-05, -4.30442247e-04, -1.68079801e-04],
+       [-3.49893759e-04, -3.07208364e-04, -4.33002861e-04]], dtype=float32)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Each of those 3 values is the value from the 3 neurons in the <i>dense1</i> layer after passing in each of the samples.</p>
+</section>
+</section>
+<section id="activation-functions">
+<h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h2>
+<p>The activation function is applied to the output
+of a neuron (or layer of neurons), which modifies outputs. We use activation functions because if
+the activation function itself is nonlinear, it allows for neural networks with usually two or more
+hidden layers to map nonlinear functions.</p>
+<p>In general, your neural network will have two types of activation functions. The first will be the
+activation function used in hidden layers, and the second will be used in the output layer. Usually,
+the activation function used for hidden neurons will be the same for all of them, but it doesn’t
+have to.</p>
+<section id="linear-activation-function">
+<h3>Linear Activation function<a class="headerlink" href="#linear-activation-function" title="Link to this heading">#</a></h3>
+<p>A linear function is simply the equation of a line. It will appear as a straight line when graphed,
+where <span class="math notranslate nohighlight">\(y=x\)</span> and the output value equals the input. This activation function is usually applied to the last layer’s output in the case of a regression model.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8dad4bb2afe338479a83b2e7304a97c4f3ad63e739142683825ef0cfe9e98834.png" src="../_images/8dad4bb2afe338479a83b2e7304a97c4f3ad63e739142683825ef0cfe9e98834.png" />
+</div>
+</div>
+</section>
+<section id="sigmoid-activation-function">
+<h3>Sigmoid Activation Function<a class="headerlink" href="#sigmoid-activation-function" title="Link to this heading">#</a></h3>
+<p>The problem with the step function is it’s not very informative. Its either <span class="math notranslate nohighlight">\(0\)</span> or <span class="math notranslate nohighlight">\(1\)</span>, which makes it difficult to say by how much we have missed firing the respective neuron. In terms of the final output value from the network, it doesn’t matter if it was close to outputting something else. Thus, when it comes time to optimize weights and biases, it’s easier for the optimizer if we have activation functions that are more granular and informative.</p>
+<p>The more granular step function for neural networks is the <b>Sigmoid</b> activation function.</p>
+<div class="math notranslate nohighlight">
+\[
+y = \frac{1}{1+e^{-x}}
+\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="mi">1</span><span class="o">/</span><span class="p">(</span><span class="mi">1</span> <span class="o">+</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="n">x</span><span class="p">))</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/b4439771e6c7e937b6d13785dead0740e9c126cad298c1a708027f3947cf0beb.png" src="../_images/b4439771e6c7e937b6d13785dead0740e9c126cad298c1a708027f3947cf0beb.png" />
+</div>
+</div>
+<p>This function returns a value in the range of <span class="math notranslate nohighlight">\(0\)</span> for negative infinity, through <span class="math notranslate nohighlight">\(0.5\)</span> for the input of <span class="math notranslate nohighlight">\(0\)</span>,
+and to <span class="math notranslate nohighlight">\(1\)</span> for positive infinity.</p>
+<p>The output from the Sigmoid function, being in the range of 0 to 1, also works better with neural networks — especially compared to the range of the negative to the positive infinity — and adds nonlinearity. The Sigmoid function, historically used in hidden layers, was eventually replaced by the <b>Rectified Linear Units</b> activation function (or <b>ReLU</b>)</p>
+</section>
+<section id="rectified-linear-activation-function">
+<h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
+<p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c1f561a2-8047-474b-9d5f-4dea953f1acd">
+<span class="eqno">(43)<a class="headerlink" href="#equation-c1f561a2-8047-474b-9d5f-4dea953f1acd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+y = 
+\left\{ \begin{aligned} 
+  x \hspace{1cm} x &gt; 0\\
+  0 \hspace{1cm} x \le 0
+\end{aligned} \right.
+\end{equation}\]</div>
+<p>This simple yet powerful activation function is the most widely used activation function mainly due to speed and efficiency. The ReLU activation function is extremely close to being a linear activation
+function while remaining nonlinear, due to that bend after 0. This simple property is, however,
+very effective.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">maximum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/675f7e5847faacb7821f9c85de635be00d01a091977e6e59ebd756a81ef03204.png" src="../_images/675f7e5847faacb7821f9c85de635be00d01a091977e6e59ebd756a81ef03204.png" />
+</div>
+</div>
+</section>
+<section id="why-use-activation-functions">
+<h3>Why Use Activation Functions?<a class="headerlink" href="#why-use-activation-functions" title="Link to this heading">#</a></h3>
+<p>In most cases, for a neural network to fit a nonlinear function, we need it to contain two or more hidden layers, and
+we need those hidden layers to use a nonlinear activation function.</p>
+<p>A nonlinear function cannot be represented well by a straight line. For example a sine function cannot be represented well by a straight line.</p>
+<p>Having no activation function at all means the output of the previous layer is the input of the current layer. This means the activation function is <span class="math notranslate nohighlight">\(y = x\)</span> i.e. the linear activation function. No matter what we do with this neuron’s weights and biases, the output of this neuron will be perfectly linear to <span class="math notranslate nohighlight">\(y=x\)</span> of the activation function. This linear nature will continue throughout the entire network.</p>
+<p>Below we see an example, where for a specific neuron, a linear activation function is used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="c1"># positive output for a specific neuron </span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">bias</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">output</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/6f127fdb96a4175e233fbb38a359d3a40279b7ce4077249f80d672e29f664e02.png" src="../_images/6f127fdb96a4175e233fbb38a359d3a40279b7ce4077249f80d672e29f664e02.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">x</span>
+
+<span class="c1"># negative output for a specific neuron</span>
+<span class="n">inputs</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+<span class="n">weights</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+<span class="c1"># add bias </span>
+<span class="n">bias</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span><span class="n">weights</span><span class="p">)</span> <span class="o">+</span> <span class="n">bias</span>
+<span class="n">y1</span> <span class="o">=</span> <span class="n">output</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">y1</span><span class="p">,</span><span class="s1">&#39;o&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span><span class="mi">5</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8fd512bef3868a01805500a4163e9615bf1e32c59654d2ce5da1c5f83136c0c2.png" src="../_images/8fd512bef3868a01805500a4163e9615bf1e32c59654d2ce5da1c5f83136c0c2.png" />
+</div>
+</div>
+<p>No matter what we do, however many layers we have, this network can only depict linear
+relationships if we use linear activation functions.</p>
+<p><img alt="A neural network with all linear activation functions" src="../_images/linear_activation_network.png" /></p>
+</section>
+<section id="relu-activation-in-a-pair-of-neurons">
+<h3>ReLU Activation in a Pair of Neurons<a class="headerlink" href="#relu-activation-in-a-pair-of-neurons" title="Link to this heading">#</a></h3>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -501,7 +1286,40 @@ document.write(`
             
             
               
-                <div class="bd-sidebar-secondary bd-toc"></div>
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#coding-our-first-neurons">Coding our first neurons</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-single-neuron">A Single Neuron</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-layer-of-neurons">A Layer of Neurons</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-batch-of-data">A batch of Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-layer-of-neurons-and-batch-of-data">A layer of neurons and batch of data</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layers">Adding Layers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training Data</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-activation-function">Linear Activation function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-activation-function">Sigmoid Activation Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rectified-linear-activation-function">Rectified Linear Activation Function</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#why-use-activation-functions">Why Use Activation Functions?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relu-activation-in-a-pair-of-neurons">ReLU Activation in a Pair of Neurons</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

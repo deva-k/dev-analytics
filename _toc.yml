@@ -9,4 +9,5 @@ chapters:
   - file: book/statistical_learning
   - file: book/timeseries
   - file: book/deep_learning
+  - file: book/natural_language
   - file: book/bibliography

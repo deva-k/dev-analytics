@@ -455,6 +455,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-activation-function">Linear Activation function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-activation-function">Sigmoid Activation Function</a></li>
@@ -586,8 +590,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-966489ed-998a-4467-b471-ad8cc1b9dd05">
-<span class="eqno">(42)<a class="headerlink" href="#equation-966489ed-998a-4467-b471-ad8cc1b9dd05" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-173a229c-6d1c-443e-be9d-5c78bcc1b348">
+<span class="eqno">(42)<a class="headerlink" href="#equation-173a229c-6d1c-443e-be9d-5c78bcc1b348" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1058,6 +1062,136 @@ process as starting values will be disproportionately large compared to the upda
 <p>Each of those 3 values is the value from the 3 neurons in the <i>dense1</i> layer after passing in each of the samples.</p>
 </section>
 </section>
+<section id="pytorch">
+<h2>PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
+<p>PyTorch is an open source optimized tensor library for deep learning using GPUs and CPUs. It is a deep learning framework that provides a whole stack to preprocess data, model data and deploy the models in cloud. PyTorch leverages <b>CUDA</b> (Compute Unified Device Architecture) which is an API (Application Programming Interface) developed by Nvidia for general computing on GPUs (Graphical Processing Units). This enables us to accelerate the modelling process due to faster computations because CUDA enables us to run the computations on GPU (if available).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.2.2+cu121&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<section id="what-is-a-tensor">
+<h3>What is a Tensor?<a class="headerlink" href="#what-is-a-tensor" title="Link to this heading">#</a></h3>
+<p>Tensors are simply arrays that are used to represent data.</p>
+<p>A scalar is a single number, and in tensor terms it is a zero dimension tensor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">scalar</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(1)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dimensions of a tensor:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Converting a tensor to a python number:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>A vector is a single dimension tensor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vector</span>
+<span class="n">vector</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
+<span class="n">vector</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([7, 7])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
+</pre></div>
+</div>
+</div>
+</div>
+<p>A matrix is a 2 dimensional tensor.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix</span>
+<span class="n">M</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span> 
+                       <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
+<span class="n">M</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 7,  8],
+        [ 9, 10]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">ndim</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2
+</pre></div>
+</div>
+</div>
+</div>
+<p>The shape attribute tells you how the elements inside the dimensions are arranged.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">M</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([2, 2])
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
 <section id="activation-functions">
 <h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h2>
 <p>The activation function is applied to the output
@@ -1126,8 +1260,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c1f561a2-8047-474b-9d5f-4dea953f1acd">
-<span class="eqno">(43)<a class="headerlink" href="#equation-c1f561a2-8047-474b-9d5f-4dea953f1acd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-35f07a98-5fce-45fa-9dcc-a35fca8469d0">
+<span class="eqno">(43)<a class="headerlink" href="#equation-35f07a98-5fce-45fa-9dcc-a35fca8469d0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -1306,6 +1440,10 @@ relationships if we use linear activation functions.</p>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layers">Adding Layers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">

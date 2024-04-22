@@ -65,7 +65,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="Natural Language Processing" href="natural_language.html" />
     <link rel="prev" title="Timeseries" href="timeseries.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -180,6 +180,7 @@
 
 <li class="toctree-l1"><a class="reference internal" href="timeseries.html">Timeseries</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -457,6 +458,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
@@ -591,8 +595,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f287d3b-2a49-471c-a3a8-5a4217d967da">
-<span class="eqno">(42)<a class="headerlink" href="#equation-0f287d3b-2a49-471c-a3a8-5a4217d967da" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-19d32c51-1555-4dfa-96ab-2e3fc6832163">
+<span class="eqno">(42)<a class="headerlink" href="#equation-19d32c51-1555-4dfa-96ab-2e3fc6832163" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1197,9 +1201,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9780, 0.8278, 0.9454, 0.2435],
-        [0.0944, 0.5203, 0.7748, 0.4026],
-        [0.9436, 0.1061, 0.3505, 0.9940]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.3164, 0.9985, 0.6919, 0.1999],
+        [0.6377, 0.7911, 0.1486, 0.6199],
+        [0.3734, 0.0458, 0.1278, 0.5860]])
 </pre></div>
 </div>
 </div>
@@ -1213,29 +1217,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.0992, 0.2278, 0.9819,  ..., 0.3520, 0.1187, 0.5179],
-         [0.0520, 0.0167, 0.5196,  ..., 0.1396, 0.1290, 0.9265],
-         [0.6783, 0.1339, 0.3389,  ..., 0.4755, 0.2712, 0.1224],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.1479, 0.5592, 0.6273,  ..., 0.8046, 0.5834, 0.4907],
+         [0.0301, 0.6875, 0.6558,  ..., 0.6865, 0.7902, 0.6258],
+         [0.5226, 0.3149, 0.1629,  ..., 0.9395, 0.7215, 0.5101],
          ...,
-         [0.2711, 0.0674, 0.5250,  ..., 0.5563, 0.3696, 0.5281],
-         [0.2003, 0.8710, 0.2419,  ..., 0.4663, 0.4992, 0.7036],
-         [0.7379, 0.4256, 0.1652,  ..., 0.5776, 0.7391, 0.6548]],
+         [0.9508, 0.2215, 0.9982,  ..., 0.9238, 0.3567, 0.2375],
+         [0.7465, 0.4301, 0.0193,  ..., 0.2243, 0.9795, 0.1031],
+         [0.0500, 0.3160, 0.3297,  ..., 0.1095, 0.3483, 0.8251]],
 
-        [[0.2261, 0.6440, 0.1014,  ..., 0.1587, 0.5470, 0.7288],
-         [0.8644, 0.9327, 0.0691,  ..., 0.2606, 0.1187, 0.1704],
-         [0.9094, 0.2891, 0.8253,  ..., 0.6871, 0.3572, 0.3582],
+        [[0.9509, 0.3349, 0.7043,  ..., 0.2871, 0.2144, 0.7621],
+         [0.4575, 0.1145, 0.3332,  ..., 0.8477, 0.4848, 0.8988],
+         [0.8515, 0.2050, 0.7533,  ..., 0.1126, 0.0914, 0.4208],
          ...,
-         [0.3230, 0.3360, 0.8932,  ..., 0.6576, 0.3549, 0.2433],
-         [0.3172, 0.7495, 0.1799,  ..., 0.6184, 0.8834, 0.7376],
-         [0.7620, 0.7903, 0.6902,  ..., 0.1414, 0.7813, 0.7498]],
+         [0.7939, 0.1418, 0.0536,  ..., 0.3776, 0.8479, 0.6656],
+         [0.0817, 0.9457, 0.5036,  ..., 0.8916, 0.8174, 0.2593],
+         [0.7079, 0.7522, 0.5751,  ..., 0.4268, 0.9220, 0.2159]],
 
-        [[0.1836, 0.5612, 0.6382,  ..., 0.8654, 0.0613, 0.4512],
-         [0.6020, 0.2562, 0.0154,  ..., 0.8618, 0.0272, 0.1372],
-         [0.9282, 0.3587, 0.9920,  ..., 0.9061, 0.3556, 0.9166],
+        [[0.8695, 0.7074, 0.1179,  ..., 0.5440, 0.9619, 0.1604],
+         [0.1735, 0.9635, 0.3652,  ..., 0.0292, 0.1076, 0.4230],
+         [0.3639, 0.4930, 0.5764,  ..., 0.8728, 0.9314, 0.3936],
          ...,
-         [0.5734, 0.8482, 0.5754,  ..., 0.8657, 0.9217, 0.2714],
-         [0.7352, 0.5818, 0.4030,  ..., 0.9224, 0.3752, 0.7272],
-         [0.3449, 0.1495, 0.2954,  ..., 0.6750, 0.1213, 0.1818]]])
+         [0.8800, 0.9623, 0.0298,  ..., 0.4155, 0.0900, 0.7979],
+         [0.0431, 0.3629, 0.5015,  ..., 0.1817, 0.7274, 0.6297],
+         [0.6443, 0.5570, 0.6601,  ..., 0.1676, 0.0260, 0.4926]]])
 </pre></div>
 </div>
 </div>
@@ -1419,14 +1423,185 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.4343, 0.5062, 0.4201],
-        [0.1926, 0.3421, 0.3641],
-        [0.8058, 0.6347, 0.5834]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.1061, 0.9057, 0.7835],
+        [0.9312, 1.4546, 1.1889],
+        [1.1133, 0.9901, 1.2567]])
 </pre></div>
 </div>
 </div>
 </div>
 <p>There are several other functions and methods which are more or less similar to the ones on numpy.</p>
+</section>
+<section id="pytorch-and-numpy">
+<h3>PyTorch and Numpy<a class="headerlink" href="#pytorch-and-numpy" title="Link to this heading">#</a></h3>
+<p>Transform numpy array to pytorch tensor</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
+<span class="n">arr_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+<span class="n">arr</span><span class="p">,</span> <span class="n">arr_tensor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1., 2., 3., 4., 5., 6., 7., 8., 9.]),
+ tensor([1., 2., 3., 4., 5., 6., 7., 8., 9.], dtype=torch.float64))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">arr_tensor</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(dtype(&#39;float64&#39;), torch.float64)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Tensor to numpy array</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tensor_numpy</span> <span class="o">=</span> <span class="n">arr_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+<span class="n">tensor_numpy</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tensor_numpy</span><span class="o">.</span><span class="n">dtype</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Setting a random seed. When using a jupyter notebook, you shall set random seed everytime you use random.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fb1780662f0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="accessing-a-gpu">
+<h3>Accessing a GPU<a class="headerlink" href="#accessing-a-gpu" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># configuration of the GPU</span>
+<span class="o">!</span>nvidia-smi
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: nvidia-smi: not found
+</pre></div>
+</div>
+</div>
+</div>
+<p>Check for GPU access</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if False it means GPU is not available</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Its not likely that you always have access to a GPU. So we can set a device agnostic code as below</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup device agnostic code</span>
+<span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
+<span class="n">device</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cpu&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count number of devices</span>
+<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="putting-tensors-and-models-on-the-gpus">
+<h3>Putting Tensors and Models on the GPUs<a class="headerlink" href="#putting-tensors-and-models-on-the-gpus" title="Link to this heading">#</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpu_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
+<span class="n">cpu_tensor</span><span class="o">.</span><span class="n">device</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>device(type=&#39;cpu&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use &#39;to&#39; to change the device. incase of GPU availability it shows cuda with the index of the GPU used</span>
+<span class="n">cpu_tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
+<span class="n">cpu_tensor</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
+<p>To convert a tensor on GPU to numpy is not possible. The device has to be changed to CPU and then converted to numpy array.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpu_tensor</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="activation-functions">
@@ -1497,8 +1672,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6514df28-49a0-487e-895e-4a198cde1dae">
-<span class="eqno">(43)<a class="headerlink" href="#equation-6514df28-49a0-487e-895e-4a198cde1dae" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2d4a2890-4c4c-44b4-99e7-7243dd8ef3b6">
+<span class="eqno">(43)<a class="headerlink" href="#equation-2d4a2890-4c4c-44b4-99e7-7243dd8ef3b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -1935,11 +2110,11 @@ Neuron2 bias = 1
       </div>
     </a>
     <a class="right-next"
-       href="bibliography.html"
+       href="natural_language.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title">Natural Language Processing</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -1974,6 +2149,9 @@ Neuron2 bias = 1
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">

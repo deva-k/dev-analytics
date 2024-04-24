@@ -461,6 +461,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-and-converting-dataset">Preparing and converting dataset</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
@@ -596,8 +597,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-041fb143-a9e0-4e02-ba4b-f1c9dcf83fd4">
-<span class="eqno">(42)<a class="headerlink" href="#equation-041fb143-a9e0-4e02-ba4b-f1c9dcf83fd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-90843206-a1fa-4f52-9fef-db4075988e6d">
+<span class="eqno">(42)<a class="headerlink" href="#equation-90843206-a1fa-4f52-9fef-db4075988e6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1202,9 +1203,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.3365, 0.6554, 0.3790, 0.2158],
-        [0.2292, 0.9250, 0.4647, 0.9610],
-        [0.8327, 0.0184, 0.7636, 0.3385]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.8028, 0.2879, 0.1643, 0.2584],
+        [0.7420, 0.8042, 0.5319, 0.9538],
+        [0.7480, 0.0801, 0.4993, 0.9934]])
 </pre></div>
 </div>
 </div>
@@ -1218,29 +1219,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.1706, 0.5908, 0.9665,  ..., 0.4040, 0.4996, 0.4567],
-         [0.2413, 0.2612, 0.4531,  ..., 0.6656, 0.2918, 0.3493],
-         [0.5437, 0.7989, 0.2592,  ..., 0.4665, 0.1070, 0.4654],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.9579, 0.5430, 0.4434,  ..., 0.5266, 0.7264, 0.2343],
+         [0.9591, 0.2148, 0.0745,  ..., 0.8680, 0.0864, 0.8475],
+         [0.6818, 0.0469, 0.2505,  ..., 0.6583, 0.2991, 0.3296],
          ...,
-         [0.2619, 0.8357, 0.8391,  ..., 0.5887, 0.8305, 0.4772],
-         [0.5538, 0.3398, 0.9594,  ..., 0.1778, 0.7153, 0.6111],
-         [0.2396, 0.3816, 0.5070,  ..., 0.0144, 0.8418, 0.6413]],
+         [0.8095, 0.3690, 0.0078,  ..., 0.8902, 0.7599, 0.4835],
+         [0.9988, 0.3319, 0.2104,  ..., 0.7614, 0.4328, 0.9009],
+         [0.3248, 0.8872, 0.2995,  ..., 0.4514, 0.4091, 0.2493]],
 
-        [[0.5100, 0.1385, 0.0551,  ..., 0.2822, 0.0024, 0.0399],
-         [0.7738, 0.1824, 0.1657,  ..., 0.0372, 0.0303, 0.6933],
-         [0.3596, 0.5561, 0.6702,  ..., 0.7807, 0.1395, 0.5082],
+        [[0.3572, 0.5241, 0.3547,  ..., 0.6845, 0.3724, 0.5933],
+         [0.4533, 0.7085, 0.9437,  ..., 0.9976, 0.2424, 0.2134],
+         [0.6560, 0.3285, 0.4167,  ..., 0.6125, 0.4910, 0.5763],
          ...,
-         [0.5288, 0.1122, 0.1991,  ..., 0.0926, 0.0076, 0.9945],
-         [0.4058, 0.2816, 0.9391,  ..., 0.9273, 0.5803, 0.0601],
-         [0.3018, 0.6577, 0.8134,  ..., 0.8767, 0.6492, 0.6952]],
+         [0.1974, 0.3787, 0.7274,  ..., 0.8780, 0.8558, 0.6481],
+         [0.7085, 0.5210, 0.0942,  ..., 0.6270, 0.3900, 0.6386],
+         [0.5278, 0.8805, 0.0882,  ..., 0.2078, 0.6381, 0.3887]],
 
-        [[0.0512, 0.2338, 0.7083,  ..., 0.2317, 0.0796, 0.4962],
-         [0.0990, 0.7646, 0.5990,  ..., 0.9663, 0.2628, 0.1124],
-         [0.8855, 0.9626, 0.1146,  ..., 0.4752, 0.0695, 0.6890],
+        [[0.3413, 0.0148, 0.8672,  ..., 0.6070, 0.1299, 0.4776],
+         [0.7864, 0.0327, 0.9111,  ..., 0.1511, 0.4584, 0.4078],
+         [0.9561, 0.3195, 0.8332,  ..., 0.4833, 0.7826, 0.2048],
          ...,
-         [0.0549, 0.4561, 0.6536,  ..., 0.4348, 0.4906, 0.2546],
-         [0.0859, 0.8538, 0.6408,  ..., 0.0283, 0.9197, 0.0755],
-         [0.5640, 0.0412, 0.6172,  ..., 0.4243, 0.4568, 0.9648]]])
+         [0.3433, 0.3099, 0.6841,  ..., 0.7285, 0.8669, 0.5742],
+         [0.0585, 0.4198, 0.8397,  ..., 0.0946, 0.5850, 0.7627],
+         [0.9071, 0.7433, 0.0438,  ..., 0.8983, 0.6377, 0.7915]]])
 </pre></div>
 </div>
 </div>
@@ -1424,9 +1425,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0038, 0.3941, 0.2805],
-        [0.4891, 1.1611, 0.5344],
-        [0.6673, 0.8912, 0.6846]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.7130, 1.4963, 1.3613],
+        [1.6491, 1.4716, 1.3140],
+        [0.6062, 0.5344, 0.4985]])
 </pre></div>
 </div>
 </div>
@@ -1497,7 +1498,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f04444a7310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f77d8460310&gt;
 </pre></div>
 </div>
 </div>
@@ -1604,6 +1605,17 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 </section>
+<section id="preparing-and-converting-dataset">
+<h3>Preparing and converting dataset<a class="headerlink" href="#preparing-and-converting-dataset" title="Link to this heading">#</a></h3>
+<p>The <b>nn</b> module of torch provides all the building blocks for neural networks.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span> 
+</pre></div>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="activation-functions">
 <h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h2>
@@ -1673,8 +1685,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52ba3370-e693-4de9-b732-f6624fe8f3af">
-<span class="eqno">(43)<a class="headerlink" href="#equation-52ba3370-e693-4de9-b732-f6624fe8f3af" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0b506283-f396-4cff-9fc3-d635bc059ef6">
+<span class="eqno">(43)<a class="headerlink" href="#equation-0b506283-f396-4cff-9fc3-d635bc059ef6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2128,7 +2140,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1894/911712487.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1826/911712487.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2245,6 +2257,7 @@ the predicted class index.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-and-converting-dataset">Preparing and converting dataset</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">

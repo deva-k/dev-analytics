@@ -472,6 +472,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax-activation-function">Softmax Activation Function</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a></li>
 </ul>
             </nav>
         </div>
@@ -595,8 +596,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-19d32c51-1555-4dfa-96ab-2e3fc6832163">
-<span class="eqno">(42)<a class="headerlink" href="#equation-19d32c51-1555-4dfa-96ab-2e3fc6832163" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-041fb143-a9e0-4e02-ba4b-f1c9dcf83fd4">
+<span class="eqno">(42)<a class="headerlink" href="#equation-041fb143-a9e0-4e02-ba4b-f1c9dcf83fd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1201,9 +1202,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.3164, 0.9985, 0.6919, 0.1999],
-        [0.6377, 0.7911, 0.1486, 0.6199],
-        [0.3734, 0.0458, 0.1278, 0.5860]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.3365, 0.6554, 0.3790, 0.2158],
+        [0.2292, 0.9250, 0.4647, 0.9610],
+        [0.8327, 0.0184, 0.7636, 0.3385]])
 </pre></div>
 </div>
 </div>
@@ -1217,29 +1218,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.1479, 0.5592, 0.6273,  ..., 0.8046, 0.5834, 0.4907],
-         [0.0301, 0.6875, 0.6558,  ..., 0.6865, 0.7902, 0.6258],
-         [0.5226, 0.3149, 0.1629,  ..., 0.9395, 0.7215, 0.5101],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.1706, 0.5908, 0.9665,  ..., 0.4040, 0.4996, 0.4567],
+         [0.2413, 0.2612, 0.4531,  ..., 0.6656, 0.2918, 0.3493],
+         [0.5437, 0.7989, 0.2592,  ..., 0.4665, 0.1070, 0.4654],
          ...,
-         [0.9508, 0.2215, 0.9982,  ..., 0.9238, 0.3567, 0.2375],
-         [0.7465, 0.4301, 0.0193,  ..., 0.2243, 0.9795, 0.1031],
-         [0.0500, 0.3160, 0.3297,  ..., 0.1095, 0.3483, 0.8251]],
+         [0.2619, 0.8357, 0.8391,  ..., 0.5887, 0.8305, 0.4772],
+         [0.5538, 0.3398, 0.9594,  ..., 0.1778, 0.7153, 0.6111],
+         [0.2396, 0.3816, 0.5070,  ..., 0.0144, 0.8418, 0.6413]],
 
-        [[0.9509, 0.3349, 0.7043,  ..., 0.2871, 0.2144, 0.7621],
-         [0.4575, 0.1145, 0.3332,  ..., 0.8477, 0.4848, 0.8988],
-         [0.8515, 0.2050, 0.7533,  ..., 0.1126, 0.0914, 0.4208],
+        [[0.5100, 0.1385, 0.0551,  ..., 0.2822, 0.0024, 0.0399],
+         [0.7738, 0.1824, 0.1657,  ..., 0.0372, 0.0303, 0.6933],
+         [0.3596, 0.5561, 0.6702,  ..., 0.7807, 0.1395, 0.5082],
          ...,
-         [0.7939, 0.1418, 0.0536,  ..., 0.3776, 0.8479, 0.6656],
-         [0.0817, 0.9457, 0.5036,  ..., 0.8916, 0.8174, 0.2593],
-         [0.7079, 0.7522, 0.5751,  ..., 0.4268, 0.9220, 0.2159]],
+         [0.5288, 0.1122, 0.1991,  ..., 0.0926, 0.0076, 0.9945],
+         [0.4058, 0.2816, 0.9391,  ..., 0.9273, 0.5803, 0.0601],
+         [0.3018, 0.6577, 0.8134,  ..., 0.8767, 0.6492, 0.6952]],
 
-        [[0.8695, 0.7074, 0.1179,  ..., 0.5440, 0.9619, 0.1604],
-         [0.1735, 0.9635, 0.3652,  ..., 0.0292, 0.1076, 0.4230],
-         [0.3639, 0.4930, 0.5764,  ..., 0.8728, 0.9314, 0.3936],
+        [[0.0512, 0.2338, 0.7083,  ..., 0.2317, 0.0796, 0.4962],
+         [0.0990, 0.7646, 0.5990,  ..., 0.9663, 0.2628, 0.1124],
+         [0.8855, 0.9626, 0.1146,  ..., 0.4752, 0.0695, 0.6890],
          ...,
-         [0.8800, 0.9623, 0.0298,  ..., 0.4155, 0.0900, 0.7979],
-         [0.0431, 0.3629, 0.5015,  ..., 0.1817, 0.7274, 0.6297],
-         [0.6443, 0.5570, 0.6601,  ..., 0.1676, 0.0260, 0.4926]]])
+         [0.0549, 0.4561, 0.6536,  ..., 0.4348, 0.4906, 0.2546],
+         [0.0859, 0.8538, 0.6408,  ..., 0.0283, 0.9197, 0.0755],
+         [0.5640, 0.0412, 0.6172,  ..., 0.4243, 0.4568, 0.9648]]])
 </pre></div>
 </div>
 </div>
@@ -1423,9 +1424,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.1061, 0.9057, 0.7835],
-        [0.9312, 1.4546, 1.1889],
-        [1.1133, 0.9901, 1.2567]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0038, 0.3941, 0.2805],
+        [0.4891, 1.1611, 0.5344],
+        [0.6673, 0.8912, 0.6846]])
 </pre></div>
 </div>
 </div>
@@ -1496,7 +1497,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fb1780662f0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f04444a7310&gt;
 </pre></div>
 </div>
 </div>
@@ -1672,8 +1673,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2d4a2890-4c4c-44b4-99e7-7243dd8ef3b6">
-<span class="eqno">(43)<a class="headerlink" href="#equation-2d4a2890-4c4c-44b4-99e7-7243dd8ef3b6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-52ba3370-e693-4de9-b732-f6624fe8f3af">
+<span class="eqno">(43)<a class="headerlink" href="#equation-52ba3370-e693-4de9-b732-f6624fe8f3af" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2066,7 +2067,99 @@ Neuron2 bias = 1
 </section>
 <section id="softmax-activation-function">
 <h3>Softmax Activation Function<a class="headerlink" href="#softmax-activation-function" title="Link to this heading">#</a></h3>
+<p>The rectified linear unit is unbounded, not normalized with other units, and exclusive.</p>
+<ol class="arabic simple">
+<li><p>Not normalized - The values can be anything, an output of <span class="math notranslate nohighlight">\([12, 23, 341]\)</span>.</p></li>
+<li><p>Exclusive - Each output is independent of others.</p></li>
+</ol>
+<p>So there is no relative comparison we can make. Also when the values are similar with slight difference in magnitude, its difficult to distinguish or know how wrong the values are.</p>
+<p>The softmax activation on the output data can take in non-normalized, or uncalibrated, inputs and
+produce a normalized distribution of probabilities for our classes. In the case of classification,
+what we want to see is a prediction of which class the network “thinks” the input represents.</p>
+<p><b>This distribution returned by the softmax activation function represents confidence scores for each
+class and will add up to 1. The predicted class is associated with the output neuron that returned
+the largest confidence score.</b>
+For example, if our network has a confidence distribution for two classes: <span class="math notranslate nohighlight">\([0.45, 0.55]\)</span>, the prediction is the 2nd class, but the confidence in this prediction isn’t very high.</p>
+<div class="math notranslate nohighlight">
+\[\sigma(\mathbf{z})_i = \frac{e^{z_i}}{\sum_{j=1}^{K} e^{z_k}}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\mathbf{z}\)</span> is the input vector, consisting of <span class="math notranslate nohighlight">\(K\)</span> real numbers and <span class="math notranslate nohighlight">\(e\)</span> is the standard exponential function (<span class="math notranslate nohighlight">\(e\)</span> is eulers number that is roughly 2.71828182846). In simple terms, the softmax function takes in a vector of values, applies the exponential function to each value, and normalizes these values by dividing by the sum of all these exponentials.</p>
+<p>Exponentiation serves multiple purposes:</p>
+<ol class="arabic simple">
+<li><p>To get probabilities we need non negative values. If our output looks like <span class="math notranslate nohighlight">\([4.8, 1.21, -2.385]\)</span> — even after normalization, the last
+value will still be negative since we’ll just divide all of them by their sum. An exponential value of any number is always
+non-negative — it returns 0 for negative infinity, 1 for the input of 0, and increases for positive
+values:</p></li>
+</ol>
+<div class="math notranslate nohighlight">
+\[y = e^x\]</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;k&quot;</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axis</span><span class="p">([</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="o">-</span><span class="mi">10000</span><span class="p">,</span><span class="mi">10000</span><span class="p">])</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/30d86c8ee83c2cf7795704f81a58982e76dc97a80c5f84eac9aca3460a7b5dc6.png" src="../_images/30d86c8ee83c2cf7795704f81a58982e76dc97a80c5f84eac9aca3460a7b5dc6.png" />
+</div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>With higher input values, outputs are also higher, so we won’t change the predicted class after applying it while making
+sure that we get non-negative values. It also adds stability to the result as the normalized
+exponentiation is more about the difference between numbers than their magnitudes. For example consider the outputs to be <span class="math notranslate nohighlight">\([1, 3, 16]\)</span>.
+Applying normalization results in <span class="math notranslate nohighlight">\([0.05, 0.15, 0.8]\)</span>. As you can see the highest value is magnitudes larger from other values. Along With exponentiation, the difference becomes even more evident. This is exactly what we want in a classification setting. Also the technique of normalization converts exponentiated values to a probability distribution.</p></li>
+</ol>
+<p><b>A key point to remember is, as the input value increases, the exponentiated value gets very large and an overflow error is thrown as shown below:</b></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span>    
+    <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1894/911712487.py:2: RuntimeWarning: overflow encountered in exp
+  np.exp(1000)
+</pre></div>
+</div>
+</div>
+</div>
+<p>We know the exponential function tends toward <span class="math notranslate nohighlight">\(0\)</span> as its input value approaches negative infinity, and
+the output is <span class="math notranslate nohighlight">\(1\)</span> when the input is <span class="math notranslate nohighlight">\(0\)</span>. We can use this property to our advantage, where we can subtract all the values in our input vector with the maximum value in that vector, which would then change the output values
+to always be in a range from some negative value up to <span class="math notranslate nohighlight">\(0\)</span>, as the largest number subtracted by
+itself returns <span class="math notranslate nohighlight">\(0\)</span>, and any smaller number subtracted by it will result in a negative number - exactly the range discussed above.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Activation_Softmax</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">inputs</span><span class="p">):</span>
+        <span class="c1"># Get unnormalized probabilities</span>
+        <span class="n">exp_values</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="n">inputs</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">inputs</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="c1"># Normalize them for each sample</span>
+        <span class="n">probabilities</span> <span class="o">=</span> <span class="n">exp_values</span> <span class="o">/</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">exp_values</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span><span class="n">keepdims</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">output</span> <span class="o">=</span> <span class="n">probabilities</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>After applying softmax, to determine which classification the
+model has chosen to be the prediction, we perform an <span class="math notranslate nohighlight">\(argmax\)</span> on these outputs, which checks
+which of the classes in the output distribution has the highest confidence and returns its index -
+the predicted class index.</p>
 </section>
+</section>
+<section id="calculating-network-error-with-loss">
+<h2>Calculating Network Error with Loss<a class="headerlink" href="#calculating-network-error-with-loss" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -2163,6 +2256,7 @@ Neuron2 bias = 1
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax-activation-function">Softmax Activation Function</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a></li>
 </ul>
   </nav></div>
 

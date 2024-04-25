@@ -473,7 +473,11 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax-activation-function">Softmax Activation Function</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-cross-entropy-loss">Categorical Cross-Entropy Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-optimization">Introducing Optimization</a></li>
 </ul>
             </nav>
         </div>
@@ -597,8 +601,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-90843206-a1fa-4f52-9fef-db4075988e6d">
-<span class="eqno">(42)<a class="headerlink" href="#equation-90843206-a1fa-4f52-9fef-db4075988e6d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b818c373-e00f-48eb-aa05-89b6d01a2578">
+<span class="eqno">(42)<a class="headerlink" href="#equation-b818c373-e00f-48eb-aa05-89b6d01a2578" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1203,9 +1207,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.8028, 0.2879, 0.1643, 0.2584],
-        [0.7420, 0.8042, 0.5319, 0.9538],
-        [0.7480, 0.0801, 0.4993, 0.9934]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.1887, 0.9421, 0.1829, 0.7037],
+        [0.3109, 0.3789, 0.7677, 0.4661],
+        [0.2003, 0.1176, 0.3179, 0.5960]])
 </pre></div>
 </div>
 </div>
@@ -1219,29 +1223,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.9579, 0.5430, 0.4434,  ..., 0.5266, 0.7264, 0.2343],
-         [0.9591, 0.2148, 0.0745,  ..., 0.8680, 0.0864, 0.8475],
-         [0.6818, 0.0469, 0.2505,  ..., 0.6583, 0.2991, 0.3296],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.3450, 0.0807, 0.8398,  ..., 0.8540, 0.6624, 0.4563],
+         [0.1948, 0.3879, 0.0655,  ..., 0.5746, 0.8156, 0.6466],
+         [0.7294, 0.7001, 0.9612,  ..., 0.8906, 0.0675, 0.1153],
          ...,
-         [0.8095, 0.3690, 0.0078,  ..., 0.8902, 0.7599, 0.4835],
-         [0.9988, 0.3319, 0.2104,  ..., 0.7614, 0.4328, 0.9009],
-         [0.3248, 0.8872, 0.2995,  ..., 0.4514, 0.4091, 0.2493]],
+         [0.8707, 0.4568, 0.1581,  ..., 0.9554, 0.9267, 0.6655],
+         [0.3689, 0.0648, 0.5663,  ..., 0.7296, 0.5789, 0.9148],
+         [0.4108, 0.2512, 0.8233,  ..., 0.3910, 0.1558, 0.0661]],
 
-        [[0.3572, 0.5241, 0.3547,  ..., 0.6845, 0.3724, 0.5933],
-         [0.4533, 0.7085, 0.9437,  ..., 0.9976, 0.2424, 0.2134],
-         [0.6560, 0.3285, 0.4167,  ..., 0.6125, 0.4910, 0.5763],
+        [[0.4248, 0.3636, 0.5551,  ..., 0.6777, 0.0892, 0.2137],
+         [0.3629, 0.4609, 0.5423,  ..., 0.5490, 0.8817, 0.3656],
+         [0.1016, 0.8963, 0.7406,  ..., 0.5620, 0.4293, 0.7778],
          ...,
-         [0.1974, 0.3787, 0.7274,  ..., 0.8780, 0.8558, 0.6481],
-         [0.7085, 0.5210, 0.0942,  ..., 0.6270, 0.3900, 0.6386],
-         [0.5278, 0.8805, 0.0882,  ..., 0.2078, 0.6381, 0.3887]],
+         [0.4662, 0.2132, 0.1998,  ..., 0.6588, 0.8296, 0.2298],
+         [0.9514, 0.2060, 0.7950,  ..., 0.6599, 0.1169, 0.2447],
+         [0.8937, 0.3934, 0.2599,  ..., 0.4562, 0.3431, 0.1549]],
 
-        [[0.3413, 0.0148, 0.8672,  ..., 0.6070, 0.1299, 0.4776],
-         [0.7864, 0.0327, 0.9111,  ..., 0.1511, 0.4584, 0.4078],
-         [0.9561, 0.3195, 0.8332,  ..., 0.4833, 0.7826, 0.2048],
+        [[0.4862, 0.5425, 0.0835,  ..., 0.7402, 0.1429, 0.3888],
+         [0.9295, 0.1656, 0.1685,  ..., 0.0719, 0.8371, 0.4187],
+         [0.5786, 0.6272, 0.3254,  ..., 0.1154, 0.7410, 0.5102],
          ...,
-         [0.3433, 0.3099, 0.6841,  ..., 0.7285, 0.8669, 0.5742],
-         [0.0585, 0.4198, 0.8397,  ..., 0.0946, 0.5850, 0.7627],
-         [0.9071, 0.7433, 0.0438,  ..., 0.8983, 0.6377, 0.7915]]])
+         [0.3220, 0.8401, 0.7176,  ..., 0.9621, 0.9398, 0.8234],
+         [0.8348, 0.0342, 0.0416,  ..., 0.0776, 0.3532, 0.9574],
+         [0.2845, 0.3234, 0.2362,  ..., 0.1905, 0.2038, 0.9161]]])
 </pre></div>
 </div>
 </div>
@@ -1425,9 +1429,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.7130, 1.4963, 1.3613],
-        [1.6491, 1.4716, 1.3140],
-        [0.6062, 0.5344, 0.4985]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0291, 0.4446, 0.6107],
+        [0.7192, 0.3128, 0.4107],
+        [0.8769, 0.5528, 0.8373]])
 </pre></div>
 </div>
 </div>
@@ -1498,7 +1502,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f77d8460310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f972cc64310&gt;
 </pre></div>
 </div>
 </div>
@@ -1685,8 +1689,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b506283-f396-4cff-9fc3-d635bc059ef6">
-<span class="eqno">(43)<a class="headerlink" href="#equation-0b506283-f396-4cff-9fc3-d635bc059ef6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ae69e52c-5370-4be7-96e2-c55b641e3424">
+<span class="eqno">(43)<a class="headerlink" href="#equation-ae69e52c-5370-4be7-96e2-c55b641e3424" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2140,7 +2144,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1826/911712487.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1987/911712487.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2172,6 +2176,132 @@ the predicted class index.</p>
 </section>
 <section id="calculating-network-error-with-loss">
 <h2>Calculating Network Error with Loss<a class="headerlink" href="#calculating-network-error-with-loss" title="Link to this heading">#</a></h2>
+<p>The end goal of building a neural network is to train a model over time by tweaking the weights and biases that will improve the model’s accuracy and confidence in performing the respective task. To do this, we must calculate how much error the model has.</p>
+<p>The <b>loss function</b> also referred to as the <b>cost function</b> is the algorithm that quantifies how wrong a model is.
+Since loss is the model’s error, we ideally want it to be 0.</p>
+<p>We cannot calculate error of a model based on <span class="math notranslate nohighlight">\(argmax\)</span>, because if we have 2 output vectors <span class="math notranslate nohighlight">\([0.22, 0.6, 0.18]\)</span> vs <span class="math notranslate nohighlight">\([0.32, 0.36, 0.32]\)</span>, the middle one is the correct class in both the cases. But these 2 values are not as accurate as each other because accuracy is simply applying <span class="math notranslate nohighlight">\(argmax\)</span> to the output to find the biggest value. This does not tell us how confident we are in our prediction. The output of a neural network is actually confidence, and more confidence in the correct answer is better. So we strive to increase correct confidence and decrease misplaced confidence.</p>
+<section id="categorical-cross-entropy-loss">
+<h3>Categorical Cross-Entropy Loss<a class="headerlink" href="#categorical-cross-entropy-loss" title="Link to this heading">#</a></h3>
+<p>Categorical cross-entropy is used to compare the <i>ground-truth</i> probability and some <i>predicted</i> probability distribution. It is most commonly used loss functions with a softmax activation function on the output layer. Hence it is also known as <b>Softmax Loss</b>.</p>
+<p>In the case when Softmax is not applied on the output, it is known as <b>Cross-Entropy loss</b>. Logistic Loss and Multinomial Logistic Loss are other names for Cross-Entropy loss. In the case where Sigmoid activation is used before using Cross-Entropy loss, it is called as Binary Cross-Entropy loss or Sigmoid Cross-Entropy loss.</p>
+<div class="math notranslate nohighlight">
+\[L_i = -\sum_{j}y_{ij}\log(\hat{y_{ij}})\]</div>
+<p>where <span class="math notranslate nohighlight">\(L_i\)</span> represents the loss value, <span class="math notranslate nohighlight">\(i\)</span> is the <span class="math notranslate nohighlight">\(i^{th}\)</span> sample in a dataset, <span class="math notranslate nohighlight">\(j\)</span> is the index of the output vector <span class="math notranslate nohighlight">\(y\)</span> which has the target values and <span class="math notranslate nohighlight">\(\hat{y}\)</span> represents the predicted values.</p>
+<p>for example, if we are working on predicting a class out of 3 classes, we will have 3 class confidences after softmax activation eg. <span class="math notranslate nohighlight">\([0.7, 0.1, 0.2]\)</span>. Assuming that the desired prediction is the first class or index 0, the desired probability distribution is <span class="math notranslate nohighlight">\([1, 0, 0]\)</span> i.e. the desired probabilities will consist of <span class="math notranslate nohighlight">\(1\)</span> in the desired class, and <span class="math notranslate nohighlight">\(0\)</span> in the remaining undesired classes. These kind of vectors are called <b>one-hot</b>.</p>
+<div class="math notranslate nohighlight">
+\[L_i = -\sum_{j}y_{ij}\log(\hat{y_{ij}})= -(1\cdot\log(0.7) + 0\cdot\log(0.1) + 0\cdot\log(0.2))\]</div>
+<p>Since the one-hot vector zero out part of the equation and only considers the log of the desired class, the equation can be simplified to</p>
+<div class="math notranslate nohighlight">
+\[L_i = -\log(\hat{y_{ik}})\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the index of the “true” probability or groundtruth label.</p>
+<p>In the example used earlier, <span class="math notranslate nohighlight">\([0.22, 0.6, 0.18]\)</span> vs <span class="math notranslate nohighlight">\([0.32, 0.36, 0.32]\)</span> are 2 output vectors after applying softmax. We can observe that <span class="math notranslate nohighlight">\(argmax\)</span> of these output vectors is the same i.e. index 2, although the confidence is different i.e. 0.6 and 0.36. Categorical Cross-Entropy Loss accounts for that and outputs a larger loss if the confidence is lower. To see that, lets apply log of the values 0.6 and 0.36.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log(1) = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log(0.6) = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;log(0.36) = &quot;</span><span class="p">,</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mf">0.36</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>log(1) =  0.0
+log(0.6) =  -0.5108256237659907
+log(0.36) =  -1.0216512475319814
+</pre></div>
+</div>
+</div>
+</div>
+<p>As we can see, if the confidence level equals <span class="math notranslate nohighlight">\(1\)</span>, meaning we are 100% sure, the loss is <span class="math notranslate nohighlight">\(0\)</span>. Loss value raises, as we approach <span class="math notranslate nohighlight">\(0\)</span>. What we are doing is simply find <span class="math notranslate nohighlight">\(x\)</span> based on <span class="math notranslate nohighlight">\(e^x = value\)</span> where value is our predicted confidence.</p>
+<p>Remember in the softmax output, we have values ranging from <span class="math notranslate nohighlight">\(0\)</span> to <span class="math notranslate nohighlight">\(1\)</span>. This is a problem because <span class="math notranslate nohighlight">\(\log(0) = e^x = 0\)</span> and the constant <span class="math notranslate nohighlight">\(e\)</span> to any power is always a positive number and there is not <span class="math notranslate nohighlight">\(x\)</span> that will result in <span class="math notranslate nohighlight">\(0\)</span>. Hence, this is undefined.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># in general log(0) is undefined</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>   
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">e</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1987/544017737.py:3: RuntimeWarning: divide by zero encountered in log
+  np.log(0)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Since this is undefined, we have to find a value very close to 0. This is given by solving:</p>
+<div class="math notranslate nohighlight">
+\[\lim_{x\to 0^+} log(x) = -\infty\]</div>
+<p>A quick work around is to clip a very small value to the confidence to prevent it from being a 0 i.e. the lowest possible value becomes <span class="math notranslate nohighlight">\(1e-7\)</span> and the highest possible values becomes <span class="math notranslate nohighlight">\(1-1e-7\)</span> slightly less than <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">1.38879439e-11</span><span class="p">,</span> <span class="mf">1.52299797e-08</span><span class="p">,</span> <span class="mf">1.00000000e+00</span><span class="p">])</span>
+<span class="n">x_clipped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mf">1e-7</span><span class="p">,</span><span class="mi">1</span><span class="o">-</span><span class="mf">1e-7</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Example output = &#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Clipped output = &#39;</span><span class="p">,</span> <span class="n">x_clipped</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Example output =  [1.38879439e-11 1.52299797e-08 1.00000000e+00]
+Clipped output =  [1.000000e-07 1.000000e-07 9.999999e-01]
+</pre></div>
+</div>
+</div>
+</div>
+<p>The idea now, would be to take in a batch of outputs, and compute the average loss per batch i.e. take the mean of the loss per each batch. As we have seen earlier, that the target values can be one-hot encoded or just sparse vector with the target labels, we shall support to allow both kind of inputs for the target class vector in our loss function.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Loss</span><span class="p">:</span>
+    <span class="c1"># provide the model output and groundtruth</span>
+    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">output</span><span class="p">,</span><span class="n">y</span><span class="p">):</span>
+        <span class="n">sample_losses</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">forward</span><span class="p">(</span><span class="n">output</span><span class="p">,</span><span class="n">y</span><span class="p">)</span>
+        <span class="n">data_loss</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">sample_losses</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">data_loss</span>
+
+<span class="k">class</span> <span class="nc">Loss_CategoricalcrossEntropy</span><span class="p">(</span><span class="n">Loss</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">,</span> <span class="n">y_true</span><span class="p">):</span>
+        <span class="c1"># number of samples in a batch</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_pred</span><span class="p">)</span>
+        <span class="c1"># clip the data to prevent having 0 values which raises an error (log(0))</span>
+        <span class="n">y_pred_clipped</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="mf">1e-7</span><span class="p">,</span> <span class="mi">1</span><span class="o">-</span><span class="mf">1e-7</span><span class="p">)</span>
+        <span class="c1"># check if the target vector passed is one hot encoded or not</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="c1"># get the confidence we got for the corresponding desired target in the current set of samples</span>
+            <span class="n">correct_confidences</span> <span class="o">=</span> <span class="n">y_pred_clipped</span><span class="p">[</span><span class="nb">range</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span><span class="n">y_true</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">correct_confidences</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">y_pred_clipped</span> <span class="o">*</span> <span class="n">y_true</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        
+        <span class="c1"># take the log of the confidences</span>
+        <span class="n">negative_log_likelihoods</span> <span class="o">=</span> <span class="o">-</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">correct_confidences</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">negative_log_likelihoods</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Along with loss, we can also compute accuracy, which describes how often the largest confidence is the correct class.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Accuracy</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">calculate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">y_pred</span><span class="p">,</span><span class="n">y_true</span><span class="p">):</span>
+        <span class="c1"># get the index of the maximum confidence</span>
+        <span class="n">predictions</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_pred</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">y_true</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="c1"># get the index of the groundtruth</span>
+            <span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmax</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">axis</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="c1"># check the number of times we have predicted the ground truth correctly</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">accuracy</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">predictions</span> <span class="o">==</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="introducing-optimization">
+<h2>Introducing Optimization<a class="headerlink" href="#introducing-optimization" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -2269,7 +2399,11 @@ the predicted class index.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#softmax-activation-function">Softmax Activation Function</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-network-error-with-loss">Calculating Network Error with Loss</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#categorical-cross-entropy-loss">Categorical Cross-Entropy Loss</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-optimization">Introducing Optimization</a></li>
 </ul>
   </nav></div>
 

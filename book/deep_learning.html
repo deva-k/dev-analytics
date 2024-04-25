@@ -601,8 +601,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-b818c373-e00f-48eb-aa05-89b6d01a2578">
-<span class="eqno">(42)<a class="headerlink" href="#equation-b818c373-e00f-48eb-aa05-89b6d01a2578" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ccac5c09-aaf4-4d21-a464-4892eb1f0a15">
+<span class="eqno">(42)<a class="headerlink" href="#equation-ccac5c09-aaf4-4d21-a464-4892eb1f0a15" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1207,9 +1207,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.1887, 0.9421, 0.1829, 0.7037],
-        [0.3109, 0.3789, 0.7677, 0.4661],
-        [0.2003, 0.1176, 0.3179, 0.5960]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.2528, 0.9350, 0.3398, 0.7206],
+        [0.5204, 0.1394, 0.3892, 0.4359],
+        [0.0645, 0.3080, 0.3125, 0.9558]])
 </pre></div>
 </div>
 </div>
@@ -1223,29 +1223,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.3450, 0.0807, 0.8398,  ..., 0.8540, 0.6624, 0.4563],
-         [0.1948, 0.3879, 0.0655,  ..., 0.5746, 0.8156, 0.6466],
-         [0.7294, 0.7001, 0.9612,  ..., 0.8906, 0.0675, 0.1153],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.3433, 0.5697, 0.9404,  ..., 0.5856, 0.5285, 0.2490],
+         [0.8708, 0.4741, 0.4937,  ..., 0.6843, 0.9550, 0.0854],
+         [0.4239, 0.6176, 0.0611,  ..., 0.9391, 0.8275, 0.8025],
          ...,
-         [0.8707, 0.4568, 0.1581,  ..., 0.9554, 0.9267, 0.6655],
-         [0.3689, 0.0648, 0.5663,  ..., 0.7296, 0.5789, 0.9148],
-         [0.4108, 0.2512, 0.8233,  ..., 0.3910, 0.1558, 0.0661]],
+         [0.4033, 0.3239, 0.7131,  ..., 0.2622, 0.4298, 0.2973],
+         [0.5490, 0.9436, 0.0715,  ..., 0.7879, 0.3664, 0.0295],
+         [0.7518, 0.7126, 0.6548,  ..., 0.6067, 0.4584, 0.9930]],
 
-        [[0.4248, 0.3636, 0.5551,  ..., 0.6777, 0.0892, 0.2137],
-         [0.3629, 0.4609, 0.5423,  ..., 0.5490, 0.8817, 0.3656],
-         [0.1016, 0.8963, 0.7406,  ..., 0.5620, 0.4293, 0.7778],
+        [[0.4102, 0.5697, 0.4225,  ..., 0.9388, 0.3902, 0.5289],
+         [0.0300, 0.5171, 0.4195,  ..., 0.2064, 0.6694, 0.1057],
+         [0.0670, 0.3354, 0.3502,  ..., 0.2675, 0.4514, 0.6305],
          ...,
-         [0.4662, 0.2132, 0.1998,  ..., 0.6588, 0.8296, 0.2298],
-         [0.9514, 0.2060, 0.7950,  ..., 0.6599, 0.1169, 0.2447],
-         [0.8937, 0.3934, 0.2599,  ..., 0.4562, 0.3431, 0.1549]],
+         [0.8934, 0.6492, 0.6325,  ..., 0.5760, 0.0952, 0.8686],
+         [0.3231, 0.5804, 0.0930,  ..., 0.8218, 0.9358, 0.7155],
+         [0.6194, 0.3410, 0.3919,  ..., 0.1747, 0.6174, 0.1651]],
 
-        [[0.4862, 0.5425, 0.0835,  ..., 0.7402, 0.1429, 0.3888],
-         [0.9295, 0.1656, 0.1685,  ..., 0.0719, 0.8371, 0.4187],
-         [0.5786, 0.6272, 0.3254,  ..., 0.1154, 0.7410, 0.5102],
+        [[0.3247, 0.2341, 0.8012,  ..., 0.3653, 0.9521, 0.4649],
+         [0.6087, 0.1772, 0.6863,  ..., 0.8334, 0.5346, 0.3375],
+         [0.0172, 0.5237, 0.4700,  ..., 0.0337, 0.7514, 0.9041],
          ...,
-         [0.3220, 0.8401, 0.7176,  ..., 0.9621, 0.9398, 0.8234],
-         [0.8348, 0.0342, 0.0416,  ..., 0.0776, 0.3532, 0.9574],
-         [0.2845, 0.3234, 0.2362,  ..., 0.1905, 0.2038, 0.9161]]])
+         [0.0865, 0.5635, 0.7056,  ..., 0.2667, 0.0362, 0.1484],
+         [0.8098, 0.9489, 0.7552,  ..., 0.6527, 0.6824, 0.5510],
+         [0.9298, 0.5079, 0.5366,  ..., 0.0463, 0.0519, 0.5551]]])
 </pre></div>
 </div>
 </div>
@@ -1429,9 +1429,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0291, 0.4446, 0.6107],
-        [0.7192, 0.3128, 0.4107],
-        [0.8769, 0.5528, 0.8373]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9522, 0.3474, 0.4816],
+        [1.4647, 0.6713, 0.3471],
+        [0.2117, 0.1690, 0.2576]])
 </pre></div>
 </div>
 </div>
@@ -1502,7 +1502,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f972cc64310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f450c3242f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1689,8 +1689,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ae69e52c-5370-4be7-96e2-c55b641e3424">
-<span class="eqno">(43)<a class="headerlink" href="#equation-ae69e52c-5370-4be7-96e2-c55b641e3424" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5d07336a-a427-41cc-ab52-f8f8da3d4414">
+<span class="eqno">(43)<a class="headerlink" href="#equation-5d07336a-a427-41cc-ab52-f8f8da3d4414" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2144,7 +2144,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1987/911712487.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/911712487.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2224,7 +2224,7 @@ log(0.36) =  -1.0216512475319814
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1987/544017737.py:3: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1933/544017737.py:3: RuntimeWarning: divide by zero encountered in log
   np.log(0)
 </pre></div>
 </div>

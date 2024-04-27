@@ -483,7 +483,12 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytical-derivative">The Analytical Derivative</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-derivatives">Partial Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gradient">The Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chain-rule">The Chain Rule</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -607,8 +612,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7c91c0d7-7f5a-493f-8da1-426029237d62">
-<span class="eqno">(42)<a class="headerlink" href="#equation-7c91c0d7-7f5a-493f-8da1-426029237d62" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c90409c8-9e7d-45e7-a3dd-2b65ccbd5a86">
+<span class="eqno">(42)<a class="headerlink" href="#equation-c90409c8-9e7d-45e7-a3dd-2b65ccbd5a86" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1213,9 +1218,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6615, 0.9223, 0.3303, 0.4954],
-        [0.9371, 0.2274, 0.5685, 0.8309],
-        [0.1936, 0.8903, 0.4326, 0.5421]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.1971, 0.8357, 0.1773, 0.5432],
+        [0.2140, 0.8224, 0.0825, 0.5248],
+        [0.5255, 0.3480, 0.4359, 0.9852]])
 </pre></div>
 </div>
 </div>
@@ -1229,29 +1234,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.5336, 0.9360, 0.5541,  ..., 0.0544, 0.0573, 0.5498],
-         [0.2208, 0.8987, 0.0800,  ..., 0.1570, 0.6633, 0.2747],
-         [0.9293, 0.9914, 0.9010,  ..., 0.9313, 0.3892, 0.1333],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.5233, 0.7615, 0.3479,  ..., 0.8551, 0.4568, 0.0848],
+         [0.1763, 0.3717, 0.3704,  ..., 0.0894, 0.9979, 0.6641],
+         [0.7319, 0.1865, 0.2734,  ..., 0.8760, 0.0865, 0.9324],
          ...,
-         [0.7764, 0.9631, 0.2615,  ..., 0.8648, 0.7275, 0.0866],
-         [0.8727, 0.3108, 0.7065,  ..., 0.4819, 0.8108, 0.2040],
-         [0.0212, 0.0876, 0.9948,  ..., 0.2631, 0.5402, 0.0879]],
+         [0.1028, 0.5939, 0.5621,  ..., 0.8460, 0.3919, 0.8976],
+         [0.1076, 0.5093, 0.4965,  ..., 0.9817, 0.8705, 0.0752],
+         [0.1755, 0.2834, 0.2332,  ..., 0.4956, 0.0895, 0.6402]],
 
-        [[0.1805, 0.5419, 0.4367,  ..., 0.8897, 0.7385, 0.8269],
-         [0.9615, 0.4484, 0.5415,  ..., 0.8744, 0.3164, 0.6103],
-         [0.8817, 0.7054, 0.0648,  ..., 0.4662, 0.1681, 0.0191],
+        [[0.2170, 0.8821, 0.6765,  ..., 0.6297, 0.6097, 0.8479],
+         [0.5239, 0.6180, 0.6402,  ..., 0.9299, 0.2535, 0.6282],
+         [0.3407, 0.7684, 0.0414,  ..., 0.9559, 0.2950, 0.8020],
          ...,
-         [0.9716, 0.3824, 0.3807,  ..., 0.7215, 0.4839, 0.3910],
-         [0.5823, 0.3887, 0.4756,  ..., 0.4307, 0.8786, 0.9621],
-         [0.2769, 0.1396, 0.3357,  ..., 0.2357, 0.9337, 0.3805]],
+         [0.7491, 0.4843, 0.7461,  ..., 0.9848, 0.5667, 0.2877],
+         [0.1158, 0.6166, 0.7175,  ..., 0.1094, 0.9819, 0.1376],
+         [0.2827, 0.1344, 0.4464,  ..., 0.6197, 0.6994, 0.1620]],
 
-        [[0.7857, 0.7189, 0.5433,  ..., 0.5683, 0.6789, 0.2601],
-         [0.9205, 0.3428, 0.8824,  ..., 0.0078, 0.9359, 0.2085],
-         [0.4426, 0.1011, 0.3415,  ..., 0.2074, 0.0113, 0.1923],
+        [[0.6757, 0.1379, 0.5894,  ..., 0.0466, 0.5317, 0.4477],
+         [0.1739, 0.9571, 0.5572,  ..., 0.9139, 0.6806, 0.2929],
+         [0.3912, 0.5713, 0.2845,  ..., 0.9982, 0.0311, 0.4214],
          ...,
-         [0.0740, 0.4591, 0.8252,  ..., 0.6047, 0.3676, 0.3477],
-         [0.5716, 0.6645, 0.8029,  ..., 0.4919, 0.6731, 0.5499],
-         [0.4931, 0.9918, 0.4706,  ..., 0.8199, 0.5069, 0.3212]]])
+         [0.8599, 0.9945, 0.1637,  ..., 0.2708, 0.3806, 0.3778],
+         [0.5988, 0.5346, 0.1920,  ..., 0.9155, 0.0954, 0.0791],
+         [0.5217, 0.1309, 0.1098,  ..., 0.3372, 0.1751, 0.7574]]])
 </pre></div>
 </div>
 </div>
@@ -1435,9 +1440,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.8161, 1.5690, 1.0463],
-        [0.8101, 1.4416, 0.9914],
-        [0.7831, 1.4307, 0.9124]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.5192, 0.9807, 0.7859],
+        [1.1636, 1.4667, 0.2792],
+        [0.7691, 0.4118, 0.5010]])
 </pre></div>
 </div>
 </div>
@@ -1508,7 +1513,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fb26125f310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f8e905642f0&gt;
 </pre></div>
 </div>
 </div>
@@ -1740,8 +1745,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cbe12bca-c077-4822-9c91-4f77f881e21d">
-<span class="eqno">(43)<a class="headerlink" href="#equation-cbe12bca-c077-4822-9c91-4f77f881e21d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5b992d7a-b020-4b00-bec8-bfc5f078c450">
+<span class="eqno">(43)<a class="headerlink" href="#equation-5b992d7a-b020-4b00-bec8-bfc5f078c450" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2195,7 +2200,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1858/911712487.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1888/911712487.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2275,7 +2280,7 @@ log(0.36) =  -1.0216512475319814
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1858/544017737.py:3: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1888/544017737.py:3: RuntimeWarning: divide by zero encountered in log
   np.log(0)
 </pre></div>
 </div>
@@ -2628,8 +2633,8 @@ f'(x) = 1
 \]</div>
 <p>The intuition behind this is that for every change in <span class="math notranslate nohighlight">\(x, y\)</span> changes by the same amount.</p>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 2x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-39e312d5-7c58-4fed-be95-04c8425a8739">
-<span class="eqno">(44)<a class="headerlink" href="#equation-39e312d5-7c58-4fed-be95-04c8425a8739" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1ea86ab3-3ea4-4b36-bef5-9701727227a7">
+<span class="eqno">(44)<a class="headerlink" href="#equation-1ea86ab3-3ea4-4b36-bef5-9701727227a7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}2x^1 \\
@@ -2638,8 +2643,8 @@ f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 2
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-d4666188-e1cd-473a-a79d-c20030ea9c88">
-<span class="eqno">(45)<a class="headerlink" href="#equation-d4666188-e1cd-473a-a79d-c20030ea9c88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fe5fa311-6f77-4570-958f-15053d61ba4c">
+<span class="eqno">(45)<a class="headerlink" href="#equation-fe5fa311-6f77-4570-958f-15053d61ba4c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 2
 \end{equation}\]</div>
 <p>If a constant is present when calculating the derivative, we shall move it outside of the derivative and later multiply it. Since we already know that <span class="math notranslate nohighlight">\(f(x) = x\)</span> was <span class="math notranslate nohighlight">\(1\)</span>, then we can simply multiply it by <span class="math notranslate nohighlight">\(2\)</span>.</p>
@@ -2649,8 +2654,8 @@ f'(x) = 2
 \frac{d}{dx}[k \cdot f(x)] = k \cdot \frac{d}{dx} f(x)
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-bc4ef868-bf30-41b5-a9fe-19d7778bc465">
-<span class="eqno">(46)<a class="headerlink" href="#equation-bc4ef868-bf30-41b5-a9fe-19d7778bc465" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-41d2c5f2-a260-41cb-baa2-a278d0bb8384">
+<span class="eqno">(46)<a class="headerlink" href="#equation-41d2c5f2-a260-41cb-baa2-a278d0bb8384" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 \\
@@ -2659,8 +2664,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x \\
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-821eb3f4-4fca-4c99-b19e-0c1009fd8bd5">
-<span class="eqno">(47)<a class="headerlink" href="#equation-821eb3f4-4fca-4c99-b19e-0c1009fd8bd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1a3f0e3c-d93c-4d5a-81c4-f54356b3c584">
+<span class="eqno">(47)<a class="headerlink" href="#equation-1a3f0e3c-d93c-4d5a-81c4-f54356b3c584" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x
 \end{equation}\]</div>
 <p>The first step is to move the constant outside the derivative. The rule for handling exponents is by taking the exponent as a coefficient and multiply with the variable. For the variable exponent, subtract the exponent value by <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -2670,8 +2675,8 @@ f'(x) = 6x
 \frac{d}{dx}x^n = n \cdot x^{n-1}
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2 + 5x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-59ca4199-ddd6-4984-84f4-14bb49c0b911">
-<span class="eqno">(48)<a class="headerlink" href="#equation-59ca4199-ddd6-4984-84f4-14bb49c0b911" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3dcf1010-1a97-46f3-8da1-251dd0133d2e">
+<span class="eqno">(48)<a class="headerlink" href="#equation-3dcf1010-1a97-46f3-8da1-251dd0133d2e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 + \frac{d}{dx}5x^1 \\
@@ -2681,8 +2686,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x + 5
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-17a28923-ec94-46f3-a3dd-654af7b535a3">
-<span class="eqno">(49)<a class="headerlink" href="#equation-17a28923-ec94-46f3-a3dd-654af7b535a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3af9cab4-c455-4a80-8e50-92c1d9273239">
+<span class="eqno">(49)<a class="headerlink" href="#equation-3af9cab4-c455-4a80-8e50-92c1d9273239" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x + 5
 \end{equation}\]</div>
 <p>So the derivative of a sum of functions is</p>
@@ -2694,6 +2699,107 @@ f'(x) = 6x + 5
 </section>
 <section id="gradients-partial-derivatives-and-the-chain-rule">
 <h2>Gradients, Partial Derivatives and the Chain Rule<a class="headerlink" href="#gradients-partial-derivatives-and-the-chain-rule" title="Link to this heading">#</a></h2>
+<p>The derivatives that have been solved so far consider only a single input i.e. <span class="math notranslate nohighlight">\(x\)</span>. However, our neural networks consists of multiple inputs and parameters.</p>
+<section id="partial-derivatives">
+<h3>Partial Derivatives<a class="headerlink" href="#partial-derivatives" title="Link to this heading">#</a></h3>
+<p>The method for calculating a partial derivative is the same as for derivatives, although we simply repeat the process for each of the independent variables. We call these partial derivatives because we want to learn the impact of each input on the output separately.</p>
+<p>The partial derivative is a single equation, and the full multivariate function’s derivative
+consists of a set of equations called the <b>gradient</b>. In other words, the gradient is a vector of the
+size of inputs containing partial derivative solutions with respect to each of the inputs.</p>
+<p>The <span class="math notranslate nohighlight">\(\partial\)</span> operator is the notation used for partial derivatives. This is called as Euler’s notation.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-79de064f-461f-4c0e-a0e7-3a57277e509c">
+<span class="eqno">(50)<a class="headerlink" href="#equation-79de064f-461f-4c0e-a0e7-3a57277e509c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f(x,y,z) = \frac{\partial}{\partial x}f(x,y,z), \frac{\partial}{\partial y}f(x,y,z), \frac{\partial}{\partial z}f(x,y,z)
+\end{equation}\]</div>
+<p>Here we are interested in seeing the impact of an individual input on the output while treating all of the other inputs as constants. Since the goal is to update the parameters of the model we are interested in singular inputs.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-57181665-52e0-4ea0-aedf-9d1c3a838515">
+<span class="eqno">(51)<a class="headerlink" href="#equation-57181665-52e0-4ea0-aedf-9d1c3a838515" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x,y) \rightarrow &amp; \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x+y] = 
+\frac{\partial}{\partial x}x + \frac{\partial}{\partial x}y = 1 + 0 = 1 \\
+&amp; \frac{\partial}{\partial y}f(x,y) = \frac{\partial}{\partial y}[x+y] = 
+\frac{\partial}{\partial y}x + \frac{\partial}{\partial y}y = 0 + 1 = 1
+\end{split}
+\end{equation}\]</div>
+<p>First we applied the sum rule, and then we calculated the derivative of x with respect to x while keep y as constant i.e. derivative of a constant is 0. In the second case, we did the opposite.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-da178718-3f4a-4cfd-89c1-6a137629154b">
+<span class="eqno">(52)<a class="headerlink" href="#equation-da178718-3f4a-4cfd-89c1-6a137629154b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x,y) &amp; = 3x^3 - y^2 + 5x + 2 \rightarrow \\
+\frac{\partial}{\partial x}f(x,y) &amp; = \frac{\partial}{\partial x}[3x^3 - y^2 + 5x + 2] = \frac{\partial}{\partial x}3x^3 - \frac{\partial}{\partial x}y^2 + \frac{\partial}{\partial x}5x + \frac{\partial}{\partial x}2 \\
+&amp; = 3 \cdot \frac{\partial}{\partial x} x^3 - \frac{\partial}{\partial x}y^2 + 5 \cdot \frac{\partial}{\partial x} x^1 + \frac{\partial}{\partial x}2 \\
+&amp; = 3 \cdot 3 \cdot x^2 - 0 + 5 \cdot 1 + 0 = 9x^2 + 5 \\
+\frac{\partial}{\partial y}f(x,y) &amp; = \frac{\partial}{\partial y}[3x^3 - y^2 + 5x + 2] = \frac{\partial}{\partial y}3x^3 - \frac{\partial}{\partial y}y^2 + \frac{\partial}{\partial y}5x + \frac{\partial}{\partial y}2 \\
+&amp; = 3 \cdot \frac{\partial}{\partial y} x^3 - \frac{\partial}{\partial y}y^2 + 5 \cdot \frac{\partial}{\partial y} x^1 + \frac{\partial}{\partial y}2 \\
+&amp; = 3 \cdot 0 - 2y^1 + 0 + 0 = -2y
+\end{split}
+\end{equation}\]</div>
+<p>The partial derivative of multiplication operation is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1724326e-c7ed-4f53-b3cc-abee6d65abc6">
+<span class="eqno">(53)<a class="headerlink" href="#equation-1724326e-c7ed-4f53-b3cc-abee6d65abc6" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x,y) = x \cdot y \rightarrow &amp; = \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x \cdot y] = y\frac{\partial}{\partial x}x = y \cdot 1 = y \\
+&amp; = \frac{\partial}{\partial y}f(x,y) = \frac{\partial}{\partial y}[x \cdot y] = x\frac{\partial}{\partial y}y = x \cdot 1 = x 
+\end{split}
+\end{equation}\]</div>
+<p>We have already mentioned that we need to treat the other independent variables as constants, and
+we also have learned that we can move constants to the outside of the derivative.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e8388f19-6d20-4ebe-8a13-b036acae1852">
+<span class="eqno">(54)<a class="headerlink" href="#equation-e8388f19-6d20-4ebe-8a13-b036acae1852" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
+\frac{\partial}{\partial x}f(x,y,z) &amp; = \frac{\partial}{\partial x}[3x^3z - y^2 + 5z + 2yz] \\
+&amp; = \frac{\partial}{\partial x}3x^3z - \frac{\partial}{\partial x}y^2 + \frac{\partial}{\partial x}5z + \frac{\partial}{\partial x}2yz \\
+&amp; = 3z\frac{\partial}{\partial x}x^3 - \frac{\partial}{\partial x}y^2 + 5\frac{\partial}{\partial x}z + 2\frac{\partial}{\partial x}yz \\
+&amp; = 3z \cdot 3x^2 - 0 + 5 \cdot 0 + 2 \cdot 0 \\
+&amp; = 9x^2z
+\end{split}
+\end{equation}\]</div>
+<p>Similarly</p>
+<div class="amsmath math notranslate nohighlight" id="equation-602ee039-72b0-43ae-a88f-2ad7ace44924">
+<span class="eqno">(55)<a class="headerlink" href="#equation-602ee039-72b0-43ae-a88f-2ad7ace44924" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+\frac{\partial}{\partial y}f(x,y,z) &amp; =  3\frac{\partial}{\partial y}x^3z - \frac{\partial}{\partial y}y^2 + 5\frac{\partial}{\partial y}z + 2z\frac{\partial}{\partial y}y \\
+&amp; = 3 \cdot 0 - 2 \cdot y^{2-1} + 5 \cdot 0 + 2z \cdot 1 \\
+&amp; = -2y + 2z
+\end{split}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-355aa6d0-0829-4895-b9b9-3de479686bfe">
+<span class="eqno">(56)<a class="headerlink" href="#equation-355aa6d0-0829-4895-b9b9-3de479686bfe" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+\frac{\partial}{\partial z}f(x,y,z) &amp; = 3x^3\frac{\partial}{\partial z}z - \frac{\partial}{\partial z}y^2 + 5\frac{\partial}{\partial z}z + 2y\frac{\partial}{\partial z}z \\
+&amp; = 3x^3 \cdot 1 - 0 + 5 \cdot 1 + 2y \cdot 1 \\
+&amp; = 3x^3 + 2y + 5
+\end{split}
+\end{equation}\]</div>
+</section>
+<section id="the-gradient">
+<h3>The Gradient<a class="headerlink" href="#the-gradient" title="Link to this heading">#</a></h3>
+<p>The gradient is a vector composed of all of the partial derivatives of a function, calculated with respect to each input variable.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1952e75c-2f7c-4d98-a0cb-bd3accfdde7f">
+<span class="eqno">(57)<a class="headerlink" href="#equation-1952e75c-2f7c-4d98-a0cb-bd3accfdde7f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\nabla f(x,y,z) = 
+\begin{bmatrix}
+\frac{\partial}{\partial x}f(x,y,z) \\
+\frac{\partial}{\partial y}f(x,y,z) \\
+\frac{\partial}{\partial z}f(x,y,z)
+\end{bmatrix} = 
+\begin{bmatrix}
+\frac{\partial}{\partial x} \\
+\frac{\partial}{\partial y} \\
+\frac{\partial}{\partial z}
+\end{bmatrix}
+f(x,y,z) = 
+\begin{bmatrix}
+9x^2z \\
+-2y + 2z \\
+3x^3 + 2y + 5
+\end{bmatrix}
+\end{equation}\]</div>
+</section>
+<section id="the-chain-rule">
+<h3>The Chain Rule<a class="headerlink" href="#the-chain-rule" title="Link to this heading">#</a></h3>
+</section>
 </section>
 </section>
 
@@ -2801,7 +2907,12 @@ f'(x) = 6x + 5
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytical-derivative">The Analytical Derivative</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#partial-derivatives">Partial Derivatives</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-gradient">The Gradient</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-chain-rule">The Chain Rule</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

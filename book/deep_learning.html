@@ -483,6 +483,7 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytical-derivative">The Analytical Derivative</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a></li>
 </ul>
             </nav>
         </div>
@@ -606,8 +607,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-914ac3a9-a322-4300-a98d-b54859ff3135">
-<span class="eqno">(42)<a class="headerlink" href="#equation-914ac3a9-a322-4300-a98d-b54859ff3135" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-7c91c0d7-7f5a-493f-8da1-426029237d62">
+<span class="eqno">(42)<a class="headerlink" href="#equation-7c91c0d7-7f5a-493f-8da1-426029237d62" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   1 \hspace{1cm} x &gt; 0\\
@@ -1212,9 +1213,9 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.2732, 0.7577, 0.0201, 0.7272],
-        [0.1104, 0.8258, 0.4103, 0.1410],
-        [0.0612, 0.2358, 0.3909, 0.3832]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6615, 0.9223, 0.3303, 0.4954],
+        [0.9371, 0.2274, 0.5685, 0.8309],
+        [0.1936, 0.8903, 0.4326, 0.5421]])
 </pre></div>
 </div>
 </div>
@@ -1228,29 +1229,29 @@ process as starting values will be disproportionately large compared to the upda
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.4514, 0.3956, 0.5960,  ..., 0.6650, 0.6612, 0.8001],
-         [0.0695, 0.6898, 0.7651,  ..., 0.4139, 0.6916, 0.0185],
-         [0.7500, 0.5104, 0.2352,  ..., 0.8294, 0.8595, 0.4837],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.5336, 0.9360, 0.5541,  ..., 0.0544, 0.0573, 0.5498],
+         [0.2208, 0.8987, 0.0800,  ..., 0.1570, 0.6633, 0.2747],
+         [0.9293, 0.9914, 0.9010,  ..., 0.9313, 0.3892, 0.1333],
          ...,
-         [0.4680, 0.1417, 0.3159,  ..., 0.3832, 0.5447, 0.8825],
-         [0.9080, 0.3726, 0.1741,  ..., 0.8351, 0.9645, 0.3812],
-         [0.2524, 0.1602, 0.8472,  ..., 0.1528, 0.0826, 0.4411]],
+         [0.7764, 0.9631, 0.2615,  ..., 0.8648, 0.7275, 0.0866],
+         [0.8727, 0.3108, 0.7065,  ..., 0.4819, 0.8108, 0.2040],
+         [0.0212, 0.0876, 0.9948,  ..., 0.2631, 0.5402, 0.0879]],
 
-        [[0.2860, 0.4616, 0.8004,  ..., 0.8836, 0.3911, 0.1217],
-         [0.8303, 0.4237, 0.0396,  ..., 0.6075, 0.8656, 0.9905],
-         [0.6114, 0.7091, 0.9520,  ..., 0.4999, 0.1063, 0.6147],
+        [[0.1805, 0.5419, 0.4367,  ..., 0.8897, 0.7385, 0.8269],
+         [0.9615, 0.4484, 0.5415,  ..., 0.8744, 0.3164, 0.6103],
+         [0.8817, 0.7054, 0.0648,  ..., 0.4662, 0.1681, 0.0191],
          ...,
-         [0.0812, 0.3931, 0.9453,  ..., 0.3150, 0.5823, 0.4154],
-         [0.3792, 0.3372, 0.5117,  ..., 0.5154, 0.4053, 0.2461],
-         [0.2351, 0.6396, 0.7615,  ..., 0.3031, 0.2238, 0.7296]],
+         [0.9716, 0.3824, 0.3807,  ..., 0.7215, 0.4839, 0.3910],
+         [0.5823, 0.3887, 0.4756,  ..., 0.4307, 0.8786, 0.9621],
+         [0.2769, 0.1396, 0.3357,  ..., 0.2357, 0.9337, 0.3805]],
 
-        [[0.4657, 0.5155, 0.6207,  ..., 0.4550, 0.0727, 0.9971],
-         [0.4295, 0.9734, 0.1290,  ..., 0.4312, 0.2371, 0.6993],
-         [0.9924, 0.9740, 0.7600,  ..., 0.0298, 0.9752, 0.5381],
+        [[0.7857, 0.7189, 0.5433,  ..., 0.5683, 0.6789, 0.2601],
+         [0.9205, 0.3428, 0.8824,  ..., 0.0078, 0.9359, 0.2085],
+         [0.4426, 0.1011, 0.3415,  ..., 0.2074, 0.0113, 0.1923],
          ...,
-         [0.9792, 0.4064, 0.6856,  ..., 0.9877, 0.1357, 0.2950],
-         [0.8413, 0.2148, 0.3159,  ..., 0.7665, 0.3846, 0.5882],
-         [0.0791, 0.3595, 0.4716,  ..., 0.1228, 0.3243, 0.3821]]])
+         [0.0740, 0.4591, 0.8252,  ..., 0.6047, 0.3676, 0.3477],
+         [0.5716, 0.6645, 0.8029,  ..., 0.4919, 0.6731, 0.5499],
+         [0.4931, 0.9918, 0.4706,  ..., 0.8199, 0.5069, 0.3212]]])
 </pre></div>
 </div>
 </div>
@@ -1434,9 +1435,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.2138, 1.1686, 0.4386],
-        [0.6152, 0.7680, 0.3454],
-        [0.5763, 0.5079, 0.2415]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.8161, 1.5690, 1.0463],
+        [0.8101, 1.4416, 0.9914],
+        [0.7831, 1.4307, 0.9124]])
 </pre></div>
 </div>
 </div>
@@ -1507,7 +1508,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f5fc4e66310&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7fb26125f310&gt;
 </pre></div>
 </div>
 </div>
@@ -1624,6 +1625,51 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 </div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subclass the nn.module class that contains all the building blocks required</span>
+<span class="k">class</span> <span class="nc">LinearRegression</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
+
+    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
+<span class="n">la</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parameter containing:
+ tensor([0.3367], requires_grad=True),
+ Parameter containing:
+ tensor([0.1288], requires_grad=True)]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of named parameters</span>
+<span class="n">la</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;weights&#39;, tensor([0.3367])), (&#39;bias&#39;, tensor([0.1288]))])
+</pre></div>
+</div>
+</div>
+</div>
 </section>
 </section>
 <section id="activation-functions">
@@ -1694,8 +1740,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7a16a05c-523e-4383-abdc-7435502f3d52">
-<span class="eqno">(43)<a class="headerlink" href="#equation-7a16a05c-523e-4383-abdc-7435502f3d52" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cbe12bca-c077-4822-9c91-4f77f881e21d">
+<span class="eqno">(43)<a class="headerlink" href="#equation-cbe12bca-c077-4822-9c91-4f77f881e21d" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y = 
 \left\{ \begin{aligned} 
   x \hspace{1cm} x &gt; 0\\
@@ -2149,7 +2195,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1881/911712487.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1858/911712487.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2229,7 +2275,7 @@ log(0.36) =  -1.0216512475319814
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1881/544017737.py:3: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1858/544017737.py:3: RuntimeWarning: divide by zero encountered in log
   np.log(0)
 </pre></div>
 </div>
@@ -2552,11 +2598,102 @@ Approximate derivative = 16.000200000016548
 </div>
 </div>
 <p>The loss function contains all the layers, weights and biases which is a massive function operating in multiple dimensions. Calculating derivatives using numerical differentiation is a complex and tedious task. This is a brute force approach.</p>
-<p><b>The derivative is the slope of the tangent line for a function that takes a single parameter as an input</b>. We will extend this concept to calculate the slopes of the loss function at each weight and bias points which is a multivariate function, which is a function that takes multiple parameters.</p>
+<p><b>The derivative is the slope of the tangent line for a function that takes a single parameter as an input</b>. We will extend this concept to calculate the slopes of the loss function at each weight and bias points which is a multivariate function (<i>which is a function that takes multiple parameters</i>).</p>
 </section>
 <section id="the-analytical-derivative">
 <h3>The Analytical Derivative<a class="headerlink" href="#the-analytical-derivative" title="Link to this heading">#</a></h3>
+<p>The derivative of a function <span class="math notranslate nohighlight">\(f(x)\)</span> can be represented as <span class="math notranslate nohighlight">\(f'(x)\)</span> (we add a prime ‘). Another notation we can use is called the leibniz’s notation.</p>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = \frac{d}{dx}f(x) = \frac{df}{dx}(x) = \frac{df(x)}{dx}
+\]</div>
+<p><b>The derivative of a constant function:</b></p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = 1 \rightarrow \frac{d}{dx}f(x) = \frac{d}{dx}1 = 0
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = 0
+\]</div>
+<p>The derivative is <span class="math notranslate nohighlight">\(0\)</span> because intuitively, the function takes any value for <span class="math notranslate nohighlight">\(x\)</span> but the outout for <span class="math notranslate nohighlight">\(y\)</span> is always <span class="math notranslate nohighlight">\(1\)</span>. So the change in <span class="math notranslate nohighlight">\(y\)</span> w.r.t <span class="math notranslate nohighlight">\(x\)</span> is <span class="math notranslate nohighlight">\(0\)</span>.</p>
+<p><b>The derivative of a linear function is</b></p>
+<div class="math notranslate nohighlight">
+\[
+f(x) = x \rightarrow \frac{d}{dx}f(x) = \frac{d}{dx}x = \frac{d}{dx}x^1 = 1 \cdot x^{1-1} = 1
+\]</div>
+<div class="math notranslate nohighlight">
+\[
+f'(x) = 1
+\]</div>
+<p>The intuition behind this is that for every change in <span class="math notranslate nohighlight">\(x, y\)</span> changes by the same amount.</p>
+<p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 2x\)</span> is</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-39e312d5-7c58-4fed-be95-04c8425a8739">
+<span class="eqno">(44)<a class="headerlink" href="#equation-39e312d5-7c58-4fed-be95-04c8425a8739" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
+&amp; = \frac{d}{dx}2x^1 \\
+&amp; = 2 \frac{d}{dx}x^1 \\
+&amp; = 2 \cdot 1 \cdot x^{1-1} \\
+&amp; = 2
+\end{split}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-d4666188-e1cd-473a-a79d-c20030ea9c88">
+<span class="eqno">(45)<a class="headerlink" href="#equation-d4666188-e1cd-473a-a79d-c20030ea9c88" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f'(x) = 2
+\end{equation}\]</div>
+<p>If a constant is present when calculating the derivative, we shall move it outside of the derivative and later multiply it. Since we already know that <span class="math notranslate nohighlight">\(f(x) = x\)</span> was <span class="math notranslate nohighlight">\(1\)</span>, then we can simply multiply it by <span class="math notranslate nohighlight">\(2\)</span>.</p>
+<p>so the derivative of a constant multiple of a function is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}[k \cdot f(x)] = k \cdot \frac{d}{dx} f(x)
+\]</div>
+<p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> is</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-bc4ef868-bf30-41b5-a9fe-19d7778bc465">
+<span class="eqno">(46)<a class="headerlink" href="#equation-bc4ef868-bf30-41b5-a9fe-19d7778bc465" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
+&amp; = \frac{d}{dx}3x^2 \\
+&amp; = 3 \frac{d}{dx}x^2 \\
+&amp; = 3 \cdot 2x^{2-1} \\
+&amp; = 6x \\
+\end{split}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-821eb3f4-4fca-4c99-b19e-0c1009fd8bd5">
+<span class="eqno">(47)<a class="headerlink" href="#equation-821eb3f4-4fca-4c99-b19e-0c1009fd8bd5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f'(x) = 6x
+\end{equation}\]</div>
+<p>The first step is to move the constant outside the derivative. The rule for handling exponents is by taking the exponent as a coefficient and multiply with the variable. For the variable exponent, subtract the exponent value by <span class="math notranslate nohighlight">\(1\)</span>.</p>
+<p>So the derivative of an exponentiation is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}x^n = n \cdot x^{n-1}
+\]</div>
+<p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2 + 5x\)</span> is</b></p>
+<div class="amsmath math notranslate nohighlight" id="equation-59ca4199-ddd6-4984-84f4-14bb49c0b911">
+<span class="eqno">(48)<a class="headerlink" href="#equation-59ca4199-ddd6-4984-84f4-14bb49c0b911" title="Permalink to this equation">#</a></span>\[\begin{equation}
+\begin{split}
+f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
+&amp; = \frac{d}{dx}3x^2 + \frac{d}{dx}5x^1 \\
+&amp; = 3\frac{d}{dx} x^2 + 5 \frac{d}{dx}x^1 \\
+&amp; = 3 \cdot 2 \cdot x^{2-1} + 5 \cdot 1 \cdot x^{1-1} \\
+&amp; = 3 \cdot 2x + 5 \\
+&amp; = 6x + 5
+\end{split}
+\end{equation}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-17a28923-ec94-46f3-a3dd-654af7b535a3">
+<span class="eqno">(49)<a class="headerlink" href="#equation-17a28923-ec94-46f3-a3dd-654af7b535a3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+f'(x) = 6x + 5
+\end{equation}\]</div>
+<p>So the derivative of a sum of functions is</p>
+<div class="math notranslate nohighlight">
+\[
+\frac{d}{dx}[f(x) + g(x)] = \frac{d}{dx}f(x) + \frac{d}{dx}g(x) = f'(x) + g'(x)
+\]</div>
 </section>
+</section>
+<section id="gradients-partial-derivatives-and-the-chain-rule">
+<h2>Gradients, Partial Derivatives and the Chain Rule<a class="headerlink" href="#gradients-partial-derivatives-and-the-chain-rule" title="Link to this heading">#</a></h2>
 </section>
 </section>
 
@@ -2664,6 +2801,7 @@ Approximate derivative = 16.000200000016548
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-analytical-derivative">The Analytical Derivative</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#gradients-partial-derivatives-and-the-chain-rule">Gradients, Partial Derivatives and the Chain Rule</a></li>
 </ul>
   </nav></div>
 

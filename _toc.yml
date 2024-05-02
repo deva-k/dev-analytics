@@ -4,10 +4,9 @@
 format: jb-book
 root: index
 chapters:
-  - file: book/basics
   - file: book/linear_algebra
   - file: book/statistical_learning
   - file: book/timeseries
-  - file: book/deep_learning
   - file: book/natural_language
+  - file: book/deep_learning
   - file: book/bibliography

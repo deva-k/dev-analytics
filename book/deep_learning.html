@@ -34,7 +34,7 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css?v=4fa983c6" />
-    <link rel="stylesheet" type="text/css" href="../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css?v=0a3b3ea7" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
   <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
@@ -53,7 +53,7 @@
     <script src="../_static/togglebutton.js?v=4a39c7ea"></script>
     <script async="async" kind="hypothesis" src="https://hypothes.is/embed.js"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
-    <script src="../_static/design-tabs.js?v=36754332"></script>
+    <script src="../_static/design-tabs.js?v=f930bc37"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
@@ -65,7 +65,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="next" title="PyTorch" href="pytorch.html" />
     <link rel="prev" title="Natural Language Processing" href="natural_language.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -179,6 +179,7 @@
 <li class="toctree-l1"><a class="reference internal" href="timeseries.html">Timeseries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Deep Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pytorch.html">PyTorch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -454,14 +455,6 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-and-converting-dataset">Preparing and converting dataset</a></li>
-</ul>
-</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#linear-activation-function">Linear Activation function</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sigmoid-activation-function">Sigmoid Activation Function</a></li>
@@ -611,8 +604,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f104319e-ea47-4294-95a6-c4e78d1c17c8">
-<span class="eqno">(64)<a class="headerlink" href="#equation-f104319e-ea47-4294-95a6-c4e78d1c17c8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2f1a6e02-d4b9-4ad6-a648-b9894bf7fbb1">
+<span class="eqno">(64)<a class="headerlink" href="#equation-2f1a6e02-d4b9-4ad6-a648-b9894bf7fbb1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y =
 \left\{ \begin{aligned}
   1 \hspace{1cm} x &gt; 0\\
@@ -1083,599 +1076,6 @@ process as starting values will be disproportionately large compared to the upda
 <p>Each of those 3 values is the value from the 3 neurons in the <i>dense1</i> layer after passing in each of the samples.</p>
 </section>
 </section>
-<section id="pytorch">
-<h2>PyTorch<a class="headerlink" href="#pytorch" title="Link to this heading">#</a></h2>
-<p>PyTorch is an open source optimized tensor library for deep learning using GPUs and CPUs. It is a deep learning framework that provides a whole stack to preprocess data, model data and deploy the models in cloud. PyTorch leverages <b>CUDA</b> (Compute Unified Device Architecture) which is an API (Application Programming Interface) developed by Nvidia for general computing on GPUs (Graphical Processing Units). This enables us to accelerate the modelling process due to faster computations because CUDA enables us to run the computations on GPU (if available).</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">__version__</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;2.2.2+cu121&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<section id="what-is-a-tensor">
-<h3>What is a Tensor?<a class="headerlink" href="#what-is-a-tensor" title="Link to this heading">#</a></h3>
-<p>Tensors are simply arrays that are used to represent data.</p>
-<p>A scalar is a single number, and in tensor terms it is a zero dimension tensor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">scalar</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor(1)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Dimensions of a tensor</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span><span class="o">.</span><span class="n">ndim</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-<p>Converting a tensor to a python number</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scalar</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<p>A vector is a single dimension tensor</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Vector</span>
-<span class="n">vector</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">])</span>
-<span class="n">vector</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([7, 7])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">vector</span><span class="o">.</span><span class="n">ndim</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1
-</pre></div>
-</div>
-</div>
-</div>
-<p>A matrix is a 2 dimensional tensor.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Matrix</span>
-<span class="n">M</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">],</span>
-                       <span class="p">[</span><span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">]])</span>
-<span class="n">M</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[ 7,  8],
-        [ 9, 10]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Creation of a tensor</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TENSOR</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span>
-                        <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span>
-                        <span class="p">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">]]])</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">TENSOR</span><span class="o">.</span><span class="n">shape</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.Size([1, 3, 3])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Random Tensors</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">random_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">random_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9674, 0.2972, 0.8210, 0.7094],
-        [0.0795, 0.1610, 0.8315, 0.3156],
-        [0.6968, 0.9241, 0.9336, 0.1490]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Random tensor with similar shape to an image tensor. <span class="math notranslate nohighlight">\(1^{st}\)</span> dimension is the color channels, <span class="math notranslate nohighlight">\(2^{nd}\)</span> dimension is the height and <span class="math notranslate nohighlight">\(3^{rd}\)</span> dimension is the width.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rand_image_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">224</span><span class="p">,</span><span class="mi">224</span><span class="p">))</span>
-<span class="n">rand_image_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.3538, 0.8810, 0.1395,  ..., 0.2688, 0.7290, 0.9277],
-         [0.7352, 0.3318, 0.5349,  ..., 0.8939, 0.6852, 0.3184],
-         [0.9198, 0.9542, 0.7218,  ..., 0.9471, 0.7632, 0.5858],
-         ...,
-         [0.0852, 0.3136, 0.5895,  ..., 0.2219, 0.3763, 0.3575],
-         [0.3880, 0.0938, 0.4008,  ..., 0.2945, 0.6811, 0.8731],
-         [0.8020, 0.6201, 0.3383,  ..., 0.8377, 0.5283, 0.1246]],
-
-        [[0.2251, 0.6434, 0.8260,  ..., 0.3517, 0.3172, 0.7361],
-         [0.7456, 0.1813, 0.9700,  ..., 0.7140, 0.0313, 0.2788],
-         [0.2175, 0.5172, 0.5153,  ..., 0.2299, 0.3203, 0.0509],
-         ...,
-         [0.8004, 0.2729, 0.1087,  ..., 0.3610, 0.4112, 0.6936],
-         [0.1538, 0.7850, 0.8380,  ..., 0.3723, 0.3661, 0.4305],
-         [0.8229, 0.1559, 0.9879,  ..., 0.5314, 0.2937, 0.1528]],
-
-        [[0.8194, 0.3264, 0.9676,  ..., 0.4315, 0.9572, 0.2116],
-         [0.0868, 0.9807, 0.7619,  ..., 0.8225, 0.8657, 0.1522],
-         [0.6617, 0.6348, 0.8437,  ..., 0.7896, 0.1430, 0.8506],
-         ...,
-         [0.2875, 0.5831, 0.4962,  ..., 0.4840, 0.8980, 0.3167],
-         [0.3665, 0.3203, 0.6071,  ..., 0.3262, 0.7636, 0.8684],
-         [0.0847, 0.9639, 0.2101,  ..., 0.7667, 0.8458, 0.7972]]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Zeros and ones</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">zero_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">zero_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0., 0., 0., 0.],
-        [0., 0., 0., 0.],
-        [0., 0., 0., 0.]])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">))</span>
-<span class="n">one_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1., 1., 1., 1.],
-        [1., 1., 1., 1.],
-        [1., 1., 1., 1.]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Default datatype in pytorch is float32</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">one_tensor</span><span class="o">.</span><span class="n">dtype</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.float32
-</pre></div>
-</div>
-</div>
-</div>
-<p>Creating a range of tensors and tensors-like</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">range_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># creating tensors-like</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">range_tensor</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
-</pre></div>
-</div>
-</div>
-</div>
-<p>Three most important parmeters when creating tensors are <b>dtype, device</b> and <b>requires_grad</b>.</p>
-<ol class="arabic simple">
-<li><p>Some datatypes are specific for GPUs and some are specific for CPUs. Generally if you see torch.cuda anywhere, the tensor is being used for GPU (since Nvidia GPUs use a computing toolkit called CUDA).
-The different types of bits for datatype has to do with th eprecision of the value.The higher the precision value (8, 16, 32), the more detail and hence data used to express a number.
-This matters in deep learning and numerical computing because you’re making so many operations, the more detail you have to calculate on, the more compute you have to use.
-So lower precision datatypes are generally faster to compute on but sacrifice some performance on evaluation metrics like accuracy (faster to compute but less accurate).</p></li>
-<li><p>The argument device refers to what device the tensor is saved on. If one of your tensors is on the CPU and the other is on the GPU, you get an error when you perform a computation on them.</p></li>
-<li><p>requires_grad refers to whether or not to track gradients with the tensor operations</p></li>
-</ol>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">2.0</span><span class="p">,</span><span class="mf">3.0</span><span class="p">],</span>
-             <span class="n">dtype</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
-             <span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cpu&#39;</span><span class="p">,</span>
-             <span class="n">requires_grad</span><span class="o">=</span><span class="kc">False</span><span class="p">,)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Datatype of the tensor is &#39;</span><span class="p">,</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">dtype</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Device the tensor is save on is &#39;</span><span class="p">,</span><span class="n">x_tensor</span><span class="o">.</span><span class="n">device</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Datatype of the tensor is  torch.float32
-Device the tensor is save on is  cpu
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># converting dtype of a tensor</span>
-<span class="n">x16_tensor</span> <span class="o">=</span> <span class="n">x_tensor</span><span class="o">.</span><span class="n">type</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">float16</span><span class="p">)</span>
-<span class="n">x16_tensor</span><span class="o">.</span><span class="n">dtype</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>torch.float16
-</pre></div>
-</div>
-</div>
-</div>
-<p>Basic operations</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># element wise multiplication</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">mul</span><span class="p">(</span><span class="n">x16_tensor</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="n">x16_tensor</span> <span class="o">*</span> <span class="mi">10</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([10., 20., 30.], dtype=torch.float16)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="n">x16_tensor</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x16_tensor</span> <span class="o">-</span> <span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([-1.,  0.,  1.], dtype=torch.float16)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">x16_tensor</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">x16_tensor</span> <span class="o">+</span> <span class="mi">3</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([4., 5., 6.], dtype=torch.float16)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">divide</span><span class="p">(</span><span class="n">x16_tensor</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="n">x16_tensor</span><span class="o">/</span><span class="mi">2</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([0.5000, 1.0000, 1.5000], dtype=torch.float16)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rand_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">rand</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
-<span class="c1"># you can use @ to perform matrix multiplication</span>
-<span class="n">rand_tensor</span> <span class="o">@</span> <span class="n">rand_tensor</span>
-<span class="c1"># you can use the predefined method</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">matmul</span><span class="p">(</span><span class="n">rand_tensor</span><span class="p">,</span><span class="n">rand_tensor</span><span class="p">)</span>
-<span class="c1"># mm is short form of matmul</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">mm</span><span class="p">(</span><span class="n">rand_tensor</span><span class="p">,</span><span class="n">rand_tensor</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[1.0519, 0.5187, 0.3558],
-        [1.9672, 1.4709, 0.9420],
-        [1.2880, 0.9555, 0.6150]])
-</pre></div>
-</div>
-</div>
-</div>
-<p>There are several other functions and methods which are more or less similar to the ones on numpy.</p>
-</section>
-<section id="pytorch-and-numpy">
-<h3>PyTorch and Numpy<a class="headerlink" href="#pytorch-and-numpy" title="Link to this heading">#</a></h3>
-<p>Transform numpy array to pytorch tensor</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">10.0</span><span class="p">)</span>
-<span class="n">arr_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">from_numpy</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
-<span class="n">arr</span><span class="p">,</span> <span class="n">arr_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([1., 2., 3., 4., 5., 6., 7., 8., 9.]),
- tensor([1., 2., 3., 4., 5., 6., 7., 8., 9.], dtype=torch.float64))
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">arr</span><span class="o">.</span><span class="n">dtype</span><span class="p">,</span> <span class="n">arr_tensor</span><span class="o">.</span><span class="n">dtype</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(dtype(&#39;float64&#39;), torch.float64)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Tensor to numpy array</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tensor_numpy</span> <span class="o">=</span> <span class="n">arr_tensor</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-<span class="n">tensor_numpy</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">tensor_numpy</span><span class="o">.</span><span class="n">dtype</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>dtype(&#39;float64&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<p>Setting a random seed. When using a jupyter notebook, you shall set random seed everytime you use random.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f864056f6b0&gt;
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="accessing-a-gpu">
-<h3>Accessing a GPU<a class="headerlink" href="#accessing-a-gpu" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># configuration of the GPU</span>
-<span class="o">!</span>nvidia-smi
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/bin/sh: 1: nvidia-smi: not found
-</pre></div>
-</div>
-</div>
-</div>
-<p>Check for GPU access</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># if False it means GPU is not available</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
-</pre></div>
-</div>
-</div>
-</div>
-<p>Its not likely that you always have access to a GPU. So we can set a device agnostic code as below</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># setup device agnostic code</span>
-<span class="n">device</span> <span class="o">=</span> <span class="s1">&#39;cuda&#39;</span> <span class="k">if</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span> <span class="k">else</span> <span class="s1">&#39;cpu&#39;</span>
-<span class="n">device</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;cpu&#39;
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># count number of devices</span>
-<span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">device_count</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="putting-tensors-and-models-on-the-gpus">
-<h3>Putting Tensors and Models on the GPUs<a class="headerlink" href="#putting-tensors-and-models-on-the-gpus" title="Link to this heading">#</a></h3>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpu_tensor</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">tensor</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span> <span class="n">device</span><span class="o">=</span><span class="s1">&#39;cpu&#39;</span><span class="p">)</span>
-<span class="n">cpu_tensor</span><span class="o">.</span><span class="n">device</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>device(type=&#39;cpu&#39;)
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># use &#39;to&#39; to change the device. incase of GPU availability it shows cuda with the index of the GPU used</span>
-<span class="n">cpu_tensor</span><span class="o">.</span><span class="n">to</span><span class="p">(</span><span class="n">device</span><span class="p">)</span>
-<span class="n">cpu_tensor</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([1, 2, 3])
-</pre></div>
-</div>
-</div>
-</div>
-<p>To convert a tensor on GPU to numpy is not possible. The device has to be changed to CPU and then converted to numpy array.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cpu_tensor</span><span class="o">.</span><span class="n">cpu</span><span class="p">()</span><span class="o">.</span><span class="n">numpy</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([1, 2, 3])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section id="preparing-and-converting-dataset">
-<h3>Preparing and converting dataset<a class="headerlink" href="#preparing-and-converting-dataset" title="Link to this heading">#</a></h3>
-<p>The <b>nn</b> module of torch provides all the building blocks for neural networks.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">torch</span> <span class="kn">import</span> <span class="n">nn</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># subclass the nn.module class that contains all the building blocks required</span>
-<span class="k">class</span> <span class="nc">LinearRegression</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
-        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">bias</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Parameter</span><span class="p">(</span><span class="n">torch</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">requires_grad</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">dtype</span><span class="o">=</span><span class="n">torch</span><span class="o">.</span><span class="n">float</span><span class="p">))</span>
-
-    <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="n">x</span><span class="p">:</span> <span class="n">torch</span><span class="o">.</span><span class="n">Tensor</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">weights</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">bias</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">torch</span><span class="o">.</span><span class="n">manual_seed</span><span class="p">(</span><span class="mi">42</span><span class="p">)</span>
-<span class="n">la</span> <span class="o">=</span> <span class="n">LinearRegression</span><span class="p">()</span>
-<span class="nb">list</span><span class="p">(</span><span class="n">la</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[Parameter containing:
- tensor([0.3367], requires_grad=True),
- Parameter containing:
- tensor([0.1288], requires_grad=True)]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># list of named parameters</span>
-<span class="n">la</span><span class="o">.</span><span class="n">state_dict</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>OrderedDict([(&#39;weights&#39;, tensor([0.3367])), (&#39;bias&#39;, tensor([0.1288]))])
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-</section>
 <section id="activation-functions">
 <h2>Activation Functions<a class="headerlink" href="#activation-functions" title="Link to this heading">#</a></h2>
 <p>The activation function is applied to the output
@@ -1744,8 +1144,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-59d82e75-7aa5-4a7e-ae7f-101c6b0af333">
-<span class="eqno">(65)<a class="headerlink" href="#equation-59d82e75-7aa5-4a7e-ae7f-101c6b0af333" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bf50a7f5-5e42-4913-b3d2-d80b9f7f7649">
+<span class="eqno">(65)<a class="headerlink" href="#equation-bf50a7f5-5e42-4913-b3d2-d80b9f7f7649" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y =
 \left\{ \begin{aligned}
   x \hspace{1cm} x &gt; 0\\
@@ -2199,7 +1599,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1868/2354077136.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1915/2354077136.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -2279,7 +1679,7 @@ log(0.36) =  -1.0216512475319814
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1868/4274646763.py:3: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1915/4274646763.py:3: RuntimeWarning: divide by zero encountered in log
   np.log(0)
 </pre></div>
 </div>
@@ -2632,8 +2032,8 @@ f'(x) = 1
 \]</div>
 <p>The intuition behind this is that for every change in <span class="math notranslate nohighlight">\(x, y\)</span> changes by the same amount.</p>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 2x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a61bad57-783c-4414-9459-77ab128c19dd">
-<span class="eqno">(66)<a class="headerlink" href="#equation-a61bad57-783c-4414-9459-77ab128c19dd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-ac906ac5-1c6b-4e54-b411-9b701977beae">
+<span class="eqno">(66)<a class="headerlink" href="#equation-ac906ac5-1c6b-4e54-b411-9b701977beae" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}2x^1 \\
@@ -2642,8 +2042,8 @@ f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 2
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-5baf5d55-be6f-41e3-997d-538def0f91a1">
-<span class="eqno">(67)<a class="headerlink" href="#equation-5baf5d55-be6f-41e3-997d-538def0f91a1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-9f1dd88f-00d8-42e2-bf97-b3eef74afd3b">
+<span class="eqno">(67)<a class="headerlink" href="#equation-9f1dd88f-00d8-42e2-bf97-b3eef74afd3b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 2
 \end{equation}\]</div>
 <p>If a constant is present when calculating the derivative, we shall move it outside of the derivative and later multiply it. Since we already know that <span class="math notranslate nohighlight">\(f(x) = x\)</span> was <span class="math notranslate nohighlight">\(1\)</span>, then we can simply multiply it by <span class="math notranslate nohighlight">\(2\)</span>.</p>
@@ -2653,8 +2053,8 @@ f'(x) = 2
 \frac{d}{dx}[k \cdot f(x)] = k \cdot \frac{d}{dx} f(x)
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-a92ba15b-e260-4cd2-93f0-4da63d96ef90">
-<span class="eqno">(68)<a class="headerlink" href="#equation-a92ba15b-e260-4cd2-93f0-4da63d96ef90" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-639366a7-595c-4ebe-ae33-dd894a3364bc">
+<span class="eqno">(68)<a class="headerlink" href="#equation-639366a7-595c-4ebe-ae33-dd894a3364bc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 \\
@@ -2663,8 +2063,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x \\
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-807dfd28-6e97-4913-8a13-77ab5daee81b">
-<span class="eqno">(69)<a class="headerlink" href="#equation-807dfd28-6e97-4913-8a13-77ab5daee81b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e65ad8cc-1455-49e4-8bdf-3689d677f3fc">
+<span class="eqno">(69)<a class="headerlink" href="#equation-e65ad8cc-1455-49e4-8bdf-3689d677f3fc" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x
 \end{equation}\]</div>
 <p>The first step is to move the constant outside the derivative. The rule for handling exponents is by taking the exponent as a coefficient and multiply with the variable. For the variable exponent, subtract the exponent value by <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -2674,8 +2074,8 @@ f'(x) = 6x
 \frac{d}{dx}x^n = n \cdot x^{n-1}
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2 + 5x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-5d0b39b2-b579-43e6-a423-ccb673554a18">
-<span class="eqno">(70)<a class="headerlink" href="#equation-5d0b39b2-b579-43e6-a423-ccb673554a18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b2f1bebf-c93c-4e5b-a22a-66cb4c251da6">
+<span class="eqno">(70)<a class="headerlink" href="#equation-b2f1bebf-c93c-4e5b-a22a-66cb4c251da6" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 + \frac{d}{dx}5x^1 \\
@@ -2685,8 +2085,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x + 5
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ec599827-5d9a-4ee5-a59a-8bf2802de0ed">
-<span class="eqno">(71)<a class="headerlink" href="#equation-ec599827-5d9a-4ee5-a59a-8bf2802de0ed" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-8cfc1f8b-f12f-4248-b92e-2ba0fe607392">
+<span class="eqno">(71)<a class="headerlink" href="#equation-8cfc1f8b-f12f-4248-b92e-2ba0fe607392" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x + 5
 \end{equation}\]</div>
 <p>So the derivative of a sum of functions is</p>
@@ -2706,13 +2106,13 @@ f'(x) = 6x + 5
 consists of a set of equations called the <b>gradient</b>. In other words, the gradient is a vector of the
 size of inputs containing partial derivative solutions with respect to each of the inputs.</p>
 <p>The <span class="math notranslate nohighlight">\(\partial\)</span> operator is the notation used for partial derivatives. This is called as Euler’s notation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e22c298b-3d32-40b3-8b18-63f0404ba6fb">
-<span class="eqno">(72)<a class="headerlink" href="#equation-e22c298b-3d32-40b3-8b18-63f0404ba6fb" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-87ad1c15-b73f-4a09-9abb-517356328361">
+<span class="eqno">(72)<a class="headerlink" href="#equation-87ad1c15-b73f-4a09-9abb-517356328361" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x,y,z) = \frac{\partial}{\partial x}f(x,y,z), \frac{\partial}{\partial y}f(x,y,z), \frac{\partial}{\partial z}f(x,y,z)
 \end{equation}\]</div>
 <p>Here we are interested in seeing the impact of an individual input on the output while treating all of the other inputs as constants. Since the goal is to update the parameters of the model we are interested in singular inputs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c25bd330-74c8-4a7b-b88a-fc44583c62c9">
-<span class="eqno">(73)<a class="headerlink" href="#equation-c25bd330-74c8-4a7b-b88a-fc44583c62c9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-314912cd-4a07-490d-badd-4ec0e4555da1">
+<span class="eqno">(73)<a class="headerlink" href="#equation-314912cd-4a07-490d-badd-4ec0e4555da1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) \rightarrow &amp; \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x+y] =
 \frac{\partial}{\partial x}x + \frac{\partial}{\partial x}y = 1 + 0 = 1 \\
@@ -2721,8 +2121,8 @@ f(x,y) \rightarrow &amp; \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\pa
 \end{split}
 \end{equation}\]</div>
 <p>First we applied the sum rule, and then we calculated the derivative of x with respect to x while keep y as constant i.e. derivative of a constant is 0. In the second case, we did the opposite.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-53841e64-44a7-47a8-9fa6-cb44ce52fa65">
-<span class="eqno">(74)<a class="headerlink" href="#equation-53841e64-44a7-47a8-9fa6-cb44ce52fa65" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb86379f-7a8e-4553-b836-71f756062745">
+<span class="eqno">(74)<a class="headerlink" href="#equation-eb86379f-7a8e-4553-b836-71f756062745" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) &amp; = 3x^3 - y^2 + 5x + 2 \rightarrow \\
 \frac{\partial}{\partial x}f(x,y) &amp; = \frac{\partial}{\partial x}[3x^3 - y^2 + 5x + 2] = \frac{\partial}{\partial x}3x^3 - \frac{\partial}{\partial x}y^2 + \frac{\partial}{\partial x}5x + \frac{\partial}{\partial x}2 \\
@@ -2734,8 +2134,8 @@ f(x,y) &amp; = 3x^3 - y^2 + 5x + 2 \rightarrow \\
 \end{split}
 \end{equation}\]</div>
 <p>The partial derivative of multiplication operation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aeac3459-37d0-45bc-9af5-02e088daea18">
-<span class="eqno">(75)<a class="headerlink" href="#equation-aeac3459-37d0-45bc-9af5-02e088daea18" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a791a42a-8cb2-472d-80e7-09aab884c143">
+<span class="eqno">(75)<a class="headerlink" href="#equation-a791a42a-8cb2-472d-80e7-09aab884c143" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) = x \cdot y \rightarrow &amp; = \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x \cdot y] = y\frac{\partial}{\partial x}x = y \cdot 1 = y \\
 &amp; = \frac{\partial}{\partial y}f(x,y) = \frac{\partial}{\partial y}[x \cdot y] = x\frac{\partial}{\partial y}y = x \cdot 1 = x
@@ -2743,8 +2143,8 @@ f(x,y) = x \cdot y \rightarrow &amp; = \frac{\partial}{\partial x}f(x,y) = \frac
 \end{equation}\]</div>
 <p>We have already mentioned that we need to treat the other independent variables as constants, and
 we also have learned that we can move constants to the outside of the derivative.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1259d065-a54a-459d-9c7f-c3d40e8be758">
-<span class="eqno">(76)<a class="headerlink" href="#equation-1259d065-a54a-459d-9c7f-c3d40e8be758" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-75bde075-0319-4c72-99cf-ce5856aa8215">
+<span class="eqno">(76)<a class="headerlink" href="#equation-75bde075-0319-4c72-99cf-ce5856aa8215" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 \frac{\partial}{\partial x}f(x,y,z) &amp; = \frac{\partial}{\partial x}[3x^3z - y^2 + 5z + 2yz] \\
@@ -2755,16 +2155,16 @@ f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 \end{split}
 \end{equation}\]</div>
 <p>Similarly</p>
-<div class="amsmath math notranslate nohighlight" id="equation-74788e3c-e949-4aca-9318-c290ac9fc75c">
-<span class="eqno">(77)<a class="headerlink" href="#equation-74788e3c-e949-4aca-9318-c290ac9fc75c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bd0a1cbc-6cbf-4802-9d93-9d240fa105c1">
+<span class="eqno">(77)<a class="headerlink" href="#equation-bd0a1cbc-6cbf-4802-9d93-9d240fa105c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \frac{\partial}{\partial y}f(x,y,z) &amp; =  3\frac{\partial}{\partial y}x^3z - \frac{\partial}{\partial y}y^2 + 5\frac{\partial}{\partial y}z + 2z\frac{\partial}{\partial y}y \\
 &amp; = 3 \cdot 0 - 2 \cdot y^{2-1} + 5 \cdot 0 + 2z \cdot 1 \\
 &amp; = -2y + 2z
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-a0315b21-a255-44b4-a7c2-bef60f806ba5">
-<span class="eqno">(78)<a class="headerlink" href="#equation-a0315b21-a255-44b4-a7c2-bef60f806ba5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-fc107d1d-a1dc-4a52-b769-108b4b82743b">
+<span class="eqno">(78)<a class="headerlink" href="#equation-fc107d1d-a1dc-4a52-b769-108b4b82743b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \frac{\partial}{\partial z}f(x,y,z) &amp; = 3x^3\frac{\partial}{\partial z}z - \frac{\partial}{\partial z}y^2 + 5\frac{\partial}{\partial z}z + 2y\frac{\partial}{\partial z}z \\
 &amp; = 3x^3 \cdot 1 - 0 + 5 \cdot 1 + 2y \cdot 1 \\
@@ -2775,8 +2175,8 @@ f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 <section id="the-gradient">
 <h3>The Gradient<a class="headerlink" href="#the-gradient" title="Link to this heading">#</a></h3>
 <p>The gradient is a vector composed of all of the partial derivatives of a function, calculated with respect to each input variable.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d4666c0b-97a6-4e62-abe5-68314fd53fb9">
-<span class="eqno">(79)<a class="headerlink" href="#equation-d4666c0b-97a6-4e62-abe5-68314fd53fb9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-76be37de-e399-484a-bd18-3c61604e35cd">
+<span class="eqno">(79)<a class="headerlink" href="#equation-76be37de-e399-484a-bd18-3c61604e35cd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \nabla f(x,y,z) =
 \begin{bmatrix}
 \frac{\partial}{\partial x}f(x,y,z) \\
@@ -2808,14 +2208,14 @@ y = g(f(x))
 <p>This shows an important property of functions chained in this way i.e. the output of function <span class="math notranslate nohighlight">\(g\)</span> is influenced by the <span class="math notranslate nohighlight">\(x\)</span>. There must be a derivative that tells us this influence.</p>
 <p>The loss function takes in the output of the activation function of the previous layer which is in turn dependent on the output of the layer before it. The loss function not only takes the model’s output and targets as parameters, but also a functions that takes targets, samples and all of the weights and biases. So to improve loss we need to know the impact of each of these parameters. To do this for a chain of functions, we will use the chain rule.</p>
 <p>The chain rule says that the derivative of a function chain is the product of derivatives of all the functions in the chain.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-07ebff6e-64b3-4712-b20d-0ba52b8359e3">
-<span class="eqno">(80)<a class="headerlink" href="#equation-07ebff6e-64b3-4712-b20d-0ba52b8359e3" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-d6349f6c-a8ce-47bf-8030-8f860f2d9cac">
+<span class="eqno">(80)<a class="headerlink" href="#equation-d6349f6c-a8ce-47bf-8030-8f860f2d9cac" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial}{\partial x}f(g(x)) =
 \frac{\partial f(g(x))}{\partial g(x)} \cdot \frac{\partial g(x)}{\partial x} = f'(g(x)) \cdot g'(x)
 \end{equation}\]</div>
 <p>The chain rule for multiple inputs is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-141f210d-9821-4df2-be67-a397439f4f1f">
-<span class="eqno">(81)<a class="headerlink" href="#equation-141f210d-9821-4df2-be67-a397439f4f1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-5fc76c9c-bdb1-4e67-94c7-cbb9b5b8487c">
+<span class="eqno">(81)<a class="headerlink" href="#equation-5fc76c9c-bdb1-4e67-94c7-cbb9b5b8487c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial}{\partial x} f(g(y,h(x,z))) =
 \frac{\partial f(g(y,h(x,z))}{\partial g(y,h(x,z))} \cdot
 \frac{\partial g(y,h(x,z))}{\partial h(x,z)} \cdot
@@ -2825,16 +2225,16 @@ y = g(f(x))
 the partial derivative of the outer function with respect to the inner function in a chain to the
 parameter. We repeat this all the way down to the parameter in question.</p>
 <p>The derivative of a function <span class="math notranslate nohighlight">\(h(x) = 3(2x^2)^5\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff6fb6f6-4961-48ed-86aa-410b990943c1">
-<span class="eqno">(82)<a class="headerlink" href="#equation-ff6fb6f6-4961-48ed-86aa-410b990943c1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-a1b2fc91-b090-47b1-8968-39e0777abc5e">
+<span class="eqno">(82)<a class="headerlink" href="#equation-a1b2fc91-b090-47b1-8968-39e0777abc5e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 g(x) = 2x^2 \\
 f(y) = 3(y)^5 \\
 h(x) = f(g(x)) \\
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c5252c0b-8625-4421-8a00-0f4e5c554b6f">
-<span class="eqno">(83)<a class="headerlink" href="#equation-c5252c0b-8625-4421-8a00-0f4e5c554b6f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-eb71617b-0e95-4b3d-aa51-fbb750633230">
+<span class="eqno">(83)<a class="headerlink" href="#equation-eb71617b-0e95-4b3d-aa51-fbb750633230" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 h'(x) &amp; = f'(g(x)) \cdot g'(x) \\
 &amp; = \frac{\partial f(g(x))}{\partial g(x)} \cdot
@@ -2854,8 +2254,8 @@ function.</p>
 <p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/backpropagation_1neuron.JPG" /></p>
 <p>This is a full forward pass through a single neuron and a <span class="math notranslate nohighlight">\(ReLU\)</span> activation function with inputs <span class="math notranslate nohighlight">\((x)\)</span>, weights <span class="math notranslate nohighlight">\((w)\)</span> and bias <span class="math notranslate nohighlight">\((b)\)</span>. The function consists of multiple functions such as multiplying weights and inputs, adding the bias and a <span class="math notranslate nohighlight">\(max\)</span> function as the <span class="math notranslate nohighlight">\(ReLU\)</span> activation.</p>
 <p>We will use the chain rule, to backpropagate our gradients by calculating derivatives and partial derivatives. The function we are looking at is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-52b9457f-b90c-4996-beaf-1a52faf7c105">
-<span class="eqno">(84)<a class="headerlink" href="#equation-52b9457f-b90c-4996-beaf-1a52faf7c105" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1a3ef9d9-aa8b-4649-8ad3-0c37743fb053">
+<span class="eqno">(84)<a class="headerlink" href="#equation-1a3ef9d9-aa8b-4649-8ad3-0c37743fb053" title="Permalink to this equation">#</a></span>\[\begin{align}
 ReLU(\sum[inputs \cdot weights] + bias) \rightarrow\\
 ReLU(sum(mul(x_0w_0),mul(x_1w_1),mul(x_2w_2),b))
 \end{align}\]</div>
@@ -2904,11 +2304,11 @@ output. To calculate the impact of <span class="math notranslate nohighlight">\(
       </div>
     </a>
     <a class="right-next"
-       href="bibliography.html"
+       href="pytorch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Bibliography</p>
+        <p class="prev-next-title">PyTorch</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -2939,14 +2339,6 @@ output. To calculate the impact of <span class="math notranslate nohighlight">\(
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-layers">Adding Layers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#training-data">Training Data</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dense-layer-class">Dense Layer Class</a></li>
-</ul>
-</li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch">PyTorch</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#what-is-a-tensor">What is a Tensor?</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pytorch-and-numpy">PyTorch and Numpy</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#accessing-a-gpu">Accessing a GPU</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-tensors-and-models-on-the-gpus">Putting Tensors and Models on the GPUs</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-and-converting-dataset">Preparing and converting dataset</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#activation-functions">Activation Functions</a><ul class="nav section-nav flex-column">

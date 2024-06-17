@@ -14,22 +14,22 @@
   
   <script data-cfasync="false">
     document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
-    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.5.1/css/all.min.css?digest=8d27b9dea8ad943066ae" rel="stylesheet" />
-  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-solid-900.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-brands-400.woff2" />
-<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.1/webfonts/fa-regular-400.woff2" />
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=3ee479438cf8b5e0d341" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=fa44fd50" />
-    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=384b581d" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
@@ -37,16 +37,16 @@
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-design.min.css?v=87e54e7c" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae" />
-  <script src="../_static/vendor/fontawesome/6.5.1/js/all.min.js?digest=8d27b9dea8ad943066ae"></script>
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=3ee479438cf8b5e0d341"></script>
 
     <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
     <script src="../_static/doctools.js?v=9a2dae69"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
     <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/scripts/sphinx-book-theme.js?v=efea14e4"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
@@ -76,27 +76,23 @@
 
   
   
-  <a id="pst-skip-link" class="skip-link" href="#main-content">Skip to main content</a>
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
   
   <div id="pst-scroll-pixel-helper"></div>
   
   <button type="button" class="btn rounded-pill" id="pst-back-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
-    Back to top
-  </button>
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__primary"
-          id="__primary"/>
-  <label class="overlay overlay-primary" for="__primary"></label>
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
   
   <input type="checkbox"
           class="sidebar-toggle"
-          name="__secondary"
-          id="__secondary"/>
-  <label class="overlay overlay-secondary" for="__secondary"></label>
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
   
   <div class="search-button__wrapper">
     <div class="search-button__overlay"></div>
@@ -118,8 +114,13 @@
   <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
 </form></div>
   </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
   
-    <header class="bd-header navbar navbar-expand-lg bd-navbar">
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
     </header>
   
 
@@ -196,7 +197,7 @@
 
       </div>
       
-      <main id="main-content" class="bd-main">
+      <main id="main-content" class="bd-main" role="main">
         
         
 
@@ -205,14 +206,14 @@
           <div class="bd-content">
             <div class="bd-article-container">
               
-              <div class="bd-header-article">
+              <div class="bd-header-article d-print-none">
 <div class="header-article-items header-article__inner">
   
     <div class="header-article-items__start">
       
-        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
   <span class="fa-solid fa-bars"></span>
-</label></div>
+</button></div>
       
     </div>
   
@@ -237,14 +238,14 @@
       
       <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/pytorch.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onBinder"
+   title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_binder.svg">
+    <img alt="Binder logo" src="../_static/images/logo_binder.svg">
   </span>
 <span class="btn__text-container">Binder</span>
 </a>
@@ -255,14 +256,14 @@
       
       <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/pytorch.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
-   title="Launch onColab"
+   title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
 <span class="btn__icon-container">
   
-    <img src="../_static/images/logo_colab.png">
+    <img alt="Colab logo" src="../_static/images/logo_colab.png">
   </span>
 <span class="btn__text-container">Colab</span>
 </a>
@@ -419,9 +420,9 @@ document.write(`
   </button>
 `);
 </script>
-<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
     <span class="fa-solid fa-list"></span>
-</label>
+</button>
 </div></div>
       
     </div>
@@ -596,9 +597,9 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.3852, 0.2503, 0.2296, 0.0679],
-        [0.6631, 0.4751, 0.5460, 0.2586],
-        [0.1222, 0.9909, 0.5727, 0.4307]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.9943, 0.6281, 0.2387, 0.1349],
+        [0.1699, 0.8666, 0.5320, 0.2170],
+        [0.9806, 0.6555, 0.5087, 0.1156]])
 </pre></div>
 </div>
 </div>
@@ -612,29 +613,29 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.3018, 0.3907, 0.7111,  ..., 0.5515, 0.2401, 0.0084],
-         [0.8476, 0.7158, 0.7888,  ..., 0.5396, 0.5865, 0.5254],
-         [0.5431, 0.8171, 0.7911,  ..., 0.8734, 0.3120, 0.7909],
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[[0.7708, 0.5760, 0.4014,  ..., 0.4187, 0.0967, 0.0255],
+         [0.2357, 0.2105, 0.6442,  ..., 0.8069, 0.5250, 0.4840],
+         [0.2897, 0.6332, 0.1343,  ..., 0.3508, 0.8431, 0.1143],
          ...,
-         [0.6517, 0.6637, 0.5781,  ..., 0.5840, 0.4461, 0.5728],
-         [0.1928, 0.4320, 0.4607,  ..., 0.7144, 0.6510, 0.4242],
-         [0.7881, 0.5774, 0.7038,  ..., 0.2629, 0.9113, 0.7882]],
+         [0.6567, 0.2420, 0.9278,  ..., 0.1884, 0.7902, 0.8821],
+         [0.0485, 0.5657, 0.8943,  ..., 0.8661, 0.7866, 0.0746],
+         [0.1297, 0.2010, 0.6064,  ..., 0.7474, 0.9916, 0.3455]],
 
-        [[0.6117, 0.4406, 0.8756,  ..., 0.9649, 0.2731, 0.1343],
-         [0.3069, 0.5087, 0.6771,  ..., 0.2838, 0.3821, 0.9747],
-         [0.9570, 0.1278, 0.6744,  ..., 0.3816, 0.5093, 0.2111],
+        [[0.1621, 0.0550, 0.1489,  ..., 0.9295, 0.6378, 0.2788],
+         [0.3952, 0.6329, 0.4508,  ..., 0.5123, 0.0967, 0.4549],
+         [0.0249, 0.2395, 0.8657,  ..., 0.2141, 0.3659, 0.5285],
          ...,
-         [0.0796, 0.9666, 0.3745,  ..., 0.8579, 0.3725, 0.7524],
-         [0.6954, 0.6390, 0.1222,  ..., 0.2275, 0.7536, 0.0673],
-         [0.0232, 0.2139, 0.5585,  ..., 0.8129, 0.3092, 0.3090]],
+         [0.3244, 0.6127, 0.9592,  ..., 0.2440, 0.5254, 0.9663],
+         [0.6215, 0.0270, 0.3884,  ..., 0.2621, 0.6995, 0.5167],
+         [0.9159, 0.2196, 0.5739,  ..., 0.3113, 0.6222, 0.3684]],
 
-        [[0.0391, 0.7707, 0.2580,  ..., 0.2414, 0.4885, 0.1120],
-         [0.5364, 0.7884, 0.1305,  ..., 0.1161, 0.8307, 0.4915],
-         [0.9073, 0.1284, 0.4496,  ..., 0.7617, 0.0791, 0.9815],
+        [[0.3097, 0.4295, 0.7393,  ..., 0.9165, 0.9706, 0.8776],
+         [0.5971, 0.5912, 0.5895,  ..., 0.9676, 0.0638, 0.0692],
+         [0.1471, 0.8368, 0.1222,  ..., 0.9610, 0.1822, 0.2641],
          ...,
-         [0.3476, 0.2528, 0.3728,  ..., 0.1317, 0.6174, 0.2182],
-         [0.0300, 0.8611, 0.1859,  ..., 0.9600, 0.1234, 0.2192],
-         [0.9305, 0.0993, 0.9156,  ..., 0.2476, 0.1125, 0.3144]]])
+         [0.0356, 0.8452, 0.7308,  ..., 0.5589, 0.8149, 0.1525],
+         [0.2820, 0.8215, 0.8020,  ..., 0.9910, 0.4529, 0.3463],
+         [0.1355, 0.0964, 0.3205,  ..., 0.7111, 0.9136, 0.1371]]])
 </pre></div>
 </div>
 </div>
@@ -820,9 +821,9 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6647, 0.8503, 1.0776],
-        [0.8056, 0.6360, 1.2255],
-        [1.0007, 0.7707, 1.2518]])
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>tensor([[0.6751, 0.4444, 1.0580],
+        [0.5195, 0.4164, 0.8464],
+        [0.5718, 0.4102, 1.2000]])
 </pre></div>
 </div>
 </div>
@@ -893,7 +894,7 @@ Device the tensor is save on is  cpu
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f15bb9f7ab0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;torch._C.Generator at 0x7f3849b5bdd0&gt;
 </pre></div>
 </div>
 </div>
@@ -1085,7 +1086,7 @@ Device the tensor is save on is  cpu
               
               
               
-                <footer class="prev-next-footer">
+                <footer class="prev-next-footer d-print-none">
                   
 <div class="prev-next-area">
     <a class="left-prev"
@@ -1178,8 +1179,8 @@ By Devakanth Kalapati
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=8d27b9dea8ad943066ae"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=8d27b9dea8ad943066ae"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=3ee479438cf8b5e0d341"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=3ee479438cf8b5e0d341"></script>
 
   <footer class="bd-footer">
   </footer>

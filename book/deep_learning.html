@@ -605,8 +605,8 @@ bias =  2
 <p>Weights and biases help to impact the outputs of neurons, but they do so in
 slightly different ways.</p>
 <p>We can mimic a neuron in the brain, either firing or not like an on-off switch using a step function.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d16f3ffc-2015-4a3f-a1b3-ec31dcc89990">
-<span class="eqno">(64)<a class="headerlink" href="#equation-d16f3ffc-2015-4a3f-a1b3-ec31dcc89990" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa5895a0-12b8-4b98-b56d-cc209b2de186">
+<span class="eqno">(64)<a class="headerlink" href="#equation-aa5895a0-12b8-4b98-b56d-cc209b2de186" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y =
 \left\{ \begin{aligned}
   1 \hspace{1cm} x &gt; 0\\
@@ -1146,8 +1146,8 @@ and to <span class="math notranslate nohighlight">\(1\)</span> for positive infi
 <section id="rectified-linear-activation-function">
 <h3>Rectified Linear Activation Function<a class="headerlink" href="#rectified-linear-activation-function" title="Link to this heading">#</a></h3>
 <p>The rectified linear activation function is <span class="math notranslate nohighlight">\(y=x\)</span>, clipped at 0 from the negative side. if <span class="math notranslate nohighlight">\(x\)</span> is less than or equal to <span class="math notranslate nohighlight">\(0\)</span> then <span class="math notranslate nohighlight">\(y\)</span> is <span class="math notranslate nohighlight">\(0\)</span> otherwise it is <span class="math notranslate nohighlight">\(x\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9854e64c-2b81-4f72-ac14-9834920cb60b">
-<span class="eqno">(65)<a class="headerlink" href="#equation-9854e64c-2b81-4f72-ac14-9834920cb60b" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c20a9711-ae92-4d7b-93ff-9f7b0bd61e8b">
+<span class="eqno">(65)<a class="headerlink" href="#equation-c20a9711-ae92-4d7b-93ff-9f7b0bd61e8b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 y =
 \left\{ \begin{aligned}
   x \hspace{1cm} x &gt; 0\\
@@ -1601,7 +1601,7 @@ Applying normalization results in <span class="math notranslate nohighlight">\([
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1868/2354077136.py:2: RuntimeWarning: overflow encountered in exp
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1874/2354077136.py:2: RuntimeWarning: overflow encountered in exp
   np.exp(1000)
 </pre></div>
 </div>
@@ -1681,7 +1681,7 @@ log(0.36) =  -1.0216512475319814
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1868/4274646763.py:3: RuntimeWarning: divide by zero encountered in log
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_1874/4274646763.py:3: RuntimeWarning: divide by zero encountered in log
   np.log(0)
 </pre></div>
 </div>
@@ -2034,8 +2034,8 @@ f'(x) = 1
 \]</div>
 <p>The intuition behind this is that for every change in <span class="math notranslate nohighlight">\(x, y\)</span> changes by the same amount.</p>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 2x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-f23b81c3-d0ce-4f37-a779-bbcf83fe8ce1">
-<span class="eqno">(66)<a class="headerlink" href="#equation-f23b81c3-d0ce-4f37-a779-bbcf83fe8ce1" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c6d2edfc-9338-4e94-911f-975a6f5a5b1f">
+<span class="eqno">(66)<a class="headerlink" href="#equation-c6d2edfc-9338-4e94-911f-975a6f5a5b1f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}2x^1 \\
@@ -2044,8 +2044,8 @@ f(x) &amp; = 2x \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 2
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-9888362a-8bc1-42da-ae61-d4d78ed677be">
-<span class="eqno">(67)<a class="headerlink" href="#equation-9888362a-8bc1-42da-ae61-d4d78ed677be" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aa89e57a-ee17-45e4-bb90-511ce7305d79">
+<span class="eqno">(67)<a class="headerlink" href="#equation-aa89e57a-ee17-45e4-bb90-511ce7305d79" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 2
 \end{equation}\]</div>
 <p>If a constant is present when calculating the derivative, we shall move it outside of the derivative and later multiply it. Since we already know that <span class="math notranslate nohighlight">\(f(x) = x\)</span> was <span class="math notranslate nohighlight">\(1\)</span>, then we can simply multiply it by <span class="math notranslate nohighlight">\(2\)</span>.</p>
@@ -2055,8 +2055,8 @@ f'(x) = 2
 \frac{d}{dx}[k \cdot f(x)] = k \cdot \frac{d}{dx} f(x)
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-781b02ab-21e9-4729-a2b2-917d3db2f99f">
-<span class="eqno">(68)<a class="headerlink" href="#equation-781b02ab-21e9-4729-a2b2-917d3db2f99f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2aa681a3-d4c9-47b0-91a6-5d5da772e034">
+<span class="eqno">(68)<a class="headerlink" href="#equation-2aa681a3-d4c9-47b0-91a6-5d5da772e034" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 \\
@@ -2065,8 +2065,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x \\
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-4c7cce70-8667-4399-a7dc-0d207bed4619">
-<span class="eqno">(69)<a class="headerlink" href="#equation-4c7cce70-8667-4399-a7dc-0d207bed4619" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e7b0eb66-3b6c-4ff9-b3ee-ba065e6f009b">
+<span class="eqno">(69)<a class="headerlink" href="#equation-e7b0eb66-3b6c-4ff9-b3ee-ba065e6f009b" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x
 \end{equation}\]</div>
 <p>The first step is to move the constant outside the derivative. The rule for handling exponents is by taking the exponent as a coefficient and multiply with the variable. For the variable exponent, subtract the exponent value by <span class="math notranslate nohighlight">\(1\)</span>.</p>
@@ -2076,8 +2076,8 @@ f'(x) = 6x
 \frac{d}{dx}x^n = n \cdot x^{n-1}
 \]</div>
 <p><b>The derivative of <span class="math notranslate nohighlight">\(f(x) = 3x^2 + 5x\)</span> is</b></p>
-<div class="amsmath math notranslate nohighlight" id="equation-8aab2720-35a8-4119-8e10-851bc94f6125">
-<span class="eqno">(70)<a class="headerlink" href="#equation-8aab2720-35a8-4119-8e10-851bc94f6125" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-6ae16fff-5286-464c-9074-10b4fa0aa413">
+<span class="eqno">(70)<a class="headerlink" href="#equation-6ae16fff-5286-464c-9074-10b4fa0aa413" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = \frac{d}{dx}3x^2 + \frac{d}{dx}5x^1 \\
@@ -2087,8 +2087,8 @@ f(x) &amp; = 3x^2 \rightarrow \frac{d}{dx}f(x) \\
 &amp; = 6x + 5
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-58e5c468-5d5e-4320-864e-0f6f63dce8c0">
-<span class="eqno">(71)<a class="headerlink" href="#equation-58e5c468-5d5e-4320-864e-0f6f63dce8c0" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-4983675e-1c2a-40d9-adba-3d660b39c400">
+<span class="eqno">(71)<a class="headerlink" href="#equation-4983675e-1c2a-40d9-adba-3d660b39c400" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f'(x) = 6x + 5
 \end{equation}\]</div>
 <p>So the derivative of a sum of functions is</p>
@@ -2108,13 +2108,13 @@ f'(x) = 6x + 5
 consists of a set of equations called the <b>gradient</b>. In other words, the gradient is a vector of the
 size of inputs containing partial derivative solutions with respect to each of the inputs.</p>
 <p>The <span class="math notranslate nohighlight">\(\partial\)</span> operator is the notation used for partial derivatives. This is called as Euler’s notation.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-855cc8b4-7e62-4852-97ac-0a71a8d1f6e2">
-<span class="eqno">(72)<a class="headerlink" href="#equation-855cc8b4-7e62-4852-97ac-0a71a8d1f6e2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-728ee44c-97a4-4f0b-9470-5624930d62a4">
+<span class="eqno">(72)<a class="headerlink" href="#equation-728ee44c-97a4-4f0b-9470-5624930d62a4" title="Permalink to this equation">#</a></span>\[\begin{equation}
 f(x,y,z) = \frac{\partial}{\partial x}f(x,y,z), \frac{\partial}{\partial y}f(x,y,z), \frac{\partial}{\partial z}f(x,y,z)
 \end{equation}\]</div>
 <p>Here we are interested in seeing the impact of an individual input on the output while treating all of the other inputs as constants. Since the goal is to update the parameters of the model we are interested in singular inputs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-50f5630f-a3e6-4837-bf37-20e9af3d0ab9">
-<span class="eqno">(73)<a class="headerlink" href="#equation-50f5630f-a3e6-4837-bf37-20e9af3d0ab9" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b03156d5-e2a1-4e44-a825-b1f23aa0f0d9">
+<span class="eqno">(73)<a class="headerlink" href="#equation-b03156d5-e2a1-4e44-a825-b1f23aa0f0d9" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) \rightarrow &amp; \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x+y] =
 \frac{\partial}{\partial x}x + \frac{\partial}{\partial x}y = 1 + 0 = 1 \\
@@ -2123,8 +2123,8 @@ f(x,y) \rightarrow &amp; \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\pa
 \end{split}
 \end{equation}\]</div>
 <p>First we applied the sum rule, and then we calculated the derivative of x with respect to x while keep y as constant i.e. derivative of a constant is 0. In the second case, we did the opposite.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-765fea5e-268f-47b2-a328-a1083fb7fdf4">
-<span class="eqno">(74)<a class="headerlink" href="#equation-765fea5e-268f-47b2-a328-a1083fb7fdf4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-82940efe-4e34-48a3-a7d0-eda670f544ea">
+<span class="eqno">(74)<a class="headerlink" href="#equation-82940efe-4e34-48a3-a7d0-eda670f544ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) &amp; = 3x^3 - y^2 + 5x + 2 \rightarrow \\
 \frac{\partial}{\partial x}f(x,y) &amp; = \frac{\partial}{\partial x}[3x^3 - y^2 + 5x + 2] = \frac{\partial}{\partial x}3x^3 - \frac{\partial}{\partial x}y^2 + \frac{\partial}{\partial x}5x + \frac{\partial}{\partial x}2 \\
@@ -2136,8 +2136,8 @@ f(x,y) &amp; = 3x^3 - y^2 + 5x + 2 \rightarrow \\
 \end{split}
 \end{equation}\]</div>
 <p>The partial derivative of multiplication operation is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a66af66e-f03d-40b1-b184-9d28d998d754">
-<span class="eqno">(75)<a class="headerlink" href="#equation-a66af66e-f03d-40b1-b184-9d28d998d754" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-c20bce55-6dec-4c10-9611-e020020f6828">
+<span class="eqno">(75)<a class="headerlink" href="#equation-c20bce55-6dec-4c10-9611-e020020f6828" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y) = x \cdot y \rightarrow &amp; = \frac{\partial}{\partial x}f(x,y) = \frac{\partial}{\partial x}[x \cdot y] = y\frac{\partial}{\partial x}x = y \cdot 1 = y \\
 &amp; = \frac{\partial}{\partial y}f(x,y) = \frac{\partial}{\partial y}[x \cdot y] = x\frac{\partial}{\partial y}y = x \cdot 1 = x
@@ -2145,8 +2145,8 @@ f(x,y) = x \cdot y \rightarrow &amp; = \frac{\partial}{\partial x}f(x,y) = \frac
 \end{equation}\]</div>
 <p>We have already mentioned that we need to treat the other independent variables as constants, and
 we also have learned that we can move constants to the outside of the derivative.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0e5d2b20-5ee4-4fb3-a81c-2c92418c1080">
-<span class="eqno">(76)<a class="headerlink" href="#equation-0e5d2b20-5ee4-4fb3-a81c-2c92418c1080" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-857b53e9-5db5-4d2d-8b98-f769b75e7159">
+<span class="eqno">(76)<a class="headerlink" href="#equation-857b53e9-5db5-4d2d-8b98-f769b75e7159" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 \frac{\partial}{\partial x}f(x,y,z) &amp; = \frac{\partial}{\partial x}[3x^3z - y^2 + 5z + 2yz] \\
@@ -2157,16 +2157,16 @@ f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 \end{split}
 \end{equation}\]</div>
 <p>Similarly</p>
-<div class="amsmath math notranslate nohighlight" id="equation-403a29e9-304d-490d-914e-e16058bc929d">
-<span class="eqno">(77)<a class="headerlink" href="#equation-403a29e9-304d-490d-914e-e16058bc929d" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-397374d9-1f61-45ce-8881-a67ece4e3edf">
+<span class="eqno">(77)<a class="headerlink" href="#equation-397374d9-1f61-45ce-8881-a67ece4e3edf" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \frac{\partial}{\partial y}f(x,y,z) &amp; =  3\frac{\partial}{\partial y}x^3z - \frac{\partial}{\partial y}y^2 + 5\frac{\partial}{\partial y}z + 2z\frac{\partial}{\partial y}y \\
 &amp; = 3 \cdot 0 - 2 \cdot y^{2-1} + 5 \cdot 0 + 2z \cdot 1 \\
 &amp; = -2y + 2z
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-81595409-3f2c-49e5-864a-f80cff3708a2">
-<span class="eqno">(78)<a class="headerlink" href="#equation-81595409-3f2c-49e5-864a-f80cff3708a2" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-460b473c-0a69-4ec6-ab28-76e91f6cfedd">
+<span class="eqno">(78)<a class="headerlink" href="#equation-460b473c-0a69-4ec6-ab28-76e91f6cfedd" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 \frac{\partial}{\partial z}f(x,y,z) &amp; = 3x^3\frac{\partial}{\partial z}z - \frac{\partial}{\partial z}y^2 + 5\frac{\partial}{\partial z}z + 2y\frac{\partial}{\partial z}z \\
 &amp; = 3x^3 \cdot 1 - 0 + 5 \cdot 1 + 2y \cdot 1 \\
@@ -2177,8 +2177,8 @@ f(x,y,z) = 3x^3z - y^2 + 5z + 2yz \rightarrow \\
 <section id="the-gradient">
 <h3>The Gradient<a class="headerlink" href="#the-gradient" title="Link to this heading">#</a></h3>
 <p>The gradient is a vector composed of all of the partial derivatives of a function, calculated with respect to each input variable.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e610e50-7bda-4702-9c7c-1ab7aa51a4fd">
-<span class="eqno">(79)<a class="headerlink" href="#equation-7e610e50-7bda-4702-9c7c-1ab7aa51a4fd" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-93458d59-2c6e-4fdb-b134-5bb397c8a646">
+<span class="eqno">(79)<a class="headerlink" href="#equation-93458d59-2c6e-4fdb-b134-5bb397c8a646" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \nabla f(x,y,z) =
 \begin{bmatrix}
 \frac{\partial}{\partial x}f(x,y,z) \\
@@ -2210,14 +2210,14 @@ y = g(f(x))
 <p>This shows an important property of functions chained in this way i.e. the output of function <span class="math notranslate nohighlight">\(g\)</span> is influenced by the <span class="math notranslate nohighlight">\(x\)</span>. There must be a derivative that tells us this influence.</p>
 <p>The loss function takes in the output of the activation function of the previous layer which is in turn dependent on the output of the layer before it. The loss function not only takes the model’s output and targets as parameters, but also a functions that takes targets, samples and all of the weights and biases. So to improve loss we need to know the impact of each of these parameters. To do this for a chain of functions, we will use the chain rule.</p>
 <p>The chain rule says that the derivative of a function chain is the product of derivatives of all the functions in the chain.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7f56a331-ba73-4928-bbff-57b00c80155a">
-<span class="eqno">(80)<a class="headerlink" href="#equation-7f56a331-ba73-4928-bbff-57b00c80155a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-bbb5d5f2-ebbc-484a-a389-d9cde13a11f2">
+<span class="eqno">(80)<a class="headerlink" href="#equation-bbb5d5f2-ebbc-484a-a389-d9cde13a11f2" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial}{\partial x}f(g(x)) =
 \frac{\partial f(g(x))}{\partial g(x)} \cdot \frac{\partial g(x)}{\partial x} = f'(g(x)) \cdot g'(x)
 \end{equation}\]</div>
 <p>The chain rule for multiple inputs is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73ffa2c3-2041-47df-bbdb-23268be81d29">
-<span class="eqno">(81)<a class="headerlink" href="#equation-73ffa2c3-2041-47df-bbdb-23268be81d29" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-1e531cb3-1a5f-4f27-b1ee-351da8d9c280">
+<span class="eqno">(81)<a class="headerlink" href="#equation-1e531cb3-1a5f-4f27-b1ee-351da8d9c280" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial}{\partial x} f(g(y,h(x,z))) =
 \frac{\partial f(g(y,h(x,z))}{\partial g(y,h(x,z))} \cdot
 \frac{\partial g(y,h(x,z))}{\partial h(x,z)} \cdot
@@ -2227,16 +2227,16 @@ y = g(f(x))
 the partial derivative of the outer function with respect to the inner function in a chain to the
 parameter. We repeat this all the way down to the parameter in question.</p>
 <p>The derivative of a function <span class="math notranslate nohighlight">\(h(x) = 3(2x^2)^5\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-18734217-26bf-492c-a2b5-7884a44d860c">
-<span class="eqno">(82)<a class="headerlink" href="#equation-18734217-26bf-492c-a2b5-7884a44d860c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-287b4a9d-129d-4223-b276-f482572620ea">
+<span class="eqno">(82)<a class="headerlink" href="#equation-287b4a9d-129d-4223-b276-f482572620ea" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 g(x) = 2x^2 \\
 f(y) = 3(y)^5 \\
 h(x) = f(g(x)) \\
 \end{split}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-034f3168-c68a-4ac5-b178-7aeaab1a557e">
-<span class="eqno">(83)<a class="headerlink" href="#equation-034f3168-c68a-4ac5-b178-7aeaab1a557e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-694e4eac-0afb-4b13-aca4-aa1dae1fdfa1">
+<span class="eqno">(83)<a class="headerlink" href="#equation-694e4eac-0afb-4b13-aca4-aa1dae1fdfa1" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \begin{split}
 h'(x) &amp; = f'(g(x)) \cdot g'(x) \\
 &amp; = \frac{\partial f(g(x))}{\partial g(x)} \cdot
@@ -2253,38 +2253,69 @@ function.</p>
 <section id="backpropagation">
 <h2>Backpropagation<a class="headerlink" href="#backpropagation" title="Link to this heading">#</a></h2>
 <p>Lets try to understand backpropogation on a toy example. Below we have a computation graph with 3 inputs and several nested functions. The final function is <span class="math notranslate nohighlight">\(L = ce\)</span>. Our aim is to understand the impact of the inputs <span class="math notranslate nohighlight">\(a,b,c\)</span> on <span class="math notranslate nohighlight">\(L\)</span>.</p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/backprop_simple_example.JPG" /></p>
 <ol class="arabic simple">
 <li><p>To understand the impact of input <span class="math notranslate nohighlight">\(a\)</span> on <span class="math notranslate nohighlight">\(L\)</span>, we need to find <span class="math notranslate nohighlight">\(\frac{\partial L}{\partial a}\)</span>. This is found by applying the chain rule i.e.</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-f2d5857f-26d7-46d3-bca4-0e8f34ba625c">
-<span class="eqno">(84)<a class="headerlink" href="#equation-f2d5857f-26d7-46d3-bca4-0e8f34ba625c" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-91ebfc6a-f476-48f6-8f01-5f0b7caf7193">
+<span class="eqno">(84)<a class="headerlink" href="#equation-91ebfc6a-f476-48f6-8f01-5f0b7caf7193" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial L}{\partial a} =
 \frac{\partial L}{\partial e} \cdot \frac{\partial e}{\partial a}
 \end{equation}\]</div>
 <ol class="arabic simple" start="2">
 <li><p>Likewise the impact of input <span class="math notranslate nohighlight">\(b\)</span> and <span class="math notranslate nohighlight">\(c\)</span> on <span class="math notranslate nohighlight">\(L\)</span> can be derived by</p></li>
 </ol>
-<div class="amsmath math notranslate nohighlight" id="equation-ce2e07e6-f34e-4f6a-8689-16ac0507eed8">
-<span class="eqno">(85)<a class="headerlink" href="#equation-ce2e07e6-f34e-4f6a-8689-16ac0507eed8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-76a46c68-58d8-4a8f-ba40-535151ba2d73">
+<span class="eqno">(85)<a class="headerlink" href="#equation-76a46c68-58d8-4a8f-ba40-535151ba2d73" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial L}{\partial b} =
 \frac{\partial L}{\partial e} \cdot \frac{\partial e}{\partial d} \cdot \frac{\partial d}{\partial b}
 \end{equation}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-9263dedc-d4b7-4c68-965f-3dfbb2826502">
-<span class="eqno">(86)<a class="headerlink" href="#equation-9263dedc-d4b7-4c68-965f-3dfbb2826502" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-2ff8d495-2ee5-45f0-ad7c-6482136b9d3e">
+<span class="eqno">(86)<a class="headerlink" href="#equation-2ff8d495-2ee5-45f0-ad7c-6482136b9d3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \frac{\partial L}{\partial c}
 \end{equation}\]</div>
-<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/backprop_simple_example.JPG" /></p>
 <p>Lets consider a single neuron. We will pass 3 inputs to this neuron. The inputs are multiplied by the weights of each connection from the input layer to the neuron and a bias is added. Later we pass the output through <span class="math notranslate nohighlight">\(ReLU\)</span> activation function. Below figure shows this visually.</p>
 <p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/backpropagation_1neuron.JPG" /></p>
 <p>This is a full forward pass through a single neuron and a <span class="math notranslate nohighlight">\(ReLU\)</span> activation function with inputs <span class="math notranslate nohighlight">\((x)\)</span>, weights <span class="math notranslate nohighlight">\((w)\)</span> and bias <span class="math notranslate nohighlight">\((b)\)</span>. The function consists of multiple functions such as multiplying weights and inputs, adding the bias and a <span class="math notranslate nohighlight">\(max\)</span> function as the <span class="math notranslate nohighlight">\(ReLU\)</span> activation.</p>
 <p>We will use the chain rule, to backpropagate our gradients by calculating derivatives and partial derivatives. The function we are looking at is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a0470a07-3538-43b8-b6d9-dc86a861c592">
-<span class="eqno">(87)<a class="headerlink" href="#equation-a0470a07-3538-43b8-b6d9-dc86a861c592" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c2fe99c2-6064-446b-b0fa-7cd288289e41">
+<span class="eqno">(87)<a class="headerlink" href="#equation-c2fe99c2-6064-446b-b0fa-7cd288289e41" title="Permalink to this equation">#</a></span>\[\begin{align}
 ReLU(\sum[inputs \cdot weights] + bias) \rightarrow\\
 ReLU(sum(mul(x_0w_0),mul(x_1w_1),mul(x_2w_2),b))
 \end{align}\]</div>
 <p>Our current task is to calculate how much each of the inputs, weights, and a bias impacts the
 output. To calculate the impact of <span class="math notranslate nohighlight">\(w0\)</span> on the output, the chain rule tells us to calculate the <span class="math notranslate nohighlight">\(derivative\)</span> of <span class="math notranslate nohighlight">\(ReLU\)</span> w.r.t to its parameter i.e sum, then multiply it by the derivative of the sum operation w.r.t to its parameter i.e multiplication. In this case it is <span class="math notranslate nohighlight">\(mul(x_0,w_0)\)</span> as it contains the parameter in question. Then finally multiply this with the partial derivtive of the multiplication operation.</p>
+<p>With the example we see above, we start our backpropagation with <span class="math notranslate nohighlight">\(ReLU\)</span> with respect to its input which is <span class="math notranslate nohighlight">\(1\)</span> if the inpt is greater than <span class="math notranslate nohighlight">\(0\)</span>, and <span class="math notranslate nohighlight">\(0\)</span> otherwise.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8bc491b0-8709-4133-91e8-71b15e45e9b3">
+<span class="eqno">(88)<a class="headerlink" href="#equation-8bc491b0-8709-4133-91e8-71b15e45e9b3" title="Permalink to this equation">#</a></span>\[\begin{align}
+f(x) = max(x,0) \rightarrow \frac{d}{dx}f(x) = 1(x&gt;0)
+\end{align}\]</div>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/dreludz.JPG" /></p>
+<p>Moving backward through our network, we perform sum of weighted inputs and  bias. Since we have 3 different weights and a bias, we will have to compute the derivative of sum function with respect to each of these and using the chain rule, multiply this by the partial derivative of the subsequent outer function which is <span class="math notranslate nohighlight">\(ReLU\)</span>.</p>
+<p>The partial derivative of the sum operation is always <span class="math notranslate nohighlight">\(1\)</span> no matter what the input is:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f3517e1d-faf1-4692-ba21-e9b19a61ce23">
+<span class="eqno">(89)<a class="headerlink" href="#equation-f3517e1d-faf1-4692-ba21-e9b19a61ce23" title="Permalink to this equation">#</a></span>\[\begin{align}
+f(x,y) = x + y \rightarrow \frac{\partial}{\partial x}f(x,y) = 1 \\
+                            \frac{\partial}{\partial y}f(x,y) = 1
+\end{align}\]</div>
+<p>Below is an example of partial derivative of <span class="math notranslate nohighlight">\(ReLU\)</span> w.r.t first weighted input <span class="math notranslate nohighlight">\(x_0w_0\)</span>. This will be done for all the other weighted inputs in a similar fashion.</p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/dsumdxw.JPG" /></p>
+<p>Partial derivative of <span class="math notranslate nohighlight">\(ReLU\)</span> w.r.t bias <span class="math notranslate nohighlight">\(b\)</span> using the chain rule.</p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/dsumdb.JPG" /></p>
+<p>Continuing backward, the function that comes before the sum is the multiplication of weights and
+inputs. The derivative for a product is whatever the input is being multiplied by.</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4af0d207-bca5-4b68-a794-f689f92271f6">
+<span class="eqno">(90)<a class="headerlink" href="#equation-4af0d207-bca5-4b68-a794-f689f92271f6" title="Permalink to this equation">#</a></span>\[\begin{align}
+f(x,y) = x \cdot y \rightarrow \frac{\partial}{\partial x}f(x,y) = y \\
+                            \frac{\partial}{\partial y}f(x,y) = x
+\end{align}\]</div>
+<p>Partial derivative of multiplication function w.r.t the first input.</p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/dmulxw.JPG" /></p>
+<p>The complete set of the activated neuron’s partial derivatives with respect to the inputs,
+weights and a bias.</p>
+<p><img alt="Biological Neuron vs Artificial Neuron" src="../_images/backpropagation_graph.JPG" /></p>
+<p>All together, the partial derivatives above, combined into a vector, make up our gradients. We can now apply these gradients to the weights to hopefully minimize the output, which is typically the role of an <b>optimizer</b>. We apply a negative fraction to this gradient since we want to decrease the final output value, and the gradient shows the direction of the steepest ascent.</p>
+<p>The above scenarios was just an example, in an ideal neural network setting, we will use this paradigm to decrease the loss value, which is the last calculation in the chain of calculations during the forward pass.</p>
 </section>
 </section>
 

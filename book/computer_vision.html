@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Introduction to Statistical Learning &#8212; DEV-Analytics</title>
+    <title>Computer Vision &#8212; DEV-Analytics</title>
   
   
   
@@ -58,13 +58,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/statistical_learning';</script>
-    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/statistical_learning.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/computer_vision';</script>
+    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/computer_vision.html" />
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Timeseries" href="timeseries.html" />
-    <link rel="prev" title="Linear Algebra" href="linear_algebra.html" />
+    <link rel="next" title="PyTorch" href="pytorch.html" />
+    <link rel="prev" title="Deep Learning" href="deep_learning.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -176,11 +176,11 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="linear_algebra.html">Linear Algebra</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction to Statistical Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="statistical_learning.html">Introduction to Statistical Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="timeseries.html">Timeseries</a></li>
 <li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="deep_learning.html">Deep Learning</a></li>
-<li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Computer Vision</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Computer Vision</a></li>
 <li class="toctree-l1"><a class="reference internal" href="pytorch.html">PyTorch</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
@@ -237,7 +237,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/statistical_learning.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/computer_vision.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -255,7 +255,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/statistical_learning.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/computer_vision.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -303,7 +303,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/statistical_learning.ipynb" target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/computer_vision.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -320,7 +320,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/statistical_learning.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/computer_vision.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +350,7 @@
       
       
       
-      <li><a href="../_sources/book/statistical_learning.ipynb" target="_blank"
+      <li><a href="../_sources/book/computer_vision.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,7 +432,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Introduction to Statistical Learning</h1>
+    <h1>Computer Vision</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -446,16 +446,9 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="introduction-to-statistical-learning">
-<h1>Introduction to Statistical Learning<a class="headerlink" href="#introduction-to-statistical-learning" title="Link to this heading">#</a></h1>
-<div style='text-align: justify;'>
-The general idea behind statistical learning or modelling of data is to understand the data and develop methods
-that are broadly classified as <b>supervised</b> and <b>unsupervised</b>. 
-<p>If one wants to predict or estimate a future <em>outcome</em> or <em>output</em> based on several influencing <em>variables</em> or <em>inputs</em>
-such type of modelling is called supervised statistical learning.
-On the contrary, if we have just the inputs and no expected output, we might want to understand the underlying
-relationships and structure of the data. These models are called unsupervised statistical learning models.</p>
-</div></section>
+  <section class="tex2jax_ignore mathjax_ignore" id="computer-vision">
+<h1>Computer Vision<a class="headerlink" href="#computer-vision" title="Link to this heading">#</a></h1>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -488,20 +481,20 @@ relationships and structure of the data. These models are called unsupervised st
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="linear_algebra.html"
+       href="deep_learning.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Linear Algebra</p>
+        <p class="prev-next-title">Deep Learning</p>
       </div>
     </a>
     <a class="right-next"
-       href="timeseries.html"
+       href="pytorch.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Timeseries</p>
+        <p class="prev-next-title">PyTorch</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

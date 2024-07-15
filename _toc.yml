@@ -9,5 +9,6 @@ chapters:
   - file: book/timeseries
   - file: book/natural_language
   - file: book/deep_learning
+  - file: book/computer_vision
   - file: book/pytorch
   - file: book/bibliography

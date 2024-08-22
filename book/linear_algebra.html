@@ -65,7 +65,7 @@
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Introduction to Statistical Learning" href="statistical_learning.html" />
+    <link rel="next" title="Statistical Learning" href="statistical_learning/statistical_learning.html" />
     <link rel="prev" title="Welcome to your Jupyter Book" href="../index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -178,12 +178,18 @@
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Linear Algebra</a></li>
-<li class="toctree-l1"><a class="reference internal" href="statistical_learning.html">Introduction to Statistical Learning</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="statistical_learning/statistical_learning.html">Statistical Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="statistical_learning/linear_regression.html">Linear Regression</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="timeseries.html">Timeseries</a></li>
-<li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="neural_networks.html">Neural Networks</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="deep_learning/deep_learning.html">Deep Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="deep_learning/neural_networks.html">Neural Networks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deep_learning/pytorch.html">PyTorch</a></li>
+</ul>
+</details></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Computer Vision</a></li>
-<li class="toctree-l1"><a class="reference internal" href="pytorch.html">PyTorch</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -540,8 +546,8 @@ document.write(`
 </div>
 </div>
 <p>A <em>vector</em> is a one-dimensional matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e8ef66a0-5a09-4b20-8515-7942e615dd79">
-<span class="eqno">(1)<a class="headerlink" href="#equation-e8ef66a0-5a09-4b20-8515-7942e615dd79" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1ab7c2c0-8f33-4e3a-b4e5-8a9a864335ba">
+<span class="eqno">(1)<a class="headerlink" href="#equation-1ab7c2c0-8f33-4e3a-b4e5-8a9a864335ba" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{x} = \begin{bmatrix} 1 \\ 2 \\ 3 \end{bmatrix}
 \end{align}\]</div>
 <p>The size of the vectors is determined by its rows or how many numbers it has.
@@ -576,8 +582,8 @@ to emphasize that you’re looking at real numbers. You also say that <span clas
 vectors, or vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, are a part of two-space. <br></p>
 <p>Vectors in 2 space are represented on the coordiante <span class="math notranslate nohighlight">\((x,y)\)</span> plane by rays. In standard position, the ray representing a vector has its endpoint at the
 origin and its terminal point (or arrow) at the <span class="math notranslate nohighlight">\((x,y)\)</span> coordinates designated by the column vector. The <span class="math notranslate nohighlight">\(x\)</span> coordinate is in the first row of the vector, and the <span class="math notranslate nohighlight">\(y\)</span> coordinate is in the second row.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-089124e4-02e0-41f9-8635-8ecbd928c17f">
-<span class="eqno">(2)<a class="headerlink" href="#equation-089124e4-02e0-41f9-8635-8ecbd928c17f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7bb63d03-d9b5-4fd8-b727-a4712e09b736">
+<span class="eqno">(2)<a class="headerlink" href="#equation-7bb63d03-d9b5-4fd8-b727-a4712e09b736" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{u} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <p>Here <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((1,2)\)</span>.</p>
@@ -609,8 +615,8 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </div>
 </div>
 <p>We can add another vector,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-10ccbb03-20b6-417c-8aaf-343090e4a5ef">
-<span class="eqno">(3)<a class="headerlink" href="#equation-10ccbb03-20b6-417c-8aaf-343090e4a5ef" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-80d8300a-4b73-4efd-b6c1-b078c1aada26">
+<span class="eqno">(3)<a class="headerlink" href="#equation-80d8300a-4b73-4efd-b6c1-b078c1aada26" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = \begin{bmatrix} 3 \\ -2 \end{bmatrix}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y)\)</span> plane as <span class="math notranslate nohighlight">\((3,-2)\)</span>.</p>
@@ -675,15 +681,15 @@ origin and its terminal point (or arrow) at the <span class="math notranslate no
 </div>
 </div>
 <p>Notice that the vectors have the same lengths and point in the same direction with the same slant. What we did above, is simply moving <span class="math notranslate nohighlight">\(x\)</span> or <span class="math notranslate nohighlight">\(y\)</span> steps away from the endpoint. In other words, we simply add the <span class="math notranslate nohighlight">\(\mathbf{u}\)</span> with the <span class="math notranslate nohighlight">\(endpoint\)</span> vector to get a resulting vector</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46339b9b-5418-4722-9e96-0552a2a692a4">
-<span class="eqno">(4)<a class="headerlink" href="#equation-46339b9b-5418-4722-9e96-0552a2a692a4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-76bb28b1-6756-40f3-8b55-11ad8339f184">
+<span class="eqno">(4)<a class="headerlink" href="#equation-76bb28b1-6756-40f3-8b55-11ad8339f184" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 1 \\ 2 \end{bmatrix} + \begin{bmatrix} -1 \\ 2 \end{bmatrix} = \begin{bmatrix} 0 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>which is the terminal point <span class="math notranslate nohighlight">\((0,4)\)</span>. We shall look at computations on vectors in detail.</p>
 <p>Vectors can actually have many number of rows, although its difficult to illustrate vectors that have more than 3 rows, which implies 3 spaces.</p>
 <p>For example,</p>
-<div class="amsmath math notranslate nohighlight" id="equation-521d8228-840f-45f4-b801-5597b55f46c6">
-<span class="eqno">(5)<a class="headerlink" href="#equation-521d8228-840f-45f4-b801-5597b55f46c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fff6aba6-6801-44d3-8c62-be33086c5e87">
+<span class="eqno">(5)<a class="headerlink" href="#equation-fff6aba6-6801-44d3-8c62-be33086c5e87" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{w} = \begin{bmatrix} 2 \\ 3 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(\mathbf{w}\)</span> <span class="math notranslate nohighlight">\(\in\)</span> <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>, and can be represented in the <span class="math notranslate nohighlight">\((x,y,z)\)</span> plane as <span class="math notranslate nohighlight">\((2,3,4)\)</span>. Three-space vectors are represented by three-dimensional figures and
@@ -694,25 +700,25 @@ arrows pointing to positions in space.</p>
 <h3>Scalar multiplication<a class="headerlink" href="#scalar-multiplication" title="Link to this heading">#</a></h3>
 <p>When you multiply a <span class="math notranslate nohighlight">\(2\times 1\)</span> vector by a scalar, your result is another <span class="math notranslate nohighlight">\(2\times 1\)</span> vector. A scalar is a real number — a constant value. Multiplying a vector by a scalar
 means that you multiply each element in the vector by the same constant value.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c82dd61b-230f-45d0-bd52-c6f1a20182ca">
-<span class="eqno">(6)<a class="headerlink" href="#equation-c82dd61b-230f-45d0-bd52-c6f1a20182ca" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c7781b44-7315-4f36-ba7d-852ad1aa199c">
+<span class="eqno">(6)<a class="headerlink" href="#equation-c7781b44-7315-4f36-ba7d-852ad1aa199c" title="Permalink to this equation">#</a></span>\[\begin{align}
 k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_1 \\ kv_2 \\ \vdots \\ kv_n\end{bmatrix}
 \end{align}\]</div>
 <p>where we multiply the vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(scalar\)</span> <span class="math notranslate nohighlight">\(k\)</span>. Below is an example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f52c0e70-c004-4930-b9fb-edcc79e2be2e">
-<span class="eqno">(7)<a class="headerlink" href="#equation-f52c0e70-c004-4930-b9fb-edcc79e2be2e" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6b97018a-e256-43b6-acc8-601a371218b7">
+<span class="eqno">(7)<a class="headerlink" href="#equation-6b97018a-e256-43b6-acc8-601a371218b7" title="Permalink to this equation">#</a></span>\[\begin{align}
 2 \begin{bmatrix} 2 \\ 3 \\ -1\end{bmatrix} = \begin{bmatrix} 4 \\ 6 \\ -2\end{bmatrix}
 \end{align}\]</div>
 <p>Vectors have operations that cause dilations (expansions) and contractions (shrinkages) of the original vector. Both operations of dilation and contraction are accomplished by multiplying the elements in the vector by a scalar.</p>
 <p>If the scalar, k, that is multiplying a vector is greater than 1, then the result is a dilation of the original vector. If the scalar, k, is a number between 0 and 1, then the result is a contraction of the original vector.</p>
 <p>For example, consider a vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-40a482f7-c085-4b87-81f2-ade2f2129413">
-<span class="eqno">(8)<a class="headerlink" href="#equation-40a482f7-c085-4b87-81f2-ade2f2129413" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a59ddf30-d7e4-4935-a535-902a72aee8b4">
+<span class="eqno">(8)<a class="headerlink" href="#equation-a59ddf30-d7e4-4935-a535-902a72aee8b4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>multiplying it with a scalar say 3 will result in dilation or expansion and with <span class="math notranslate nohighlight">\(\frac{1}{2}\)</span> results in contraction or shrinking.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fbdd0104-e784-4eb2-8844-cdd63a1a1b1c">
-<span class="eqno">(9)<a class="headerlink" href="#equation-fbdd0104-e784-4eb2-8844-cdd63a1a1b1c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-771559fa-ebd9-4f15-98da-4c3048ec84a7">
+<span class="eqno">(9)<a class="headerlink" href="#equation-771559fa-ebd9-4f15-98da-4c3048ec84a7" title="Permalink to this equation">#</a></span>\[\begin{align}
 3\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}, \frac{1}{2}\begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 1 \\ 2 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -772,8 +778,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <li><p>The direction of the vector reverses.</p></li>
 </ol>
 <p>Multiplying vector <span class="math notranslate nohighlight">\(\mathbb{a}\)</span> with -2 will give</p>
-<div class="amsmath math notranslate nohighlight" id="equation-2ca5ed6e-8ba2-4bb4-97e6-3ba6764ed023">
-<span class="eqno">(10)<a class="headerlink" href="#equation-2ca5ed6e-8ba2-4bb4-97e6-3ba6764ed023" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ecf6982f-73fe-4892-9bb2-99cf6c197a0d">
+<span class="eqno">(10)<a class="headerlink" href="#equation-ecf6982f-73fe-4892-9bb2-99cf6c197a0d" title="Permalink to this equation">#</a></span>\[\begin{align}
 -2 \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} -4 \\ -8 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -810,14 +816,14 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <h3>Vector addition and subtraction<a class="headerlink" href="#vector-addition-and-subtraction" title="Link to this heading">#</a></h3>
 <p>The vectors have to be of the same size to add one another or subtract from one another. This process involves adding or subtracting the corresponding elements in the vectors like a one-to-one match up.</p>
 <p>For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-226c29f2-aa85-4222-9e38-65a5efa3fd59">
-<span class="eqno">(11)<a class="headerlink" href="#equation-226c29f2-aa85-4222-9e38-65a5efa3fd59" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-26d4cae9-89f4-4cf0-ac3a-beaddcede6cf">
+<span class="eqno">(11)<a class="headerlink" href="#equation-26d4cae9-89f4-4cf0-ac3a-beaddcede6cf" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} + \mathbb{v} = \begin{bmatrix} u_1 \\ u_2 \\ \vdots \\ u_n \end{bmatrix} + \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n \end{bmatrix} =
 \begin{bmatrix} u_1 + v_1 \\ u_2 + v_2 \\ \vdots \\ u_n + v_n \end{bmatrix}
 \end{align}\]</div>
 <p>We can illustrate what is happening when we add 2 vectors. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-506c7862-0d7c-40fa-9f0d-5f03474fe8a7">
-<span class="eqno">(12)<a class="headerlink" href="#equation-506c7862-0d7c-40fa-9f0d-5f03474fe8a7" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-0a69b484-eedc-499e-a77f-75bc42576ad4">
+<span class="eqno">(12)<a class="headerlink" href="#equation-0a69b484-eedc-499e-a77f-75bc42576ad4" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} 3 \\ 1 \end{bmatrix} = \begin{bmatrix} 5 \\ 5 \end{bmatrix}
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -854,8 +860,8 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 </div>
 <p>we are adding the second vector to the terminal point of the first vector, result is the vector obtained from vector addition.</p>
 <p>Vector subtraction is just another way of saying that you’re adding one vector to a second vector that’s been multiplied by the scalar –1. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-22c7b922-1d33-4108-bc13-d0060aad8fa3">
-<span class="eqno">(13)<a class="headerlink" href="#equation-22c7b922-1d33-4108-bc13-d0060aad8fa3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fc8b3385-d2b1-438d-8e5d-f694459f3771">
+<span class="eqno">(13)<a class="headerlink" href="#equation-fc8b3385-d2b1-438d-8e5d-f694459f3771" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + (-1) \begin{bmatrix} 3 \\ 1 \end{bmatrix} =
 \begin{bmatrix} 2 \\ 4 \end{bmatrix} + \begin{bmatrix} -3 \\ -1 \end{bmatrix} = \begin{bmatrix} -1 \\ 3 \end{bmatrix}
 \end{align}\]</div>
@@ -896,28 +902,28 @@ k \begin{bmatrix} v_1 \\ v_2 \\ \vdots \\ v_n\end{bmatrix} = \begin{bmatrix} kv_
 <p>The magnitude of a vector is also referred to as its length or norm. It is the length of the ray that you see in two-space or three-space. Vectors with more
 than three rows also have magnitude, and the computation is the same although its not possible to visually picture it.  <br></p>
 <p>The magnitude of <span class="math notranslate nohighlight">\(\mathbb{v}\)</span> is denoted by <span class="math notranslate nohighlight">\(\lVert \mathbb{v} \rVert\)</span>. The formula is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-13de8f1f-fdc7-4ed3-a8e8-2b343a2dbf7c">
-<span class="eqno">(14)<a class="headerlink" href="#equation-13de8f1f-fdc7-4ed3-a8e8-2b343a2dbf7c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-98958a33-4515-4cf2-8967-76fdb6a4a9a0">
+<span class="eqno">(14)<a class="headerlink" href="#equation-98958a33-4515-4cf2-8967-76fdb6a4a9a0" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{v_1^2 + v_2^2 + v_3^2 + v_4^2 \dots v_n^2}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(v_1^2, v_2^2, v_3^2, \dots ,v_n^2\)</span> are the elements of the vector.</p>
 <p>When you multiply a vector by a scalar, then the magnitude is also multiplied, i.e. <span class="math notranslate nohighlight">\(\lvert k \rvert \cdot \lVert \mathbb{v} \rVert\)</span>. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49272f7b-f555-40df-9b3e-b33d903261a8">
-<span class="eqno">(15)<a class="headerlink" href="#equation-49272f7b-f555-40df-9b3e-b33d903261a8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fce70317-a64a-43d3-9d44-83561286d45f">
+<span class="eqno">(15)<a class="headerlink" href="#equation-fce70317-a64a-43d3-9d44-83561286d45f" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix}
 \end{align}\]</div>
 <p>then the magnitude is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-46c5558d-c577-45a3-b578-d875d7c702eb">
-<span class="eqno">(16)<a class="headerlink" href="#equation-46c5558d-c577-45a3-b578-d875d7c702eb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e425643b-97df-4d1c-a94a-94681986bee2">
+<span class="eqno">(16)<a class="headerlink" href="#equation-e425643b-97df-4d1c-a94a-94681986bee2" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{2^2 + 4^2} = \sqrt{20}
 \end{align}\]</div>
 <p>By multiplying the vector with 3 results in</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a978a708-be43-4ee2-8795-53d646614295">
-<span class="eqno">(17)<a class="headerlink" href="#equation-a978a708-be43-4ee2-8795-53d646614295" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cf001ee3-6b42-4614-af1b-cb03ca2ec7f0">
+<span class="eqno">(17)<a class="headerlink" href="#equation-cf001ee3-6b42-4614-af1b-cb03ca2ec7f0" title="Permalink to this equation">#</a></span>\[\begin{align}
 3 \mathbb{v} = \begin{bmatrix} 2 \\ 4 \end{bmatrix} = \begin{bmatrix} 6 \\ 12 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-8735e9d1-c708-4eb2-9c13-ac193db8c004">
-<span class="eqno">(18)<a class="headerlink" href="#equation-8735e9d1-c708-4eb2-9c13-ac193db8c004" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-461a64e1-272d-44b9-8c5c-48d2bb7f5552">
+<span class="eqno">(18)<a class="headerlink" href="#equation-461a64e1-272d-44b9-8c5c-48d2bb7f5552" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{v} \rVert = \sqrt{6^2 + 12^2} = 3\sqrt{20}
 \end{align}\]</div>
 <p>which is simply 3 times the actual magnitude. Although in the case of negative scalar consider the absolute value.</p>
@@ -925,8 +931,8 @@ than three rows also have magnitude, and the computation is the same although it
 <section id="triangle-inequality">
 <h3>Triangle inequality<a class="headerlink" href="#triangle-inequality" title="Link to this heading">#</a></h3>
 <p>The magnitude of the sum of vectors is always less than or equal to the sum of the magnitudes of the vectors.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9d2d1868-36c9-4265-a8d6-c5cf450ae52c">
-<span class="eqno">(19)<a class="headerlink" href="#equation-9d2d1868-36c9-4265-a8d6-c5cf450ae52c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a9e57595-9272-4221-a3b8-8384c1760282">
+<span class="eqno">(19)<a class="headerlink" href="#equation-a9e57595-9272-4221-a3b8-8384c1760282" title="Permalink to this equation">#</a></span>\[\begin{align}
 \lVert \mathbb{u} + \mathbb{v}\rVert \le \lVert \mathbb{u}\rVert + \lVert \mathbb{v}\rVert
 \end{align}\]</div>
 <div class="cell docutils container">
@@ -973,8 +979,8 @@ u + v =
 <p>The inner product of two real valued vectors is also called the dot product. When <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span>
 are both <span class="math notranslate nohighlight">\(n × 1\)</span> vectors, then the notation <span class="math notranslate nohighlight">\(u^Tv\)</span> indicates the inner product of <span class="math notranslate nohighlight">\(u\)</span>
 and <span class="math notranslate nohighlight">\(v\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ca82eb78-0c5d-4bb6-9b47-82afb2898288">
-<span class="eqno">(20)<a class="headerlink" href="#equation-ca82eb78-0c5d-4bb6-9b47-82afb2898288" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-545bbadd-a4bf-4149-8894-08b09fdaad1d">
+<span class="eqno">(20)<a class="headerlink" href="#equation-545bbadd-a4bf-4149-8894-08b09fdaad1d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u} =
 \begin{bmatrix}
     u_1 \\ u_2 \\ \vdots \\ u_n
@@ -984,8 +990,8 @@ and <span class="math notranslate nohighlight">\(v\)</span>.</p>
     v_1 \\ v_2 \\ \vdots \\ v_n
 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-cbea8101-dd2e-4c70-8f62-25f84764ea8d">
-<span class="eqno">(21)<a class="headerlink" href="#equation-cbea8101-dd2e-4c70-8f62-25f84764ea8d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f8a231e3-a7bc-46e7-b899-448046c3bdc6">
+<span class="eqno">(21)<a class="headerlink" href="#equation-f8a231e3-a7bc-46e7-b899-448046c3bdc6" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbb{u}^T\mathbb{v} =
     \begin{bmatrix}
     u_1 &amp; u_2 &amp; \dots &amp; u_n
@@ -1043,11 +1049,11 @@ between the corresponding x-coordinates of the points on that line.</p>
 <div class="math notranslate nohighlight">
 \[ m = \frac{y_2 - y_1}{x_2 - x_1} \]</div>
 <p>To determine whether two lines are perpendicular to each other, you can compare their slopes. Their slopes are negative reciprocals. That is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-633fbfbc-783a-4a82-9049-0e9613429196">
-<span class="eqno">(22)<a class="headerlink" href="#equation-633fbfbc-783a-4a82-9049-0e9613429196" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 \cdot m_2 = -1 \end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-b35448cf-4b93-45db-a123-417d91b125dc">
+<span class="eqno">(22)<a class="headerlink" href="#equation-b35448cf-4b93-45db-a123-417d91b125dc" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 \cdot m_2 = -1 \end{align}\]</div>
 <p>or</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ff2c256b-deed-43ac-8031-d61e0ec090ac">
-<span class="eqno">(23)<a class="headerlink" href="#equation-ff2c256b-deed-43ac-8031-d61e0ec090ac" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 = \frac{-1}{m_2} \end{align}\]</div>
+<div class="amsmath math notranslate nohighlight" id="equation-851f4a66-613a-4d1a-a4ee-545c11f375e9">
+<span class="eqno">(23)<a class="headerlink" href="#equation-851f4a66-613a-4d1a-a4ee-545c11f375e9" title="Permalink to this equation">#</a></span>\[\begin{align} m_1 = \frac{-1}{m_2} \end{align}\]</div>
 <p>Two lines, segments, or planes are said to be orthogonal if they’re perpendicular to one another.</p>
 <p><b>When dealing with vectors, if the inner product is equal to 0, then the vectors are perpendicular.</b></p>
 <div class="cell docutils container">
@@ -1116,14 +1122,14 @@ product of the slopes =  -1.0
 <section id="angle-between-two-vectors">
 <h3>Angle between two vectors<a class="headerlink" href="#angle-between-two-vectors" title="Link to this heading">#</a></h3>
 <p>There is a relation between the inner product, magnitude and the angle between two vectors.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a78549bf-74a4-4742-9e14-7691ac77b900">
-<span class="eqno">(24)<a class="headerlink" href="#equation-a78549bf-74a4-4742-9e14-7691ac77b900" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd4969b4-55f1-4997-ac3a-03aaee7d4d19">
+<span class="eqno">(24)<a class="headerlink" href="#equation-fd4969b4-55f1-4997-ac3a-03aaee7d4d19" title="Permalink to this equation">#</a></span>\[\begin{align}
 u \cdot v = \lVert u \rVert \cdot \lVert v \rVert cos \theta
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(u\)</span> and <span class="math notranslate nohighlight">\(v\)</span> are two vectors in two-space, <span class="math notranslate nohighlight">\(u \cdot v\)</span> is the inner product of the two vectors, <span class="math notranslate nohighlight">\(\lVert u \rVert\)</span> and <span class="math notranslate nohighlight">\(\lVert v \rVert\)</span> are the respective magnitudes of the vectors, and <span class="math notranslate nohighlight">\(cos \theta\)</span> is the measure (counterclockwise) of the angle formed between the two vectors.</p>
 <p>So to determine the angle <span class="math notranslate nohighlight">\(\theta\)</span></p>
-<div class="amsmath math notranslate nohighlight" id="equation-dca7d085-73bb-4b8f-ad53-be147e888a7d">
-<span class="eqno">(25)<a class="headerlink" href="#equation-dca7d085-73bb-4b8f-ad53-be147e888a7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fd1ed49f-8926-4cba-bd92-aef6eafd26dd">
+<span class="eqno">(25)<a class="headerlink" href="#equation-fd1ed49f-8926-4cba-bd92-aef6eafd26dd" title="Permalink to this equation">#</a></span>\[\begin{align}
 cos \theta = \frac{u \cdot v}{\lVert u \rVert \cdot \lVert v \rVert}
 \end{align}\]</div>
 <p>So for the graph above, since the vectors are perpendicular to each other, the angle formed is 90°. We can also confirm this by performing the computation using the relation described.</p>
@@ -1165,8 +1171,8 @@ Radians to degrees = 90.0
 <section id="matrices">
 <h2>Matrices<a class="headerlink" href="#matrices" title="Link to this heading">#</a></h2>
 <p>A matrix is made up of rows and columns surrounded by a bracket. You have same number of elements in each row and same number of elements in each column.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4f203e09-331a-4c34-a3f1-689ce60df4b6">
-<span class="eqno">(26)<a class="headerlink" href="#equation-4f203e09-331a-4c34-a3f1-689ce60df4b6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-075c4e66-3444-4733-88c9-f10d3811128b">
+<span class="eqno">(26)<a class="headerlink" href="#equation-075c4e66-3444-4733-88c9-f10d3811128b" title="Permalink to this equation">#</a></span>\[\begin{align}
 A =
     \begin{bmatrix}
         1 &amp; 2 &amp; 3\\
@@ -1179,8 +1185,8 @@ A =
 <section id="adding-and-subtracting">
 <h3>Adding and subtracting<a class="headerlink" href="#adding-and-subtracting" title="Link to this heading">#</a></h3>
 <p>To add or subtract two matrices, the dimension of the matrices must be the same. You simply add or subtract the corresponding element in the matrices. Let <span class="math notranslate nohighlight">\(A\)</span> and <span class="math notranslate nohighlight">\(B\)</span> be two <span class="math notranslate nohighlight">\(m \times n\)</span> matrices. Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c668ecc2-59b9-4fcd-8dea-a65c9d44404d">
-<span class="eqno">(27)<a class="headerlink" href="#equation-c668ecc2-59b9-4fcd-8dea-a65c9d44404d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e2eac0b-da87-4dff-ab16-524bd1e97bdc">
+<span class="eqno">(27)<a class="headerlink" href="#equation-3e2eac0b-da87-4dff-ab16-524bd1e97bdc" title="Permalink to this equation">#</a></span>\[\begin{align}
 A + B=
     \begin{bmatrix}
         a_{11} + b_{11} &amp; a_{12} + b_{12} &amp; \dots &amp; a_{1n} + b_{1n}\\
@@ -1233,8 +1239,8 @@ A + B =
 <section id="matrix-multiplication">
 <h3>Matrix multiplication<a class="headerlink" href="#matrix-multiplication" title="Link to this heading">#</a></h3>
 <p>Multiplying a matrix <span class="math notranslate nohighlight">\(A\)</span> with a scalar <span class="math notranslate nohighlight">\(k\)</span> implies multiplying every element in the matrix with the scalar.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-85f0e5ff-321d-49a3-90bb-8a34cbcf0f2b">
-<span class="eqno">(28)<a class="headerlink" href="#equation-85f0e5ff-321d-49a3-90bb-8a34cbcf0f2b" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2fc0d677-0dcc-455a-abf0-1e9e2ccecaa4">
+<span class="eqno">(28)<a class="headerlink" href="#equation-2fc0d677-0dcc-455a-abf0-1e9e2ccecaa4" title="Permalink to this equation">#</a></span>\[\begin{align}
 kA =
     \begin{bmatrix}
         ka_{11} &amp; ka_{12} &amp; \dots &amp; ka_{1n} \\
@@ -1266,8 +1272,8 @@ kA =
 <p>To perform matrix multiplication on two matrices, the number of columns in the first matrix should be equal to the number of rows in the second matrix. If <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(m \times n\)</span> matrix and <span class="math notranslate nohighlight">\(B\)</span> is <span class="math notranslate nohighlight">\(p \times q\)</span> matrix, then it is necessary that <span class="math notranslate nohighlight">\(n = p\)</span>. The dimension of the resulting matrix is a <span class="math notranslate nohighlight">\(m \times q\)</span>.</p>
 <p>For example, if <span class="math notranslate nohighlight">\(A\)</span> has dimension <span class="math notranslate nohighlight">\(3 \times 4\)</span> and <span class="math notranslate nohighlight">\(B\)</span> has dimension <span class="math notranslate nohighlight">\(4 \times 7\)</span>, then the product <span class="math notranslate nohighlight">\(A * B\)</span> has dimension <span class="math notranslate nohighlight">\(3 \times 7\)</span>. But you can’t multiply the matrices in the reverse order. The product <span class="math notranslate nohighlight">\(B * A\)</span> cannot be performed, because <span class="math notranslate nohighlight">\(B\)</span> has seven columns and <span class="math notranslate nohighlight">\(A\)</span> has three rows.</p>
 <p>Each element in the new matrix created by matrix multiplication is the sum of all the products of the elements in a row of the first matrix times a column in the second matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c48d6ddf-f2a7-458e-bd7a-87778be76464">
-<span class="eqno">(29)<a class="headerlink" href="#equation-c48d6ddf-f2a7-458e-bd7a-87778be76464" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b09a9f8c-e3ab-4dfb-ad6d-1e486c66cd36">
+<span class="eqno">(29)<a class="headerlink" href="#equation-b09a9f8c-e3ab-4dfb-ad6d-1e486c66cd36" title="Permalink to this equation">#</a></span>\[\begin{align}
 X =
     \begin{bmatrix}
         1 &amp; 2 &amp; 3\\
@@ -1281,8 +1287,8 @@ Y =
     \end{bmatrix}
 \end{align}\]</div>
 <p><span class="math notranslate nohighlight">\(X\)</span> is a <span class="math notranslate nohighlight">\(2 \times 3\)</span> matrix. <span class="math notranslate nohighlight">\(Y\)</span> is a <span class="math notranslate nohighlight">\(3 \times 4\)</span> matrix. Since the number of columns in <span class="math notranslate nohighlight">\(X\)</span> is the same as the number of rows in <span class="math notranslate nohighlight">\(Y\)</span>, then <span class="math notranslate nohighlight">\(X * Y\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6bdc0832-d156-4a64-ab96-546908477476">
-<span class="eqno">(30)<a class="headerlink" href="#equation-6bdc0832-d156-4a64-ab96-546908477476" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-85bbf72f-bc93-4df7-9642-b4ff13b88a83">
+<span class="eqno">(30)<a class="headerlink" href="#equation-85bbf72f-bc93-4df7-9642-b4ff13b88a83" title="Permalink to this equation">#</a></span>\[\begin{align}
 X * Y =
     \begin{bmatrix}
         a_{11} &amp; a_{12} &amp; a_{13} &amp; a_{14}\\
@@ -1331,8 +1337,8 @@ indeed, have an inverse.</p></li>
 <h3>Identity matrix<a class="headerlink" href="#identity-matrix" title="Link to this heading">#</a></h3>
 <p>The additive identity in arithmetic is 0. If you add 0 to a number, you don’t change the number — the number keeps its identity. The multiplicative identity in arithmetic is 1.</p>
 <p>The additive identity for matrices is the <span class="math notranslate nohighlight">\(zero\)</span> matrix. The additive identity for a <span class="math notranslate nohighlight">\(3 \times 4\)</span> matrix is a <span class="math notranslate nohighlight">\(3 \times 4\)</span> zero matrix. If</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1518a9de-3fc0-4d0d-86b9-829a5be309d8">
-<span class="eqno">(31)<a class="headerlink" href="#equation-1518a9de-3fc0-4d0d-86b9-829a5be309d8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a9031df1-6a33-436a-b21f-4e797ca50c9a">
+<span class="eqno">(31)<a class="headerlink" href="#equation-a9031df1-6a33-436a-b21f-4e797ca50c9a" title="Permalink to this equation">#</a></span>\[\begin{align}
     A =
         \begin{bmatrix}
         1 &amp; 2 &amp; 3 &amp; 4 \\
@@ -1341,8 +1347,8 @@ indeed, have an inverse.</p></li>
         \end{bmatrix}
 \end{align}\]</div>
 <p>then the <span class="math notranslate nohighlight">\(zero\)</span> matrix is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-191e4b13-44f6-4bc6-9d69-a185f42676f5">
-<span class="eqno">(32)<a class="headerlink" href="#equation-191e4b13-44f6-4bc6-9d69-a185f42676f5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-89360498-83cc-4ab0-a46d-a09394c7a7dd">
+<span class="eqno">(32)<a class="headerlink" href="#equation-89360498-83cc-4ab0-a46d-a09394c7a7dd" title="Permalink to this equation">#</a></span>\[\begin{align}
     0 =
         \begin{bmatrix}
         0 &amp; 0 &amp; 0 &amp; 0 \\
@@ -1350,14 +1356,14 @@ indeed, have an inverse.</p></li>
         0 &amp; 0 &amp; 0 &amp; 0
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-99f24ddf-8b38-48c6-8344-454d33bb9781">
-<span class="eqno">(33)<a class="headerlink" href="#equation-99f24ddf-8b38-48c6-8344-454d33bb9781" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ae06a0b7-bb50-4ca2-bec9-562edb0bfab1">
+<span class="eqno">(33)<a class="headerlink" href="#equation-ae06a0b7-bb50-4ca2-bec9-562edb0bfab1" title="Permalink to this equation">#</a></span>\[\begin{align}
     A + 0 = 0 + A = A
 \end{align}\]</div>
 <p>The multiplicative identity is a square matrix and the elements on the main diagonal running from the top left to the bottom right are 1s. All the rest of the elements in the matrix are 0s.</p>
 <p>If <span class="math notranslate nohighlight">\(D\)</span> is a <span class="math notranslate nohighlight">\(3 \times 2\)</span> matrix, when multiplying <span class="math notranslate nohighlight">\(D * I\)</span> where <span class="math notranslate nohighlight">\(I\)</span> is the identity matrix, then <span class="math notranslate nohighlight">\(I\)</span> has to be a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix where the main diagonals has 1s and all the other elements are 0s. When multiplying <span class="math notranslate nohighlight">\(I * D\)</span> then <span class="math notranslate nohighlight">\(I\)</span> is a <span class="math notranslate nohighlight">\(3 \times 3\)</span> matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fde58be6-6411-4265-a30d-297d9233af44">
-<span class="eqno">(34)<a class="headerlink" href="#equation-fde58be6-6411-4265-a30d-297d9233af44" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ccf84c82-4961-4714-9a01-86805401a102">
+<span class="eqno">(34)<a class="headerlink" href="#equation-ccf84c82-4961-4714-9a01-86805401a102" title="Permalink to this equation">#</a></span>\[\begin{align}
     D =
         \begin{bmatrix}
         1 &amp; 2 \\
@@ -1365,8 +1371,8 @@ indeed, have an inverse.</p></li>
         5 &amp; 6
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-96a24a8e-20ec-4952-86c7-cd30eb5b433f">
-<span class="eqno">(35)<a class="headerlink" href="#equation-96a24a8e-20ec-4952-86c7-cd30eb5b433f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e9b508c2-ab54-4956-920b-07d25959c282">
+<span class="eqno">(35)<a class="headerlink" href="#equation-e9b508c2-ab54-4956-920b-07d25959c282" title="Permalink to this equation">#</a></span>\[\begin{align}
     D * I =
         \begin{bmatrix}
         1 &amp; 2 \\
@@ -1383,8 +1389,8 @@ indeed, have an inverse.</p></li>
         5 &amp; 6
         \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-ec562286-a0c2-4236-ad03-9c7ed3edfd73">
-<span class="eqno">(36)<a class="headerlink" href="#equation-ec562286-a0c2-4236-ad03-9c7ed3edfd73" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c1ba2c95-1115-4ede-9af7-951200513852">
+<span class="eqno">(36)<a class="headerlink" href="#equation-c1ba2c95-1115-4ede-9af7-951200513852" title="Permalink to this equation">#</a></span>\[\begin{align}
     I * D =
         \begin{bmatrix}
         1 &amp; 0 &amp; 0 \\
@@ -1403,8 +1409,8 @@ indeed, have an inverse.</p></li>
         \end{bmatrix}
 \end{align}\]</div>
 <p>Earlier we inferred that  the multiplication of matrices is not commutative. The special case is when a <span class="math notranslate nohighlight">\(square\)</span> matrix is multiplied by its identity matrix.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-08bbc483-f388-4805-ade0-7b2e9d39b4e5">
-<span class="eqno">(37)<a class="headerlink" href="#equation-08bbc483-f388-4805-ade0-7b2e9d39b4e5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-de80b2bc-aafd-49db-9c38-08772a57d0d6">
+<span class="eqno">(37)<a class="headerlink" href="#equation-de80b2bc-aafd-49db-9c38-08772a57d0d6" title="Permalink to this equation">#</a></span>\[\begin{align}
         \begin{bmatrix}
         1 &amp; 0 \\
         0 &amp; 1
@@ -1477,8 +1483,8 @@ I * D =
 <section id="triangular-and-diagonal-matrices">
 <h3>Triangular and diagonal matrices<a class="headerlink" href="#triangular-and-diagonal-matrices" title="Link to this heading">#</a></h3>
 <p>Triangular and diagonal matrices are square matrices. <span class="math notranslate nohighlight">\(A\)</span> is an upper triangular matrix, because all the elements below the main diagonal are 0s. <span class="math notranslate nohighlight">\(B\)</span> is a lower triangular matrix, because all the elements above the main diagonal are 0s. <span class="math notranslate nohighlight">\(C\)</span> is diagonal matrix, because all the elements above and below the main diagonal are 0s.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d7225519-3442-431f-91cc-acab3547676f">
-<span class="eqno">(38)<a class="headerlink" href="#equation-d7225519-3442-431f-91cc-acab3547676f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a08fe974-e779-45dd-9008-7eb123ebef67">
+<span class="eqno">(38)<a class="headerlink" href="#equation-a08fe974-e779-45dd-9008-7eb123ebef67" title="Permalink to this equation">#</a></span>\[\begin{align}
 A =
     \begin{bmatrix}
     1 &amp; 2 &amp; 3 \\
@@ -2308,8 +2314,8 @@ or combination of multiples of the other equations in the system.</p></li>
 <section id="graphing-system-of-equations">
 <h3>Graphing system of equations<a class="headerlink" href="#graphing-system-of-equations" title="Link to this heading">#</a></h3>
 <p>The system of linear equations below is consistent and independent with one solution.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6c6fb7b1-792a-479a-8d24-19dde1c45e5a">
-<span class="eqno">(39)<a class="headerlink" href="#equation-6c6fb7b1-792a-479a-8d24-19dde1c45e5a" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-3e950e9b-cb28-4f6d-8ed3-0ac8a1c3590f">
+<span class="eqno">(39)<a class="headerlink" href="#equation-3e950e9b-cb28-4f6d-8ed3-0ac8a1c3590f" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left\{ \begin{aligned}
   x + y = 5\\
   x - y = -3
@@ -2343,8 +2349,8 @@ or combination of multiples of the other equations in the system.</p></li>
 </div>
 </div>
 <p>The system of linear equations below is consistent and independent with one solution.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e190addd-cb5c-46ec-9a7d-b06d4f1ff4b5">
-<span class="eqno">(40)<a class="headerlink" href="#equation-e190addd-cb5c-46ec-9a7d-b06d4f1ff4b5" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-17470419-aec2-4f9e-a66d-d9449a14b23c">
+<span class="eqno">(40)<a class="headerlink" href="#equation-17470419-aec2-4f9e-a66d-d9449a14b23c" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left\{ \begin{aligned}
   2x + y = 5\\
   6x + 3y = 1
@@ -2392,8 +2398,8 @@ the variables.</p></li>
 <p>The resulting matrix shows the values of the variables in the solution of
 the system.</p>
 <p>For example, to solve the system of equations:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cd1e3b01-8fdd-4fda-94d1-c3f5eb4d9345">
-<span class="eqno">(41)<a class="headerlink" href="#equation-cd1e3b01-8fdd-4fda-94d1-c3f5eb4d9345" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-0293f81b-b494-4453-a0b4-4067ff4b4af7">
+<span class="eqno">(41)<a class="headerlink" href="#equation-0293f81b-b494-4453-a0b4-4067ff4b4af7" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left\{ \begin{aligned}
   -x -y -z = 3\\
   4x + 5y = 3 \\
@@ -3075,8 +3081,8 @@ a_3\begin{bmatrix}
 <p>The bottom row has all <span class="math notranslate nohighlight">\(0s\)</span>. The set of vectors is linearly
 dependent. The requirement for linear dependence is that you have more than just the trivial solution.</p>
 <p>You can rewrite the above reduced matrix as by letting <span class="math notranslate nohighlight">\(a_3 = k\)</span>.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eca15d39-7fc0-4d56-bedd-c8ae9689bafd">
-<span class="eqno">(42)<a class="headerlink" href="#equation-eca15d39-7fc0-4d56-bedd-c8ae9689bafd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7278f60a-ed03-4c19-87b0-1e3c1e998df0">
+<span class="eqno">(42)<a class="headerlink" href="#equation-7278f60a-ed03-4c19-87b0-1e3c1e998df0" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_1
 \begin{bmatrix}
 1 \\ 0 \\ 0
@@ -3096,14 +3102,14 @@ a_3
 0 \\ 0 \\ 0
 \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-3692fcff-33c7-43ad-99bc-09eabcf0d7ad">
-<span class="eqno">(43)<a class="headerlink" href="#equation-3692fcff-33c7-43ad-99bc-09eabcf0d7ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e154499-9f8b-4a9d-8d1a-39166f679cf7">
+<span class="eqno">(43)<a class="headerlink" href="#equation-3e154499-9f8b-4a9d-8d1a-39166f679cf7" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_1 + \frac{1}{2}a_3 = 0 \\
 a_2 + \frac{5}{8}a_3 = 0
 \end{align}\]</div>
 <p>Then</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36fdd4c6-e8b8-4263-8066-dbf6c8e350f8">
-<span class="eqno">(44)<a class="headerlink" href="#equation-36fdd4c6-e8b8-4263-8066-dbf6c8e350f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-182e5e90-5627-4151-81d0-e8b122ddc58d">
+<span class="eqno">(44)<a class="headerlink" href="#equation-182e5e90-5627-4151-81d0-e8b122ddc58d" title="Permalink to this equation">#</a></span>\[\begin{align}
 -\frac{1}{2}k
 \begin{bmatrix}
 1 \\ -2 \\ 0
@@ -3176,8 +3182,8 @@ both of the following are true:</p>
 <section id="natural-basis-or-standard-basis">
 <h3>Natural basis or Standard basis<a class="headerlink" href="#natural-basis-or-standard-basis" title="Link to this heading">#</a></h3>
 <p>For all the <span class="math notranslate nohighlight">\(3 \times 1\)</span> vectors, the set of 3 unit vectors is the basis. They are also other set of vectors that can be used to form the basis of <span class="math notranslate nohighlight">\(\mathbb{R}^3\)</span>. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-048bf660-8e0e-4585-9fbc-615f13f888be">
-<span class="eqno">(45)<a class="headerlink" href="#equation-048bf660-8e0e-4585-9fbc-615f13f888be" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-568678a4-83ad-470d-9bd8-98516287b75d">
+<span class="eqno">(45)<a class="headerlink" href="#equation-568678a4-83ad-470d-9bd8-98516287b75d" title="Permalink to this equation">#</a></span>\[\begin{align}
 \begin{bmatrix}
 1 \\ 1 \\ 1
 \end{bmatrix},
@@ -3292,15 +3298,15 @@ span of the given vectors:</p>
 <p>The terms in the set <span class="math notranslate nohighlight">\({x^2, x, 1}\)</span> are a span of <span class="math notranslate nohighlight">\(\mathbb{P}^2\)</span>, because all second-degree polynomials are the result of some linear combination <span class="math notranslate nohighlight">\(a_2x^2 + a_1x + a_0(1)\)</span>.</p>
 <p>The elements in the set are linearly independent, because <span class="math notranslate nohighlight">\(a_2x^2 + a_1x + a_0(1)\)</span> is true only in the case of the trivial solution where each coefficient is <span class="math notranslate nohighlight">\(0\)</span>. So the elements in the set form a basis for <span class="math notranslate nohighlight">\(\mathbb{P}^2\)</span>.</p>
 <p>To determine if <span class="math notranslate nohighlight">\(Q = \{x^3 + 3, 2x^2 - x, x + 1, 2\}\)</span> spans <span class="math notranslate nohighlight">\(\mathbb{P}^3\)</span> and if the elements of <span class="math notranslate nohighlight">\(Q\)</span> are linearly independent we shall proceed first by writing them as a linear combination such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0c5afd12-9b0a-4888-8a98-3ea9ef29b4fa">
-<span class="eqno">(46)<a class="headerlink" href="#equation-0c5afd12-9b0a-4888-8a98-3ea9ef29b4fa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-34349a39-2864-4ac5-8a6e-bcf2270525a8">
+<span class="eqno">(46)<a class="headerlink" href="#equation-34349a39-2864-4ac5-8a6e-bcf2270525a8" title="Permalink to this equation">#</a></span>\[\begin{align}
 a_1(x^3 + 3) + a_2(2x^2- x) + a_3(x + 1) + 2a_4 \rightarrow \\
 a_1x^3 + 3a_3 - a_2x + a_22x^2 + a_3 + a_3x + 2a_4 = \\
 a_1x^3 + a_22x^2 + (- a_2 + a_3)x + (3a_3 + a_3 + 2a_4)
 \end{align}\]</div>
 <p>In general, a third-degree polynomial is of the form <span class="math notranslate nohighlight">\(ax^3 + bx^3 + cx +d\)</span>. So here</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0b0a1026-64f9-4c28-b1b3-be3597985fff">
-<span class="eqno">(47)<a class="headerlink" href="#equation-0b0a1026-64f9-4c28-b1b3-be3597985fff" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-cf6ff6ef-3869-4fcd-8850-ed1c5f489dd0">
+<span class="eqno">(47)<a class="headerlink" href="#equation-cf6ff6ef-3869-4fcd-8850-ed1c5f489dd0" title="Permalink to this equation">#</a></span>\[\begin{equation}
 \left\{ \begin{aligned}
   a_1 = a\\
   2a_2 = b \\
@@ -3320,13 +3326,13 @@ a_1 = a, a_2 = \frac{b}{2}, a_3 = \frac{b + 2c}{2}, a_4 = \frac{-6a -b - 2c + 2d
 <h2>Linear Transformations<a class="headerlink" href="#linear-transformations" title="Link to this heading">#</a></h2>
 <p>A linear transformation is a particular type of transformation, where one set of vectors is transformed into another vector set using some <i>linear operator</i>.</p>
 <p>Let transformation be denoted as <span class="math notranslate nohighlight">\(T\)</span>. Then a linear transformation can be written as</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dcf22726-3807-45c9-b9ad-c9f5e23d01dc">
-<span class="eqno">(48)<a class="headerlink" href="#equation-dcf22726-3807-45c9-b9ad-c9f5e23d01dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f6652d3a-1722-4636-9e6c-8361200875eb">
+<span class="eqno">(48)<a class="headerlink" href="#equation-f6652d3a-1722-4636-9e6c-8361200875eb" title="Permalink to this equation">#</a></span>\[\begin{align}
 T: \mathbb{R}^2 \rightarrow \mathbb{R}^3
 \end{align}\]</div>
 <p>where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87ab6bd4-ad33-488e-a1bf-40ec3c28a506">
-<span class="eqno">(49)<a class="headerlink" href="#equation-87ab6bd4-ad33-488e-a1bf-40ec3c28a506" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e1478bf-927e-4215-95f8-ec7c4d07ebb3">
+<span class="eqno">(49)<a class="headerlink" href="#equation-1e1478bf-927e-4215-95f8-ec7c4d07ebb3" title="Permalink to this equation">#</a></span>\[\begin{align}
 T \Biggl(
     \begin{bmatrix}
     x \\ y \\ z
@@ -3339,8 +3345,8 @@ T \Biggl(
 \end{align}\]</div>
 <p>Here transformation <span class="math notranslate nohighlight">\(T\)</span> takes in a <span class="math notranslate nohighlight">\(3 \times 1\)</span> vector and transforms it into a <span class="math notranslate nohighlight">\(2 \times 1\)</span> vector.</p>
 <p>So <span class="math notranslate nohighlight">\(T(\mathbf{v})\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fe26ee0e-3784-4dc6-9f05-ee04c8da9a0d">
-<span class="eqno">(50)<a class="headerlink" href="#equation-fe26ee0e-3784-4dc6-9f05-ee04c8da9a0d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-86a51297-6ac1-4a0b-9d55-d416b6ff6eef">
+<span class="eqno">(50)<a class="headerlink" href="#equation-86a51297-6ac1-4a0b-9d55-d416b6ff6eef" title="Permalink to this equation">#</a></span>\[\begin{align}
 \mathbf{v} = 
     \begin{bmatrix}
     4 \\ 2 \\ -3
@@ -3375,8 +3381,8 @@ and then the result on a third, you get the same result as performing the compos
 \[([T_1T_2]T_3)(\mathbf{v}) = (T_1[T_2T_3])(\mathbf{v})\]</div>
 <p>For scalar multiplication no matter where you introduce the scalar multiple, the result is the same.</p>
 <p>The <b>additive identity transformation</b> <span class="math notranslate nohighlight">\(T_0\)</span> takes a vector and transforms that vector into a zero vector.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6e2c3608-147b-43cb-a150-5d38904f7301">
-<span class="eqno">(51)<a class="headerlink" href="#equation-6e2c3608-147b-43cb-a150-5d38904f7301" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8e4a4a7d-8871-4891-a2b5-d265ad5c6ccc">
+<span class="eqno">(51)<a class="headerlink" href="#equation-8e4a4a7d-8871-4891-a2b5-d265ad5c6ccc" title="Permalink to this equation">#</a></span>\[\begin{align}
 T_0(\mathbf{v}) = 
  T_0 \Biggl(
     \begin{bmatrix}
@@ -3388,21 +3394,21 @@ T_0(\mathbf{v}) =
     \end{bmatrix}
 \end{align}\]</div>
 <p>The <b>multiplicative identity transformation</b> <span class="math notranslate nohighlight">\(I\)</span> when given a vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-768170e2-dc99-4be5-a74c-467bb872c957">
-<span class="eqno">(52)<a class="headerlink" href="#equation-768170e2-dc99-4be5-a74c-467bb872c957" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-aefbbf13-c5a1-4821-bebe-2529b7932ebb">
+<span class="eqno">(52)<a class="headerlink" href="#equation-aefbbf13-c5a1-4821-bebe-2529b7932ebb" title="Permalink to this equation">#</a></span>\[\begin{equation}
 I(\mathbf{v}) = \mathbf{v}
 \end{equation}\]</div>
 <p>There are several other properties that could be explored such as tying distribution, scalar multiplication and addition altogether.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3cd690ec-f47d-44f7-8b92-98aa21a11d9f">
-<span class="eqno">(53)<a class="headerlink" href="#equation-3cd690ec-f47d-44f7-8b92-98aa21a11d9f" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-571942ed-6bf6-49ec-8cee-64a360616222">
+<span class="eqno">(53)<a class="headerlink" href="#equation-571942ed-6bf6-49ec-8cee-64a360616222" title="Permalink to this equation">#</a></span>\[\begin{equation}
 T(c_1\mathbf{v_1} + c_2\mathbf{v_2} + \dots + c_k\mathbf{v_k}) = c_1T\mathbf{v_1} + c_2T\mathbf{v_2} + . . . + c_kT\mathbf{v_k}
 \end{equation}\]</div>
 </section>
 <section id="matrix-of-a-linear-transformation">
 <h3>Matrix of a Linear Transformation<a class="headerlink" href="#matrix-of-a-linear-transformation" title="Link to this heading">#</a></h3>
 <p>One can make use of matrices to apply linear transformations. For example consider a linear transfromation where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5bef57e3-4ced-48e8-b762-efc6c34c3abc">
-<span class="eqno">(54)<a class="headerlink" href="#equation-5bef57e3-4ced-48e8-b762-efc6c34c3abc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9445615a-de2a-49b2-abb4-25d01a722631">
+<span class="eqno">(54)<a class="headerlink" href="#equation-9445615a-de2a-49b2-abb4-25d01a722631" title="Permalink to this equation">#</a></span>\[\begin{align}
 T \Biggl(
     \begin{bmatrix}
     x \\ y
@@ -3413,16 +3419,16 @@ T \Biggl(
     \end{bmatrix}
 \end{align}\]</div>
 <p>Then you can use a <span class="math notranslate nohighlight">\(2 \times 2\)</span> matrix <span class="math notranslate nohighlight">\(A\)</span> such that</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d9dec6d1-6153-44a8-8c67-858d36ff69d6">
-<span class="eqno">(55)<a class="headerlink" href="#equation-d9dec6d1-6153-44a8-8c67-858d36ff69d6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-b8cb3787-e652-4295-af35-83df462684b9">
+<span class="eqno">(55)<a class="headerlink" href="#equation-b8cb3787-e652-4295-af35-83df462684b9" title="Permalink to this equation">#</a></span>\[\begin{align}
 A =
     \begin{bmatrix}
         -1 &amp; 0 \\
         0 &amp; 1 \\
     \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-c0eebeec-1620-4e0d-b90d-12f65dfbf225">
-<span class="eqno">(56)<a class="headerlink" href="#equation-c0eebeec-1620-4e0d-b90d-12f65dfbf225" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6270b6b4-5699-417e-ac9e-7b640a792811">
+<span class="eqno">(56)<a class="headerlink" href="#equation-6270b6b4-5699-417e-ac9e-7b640a792811" title="Permalink to this equation">#</a></span>\[\begin{align}
 T(\mathbf{v}) = 
 A * \begin{bmatrix}
     x \\ y
@@ -3440,8 +3446,8 @@ A * \begin{bmatrix}
 \end{align}\]</div>
 <p>So <span class="math notranslate nohighlight">\(T(\mathbf{v}) = A * \mathbf{v}\)</span></p>
 <p>One can get such matrix by writing the transformation as a sum of different vectors of coefficients. For example</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8eb66b9f-f050-4f2b-bdbe-9c0030d6ba02">
-<span class="eqno">(57)<a class="headerlink" href="#equation-8eb66b9f-f050-4f2b-bdbe-9c0030d6ba02" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb438e8b-b243-4076-ba17-95ad69a368f4">
+<span class="eqno">(57)<a class="headerlink" href="#equation-cb438e8b-b243-4076-ba17-95ad69a368f4" title="Permalink to this equation">#</a></span>\[\begin{align}
 T \Biggl(
     \begin{bmatrix}
     x \\ y \\ z
@@ -3453,8 +3459,8 @@ T \Biggl(
     x + 3y
     \end{bmatrix}
 \end{align}\]</div>
-<div class="amsmath math notranslate nohighlight" id="equation-0686209c-bf35-44f5-8521-c8a37bee8da3">
-<span class="eqno">(58)<a class="headerlink" href="#equation-0686209c-bf35-44f5-8521-c8a37bee8da3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a683b9be-268c-4403-b54e-12c7b7d94c8f">
+<span class="eqno">(58)<a class="headerlink" href="#equation-a683b9be-268c-4403-b54e-12c7b7d94c8f" title="Permalink to this equation">#</a></span>\[\begin{align}
 = x   \begin{bmatrix}
         0 \\ -2 \\ 1
     \end{bmatrix} +
@@ -3466,8 +3472,8 @@ z   \begin{bmatrix}
     \end{bmatrix}
 \end{align}\]</div>
 <p>Hence the matrix is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-400d04ad-1af6-401b-afad-99fbca07912b">
-<span class="eqno">(59)<a class="headerlink" href="#equation-400d04ad-1af6-401b-afad-99fbca07912b" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
+<div class="amsmath math notranslate nohighlight" id="equation-f32fdae6-9361-49fb-92d9-192287f1c6a9">
+<span class="eqno">(59)<a class="headerlink" href="#equation-f32fdae6-9361-49fb-92d9-192287f1c6a9" title="Permalink to this equation">#</a></span>\[\begin{bmatrix}
         0 &amp; 1 &amp; -2 \\
         -2 &amp; 1 &amp; -3 \\
         1 &amp; 3 &amp; 0 
@@ -3476,8 +3482,8 @@ z   \begin{bmatrix}
 <section id="visualizing-transformation-involving-rotation">
 <h3>Visualizing transformation involving rotation<a class="headerlink" href="#visualizing-transformation-involving-rotation" title="Link to this heading">#</a></h3>
 <p>For our convenience, lets stick to vectors in <span class="math notranslate nohighlight">\(\mathbb{R}^2\)</span>. To rotate a vector <span class="math notranslate nohighlight">\(\mathbf{v}\)</span> by <span class="math notranslate nohighlight">\(\theta\)</span> degrees about the origin in a counter clockwise direction, the matrix <span class="math notranslate nohighlight">\(A\)</span> use is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-36f19f05-9f89-4924-8771-46518a5b88bb">
-<span class="eqno">(60)<a class="headerlink" href="#equation-36f19f05-9f89-4924-8771-46518a5b88bb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f884cef2-ce5b-4250-8a64-60aadfd616fb">
+<span class="eqno">(60)<a class="headerlink" href="#equation-f884cef2-ce5b-4250-8a64-60aadfd616fb" title="Permalink to this equation">#</a></span>\[\begin{align}
 A = 
 \begin{bmatrix}
 \cos\theta &amp; -\sin\theta \\
@@ -3496,8 +3502,8 @@ x\sin\theta + y\cos\theta
 \end{bmatrix}
 \end{align}\]</div>
 <p>To rotate a vector by <span class="math notranslate nohighlight">\(90°\)</span>, we can substitute <span class="math notranslate nohighlight">\(\theta\)</span> with <span class="math notranslate nohighlight">\(90\)</span>. Since <span class="math notranslate nohighlight">\(\sin90 = 1\)</span> and <span class="math notranslate nohighlight">\(\cos90 = 0\)</span> the resultant matrix is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-d0762ca0-f96c-4e0d-90eb-c871a35039a3">
-<span class="eqno">(61)<a class="headerlink" href="#equation-d0762ca0-f96c-4e0d-90eb-c871a35039a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-49f27476-f933-4a09-9bd7-1998aabc56d0">
+<span class="eqno">(61)<a class="headerlink" href="#equation-49f27476-f933-4a09-9bd7-1998aabc56d0" title="Permalink to this equation">#</a></span>\[\begin{align}
 A = 
 \begin{bmatrix}
 0 &amp; -1 \\
@@ -3574,8 +3580,8 @@ A =
 <section id="translation-dilation-and-contraction">
 <h3>Translation, dilation and contraction<a class="headerlink" href="#translation-dilation-and-contraction" title="Link to this heading">#</a></h3>
 <p>To <b>translate</b> a vector from one point to another point involves performing a transformation that adds a distance vector to the current vector i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9aa86640-93e3-4dfd-bba5-3659402764c8">
-<span class="eqno">(62)<a class="headerlink" href="#equation-9aa86640-93e3-4dfd-bba5-3659402764c8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-9ffd32f6-bc49-4928-bf48-2d45e364e440">
+<span class="eqno">(62)<a class="headerlink" href="#equation-9ffd32f6-bc49-4928-bf48-2d45e364e440" title="Permalink to this equation">#</a></span>\[\begin{align}
 T \Biggl(
     \begin{bmatrix}
     x \\ y 
@@ -3602,8 +3608,8 @@ A * \begin{bmatrix}
 \end{align}\]</div>
 <p>This operation can dilate (expand) or contract (shrink) the vector based on the distance vector.</p>
 <p>To <b>double</b> the magnitude of a vector, the matrix required for the linear transformation <span class="math notranslate nohighlight">\(D*\mathbf{v}\)</span> is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f442c9a-9a96-4094-8fc5-f30820ac43e1">
-<span class="eqno">(63)<a class="headerlink" href="#equation-0f442c9a-9a96-4094-8fc5-f30820ac43e1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c5882187-f045-4dbc-aee2-aee53a209bac">
+<span class="eqno">(63)<a class="headerlink" href="#equation-c5882187-f045-4dbc-aee2-aee53a209bac" title="Permalink to this equation">#</a></span>\[\begin{align}
 D = \begin{bmatrix}
     2 &amp; 0 \\ 
     0 &amp; 2
@@ -3749,11 +3755,11 @@ P x P_inv :
       </div>
     </a>
     <a class="right-next"
-       href="statistical_learning.html"
+       href="statistical_learning/statistical_learning.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Introduction to Statistical Learning</p>
+        <p class="prev-next-title">Statistical Learning</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>

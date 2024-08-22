@@ -5,15 +5,10 @@ format: jb-book
 root: index
 chapters:
   - file: book/linear_algebra
-  - caption: Statistical Learning
-    sections:
-      - file: book/statistical_learning
+  - file: book/statistical_learning
   - file: book/timeseries
   - file: book/natural_language
-  - caption: Deep Learning
-    sections:
-      - file: book/neural_networks
-      - file: book/computer_vision
-      - file: book/pytorch
+  - file: book/neural_networks
+  - file: book/computer_vision
+  - file: book/pytorch
   - file: book/bibliography
-

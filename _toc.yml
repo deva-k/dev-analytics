@@ -6,13 +6,14 @@ root: index
 chapters:
   - file: book/linear_algebra
   - caption: Statistical Learning
-    chapters:
+    sections:
       - file: book/statistical_learning
   - file: book/timeseries
   - file: book/natural_language
   - caption: Deep Learning
-    chapters:
+    sections:
       - file: book/neural_networks
       - file: book/computer_vision
       - file: book/pytorch
   - file: book/bibliography
+

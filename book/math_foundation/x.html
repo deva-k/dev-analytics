@@ -465,10 +465,13 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeroes-of-a-polynomial">Zeroes of a Polynomial</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-the-zeroes-of-a-polynomial">Geometrical meaning of the Zeroes of a Polynomial</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-a-zero-of-a-quadratic-polynomial">Geometrical meaning of a zero of a quadratic polynomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant">Discriminant</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-of-linear-equations-in-two-variables">Pair of Linear Equations in Two Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-progression">Arithmetic Progression</a></li>
 </ul>
             </nav>
         </div>
@@ -748,14 +751,91 @@ replacing <span class="math notranslate nohighlight">\(x\)</span> by <span class
 <li><p><strong>No real zeroes:</strong> The parabola does not intersect or touch the x-axis at any point. In this case, the quadratic polynomial has no real zeroes. The zeroes are complex numbers.</p></li>
 </ul>
 <p>In summary, the number of real zeroes of a quadratic polynomial corresponds to the number of times its graph intersects the x-axis. A quadratic polynomial can have at most two real zeroes.</p>
+</section>
+<section id="discriminant">
+<h4>Discriminant<a class="headerlink" href="#discriminant" title="Link to this heading">#</a></h4>
+<p>The <strong>discriminant</strong> of a quadratic equation of the form <span class="math notranslate nohighlight">\(ax^2 + bx + c = 0\)</span> (where <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(c\)</span> are real numbers and <span class="math notranslate nohighlight">\(a \neq 0\)</span>) is a value that helps determine the <strong>nature of the roots</strong> (or zeroes) of the equation. It is denoted by the Greek letter delta (<span class="math notranslate nohighlight">\(\Delta\)</span>) and is calculated using the formula:</p>
+<p><span class="math notranslate nohighlight">\(\Delta = b^2 - 4ac\)</span></p>
+<p>The value of the discriminant tells us three crucial things about the roots:</p>
+<ol class="arabic simple">
+<li><p><strong>If <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span> (<span class="math notranslate nohighlight">\(b^2 - 4ac &gt; 0\)</span>):</strong></p>
+<ul class="simple">
+<li><p>The quadratic equation has <strong>two distinct real roots</strong>.</p></li>
+<li><p>Geometrically, the graph of <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> intersects the x-axis at two different points.</p></li>
+</ul>
+</li>
+<li><p><strong>If <span class="math notranslate nohighlight">\(\Delta = 0\)</span> (<span class="math notranslate nohighlight">\(b^2 - 4ac = 0\)</span>):</strong></p>
+<ul class="simple">
+<li><p>The quadratic equation has <strong>one real root (a repeated or double root)</strong>.</p></li>
+<li><p>Geometrically, the vertex of the graph of <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> touches the x-axis at exactly one point.</p></li>
+</ul>
+</li>
+<li><p><strong>If <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span> (<span class="math notranslate nohighlight">\(b^2 - 4ac &lt; 0\)</span>):</strong></p>
+<ul class="simple">
+<li><p>The quadratic equation has <strong>no real roots</strong>. The roots are a pair of complex conjugate numbers.</p></li>
+<li><p>Geometrically, the graph of <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> does not intersect the x-axis. It lies entirely above or entirely below the x-axis.</p></li>
+</ul>
+</li>
+</ol>
+<p><strong>Why is it called the discriminant?</strong></p>
+<p>The term “discriminant” is used because it <em>discriminates</em> or distinguishes between the different types of roots a quadratic equation can have based on the values of its coefficients.</p>
+<p><strong>Connection to the Quadratic Formula:</strong></p>
+<p>The discriminant appears under the square root sign in the quadratic formula, which gives the roots of the equation:</p>
+<p><span class="math notranslate nohighlight">\(x = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a} = \frac{-b \pm \sqrt{\Delta}}{2a}\)</span></p>
+<ul class="simple">
+<li><p>If <span class="math notranslate nohighlight">\(\Delta &gt; 0\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\Delta}\)</span> is a real, non-zero number, leading to two different real solutions (<span class="math notranslate nohighlight">\(-b + \sqrt{\Delta})/(2a)\)</span> and <span class="math notranslate nohighlight">\((-b - \sqrt{\Delta})/(2a)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta = 0\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\Delta} = 0\)</span>, leading to one real solution <span class="math notranslate nohighlight">\(x = -b/(2a)\)</span>.</p></li>
+<li><p>If <span class="math notranslate nohighlight">\(\Delta &lt; 0\)</span>, <span class="math notranslate nohighlight">\(\sqrt{\Delta}\)</span> is an imaginary number, leading to two complex conjugate solutions.</p></li>
+</ul>
+<p>In summary, the discriminant is a powerful tool for quickly understanding the nature of the roots of a quadratic equation without fully solving it.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>In general, given a polynomial <span class="math notranslate nohighlight">\(p(x)\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span>, the graph of <span class="math notranslate nohighlight">\(y = p(x)\)</span>
 intersects the x-axis at at most <span class="math notranslate nohighlight">\(n\)</span> points. Therefore, a polynomial <span class="math notranslate nohighlight">\(p(x)\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> has
-at most <span class="math notranslate nohighlight">\(n\)</span> zeroes.</p>
+at most <span class="math notranslate nohighlight">\(n\)</span> zeroes. Zeroes or roots of a polynomial are the values of <span class="math notranslate nohighlight">\(x\)</span> for which <span class="math notranslate nohighlight">\(p(x) = 0\)</span>.</p>
 </div>
 </section>
 </section>
+</section>
+<section id="pair-of-linear-equations-in-two-variables">
+<h2>Pair of Linear Equations in Two Variables<a class="headerlink" href="#pair-of-linear-equations-in-two-variables" title="Link to this heading">#</a></h2>
+<p>Each solution <span class="math notranslate nohighlight">\((x, y)\)</span> of a linear equation in two variables, <span class="math notranslate nohighlight">\(ax + by + c = 0\)</span>, corresponds to a point on the line representing the equation, and vice versa.</p>
+<p><strong>Types of Pairs of Linear Equations:</strong></p>
+<ul class="simple">
+<li><p><strong>Inconsistent pair:</strong> These equations have <strong>no solution</strong>. Geometrically, this means the lines represented by the equations are <strong>parallel</strong> and never intersect.</p></li>
+<li><p><strong>Consistent pair:</strong> These equations have <strong>at least one solution</strong>. This category is further divided:</p>
+<ul>
+<li><p><strong>Unique solution:</strong> The lines <strong>intersect at a single point</strong>.</p></li>
+<li><p><strong>Infinitely many solutions (Dependent pair):</strong> The lines are <strong>coincident</strong>, meaning they are essentially the same line. Every point on the line is a common solution.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>Geometric Interpretation and Algebraic Conditions:</strong></p>
+<p>Algebraic conditions based on the coefficients of the linear equations in the standard form:</p>
+<p><span class="math notranslate nohighlight">\(a_1x + b_1y = c_1\)</span>
+<span class="math notranslate nohighlight">\(a_2x + b_2y = c_2\)</span></p>
+<ul class="simple">
+<li><p><strong>(i) Intersecting Lines (Unique Solution - Consistent):</strong>
+The condition for intersecting lines is:
+<span class="math notranslate nohighlight">\(\frac{a_1}{a_2} \neq \frac{b_1}{b_2}\)</span></p></li>
+<li><p><strong>(ii) Coincident Lines (Infinitely Many Solutions - Dependent &amp; Consistent):</strong>
+The condition for coincident lines is:
+<span class="math notranslate nohighlight">\(\frac{a_1}{a_2} = \frac{b_1}{b_2} = \frac{c_1}{c_2}\)</span></p></li>
+<li><p><strong>(iii) Parallel Lines (No Solution - Inconsistent):</strong>
+The condition for parallel lines is:
+<span class="math notranslate nohighlight">\(\frac{a_1}{a_2} = \frac{b_1}{b_2} \neq \frac{c_1}{c_2}\)</span></p></li>
+</ul>
+<p>This is a fundamental concept in algebra when dealing with systems of linear equations. It allows you to predict the nature of the solution(s) without actually solving the system.</p>
+</section>
+<section id="arithmetic-progression">
+<h2>Arithmetic Progression<a class="headerlink" href="#arithmetic-progression" title="Link to this heading">#</a></h2>
+<p>An arithmetic progression is a list of numbers in which each term is
+obtained by adding a fixed number to the preceding term except the first
+term.
+This fixed number is called the common difference of the AP. Remember that
+it can be positive, negative or zero</p>
+<p>The <span class="math notranslate nohighlight">\(n\)</span> th term <span class="math notranslate nohighlight">\(a_n\)</span> of an AP with first term <span class="math notranslate nohighlight">\(a\)</span> and common difference <span class="math notranslate nohighlight">\(d\)</span> is given by <span class="math notranslate nohighlight">\(a_n = a + (n - 1)d\)</span>.</p>
+<p>The sum of the first <span class="math notranslate nohighlight">\(n\)</span> terms of an AP is given by <span class="math notranslate nohighlight">\(S_n = \frac{n}{2}(a + l)\)</span>, where <span class="math notranslate nohighlight">\(a\)</span> is the first term and <span class="math notranslate nohighlight">\(l\)</span> is the last term.</p>
 </section>
 </section>
 
@@ -832,10 +912,13 @@ at most <span class="math notranslate nohighlight">\(n\)</span> zeroes.</p>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeroes-of-a-polynomial">Zeroes of a Polynomial</a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-the-zeroes-of-a-polynomial">Geometrical meaning of the Zeroes of a Polynomial</a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-a-zero-of-a-quadratic-polynomial">Geometrical meaning of a zero of a quadratic polynomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#discriminant">Discriminant</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pair-of-linear-equations-in-two-variables">Pair of Linear Equations in Two Variables</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#arithmetic-progression">Arithmetic Progression</a></li>
 </ul>
   </nav></div>
 

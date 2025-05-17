@@ -461,6 +461,14 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
 </ul>
 </li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeroes-of-a-polynomial">Zeroes of a Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-the-zeroes-of-a-polynomial">Geometrical meaning of the Zeroes of a Polynomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-a-zero-of-a-quadratic-polynomial">Geometrical meaning of a zero of a quadratic polynomial</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -557,6 +565,198 @@ LCM(6, 20) = <span class="math notranslate nohighlight">\(2^{\max(1, 2)} \times 
 <p>As you can see, they are equal!</p>
 </section>
 </section>
+<section id="polynomials">
+<h2>Polynomials<a class="headerlink" href="#polynomials" title="Link to this heading">#</a></h2>
+<p>Let’s break down the key features of a polynomial: <strong>term</strong>, <strong>coefficient</strong>, <strong>variable</strong>, <strong>exponent</strong>, and <strong>degree</strong>.</p>
+<p><strong>1. Term:</strong></p>
+<ul class="simple">
+<li><p>A <strong>term</strong> in a polynomial is a product of a constant (the coefficient) and one or more variables raised to non-negative integer powers.</p></li>
+<li><p>Terms are separated by addition (+) or subtraction (-) signs.</p>
+<ul>
+<li><p><strong>Examples:</strong> In the polynomial <span class="math notranslate nohighlight">\(3x^2 - 5x + 7\)</span>, the terms are <span class="math notranslate nohighlight">\(3x^2\)</span>, <span class="math notranslate nohighlight">\(-5x\)</span>, and <span class="math notranslate nohighlight">\(7\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+<p><strong>2. Coefficient:</strong></p>
+<ul class="simple">
+<li><p>The <strong>coefficient</strong> of a term is the numerical factor that multiplies the variable part of the term.</p>
+<ul>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>In the term <span class="math notranslate nohighlight">\(3x^2\)</span>, the coefficient is <strong>3</strong>.</p></li>
+<li><p>In the term <span class="math notranslate nohighlight">\(-5x\)</span>, the coefficient is <strong>-5</strong>.</p></li>
+<li><p>In the term <span class="math notranslate nohighlight">\(7\)</span> (which can be thought of as <span class="math notranslate nohighlight">\(7x^0\)</span>), the coefficient is <strong>7</strong>.</p></li>
+<li><p>If a term is just a variable like <span class="math notranslate nohighlight">\(y\)</span>, its coefficient is understood to be <strong>1</strong> (since <span class="math notranslate nohighlight">\(1y = y\)</span>).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>3. Variable:</strong></p>
+<ul class="simple">
+<li><p>A <strong>variable</strong> is a symbol (usually a letter like <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, <span class="math notranslate nohighlight">\(z\)</span>, etc.) that represents an unknown or changing value.</p></li>
+<li><p>Polynomials can have one or more variables.</p>
+<ul>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(2x + 1\)</span> (one variable: <span class="math notranslate nohighlight">\(x\)</span>)</p></li>
+<li><p><span class="math notranslate nohighlight">\(x^2y - 3xy + 4y^2\)</span> (two variables: <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>4. Exponent (or Power):</strong></p>
+<ul class="simple">
+<li><p>The <strong>exponent</strong> (or power) of a variable in a term indicates how many times the variable is multiplied by itself.</p></li>
+<li><p>For an expression to be a polynomial, the exponents of the variables in each term must be <strong>non-negative integers</strong> (0, 1, 2, 3, …).</p>
+<ul>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>In the term <span class="math notranslate nohighlight">\(3x^2\)</span>, the exponent of <span class="math notranslate nohighlight">\(x\)</span> is <strong>2</strong>.</p></li>
+<li><p>In the term <span class="math notranslate nohighlight">\(-5x\)</span> (which is <span class="math notranslate nohighlight">\(-5x^1\)</span>), the exponent of <span class="math notranslate nohighlight">\(x\)</span> is <strong>1</strong>.</p></li>
+<li><p>In the term <span class="math notranslate nohighlight">\(7\)</span> (which is <span class="math notranslate nohighlight">\(7x^0\)</span>), the exponent of <span class="math notranslate nohighlight">\(x\)</span> is <strong>0</strong>.</p></li>
+</ul>
+</li>
+<li><p><strong>Not polynomial terms:</strong></p>
+<ul>
+<li><p><span class="math notranslate nohighlight">\(x^{-1}\)</span> (negative exponent)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\sqrt{x}\)</span> or <span class="math notranslate nohighlight">\(x^{1/2}\)</span> (fractional exponent)</p></li>
+<li><p><span class="math notranslate nohighlight">\(\frac{1}{x}\)</span> (variable in the denominator, equivalent to <span class="math notranslate nohighlight">\(x^{-1}\)</span>)</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>5. Degree:</strong></p>
+<p>The concept of degree can be applied to both individual terms and the entire polynomial:</p>
+<ul class="simple">
+<li><p><strong>Degree of a Term:</strong></p>
+<ul>
+<li><p>For a term with <strong>one variable</strong>, the degree is simply the exponent of that variable.</p>
+<ul>
+<li><p>Example: The degree of <span class="math notranslate nohighlight">\(3x^2\)</span> is 2. The degree of <span class="math notranslate nohighlight">\(-5x\)</span> is 1. The degree of <span class="math notranslate nohighlight">\(7\)</span> is 0.</p></li>
+</ul>
+</li>
+<li><p>For a term with <strong>more than one variable</strong>, the degree is the <strong>sum of the exponents</strong> of all the variables in that term.</p>
+<ul>
+<li><p>Example: The degree of <span class="math notranslate nohighlight">\(2x^3y^2\)</span> is <span class="math notranslate nohighlight">\(3 + 2 = 5\)</span>. The degree of <span class="math notranslate nohighlight">\(-4xy^4\)</span> is <span class="math notranslate nohighlight">\(1 + 4 = 5\)</span>. The degree of <span class="math notranslate nohighlight">\(6ab\)</span> (which is <span class="math notranslate nohighlight">\(6a^1b^1\)</span>) is <span class="math notranslate nohighlight">\(1 + 1 = 2\)</span>.</p></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>Degree of a Polynomial:</strong></p>
+<ul>
+<li><p>The <strong>degree of a polynomial</strong> is the <strong>highest degree of any of its terms</strong> with a non-zero coefficient.</p></li>
+<li><p><strong>Examples:</strong></p>
+<ul>
+<li><p>The degree of <span class="math notranslate nohighlight">\(3x^2 - 5x + 7\)</span> is <strong>2</strong> (because the term with the highest degree is <span class="math notranslate nohighlight">\(3x^2\)</span>, which has a degree of 2).</p></li>
+<li><p>The degree of <span class="math notranslate nohighlight">\(x^3y - 2xy^2 + 5\)</span> is <strong>3</strong> (because the term with the highest degree is <span class="math notranslate nohighlight">\(x^3y\)</span>, which has a degree of <span class="math notranslate nohighlight">\(3+1=4\)</span>? No, <span class="math notranslate nohighlight">\(x^3y\)</span> has degree <span class="math notranslate nohighlight">\(3+1=4\)</span>. Let’s re-evaluate. The degree of <span class="math notranslate nohighlight">\(x^3y\)</span> is <span class="math notranslate nohighlight">\(3+1=4\)</span>. The degree of <span class="math notranslate nohighlight">\(-2xy^2\)</span> is <span class="math notranslate nohighlight">\(1+2=3\)</span>. The degree of <span class="math notranslate nohighlight">\(5\)</span> is <span class="math notranslate nohighlight">\(0\)</span>. So the degree of the polynomial is <strong>4</strong>).</p></li>
+<li><p>The degree of <span class="math notranslate nohighlight">\(7y + 2\)</span> is <strong>1</strong> (linear polynomial).</p></li>
+<li><p>The degree of <span class="math notranslate nohighlight">\(15\)</span> is <strong>0</strong> (constant polynomial).</p></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>A polynomial of degree 1 is called a linear polynomial. For example, <span class="math notranslate nohighlight">\(2x - 3\)</span>,
+<span class="math notranslate nohighlight">\(\sqrt{3}x + 5\)</span>, <span class="math notranslate nohighlight">\(y + 2\)</span>, <span class="math notranslate nohighlight">\(\frac{11}{2}x\)</span>, <span class="math notranslate nohighlight">\(3z + 4\)</span>, <span class="math notranslate nohighlight">\(\frac{1}{3}u\)</span>, etc., are all linear polynomials.</p>
+<p>A polynomial of degree 2 is called a quadratic polynomial. For example, <span class="math notranslate nohighlight">\(x^2 + 3x + 2\)</span>,
+<span class="math notranslate nohighlight">\(2x^2 - 3x + 1\)</span>, <span class="math notranslate nohighlight">\(3x^2 + 4\)</span>, <span class="math notranslate nohighlight">\(5x^2 - 6x + 7\)</span>, <span class="math notranslate nohighlight">\(8y^2 + 9y + 10\)</span>, etc., are all quadratic polynomials.</p>
+<p>A polynomial of degree 3 is called a cubic polynomial. For example, <span class="math notranslate nohighlight">\(x^3 + 2x^2 + 3x + 4\)</span>,
+<span class="math notranslate nohighlight">\(2x^3 - 3x^2 + 4\)</span>, <span class="math notranslate nohighlight">\(5x^3 - 6x^2 + 7x + 8\)</span>, <span class="math notranslate nohighlight">\(9y^3 + 10y^2 + 11y + 12\)</span>, etc., are all cubic polynomials.</p>
+<section id="zeroes-of-a-polynomial">
+<h3>Zeroes of a Polynomial<a class="headerlink" href="#zeroes-of-a-polynomial" title="Link to this heading">#</a></h3>
+<p>If <span class="math notranslate nohighlight">\(p(x)\)</span> is a polynomial in <span class="math notranslate nohighlight">\(x\)</span>, and if <span class="math notranslate nohighlight">\(k\)</span> is any real number, then the value obtained by
+replacing <span class="math notranslate nohighlight">\(x\)</span> by <span class="math notranslate nohighlight">\(k\)</span> in <span class="math notranslate nohighlight">\(p(x)\)</span>, is called the value of <span class="math notranslate nohighlight">\(p(x)\)</span> at <span class="math notranslate nohighlight">\(x = k\)</span>, and is denoted by <span class="math notranslate nohighlight">\(p(k)\)</span>.</p>
+<p>In general, if <span class="math notranslate nohighlight">\(k\)</span> is a zero of <span class="math notranslate nohighlight">\(p(x) = ax + b\)</span>, then <span class="math notranslate nohighlight">\(p(k) = ak + b = 0\)</span>, i.e.,
+<span class="math notranslate nohighlight">\(k = -\frac{b}{a}\)</span></p>
+<p>So, the zero of the linear polynomial <span class="math notranslate nohighlight">\(ax + b\)</span> is <span class="math notranslate nohighlight">\(\frac{-b}{a}\)</span> = <span class="math notranslate nohighlight">\(\frac{-(Constant term)}{Coefficient of x}\)</span>.</p>
+<section id="geometrical-meaning-of-the-zeroes-of-a-polynomial">
+<h4>Geometrical meaning of the Zeroes of a Polynomial<a class="headerlink" href="#geometrical-meaning-of-the-zeroes-of-a-polynomial" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="mi">2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.6</span><span class="p">,</span><span class="s1">&#39;$y = 2x+3$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/3ae4931f20f04451e2e7ef8f8b4c61236aa493fd343ff238ac576e9ff9444c15.png" src="../../_images/3ae4931f20f04451e2e7ef8f8b4c61236aa493fd343ff238ac576e9ff9444c15.png" />
+</div>
+</div>
+<p>Geometrically, the zero of a linear polynomial is the x-coordinate of the point where the graph of the polynomial intersects the x-axis. Since a linear polynomial represents a straight line, it will intersect the x-axis at exactly one point. For a linear polynomial in the form of <span class="math notranslate nohighlight">\(ax + b\)</span>, the zero is <span class="math notranslate nohighlight">\((-b/a,0)\)</span>, which is where the line crosses the x-axis.</p>
+</section>
+<section id="geometrical-meaning-of-a-zero-of-a-quadratic-polynomial">
+<h4>Geometrical meaning of a zero of a quadratic polynomial<a class="headerlink" href="#geometrical-meaning-of-a-zero-of-a-quadratic-polynomial" title="Link to this heading">#</a></h4>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="o">-</span><span class="mi">50</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">1000</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">()</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">,(</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">3</span><span class="o">*</span><span class="n">x</span> <span class="o">-</span> <span class="mi">4</span><span class="p">))</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mf">1.6</span><span class="p">,</span><span class="s1">&#39;$y = x^2 -3x - 4$&#39;</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span><span class="n">linewidth</span> <span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">ax</span><span class="o">.</span><span class="n">set_xticks</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">-</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">)))</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span><span class="n">ls</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/e7ad1d90915703054fdecf105a4744464a8908e09a6953a88d83eeef48c93a3a.png" src="../../_images/e7ad1d90915703054fdecf105a4744464a8908e09a6953a88d83eeef48c93a3a.png" />
+</div>
+</div>
+<p>In fact, for any quadratic polynomial <span class="math notranslate nohighlight">\(ax^2 + bx + c\)</span>, where <span class="math notranslate nohighlight">\(a \neq 0\)</span>, the graph of the corresponding equation <span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span> has one of two shapes:</p>
+<ul class="simple">
+<li><p>opens upwards when <span class="math notranslate nohighlight">\(a &gt; 0\)</span></p></li>
+<li><p>opens downwards when <span class="math notranslate nohighlight">\(a &lt; 0\)</span>
+(These curves are called parabolas.)</p></li>
+</ul>
+<p>Geometrically, the zeroes of a quadratic polynomial <span class="math notranslate nohighlight">\(ax^2 + bx + c\)</span> (where <span class="math notranslate nohighlight">\(a \neq 0\)</span>) are the x-coordinates of the points where the graph of the polynomial, which is a parabola (<span class="math notranslate nohighlight">\(y = ax^2 + bx + c\)</span>), intersects the x-axis.</p>
+<p>Here’s a breakdown of the possibilities:</p>
+<ul class="simple">
+<li><p><strong>Two distinct zeroes:</strong> The parabola intersects the x-axis at two different points. The x-coordinates of these two points are the two distinct zeroes of the quadratic polynomial.</p></li>
+<li><p><strong>One zero (two equal zeroes):</strong> The parabola touches the x-axis at exactly one point (the vertex of the parabola lies on the x-axis). In this case, the quadratic polynomial has one zero, which is considered a repeated root or two equal zeroes.</p></li>
+<li><p><strong>No real zeroes:</strong> The parabola does not intersect or touch the x-axis at any point. In this case, the quadratic polynomial has no real zeroes. The zeroes are complex numbers.</p></li>
+</ul>
+<p>In summary, the number of real zeroes of a quadratic polynomial corresponds to the number of times its graph intersects the x-axis. A quadratic polynomial can have at most two real zeroes.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>In general, given a polynomial <span class="math notranslate nohighlight">\(p(x)\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span>, the graph of <span class="math notranslate nohighlight">\(y = p(x)\)</span>
+intersects the x-axis at at most <span class="math notranslate nohighlight">\(n\)</span> points. Therefore, a polynomial <span class="math notranslate nohighlight">\(p(x)\)</span> of degree <span class="math notranslate nohighlight">\(n\)</span> has
+at most <span class="math notranslate nohighlight">\(n\)</span> zeroes.</p>
+</div>
+</section>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -626,6 +826,14 @@ LCM(6, 20) = <span class="math notranslate nohighlight">\(2^{\max(1, 2)} \times 
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-numbers">Real Numbers</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclids-division-lemma">Euclid’s Division Lemma</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polynomials">Polynomials</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#zeroes-of-a-polynomial">Zeroes of a Polynomial</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-the-zeroes-of-a-polynomial">Geometrical meaning of the Zeroes of a Polynomial</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#geometrical-meaning-of-a-zero-of-a-quadratic-polynomial">Geometrical meaning of a zero of a quadratic polynomial</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

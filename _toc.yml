@@ -1,6 +1,9 @@
 format: jb-book
 root: index
 chapters:
+- file: book/math_foundation/math_foundation
+  sections:
+    - file: book/math_foundation/x
 - file: book/linear_algebra
 - file: book/statistical_learning/statistical_learning
   sections:

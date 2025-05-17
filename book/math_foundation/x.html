@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Linear Regression &#8212; DEV-Analytics</title>
+    <title>X &#8212; DEV-Analytics</title>
   
   
   
@@ -58,13 +58,15 @@
     <script async="async" src="../../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/statistical_learning/linear_regression';</script>
-    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/statistical_learning/linear_regression.html" />
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/math_foundation/x';</script>
+    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/math_foundation/x.html" />
     <link rel="icon" href="../../_static/fav.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="Timeseries" href="../timeseries.html" />
-    <link rel="prev" title="Statistical Learning" href="statistical_learning.html" />
+    <link rel="next" title="Linear Algebra" href="../linear_algebra.html" />
+    <link rel="prev" title="Math Foundation" href="math_foundation.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -175,13 +177,13 @@
         <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item navbar-nav active">
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 has-children"><a class="reference internal" href="../math_foundation/math_foundation.html">Math Foundation</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
-<li class="toctree-l2"><a class="reference internal" href="../math_foundation/x.html">X</a></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="math_foundation.html">Math Foundation</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">X</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../linear_algebra.html">Linear Algebra</a></li>
-<li class="toctree-l1 current active has-children"><a class="reference internal" href="statistical_learning.html">Statistical Learning</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l2 current active"><a class="current reference internal" href="#">Linear Regression</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../statistical_learning/statistical_learning.html">Statistical Learning</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="../statistical_learning/linear_regression.html">Linear Regression</a></li>
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="../timeseries.html">Timeseries</a></li>
@@ -247,7 +249,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/statistical_learning/linear_regression.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/math_foundation/x.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +267,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/statistical_learning/linear_regression.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/math_foundation/x.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -313,7 +315,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/statistical_learning/linear_regression.ipynb" target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/math_foundation/x.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -330,7 +332,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/statistical_learning/linear_regression.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/math_foundation/x.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -360,7 +362,7 @@
       
       
       
-      <li><a href="../../_sources/book/statistical_learning/linear_regression.ipynb" target="_blank"
+      <li><a href="../../_sources/book/math_foundation/x.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -431,7 +433,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -442,11 +446,23 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Linear Regression</h1>
+    <h1>X</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-numbers">Real Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclids-division-lemma">Euclid’s Division Lemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -456,8 +472,91 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="linear-regression">
-<h1>Linear Regression<a class="headerlink" href="#linear-regression" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="x">
+<h1>X<a class="headerlink" href="#x" title="Link to this heading">#</a></h1>
+<section id="real-numbers">
+<h2>Real Numbers<a class="headerlink" href="#real-numbers" title="Link to this heading">#</a></h2>
+<section id="euclids-division-lemma">
+<h3>Euclid’s Division Lemma<a class="headerlink" href="#euclids-division-lemma" title="Link to this heading">#</a></h3>
+<p>Given positive integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, there exist unique integers <span class="math notranslate nohighlight">\(q\)</span> and <span class="math notranslate nohighlight">\(r\)</span> satisfying <span class="math notranslate nohighlight">\(a = bq + r\)</span>, <span class="math notranslate nohighlight">\(0 \leq r &lt; b\)</span>.</p>
+<p>Euclid’s division algorithm, as the name suggests, has to do with divisibility of
+integers. Stated simply, it says any positive integer <span class="math notranslate nohighlight">\(a\)</span> can be divided by another positive
+integer <span class="math notranslate nohighlight">\(b\)</span> in such a way that it leaves a remainder <span class="math notranslate nohighlight">\(r\)</span> that is smaller than <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>Let us see how the algorithm works, through an example first. Suppose we need
+to find the HCF of the integers <span class="math notranslate nohighlight">\(455\)</span> and <span class="math notranslate nohighlight">\(42\)</span>. We start with the larger integer, that is,
+<span class="math notranslate nohighlight">\(455\)</span>. Then we use Euclid’s lemma to get</p>
+<p><span class="math notranslate nohighlight">\(455 = 42 \times 10 + 35\)</span></p>
+<p>Now consider the divisor <span class="math notranslate nohighlight">\(42\)</span> and the remainder <span class="math notranslate nohighlight">\(35\)</span>, and apply the division lemma
+to get</p>
+<p><span class="math notranslate nohighlight">\(42 = 35 \times 1 + 7\)</span></p>
+<p>Now consider the divisor <span class="math notranslate nohighlight">\(35\)</span> and the remainder <span class="math notranslate nohighlight">\(7\)</span>, and apply the division lemma
+to get</p>
+<p><span class="math notranslate nohighlight">\(35 = 7 \times 5 + 0\)</span></p>
+<p>Notice that the remainder has become zero, and we cannot proceed any further.
+We claim that the HCF of <span class="math notranslate nohighlight">\(455\)</span> and <span class="math notranslate nohighlight">\(42\)</span> is the divisor at this stage, i.e., <span class="math notranslate nohighlight">\(7\)</span>.</p>
+<p>Every positive even integer is of the form <span class="math notranslate nohighlight">\(2q\)</span>, and every positive odd integer is of the form <span class="math notranslate nohighlight">\(2q + 1\)</span>, where <span class="math notranslate nohighlight">\(q\)</span> is some integer.</p>
+</section>
+<section id="the-fundamental-theorem-of-arithmetic">
+<h3>The Fundamental Theorem of Arithmetic<a class="headerlink" href="#the-fundamental-theorem-of-arithmetic" title="Link to this heading">#</a></h3>
+<p>Every composite number
+can be expressed ( factorised) as a product of primes, and this factorisation is
+unique, apart from the order in which the prime factors occur.</p>
+<p>Any natural number can be written as a
+product of its prime factors. For instance, <span class="math notranslate nohighlight">\(2 = 2\)</span>, <span class="math notranslate nohighlight">\(4 = 2 \times 2\)</span>, <span class="math notranslate nohighlight">\(253 = 11 \times 23\)</span></p>
+<p><img alt="Deep Learning take off" src="../../_images/prime_factor_tree.png" /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A composite number is a natural number (a positive whole number greater than 1) that has more than two factors (divisors) i.e. <span class="math notranslate nohighlight">\(1\)</span> and itself.</p>
+</div>
+<p>Note that <span class="math notranslate nohighlight">\(\text{HCF}(6, 20) = 2^1 = \text{Product of the smallest power of each common}\)</span>
+prime factor in the numbers.</p>
+<p><span class="math notranslate nohighlight">\(\text{LCM}(6, 20) = 2^2 \times 3^1 \times 5^1 = \text{Product of the greatest power of each prime factor}\)</span>,
+involved in the numbers.</p>
+<p>From the example above, you might have noticed that <span class="math notranslate nohighlight">\(\text{HCF}(6, 20) \times \text{LCM}(6, 20)
+= 6 \times 20\)</span>.</p>
+<p>In fact, we can verify that for any two positive integers <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>,
+<span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = a \times b\)</span>.</p>
+<p>The key to understanding this lies in the prime factorization of the two numbers, <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>.</p>
+<p>Let’s say the prime factorization of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> are as follows:</p>
+<p><span class="math notranslate nohighlight">\(a = p_1^{a_1} \times p_2^{a_2} \times \dots \times p_n^{a_n}\)</span>
+<span class="math notranslate nohighlight">\(b = p_1^{b_1} \times p_2^{b_2} \times \dots \times p_n^{b_n}\)</span></p>
+<p>where <span class="math notranslate nohighlight">\(p_1, p_2, \dots, p_n\)</span> are all the prime factors that appear in either <span class="math notranslate nohighlight">\(a\)</span> or <span class="math notranslate nohighlight">\(b\)</span> (or both), and <span class="math notranslate nohighlight">\(a_i\)</span> and <span class="math notranslate nohighlight">\(b_i\)</span> are non-negative integers representing the exponents of these prime factors in the factorization of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>, respectively. If a prime factor doesn’t appear in a number’s factorization, its exponent is 0.</p>
+<p>Now, let’s think about how we find the HCF and LCM using these prime factorizations:</p>
+<ul class="simple">
+<li><p><strong>Highest Common Factor (HCF):</strong> The HCF is the product of the common prime factors raised to the <em>lowest</em> power they appear in either factorization.
+<span class="math notranslate nohighlight">\(\text{HCF}(a, b) = p_1^{\min(a_1, b_1)} \times p_2^{\min(a_2, b_2)} \times \dots \times p_n^{\min(a_n, b_n)}\)</span></p></li>
+<li><p><strong>Least Common Multiple (LCM):</strong> The LCM is the product of all the prime factors that appear in either factorization raised to the <em>highest</em> power they appear in either factorization.
+<span class="math notranslate nohighlight">\(\text{LCM}(a, b) = p_1^{\max(a_1, b_1)} \times p_2^{\max(a_2, b_2)} \times \dots \times p_n^{\max(a_n, b_n)}\)</span></p></li>
+</ul>
+<p>Now, let’s consider the product of the HCF and the LCM:</p>
+<p><span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = (p_1^{\min(a_1, b_1)} \times p_2^{\min(a_2, b_2)} \times \dots \times p_n^{\min(a_n, b_n)}) \times (p_1^{\max(a_1, b_1)} \times p_2^{\max(a_2, b_2)} \times \dots \times p_n^{\max(a_n, b_n)})\)</span></p>
+<p>We can rearrange this product by grouping the powers of the same prime factors together:</p>
+<p><span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = p_1^{\min(a_1, b_1) + \max(a_1, b_1)} \times p_2^{\min(a_2, b_2) + \max(a_2, b_2)} \times \dots \times p_n^{\min(a_n, b_n) + \max(a_n, b_n)}\)</span></p>
+<p>Now, here’s the crucial insight: for any two numbers <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>, the sum of their minimum and maximum is equal to their sum:</p>
+<p><span class="math notranslate nohighlight">\(\min(x, y) + \max(x, y) = x + y\)</span></p>
+<p>Applying this to the exponents of our prime factors:</p>
+<p><span class="math notranslate nohighlight">\(\min(a_i, b_i) + \max(a_i, b_i) = a_i + b_i\)</span></p>
+<p>So, our product becomes:</p>
+<p><span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = p_1^{a_1 + b_1} \times p_2^{a_2 + b_2} \times \dots \times p_n^{a_n + b_n}\)</span></p>
+<p>We can rewrite this using the properties of exponents:</p>
+<p><span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = (p_1^{a_1} \times p_2^{a_2} \times \dots \times p_n^{a_n}) \times (p_1^{b_1} \times p_2^{b_2} \times \dots \times p_n^{b_n})\)</span></p>
+<p>And recognizing the original prime factorizations of <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span>:</p>
+<p><span class="math notranslate nohighlight">\(\text{HCF}(a, b) \times \text{LCM}(a, b) = a \times b\)</span></p>
+<p><strong>In simpler terms, the logic is this:</strong></p>
+<p>When you find the HCF, you take the common prime factors with their <em>smallest</em> exponents. When you find the LCM, you take <em>all</em> the prime factors with their <em>largest</em> exponents.</p>
+<p>When you multiply the HCF and the LCM together, for each prime factor, you’re essentially combining the smallest and largest exponent from the original numbers. This combination reconstructs the original exponents of that prime factor in both <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\)</span> when multiplied together.</p>
+<p>Let’s take our example of 6 and 20 again:</p>
+<p><span class="math notranslate nohighlight">\(6 = 2^1 \times 3^1\)</span>
+<span class="math notranslate nohighlight">\(20 = 2^2 \times 5^1\)</span></p>
+<p>HCF(6, 20) = <span class="math notranslate nohighlight">\(2^{\min(1, 2)} \times 3^{\min(1, 0)} \times 5^{\min(0, 1)} = 2^1 \times 3^0 \times 5^0 = 2 \times 1 \times 1 = 2\)</span>
+LCM(6, 20) = <span class="math notranslate nohighlight">\(2^{\max(1, 2)} \times 3^{\max(1, 0)} \times 5^{\max(0, 1)} = 2^2 \times 3^1 \times 5^1 = 4 \times 3 \times 5 = 60\)</span></p>
+<p>Now, let’s multiply the HCF and LCM:</p>
+<p>HCF <span class="math notranslate nohighlight">\(\times\)</span> LCM = <span class="math notranslate nohighlight">\(2 \times 60 = 120\)</span></p>
+<p>And let’s multiply the original numbers:</p>
+<p><span class="math notranslate nohighlight">\(6 \times 20 = 120\)</span></p>
+<p>As you can see, they are equal!</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -473,7 +572,7 @@ document.write(`
         },
         kernelOptions: {
             name: "python3",
-            path: "./book/statistical_learning"
+            path: "./book/math_foundation"
         },
         predefinedOutput: true
     }
@@ -491,20 +590,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="statistical_learning.html"
+       href="math_foundation.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Statistical Learning</p>
+        <p class="prev-next-title">Math Foundation</p>
       </div>
     </a>
     <a class="right-next"
-       href="../timeseries.html"
+       href="../linear_algebra.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Timeseries</p>
+        <p class="prev-next-title">Linear Algebra</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -514,6 +613,25 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#real-numbers">Real Numbers</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#euclids-division-lemma">Euclid’s Division Lemma</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#the-fundamental-theorem-of-arithmetic">The Fundamental Theorem of Arithmetic</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>

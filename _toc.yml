@@ -15,4 +15,5 @@ chapters:
   - file: book/deep_learning/pytorch
 - file: book/computer_vision
 - file: book/natural_language
+- file: book/reinforcement_learning
 - file: book/bibliography

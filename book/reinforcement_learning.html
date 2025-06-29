@@ -487,7 +487,7 @@ document.write(`
 <p>The agent eventually must learn which actions yield the most reward by trying them. We can think of this as learning a set of actions through positive reinforcement. In most cases, actions actions may affect not only the immediate reward but in subsequent time steps. The agent must learn to take actions that maximize the total reward over time.</p>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Trial and error search and delayed reward form most important features of reinforcement learning.</p>
+<p>Reinforcement learning is a computational approach to understanding and automating goal-directed learning and decision making. Trial and error search and delayed reward form most important features of reinforcement learning.</p>
 </div>
 <p>This can be thought of as an optimization framework of a dynamical system.</p>
 <div class="admonition note">
@@ -543,6 +543,21 @@ next chess position) thereby affecting the actions and opportunities available t
 </section>
 <section id="elements-of-reinforcement-learning">
 <h3>Elements of Reinforcement Learning<a class="headerlink" href="#elements-of-reinforcement-learning" title="Link to this heading">#</a></h3>
+<p>Along with the agent and environment, these are the subelements of a reinforcement learning system:</p>
+<ul class="simple">
+<li><p><strong>Policy</strong>: This defines a learning agent’s way of behaving at a given time. It is a mapping from perceived states of the environment to actions to be taken when in those states. In psychology we call this stimulus-response associations. A policy can be a simple look up table or a complex function approximator such as a neural network. The policy can be deterministic (based on rules) or stochastic (random i.e probabilities for each action given the state or situation.). In normal systems, the rules never change so the behavior is deterministic. But in most other systems, you want to explore other possibilities and to introduce this randomness.</p></li>
+<li><p><strong>Reward Signal</strong>: This defines the goal of the reinforcement learning problem. At each time step, the environment sends a single number called reward. the agent’s sole objective is to maximize the total reward it receives over the long run. this of this as the experiences of pleasure and pain in a biological ystem. <strong>This is the primary basis of altering the policy</strong>. If an action selected by the policy is followed by low reward then the policy may be changed to select some other action in that situation in future.</p></li>
+<li><p><strong>Value Function</strong>: A reward signal indicates what is good in an immediate sense, a value function specifies what is good in the long run. Roughly speaking, the value of a state is the total amount of reward an agent can expect to accumulate over the future, starting
+from that state. Rewards determine the <strong>immediate desirability</strong> of a state, values indicate the <strong>long-term desirability</strong> of a state taking into account the states that are likely to follow and the rewards available in those states.</p></li>
+</ul>
+<p>Rewards are in a sense primary, whereas values, as predictions of rewards, are secondary. Without rewards there could be no values, and the only purpose of estimating values is to achieve more reward. Although, action choices are made based on value judgments, because accumulated rewards provide greatest amount of reward for us over long term than immediate rewards. Values must be estimated and re-estimated from the sequences of observations an agent makes over its entire lifetime.</p>
+<ul class="simple">
+<li><p><strong>State</strong>: The situation or information the agen is in at a given time about the environment. The state signal provides a sense of how the environment is at a given time. For example, in a chess game, the state is the current position of the pieces on the board. In a driving game, the state is the current position of the car, its speed, and other relevant information about the environment.</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>One might think that evolutionary algorithms and methods such as genetic programming are also other optimization methods. Although, they do not interact with the environment and cannot sense the complete state of its environment in most complex cases. We have multiple static policies (multiple generations with different genes/chromosomes) each inetracting with the enviroment separately. The policies that obtain the most reward (high fitness value) are selected to produce the next generation of policies. Here, we are not learning a value function nor estimating it. And also the policy that we are searching for is a function from states to actions which is not present in a GA, that is which states an individual passes.</p>
+</div>
 </section>
 </section>
 </section>

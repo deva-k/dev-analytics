@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Natural Language Processing &#8212; DEV-Analytics</title>
+    <title>Reinforcement Learning &#8212; DEV-Analytics</title>
   
   
   
@@ -58,13 +58,13 @@
     <script async="async" src="../_static/sphinx-thebe.js?v=c100c467"></script>
     <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'book/natural_language';</script>
-    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/natural_language.html" />
+    <script>DOCUMENTATION_OPTIONS.pagename = 'book/reinforcement_learning';</script>
+    <link rel="canonical" href="https://deva-k.github.io/dev-analytics/book/reinforcement_learning.html" />
     <link rel="icon" href="../_static/fav.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Reinforcement Learning" href="reinforcement_learning.html" />
-    <link rel="prev" title="Computer Vision" href="computer_vision.html" />
+    <link rel="next" title="Bibliography" href="bibliography.html" />
+    <link rel="prev" title="Natural Language Processing" href="natural_language.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -191,8 +191,8 @@
 </ul>
 </details></li>
 <li class="toctree-l1"><a class="reference internal" href="computer_vision.html">Computer Vision</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Natural Language Processing</a></li>
-<li class="toctree-l1"><a class="reference internal" href="reinforcement_learning.html">Reinforcement Learning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural_language.html">Natural Language Processing</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Reinforcement Learning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bibliography.html">Bibliography</a></li>
 </ul>
 
@@ -248,7 +248,7 @@
       
       
       
-      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/natural_language.ipynb" target="_blank"
+      <li><a href="https://mybinder.org/v2/gh/deva-k/dev-analytics/master?urlpath=tree/book/reinforcement_learning.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Binder"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -266,7 +266,7 @@
       
       
       
-      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/natural_language.ipynb" target="_blank"
+      <li><a href="https://colab.research.google.com/github/deva-k/dev-analytics/blob/master/book/reinforcement_learning.ipynb" target="_blank"
    class="btn btn-sm dropdown-item"
    title="Launch on Colab"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -314,7 +314,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/natural_language.ipynb" target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/edit/main/book/reinforcement_learning.ipynb" target="_blank"
    class="btn btn-sm btn-source-edit-button dropdown-item"
    title="Suggest edit"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -331,7 +331,7 @@
       
       
       
-      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/natural_language.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/deva-k/dev-analytics/issues/new?title=Issue%20on%20page%20%2Fbook/reinforcement_learning.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -361,7 +361,7 @@
       
       
       
-      <li><a href="../_sources/book/natural_language.ipynb" target="_blank"
+      <li><a href="../_sources/book/reinforcement_learning.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -432,7 +432,9 @@ document.write(`
   </button>
 `);
 </script>
-
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
 </div></div>
       
     </div>
@@ -443,11 +445,30 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Natural Language Processing</h1>
+    <h1>Reinforcement Learning</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
             
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-reinforcement-learning-and-other-types-of-learning">Difference between Reinforcement Learning and other types of learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-vs-exploitation">Exploration vs Exploitation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-and-scientific-disciplines">Engineering and Scientific disciplines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-of-reinforcement-learning">Elements of Reinforcement Learning</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
         </div>
     </div>
 </div>
@@ -457,8 +478,73 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="natural-language-processing">
-<h1>Natural Language Processing<a class="headerlink" href="#natural-language-processing" title="Link to this heading">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="reinforcement-learning">
+<h1>Reinforcement Learning<a class="headerlink" href="#reinforcement-learning" title="Link to this heading">#</a></h1>
+<section id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Link to this heading">#</a></h2>
+<p>At the very core of the nature of learning is the idea of interacting with the environment. This interaction produces a wealth of information about cause and effect relationships and consequences of actions. Such as an infant doing absolutely anything without the help of a teacher. but in this process it learns the world around it, learns to walk and talk and etc. with just the sensorimotor connection to its environment. For example, driving a car, we seek to improve by being aware of how the environment responds to the actions we take. This is the foundation for learning and intelligence. The compitational approach to learning from interaction and various methods involved is called <strong>Reinforcement Learning (RL)</strong>. This is a goal directed learning process as compared to other machine learning approaches such as the widely used supervised learning. We will discuss this later in the book.</p>
+<p>The idea is to learn control strategies by a learner called an <strong>agent</strong> that interacts with an <strong>environment</strong>. The agent’s job is to learn <strong>what to do</strong> i.e. how to map situations to actions through <strong>trial and error</strong>. The agent receives <strong>rewards</strong> from the environment as <strong>feedback</strong> for its actions.</p>
+<p>The agent eventually must learn which actions yield the most reward by trying them. We can think of this as learning a set of actions through positive reinforcement. In most cases, actions actions may affect not only the immediate reward but in subsequent time steps. The agent must learn to take actions that maximize the total reward over time.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Trial and error search and delayed reward form most important features of reinforcement learning.</p>
+</div>
+<p>This can be thought of as an optimization framework of a dynamical system.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>A dynamical system is a concept in mathematics that describes how the state of a system changes over time</p>
+<p>State Space: It has a “state” at any given moment, represented by a point in an abstract space. Exmple: position and velocity of a moving object.
+Dynamics: The rules that govern how the state changes over time.
+Time Evolution: The system evolves over time according to these rules, which can be deterministic or stochastic.
+Time Steps: The system’s state is updated at discrete time steps or continuously.</p>
+</div>
+<p>The agent gets to measure the current state in the environment i.e. state S. It doesn’t measure the full state, it just knows what state it is right now and what state it was in the past. And the agent gets to take an action, about what to do next.</p>
+<section id="difference-between-reinforcement-learning-and-other-types-of-learning">
+<h3>Difference between Reinforcement Learning and other types of learning<a class="headerlink" href="#difference-between-reinforcement-learning-and-other-types-of-learning" title="Link to this heading">#</a></h3>
+<section id="supervised-learning">
+<h4>Supervised Learning<a class="headerlink" href="#supervised-learning" title="Link to this heading">#</a></h4>
+<p>This is very different from supervised learning, where you have a training set of labeled examples provided by an external supervisor. Each sample or example is a situation and each label is the correct action to take in that situation. So we learn a function that maps the situation to actions and use it to extrapolate or generalize to new situations. This is an interesting way of learning but is inadequate given that there is no learning from interactions.</p>
+<p>In interactive learning problems, it is often impractical to obtain examples of desired behaviour of numerous multiple situations. In such cases, an agent must be able to learn from its own experience.</p>
+</section>
+<section id="unsupervised-learning">
+<h4>Unsupervised Learning<a class="headerlink" href="#unsupervised-learning" title="Link to this heading">#</a></h4>
+<p>In unsupervised learning, the idea is to find patterns and structure hidden in unlabeled data. So there is not external supervisor and labeled data to learn a function mapping. Some might get confused given the fact that reinforcement learning also does not rely on labeled data, but the underlying goal is to maximize a reward signal instead of trying to find a hidden structure. Uncovering the hideen structure happens implicitly through the agent’s experience.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Reinforcement learning can be put as a third paradigm of machine learning, alongside supervised and unsupervised learning.</p>
+</div>
+</section>
+<section id="exploration-vs-exploitation">
+<h4>Exploration vs Exploitation<a class="headerlink" href="#exploration-vs-exploitation" title="Link to this heading">#</a></h4>
+<p>To obtain a lot of reward, the agent must take the action that it has tried in the past and found to be effective in producing reward. But to discover such actions, it has to try new actions that it has not tried or selected before. So, the agent has to exploit what it has experienced in order to obtain a reward, but it also has to explore new actions to discover their effects and make better action selections in the future. This is called the <strong>exploration-exploitation trade-off</strong>.</p>
+<p>On a stochastic or random task, each action must be tried multiple times to get a good estimate of the expected reward. the agent must try a variety of actions and progressively focus on the most promising ones to finish the task. This is a fundamental problem in reinforcement learning and is called the <strong>exploration-exploitation dilemma</strong>. Researchers have been studying this problem for decades and yet remains unresolved.</p>
+<p>We do not have this problem in supervised or unsupervised learning.</p>
+</section>
+</section>
+<section id="engineering-and-scientific-disciplines">
+<h3>Engineering and Scientific disciplines<a class="headerlink" href="#engineering-and-scientific-disciplines" title="Link to this heading">#</a></h3>
+<p>This is part of Artificial Intelligence and Machine Learning since decades and integrated with statistics, optimization, control theory. Since its closest to the kind of learning that humans and animals do, its strongly related to psychology and neuroscience and is originally inspired by biological learning systems.</p>
+</section>
+<section id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Link to this heading">#</a></h3>
+<ul class="simple">
+<li><p>A gazelle calf struggles to its feet minutes after being born. Half an hour later it is
+running at 20 miles per hour.</p></li>
+<li><p>A master chess player makes a move. The choice is informed both by planning—anticipating possible replies and counterreplies—and by immediate, intuitive judgments of the desirability of particular positions and moves.</p></li>
+<li><p>A child learns to walk by falling down and getting up again.</p></li>
+<li><p><strong>A man preparing breakfast</strong>. Its a mundane task, but this is a complex web of conditional behavior acquired over a period of time, and is tuned based on interactive consequences. Rapid judgements are made based on series of eye movements to obtain information and to guide reaching the objects. Each step is guided by goals and optimized, such as on what to carry first and what to put on the dining table in order to minimize the number of trips to the kitchen but also to avoid dropping things. Whether the agent in this case the human is aware of it or not, it is constantly determining the action to be taken in a given state.</p></li>
+</ul>
+<p>All of these involve, <strong>interaction</strong>, an <strong>environment</strong>, a decision-making agent and finally a goal.</p>
+<p>The agent’s actions are permitted to <strong>affect</strong> the future state of the environment (e.g., the
+next chess position) thereby affecting the actions and opportunities available to the agent at later times.</p>
+<p>At the same time the <strong>effects</strong> of actions cannot be fully predicted, so the agent must <strong>monitor</strong> its environment frequently that is observe each state and react appropriately. The chess player makes and move and observes the opponent’s response and knows whether or not he wins.</p>
+<p>The agent can use its experience to improve its performance overtime. The chess player refines the intuition he uses to evaluate positions, thereby improving his play.</p>
+<p>The agent can either bring knowledge from previous experience pr learn from scratch by evolution, but interaction with the environment is essential for adjusting behavior to exploit specific features of the task.</p>
+</section>
+<section id="elements-of-reinforcement-learning">
+<h3>Elements of Reinforcement Learning<a class="headerlink" href="#elements-of-reinforcement-learning" title="Link to this heading">#</a></h3>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -492,20 +578,20 @@ document.write(`
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="computer_vision.html"
+       href="natural_language.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Computer Vision</p>
+        <p class="prev-next-title">Natural Language Processing</p>
       </div>
     </a>
     <a class="right-next"
-       href="reinforcement_learning.html"
+       href="bibliography.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Reinforcement Learning</p>
+        <p class="prev-next-title">Bibliography</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -515,6 +601,32 @@ document.write(`
             </div>
             
             
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introduction">Introduction</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#difference-between-reinforcement-learning-and-other-types-of-learning">Difference between Reinforcement Learning and other types of learning</a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#supervised-learning">Supervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#unsupervised-learning">Unsupervised Learning</a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#exploration-vs-exploitation">Exploration vs Exploitation</a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#engineering-and-scientific-disciplines">Engineering and Scientific disciplines</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#examples">Examples</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#elements-of-reinforcement-learning">Elements of Reinforcement Learning</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
               
             
           </div>
